@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F8;-webkit-font-smoothing:antialiased}
+a{color:#223196;text-decoration:none}
+a:hover{color:#16215F}
+@keyframes afPulse{0%,100%{box-shadow:0 0 0 0 rgba(49,176,9,.55)}70%{box-shadow:0 0 0 6px rgba(49,176,9,0)}}
+</style>
+</helmet>
+<div style="width:100%;max-width:430px;margin:0 auto;background:#FFFFFF;font-family:Archivo,Helvetica,sans-serif;color:#141F52;overflow:hidden;position:relative">
+
+  <div style="height:52px;background:#223196;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-10px;right:96px;width:10px;height:80px;background:#31B009;transform:skewX(-20deg);opacity:.9"></div>
+    <div style="position:absolute;top:-10px;right:84px;width:4px;height:80px;background:rgba(255,255,255,.35);transform:skewX(-20deg)"></div>
+    <div style="display:flex;align-items:center;gap:8px;position:relative">
+      <span style="width:22px;height:22px;background:#FFFFFF;display:grid;place-items:center;border-radius:4px;font:800 14px/1 Archivo;color:#223196">P</span>
+      <span style="font:700 15px/1 Archivo;color:#FFFFFF;letter-spacing:-.01em">Piri<span style="color:#9FF07A">Card</span></span>
+    </div>
+    <a href="#" style="position:relative;display:flex;align-items:center;gap:5px;font:700 11px/1 Archivo;letter-spacing:.09em;text-transform:uppercase;color:#FFFFFF;padding:8px 2px" style-active="opacity:.6">Diretório
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#9FF07A" stroke-width="1.6"><path d="M2 8 8 2M4 2h4v4"/></svg>
+    </a>
+  </div>
+
+  <div style="position:relative;background:#223196;height:84px;overflow:hidden">
+    <div style="position:absolute;inset:0;background:linear-gradient(115deg,#1B2A80 0%,#223196 55%,#2A3CB4 100%)"></div>
+    <div style="position:absolute;top:-30px;right:-4px;width:30px;height:200px;background:#31B009;transform:skewX(-20deg)"></div>
+    <div style="position:absolute;top:-30px;right:30px;width:6px;height:200px;background:rgba(255,255,255,.5);transform:skewX(-20deg)"></div>
+    <div style="position:absolute;top:-30px;right:42px;width:3px;height:200px;background:rgba(255,255,255,.22);transform:skewX(-20deg)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:1px;background:#31B009"></div>
+  </div>
+
+  <div style="padding:0 20px 20px;position:relative">
+    <div style="width:100px;margin-top:-44px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%)">
+      <div style="background:#FFFFFF;padding:6px 8px 4px;box-sizing:border-box">
+        <img src="uploads/Logotipo.jpg" alt="Auto Formigal" style="width:100%;height:82px;object-fit:contain;display:block">
+      </div>
+      <div style="height:4px;background:#31B009"></div>
+    </div>
+    <h1 style="margin:16px 0 0;font:800 32px/1.02 Archivo;letter-spacing:-.03em;color:#141F52">Auto Formigal</h1>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+      <span style="font:700 12px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#223196">Oficina automóvel</span>
+      <span style="flex:1;height:2px;background:linear-gradient(90deg,#31B009,rgba(49,176,9,0))"></span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px">
+      <span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Archivo;color:#3A4468">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#223196" stroke-width="1.6"><path d="M7 12.5S12 8.7 12 5.7A5 5 0 0 0 2 5.7C2 8.7 7 12.5 7 12.5Z"/><circle cx="7" cy="5.6" r="1.6"/></svg>
+        São Pedro da Cadeira
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:7px;background:#EAF7E4;border:1px solid #C6E9B6;border-radius:4px;padding:6px 9px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#31B009;animation:afPulse 2.4s infinite"></span>
+        <span style="font:700 12.5px/1 Archivo;color:#1F6B06;letter-spacing:-.01em">{{ statusLabel }}</span>
+      </span>
+    </div>
+    <p style="margin:14px 0 0;font:400 15.5px/1.5 Archivo;color:#454F73;text-wrap:pretty;max-width:34ch">Reparação, diagnóstico e manutenção automóvel multimarca.</p>
+  </div>
+
+  <div style="border-top:1px solid #DCE3F2">
+    <a href="tel:+351261858239" style="display:flex;align-items:center;gap:13px;padding:10px 20px;border-bottom:1px solid #DCE3F2;background:#FFFFFF" style-active="background:#F1F4FC">
+      <span style="width:34px;height:34px;flex:none;display:grid;place-items:center;background:#EDF0FB;border-radius:5px">
+        <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.7" stroke-linejoin="round"><path d="M4 2.5h3l1.4 3.3-1.9 1.3a8.4 8.4 0 0 0 4.4 4.4l1.3-1.9 3.3 1.4v3c0 .8-.7 1.5-1.6 1.4C7.6 15 3 10.4 2.6 4.1 2.5 3.2 3.2 2.5 4 2.5Z"/></svg>
+      </span>
+      <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+        <span style="font:700 11.5px/1 Archivo;letter-spacing:.07em;text-transform:uppercase;color:#525C80">Telefone</span>
+        <span style="font:700 17.5px/1.1 Archivo;letter-spacing:-.02em;color:#141F52;font-variant-numeric:tabular-nums">+351 261 858 239</span>
+      </span>
+      <svg style="margin-left:auto;flex:none" width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#223196" stroke-width="2"><path d="m2 2 5 5.5L2 13"/></svg>
+    </a>
+    <a href="mailto:geral@autoformigal.pt" style="display:flex;align-items:center;gap:13px;padding:10px 20px;border-bottom:1px solid #DCE3F2;background:#FFFFFF" style-active="background:#F1F4FC">
+      <span style="width:34px;height:34px;flex:none;display:grid;place-items:center;background:#EDF0FB;border-radius:5px">
+        <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.7"><rect x="2" y="4" width="14" height="10" rx="1"/><path d="m2.6 4.8 6.4 4.6 6.4-4.6"/></svg>
+      </span>
+      <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+        <span style="font:700 11.5px/1 Archivo;letter-spacing:.07em;text-transform:uppercase;color:#525C80">Email</span>
+        <span style="font:700 16px/1.1 Archivo;letter-spacing:-.02em;color:#141F52;overflow:hidden;text-overflow:ellipsis">geral@autoformigal.pt</span>
+      </span>
+      <svg style="margin-left:auto;flex:none" width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#223196" stroke-width="2"><path d="m2 2 5 5.5L2 13"/></svg>
+    </a>
+  </div>
+
+  <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:9px;background:#FFFFFF">
+    <a href="tel:+351261858239" style="display:flex;align-items:center;justify-content:center;gap:10px;height:56px;background:#223196;border-radius:6px;color:#FFFFFF;font:700 18px/1 Archivo;letter-spacing:-.01em;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);position:relative;overflow:hidden" style-active="background:#16215F;box-shadow:inset 0 2px 0 rgba(0,0,0,.22);transform:translateY(1px)">
+      <span style="position:absolute;top:0;right:0;width:14px;height:56px;background:#31B009;transform:skewX(-20deg) translateX(6px)"></span>
+      <svg width="19" height="19" viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"><path d="M4 2.5h3l1.4 3.3-1.9 1.3a8.4 8.4 0 0 0 4.4 4.4l1.3-1.9 3.3 1.4v3c0 .8-.7 1.5-1.6 1.4C7.6 15 3 10.4 2.6 4.1 2.5 3.2 3.2 2.5 4 2.5Z"/></svg>
+      Ligar
+    </a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <a href="#" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border:1.5px solid #AEB9DA;border-radius:6px;background:#FFFFFF;font:700 14.5px/1 Archivo;color:#223196;letter-spacing:-.01em" style-active="background:#EDF0FB;border-color:#223196">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.7" stroke-linejoin="round"><path d="M16 2 2 8l5.5 2.5L10 16Z"/></svg>
+        Como chegar
+      </a>
+      <a href="#" onClick="{{ onSaveContact }}" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border:1.5px solid #AEB9DA;border-radius:6px;background:#FFFFFF;font:700 14.5px/1 Archivo;color:#223196;letter-spacing:-.01em" style-active="background:#EDF0FB;border-color:#223196">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.7"><circle cx="7.5" cy="6" r="2.8"/><path d="M2.5 15c0-2.6 2.2-4.2 5-4.2M13.5 9v5M11 11.5h5"/></svg>
+        Adicionar contacto
+      </a>
+    </div>
+  </div>
+
+  <div style="height:8px;background:#F4F6FB;border-top:1px solid #DCE3F2;border-bottom:1px solid #DCE3F2"></div>
+
+  <div style="padding:22px 0 4px">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 20px 12px">
+      <span style="width:3px;height:15px;background:#31B009"></span>
+      <h2 style="margin:0;font:800 12.5px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#141F52">Informação útil</h2>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,#DDE3F0,rgba(221,227,240,0))"></span>
+    </div>
+    <a href="https://autoformigal.vercel.app" style="display:flex;align-items:center;gap:14px;padding:12px 20px;border-top:1px solid #DCE3F2;background:#FFFFFF" style-active="background:#F1F4FC">
+      <svg style="flex:none" width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.6"><circle cx="9" cy="9" r="6.8"/><path d="M2.4 9h13.2M9 2.2c1.7 1.8 2.5 4.1 2.5 6.8S10.7 14 9 15.8C7.3 14 6.5 11.7 6.5 9S7.3 4 9 2.2Z"/></svg>
+      <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+        <span style="font:700 11.5px/1 Archivo;letter-spacing:.07em;text-transform:uppercase;color:#525C80">Website</span>
+        <span style="font:600 15.5px/1.2 Archivo;color:#141F52">autoformigal.vercel.app</span>
+      </span>
+      <svg style="margin-left:auto;flex:none" width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#223196" stroke-width="2"><path d="m2 2 5 5.5L2 13"/></svg>
+    </a>
+    <a href="#" style="display:flex;align-items:center;gap:14px;padding:12px 20px;border-top:1px solid #DCE3F2;background:#FFFFFF" style-active="background:#F1F4FC">
+      <svg style="flex:none" width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.6"><path d="M9 16s6-4.9 6-8.6A6 6 0 0 0 3 7.4C3 11.1 9 16 9 16Z"/><circle cx="9" cy="7.2" r="2"/></svg>
+      <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+        <span style="font:700 11.5px/1 Archivo;letter-spacing:.07em;text-transform:uppercase;color:#525C80">Morada</span>
+        <span style="font:600 15.5px/1.2 Archivo;color:#141F52">Rua do Aranha 19, São Pedro da Cadeira</span>
+      </span>
+      <svg style="margin-left:auto;flex:none" width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#223196" stroke-width="2"><path d="m2 2 5 5.5L2 13"/></svg>
+    </a>
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 20px;border-top:1px solid #DCE3F2;border-bottom:1px solid #DCE3F2;background:#FFFFFF">
+      <svg style="flex:none" width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.6"><circle cx="9" cy="9" r="6.8"/><path d="M9 4.8V9l3 1.8"/></svg>
+      <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+        <span style="font:700 11.5px/1 Archivo;letter-spacing:.07em;text-transform:uppercase;color:#525C80">Horário de hoje</span>
+        <span style="font:700 15.5px/1.2 Archivo;color:#141F52;font-variant-numeric:tabular-nums">09:00–18:00</span>
+      </span>
+      <span style="margin-left:auto;font:700 10.5px/1 Archivo;letter-spacing:.08em;text-transform:uppercase;color:#1F6B06;background:#EAF7E4;border:1px solid #C6E9B6;border-radius:3px;padding:5px 7px">Aberto</span>
+    </div>
+  </div>
+
+  <div style="padding:24px 20px 4px">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 0 12px">
+      <span style="width:3px;height:15px;background:#31B009"></span>
+      <h2 style="margin:0;font:800 12.5px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#141F52">Serviços</h2>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,#DDE3F0,rgba(221,227,240,0))"></span>
+    </div>
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+      <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid #DCE3F2">
+        <span style="font:700 12px/1 Archivo;color:#223196;letter-spacing:.06em;font-variant-numeric:tabular-nums">{{ s.n }}</span>
+        <span style="width:9px;height:9px;background:#31B009;transform:skewX(-20deg)"></span>
+        <span style="font:600 16px/1.2 Archivo;color:#141F52;letter-spacing:-.01em">{{ s.name }}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding:24px 20px 4px">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 0 12px">
+      <span style="width:3px;height:15px;background:#31B009"></span>
+      <h2 style="margin:0;font:800 12.5px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#141F52">Horário</h2>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,#DDE3F0,rgba(221,227,240,0))"></span>
+    </div>
+    <sc-for list="{{ schedule }}" as="d" hint-placeholder-count="2">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 12px 13px 10px;border-top:1px solid #DCE3F2;background:{{ d.bg }}">
+        <span style="width:3px;align-self:stretch;background:{{ d.bar }}"></span>
+        <span style="font:700 15px/1.2 Archivo;color:#141F52;letter-spacing:-.01em">{{ d.day }}</span>
+        <sc-if value="{{ d.today }}" hint-placeholder-val="{{ false }}">
+          <span style="font:700 9.5px/1 Archivo;letter-spacing:.08em;text-transform:uppercase;color:#1F6B06;background:#DDF2D3;border-radius:3px;padding:4px 6px">Hoje</span>
+        </sc-if>
+        <span style="margin-left:auto;font:600 15px/1.2 Archivo;color:#3A4468;font-variant-numeric:tabular-nums;letter-spacing:-.01em">{{ d.hours }}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding:24px 20px 4px">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 0 12px">
+      <span style="width:3px;height:15px;background:#31B009"></span>
+      <h2 style="margin:0;font:800 12.5px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#141F52">Redes sociais</h2>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,#DDE3F0,rgba(221,227,240,0))"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <a href="#" style="display:flex;align-items:center;gap:8px;height:46px;padding:0 12px;border:1.5px solid #AEB9DA;border-radius:6px;font:700 14px/1 Archivo;color:#223196" style-active="background:#EDF0FB;border-color:#223196">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.6"><rect x="2.5" y="2.5" width="13" height="13" rx="3.6"/><circle cx="9" cy="9" r="3.2"/><circle cx="12.6" cy="5.4" r=".9" fill="#31B009" stroke="none"/></svg>
+        Instagram
+        <svg style="margin-left:auto" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#5A6485" stroke-width="1.6"><path d="M2 8 8 2M4 2h4v4"/></svg>
+      </a>
+      <a href="#" style="display:flex;align-items:center;gap:8px;height:46px;padding:0 12px;border:1.5px solid #AEB9DA;border-radius:6px;font:700 14px/1 Archivo;color:#223196" style-active="background:#EDF0FB;border-color:#223196">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#223196" stroke-width="1.6"><path d="M11.4 3.2h1.9V.9h-2.4c-2 0-3.3 1.3-3.3 3.4v1.9H5.4v2.4h2.2v6.5h2.6V8.6h2.2l.3-2.4h-2.5V4.6c0-.9.4-1.4 1.2-1.4Z"/></svg>
+        Facebook
+        <svg style="margin-left:auto" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#5A6485" stroke-width="1.6"><path d="M2 8 8 2M4 2h4v4"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div style="padding:28px 20px 8px">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 0 12px">
+      <span style="width:3px;height:15px;background:#31B009"></span>
+      <h2 style="margin:0;font:800 12.5px/1 Archivo;letter-spacing:.1em;text-transform:uppercase;color:#141F52">Cartão digital</h2>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,#DDE3F0,rgba(221,227,240,0))"></span>
+    </div>
+    <div style="position:relative;overflow:hidden;border-radius:8px;background:#223196;color:#FFFFFF;padding:18px">
+      <div style="position:absolute;top:-40px;right:-30px;width:70px;height:260px;background:#31B009;transform:skewX(-20deg)"></div>
+      <div style="position:absolute;top:-40px;right:34px;width:9px;height:260px;background:rgba(255,255,255,.45);transform:skewX(-20deg)"></div>
+      <div style="position:relative;display:flex;align-items:flex-start;gap:12px">
+        <div style="width:56px;height:56px;flex:none;background:#FFFFFF;border-radius:6px;padding:5px;box-sizing:border-box">
+          <img src="uploads/Logotipo.jpg" alt="Auto Formigal" style="width:100%;height:100%;object-fit:contain;display:block">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding-top:2px">
+          <span style="font:700 10px/1 Archivo;letter-spacing:.12em;text-transform:uppercase;color:#9FF07A">Oficina automóvel</span>
+          <span style="font:800 23px/1 Archivo;letter-spacing:-.025em;color:#FFFFFF">Auto Formigal</span>
+        </div>
+      </div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:9px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.22)">
+        <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.2 Archivo;color:#EAEDFA;font-variant-numeric:tabular-nums">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#9FF07A" stroke-width="1.8" stroke-linejoin="round"><path d="M4 2.5h3l1.4 3.3-1.9 1.3a8.4 8.4 0 0 0 4.4 4.4l1.3-1.9 3.3 1.4v3c0 .8-.7 1.5-1.6 1.4C7.6 15 3 10.4 2.6 4.1 2.5 3.2 3.2 2.5 4 2.5Z"/></svg>
+          +351 261 858 239
+        </div>
+        <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.2 Archivo;color:#EAEDFA">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#9FF07A" stroke-width="1.8"><rect x="2" y="4" width="14" height="10" rx="1"/><path d="m2.6 4.8 6.4 4.6 6.4-4.6"/></svg>
+          geral@autoformigal.pt
+        </div>
+        <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.2 Archivo;color:#EAEDFA">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#9FF07A" stroke-width="1.7"><circle cx="9" cy="9" r="6.8"/><path d="M2.4 9h13.2M9 2.2c1.7 1.8 2.5 4.1 2.5 6.8S10.7 14 9 15.8C7.3 14 6.5 11.7 6.5 9S7.3 4 9 2.2Z"/></svg>
+          autoformigal.vercel.app
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:9px;font:600 14px/1.3 Archivo;color:#EAEDFA;max-width:26ch">
+          <svg style="flex:none;margin-top:1px" width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#9FF07A" stroke-width="1.7"><path d="M9 16s6-4.9 6-8.6A6 6 0 0 0 3 7.4C3 11.1 9 16 9 16Z"/><circle cx="9" cy="7.2" r="2"/></svg>
+          Rua do Aranha 19, São Pedro da Cadeira
+        </div>
+      </div>
+      <div style="position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22)">
+        <span style="font:700 9.5px/1 Archivo;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)">Piri<span style="color:#9FF07A">Card</span></span>
+        <a href="#" onClick="{{ onSaveContact }}" style="display:flex;align-items:center;gap:7px;height:36px;padding:0 14px;background:#FFFFFF;border-radius:5px;font:700 13px/1 Archivo;color:#223196" style-active="background:#DDF2D3">Guardar contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:26px;padding:16px 20px 24px;border-top:1px solid #DCE3F2;background:#F4F6FB;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <span style="font:500 12px/1.4 Archivo;color:#5A6485">Perfil criado com <span style="font-weight:700;color:#223196">Piri</span><span style="font-weight:700;color:#31B009">Card</span></span>
+    <a href="#" style="font:700 11px/1 Archivo;letter-spacing:.08em;text-transform:uppercase;color:#223196">piricard.pt</a>
+  </div>
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#141F52;color:#FFFFFF;font:600 13.5px/1 Archivo;padding:13px 18px;border-radius:6px;box-shadow:0 8px 24px rgba(20,31,82,.3);z-index:50">Contacto guardado</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;statusOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Estado&quot;},&quot;todayGroup&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Segunda a sexta&quot;,&quot;Sábado&quot;],&quot;default&quot;:&quot;Segunda a sexta&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Estado&quot;}}">
+class Component extends DCLogic {
+  state = { toast: false };
+  renderVals() {
+    const open = this.props.statusOpen ?? true;
+    const services = [
+      { n: "01", name: "Reparação multimarca" },
+      { n: "02", name: "Diagnóstico avançado" },
+      { n: "03", name: "Manutenção automóvel" }
+    ];
+    const today = this.props.todayGroup ?? "Segunda a sexta";
+    const schedule = [
+      { day: "Segunda a sexta", hours: "09:00–18:00" },
+      { day: "Sábado", hours: "09:00–13:00" }
+    ].map(d => ({
+      ...d,
+      today: d.day === today,
+      bg: d.day === today ? "#F6FBF3" : "#FFFFFF",
+      bar: d.day === today ? "#31B009" : "transparent"
+    }));
+    return {
+      services, schedule,
+      toast: this.state.toast,
+      statusLabel: open ? "Aberto agora · Fecha às 18:00" : "Fechado · Abre às 09:00",
+      onSaveContact: (e) => {
+        e.preventDefault();
+        this.setState({ toast: true });
+        clearTimeout(this._t);
+        this._t = setTimeout(() => this.setState({ toast: false }), 1800);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

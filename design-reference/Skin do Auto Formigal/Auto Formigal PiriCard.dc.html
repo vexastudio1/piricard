@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E9ECF4;font-family:Archivo,Helvetica,sans-serif}
+a{color:#223196;text-decoration:none}a:hover{color:#16215F}
+</style>
+</helmet>
+<section id="t1" style="padding:44px 48px 40px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 8px">
+    <a href="#t1" style="font:700 10px/1 ui-monospace,Menlo,monospace;padding:4px 7px;background:#141F52;color:#fff;border-radius:4px">1</a>
+    <span style="font:700 13px/1.2 Archivo;color:#141F52;letter-spacing:-.01em">Auto Formigal — skin PiriCard</span>
+    <span style="font:400 12px/1.2 Archivo;color:#5A6485">mesmo esqueleto, pele diferente · 390 × 844</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+    <div id="1a" style="display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Archivo;color:#5C6588"><a href="#1a" style="font:700 10.5px/1 ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(20,31,82,.09);color:#141F52;border-radius:5px">1a</a><span style="color:#5C6588">Primeiro ecrã · 390 × 844</span></div>
+      <div style="width:390px;height:844px;overflow:hidden;background:#fff;border:1px solid rgba(20,31,82,.12);border-radius:8px;box-shadow:0 2px 8px rgba(20,31,82,.08)">
+        <dc-import name="AutoFormigalProfile" hint-size="390px,844px"></dc-import>
+      </div>
+    </div>
+
+    <div id="1b" style="display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:baseline;gap:8px"><a href="#1b" style="font:700 10.5px/1 ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(20,31,82,.09);color:#141F52;border-radius:5px">1b</a><span style="font:400 11px/1.3 Archivo;color:#5C6588">Perfil completo · scroll contínuo</span></div>
+      <div style="width:390px;background:#fff;border:1px solid rgba(20,31,82,.12);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(20,31,82,.08)">
+        <dc-import name="AutoFormigalProfile" hint-size="390px,2400px"></dc-import>
+      </div>
+    </div>
+
+    <div id="1c" style="display:flex;flex-direction:column;gap:9px;width:520px">
+      <div style="display:flex;align-items:baseline;gap:8px"><a href="#1c" style="font:700 10.5px/1 ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(20,31,82,.09);color:#141F52;border-radius:5px">1c</a><span style="font:400 11px/1.3 Archivo;color:#5C6588">Tokens e estados de componente</span></div>
+
+      <div style="background:#fff;border:1px solid rgba(20,31,82,.12);border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:22px">
+        <div>
+          <h3 style="margin:0 0 12px;font:800 11.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Cor</h3>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#223196;border-radius:5px"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#223196<br><span style="font-weight:400;color:#6B7496">brand/blue</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#31B009;border-radius:5px"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#31B009<br><span style="font-weight:400;color:#6B7496">brand/green</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#141F52;border-radius:5px"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#141F52<br><span style="font-weight:400;color:#6B7496">text/navy</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#4B5578;border-radius:5px"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#4B5578<br><span style="font-weight:400;color:#6B7496">text/body</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#EDF0FB;border-radius:5px;border:1px solid #DDE3F0"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#EDF0FB<br><span style="font-weight:400;color:#6B7496">tint/blue</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#EAF7E4;border-radius:5px;border:1px solid #C6E9B6"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#EAF7E4<br><span style="font-weight:400;color:#6B7496">tint/green</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#F4F6FB;border-radius:5px;border:1px solid #E4E9F4"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#F4F6FB<br><span style="font-weight:400;color:#6B7496">surface/alt</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="height:52px;background:#fff;border-radius:5px;border:1px solid #E4E9F4"></span><span style="font:700 10.5px/1.3 ui-monospace,Menlo,monospace;color:#141F52">#E4E9F4<br><span style="font-weight:400;color:#6B7496">border/hair</span></span></div>
+          </div>
+          <p style="margin:10px 0 0;font:400 11.5px/1.5 Archivo;color:#5A6485">Balanço 60 neutro / 30 azul / 10 verde. Verde apenas em estado aberto, marcadores, cortes diagonais e acentos.</p>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 12px;font:800 11.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Tipografia — Archivo</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:800 32px/1 Archivo;letter-spacing:-.03em;color:#141F52">Auto Formigal</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">800 · 32/32 · −3%</span></div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:700 12px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#223196">Oficina automóvel</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">700 · 12 · +16%</span></div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:800 12.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Secção</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">800 · 12.5 · +16%</span></div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:700 17.5px/1 Archivo;letter-spacing:-.02em;color:#141F52">+351 261 858 239</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">700 · 17.5 · tabular</span></div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 15.5px/1 Archivo;color:#4B5578">Texto de apoio</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">400 · 15.5/23</span></div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:700 11.5px/1 Archivo;letter-spacing:.13em;text-transform:uppercase;color:#5A6485">Etiqueta</span><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">700 · 10.5 · +15%</span></div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+          <div>
+            <h3 style="margin:0 0 10px;font:800 11.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Espaço</h3>
+            <p style="margin:0;font:400 12px/1.7 ui-monospace,Menlo,monospace;color:#3E4874">4 · 8 · 10 · 14 · 20 · 24<br>gutter lateral 20<br>altura linha contacto 64<br>secção → secção 24</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px;font:800 11.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Raio e traço</h3>
+            <p style="margin:0;font:400 12px/1.7 ui-monospace,Menlo,monospace;color:#3E4874">r3 etiquetas · r5 ícones<br>r6 botões · r8 cartões<br>1px #E4E9F4 hairline<br>1.5px #C7CFE6 secundário</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 12px;font:800 11.5px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;color:#141F52">Estados</h3>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">primário · default</span>
+                <span style="display:flex;align-items:center;justify-content:center;height:52px;background:#223196;color:#fff;border-radius:6px;font:700 17px/1 Archivo;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)">Ligar</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">primário · pressed</span>
+                <span style="display:flex;align-items:center;justify-content:center;height:52px;background:#16215F;color:#fff;border-radius:6px;font:700 17px/1 Archivo;box-shadow:inset 0 2px 0 rgba(0,0,0,.22)">Ligar</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">secundário · default</span>
+                <span style="display:flex;align-items:center;justify-content:center;height:46px;border:1.5px solid #C7CFE6;color:#223196;border-radius:6px;font:700 14px/1 Archivo;background:#fff">Como chegar</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">secundário · pressed</span>
+                <span style="display:flex;align-items:center;justify-content:center;height:46px;border:1.5px solid #223196;color:#223196;border-radius:6px;font:700 14px/1 Archivo;background:#EDF0FB">Como chegar</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">linha contacto · default</span>
+                <span style="display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #E4E9F4;border-radius:5px;background:#fff"><span style="width:34px;height:34px;background:#EDF0FB;border-radius:5px;display:grid;place-items:center;font:700 13px/1 Archivo;color:#223196">T</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 10.5px/1 Archivo;letter-spacing:.13em;text-transform:uppercase;color:#5A6485">Telefone</span><span style="font:700 14px/1 Archivo;color:#141F52">+351 261 858 239</span></span></span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">linha contacto · pressed</span>
+                <span style="display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #E4E9F4;border-radius:5px;background:#F1F4FC"><span style="width:34px;height:34px;background:#DFE5F8;border-radius:5px;display:grid;place-items:center;font:700 13px/1 Archivo;color:#223196">T</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 10.5px/1 Archivo;letter-spacing:.13em;text-transform:uppercase;color:#5A6485">Telefone</span><span style="font:700 14px/1 Archivo;color:#141F52">+351 261 858 239</span></span></span></div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+              <span style="display:inline-flex;align-items:center;gap:7px;background:#EAF7E4;border:1px solid #C6E9B6;border-radius:4px;padding:6px 9px"><span style="width:7px;height:7px;border-radius:50%;background:#31B009"></span><span style="font:700 12.5px/1 Archivo;color:#1F6B06">Aberto agora · Fecha às 18:00</span></span>
+              <span style="display:inline-flex;align-items:center;gap:7px;background:#F4F6FB;border:1px solid #DDE3F0;border-radius:4px;padding:6px 9px"><span style="width:7px;height:7px;border-radius:50%;background:#8B93B2"></span><span style="font:700 12.5px/1 Archivo;color:#5C6588">Fechado · Abre às 09:00</span></span>
+              <span style="display:inline-flex;align-items:center;gap:12px;padding:10px 12px;background:#F6FBF3;border-left:3px solid #31B009;font:700 13px/1 Archivo;color:#141F52">Segunda a sexta <span style="font:700 9px/1 Archivo;letter-spacing:.14em;text-transform:uppercase;color:#1F6B06;background:#DDF2D3;border-radius:3px;padding:4px 6px">Hoje</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1d" style="display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:baseline;gap:8px"><a href="#1d" style="font:700 10.5px/1 ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(20,31,82,.09);color:#141F52;border-radius:5px">1d</a><span style="font:400 11px/1.3 Archivo;color:#5C6588">Desktop · mesma composição centrada, máx. 430px</span></div>
+      <div style="width:1000px;height:700px;overflow:hidden;background:#E9ECF4;border:1px solid rgba(20,31,82,.12);border-radius:8px;box-shadow:0 2px 8px rgba(20,31,82,.08)">
+        <div style="height:38px;background:#fff;border-bottom:1px solid #DDE3F0;display:flex;align-items:center;gap:8px;padding:0 14px">
+          <span style="width:9px;height:9px;border-radius:50%;background:#E1E5F0"></span><span style="width:9px;height:9px;border-radius:50%;background:#E1E5F0"></span><span style="width:9px;height:9px;border-radius:50%;background:#E1E5F0"></span>
+          <span style="margin-left:14px;font:500 11.5px/1 ui-monospace,Menlo,monospace;color:#5A6485">piricard.pt/autoformigal</span>
+        </div>
+        <div style="height:662px;overflow:hidden;display:flex;justify-content:center">
+          <div style="width:430px;background:#fff;border-left:1px solid #DDE3F0;border-right:1px solid #DDE3F0">
+            <dc-import name="AutoFormigalProfile" hint-size="430px,662px"></dc-import>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin:24px 0 0;font:400 12px/1.5 Archivo;color:#5A6485">A seguir: "topo mais compacto em <a href="#1a">1a</a>" · "cartão digital com QR" · "variante de pele para clínica veterinária, mesmo esqueleto"</p>
+</section>
+</x-dc>
+</body>
+</html>
