@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight, MapPin } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
-import { PiriCardSymbol } from "@/components/icons/PiriCardSymbol";
+import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import type { Business } from "@/lib/businesses";
 import { getMapsHref, getPhoneHref } from "@/lib/links";
@@ -74,8 +74,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
       <article className={styles.shell}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
-            <PiriCardSymbol className={styles.platformMark} />
-            <strong>Piri<em>Card</em></strong>
+            <PiriCardBrandMark wordmark={<strong>Piri<em>Card</em></strong>} />
           </Link>
           <div className={styles.platformActions}>
             <Link href="/">Diretório <ArrowUpRight aria-hidden="true" size={14} /></Link>

@@ -23,6 +23,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { background: var(--platform-accent); color: #02050a; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
+/* Shared PiriCard icon+wordmark lockup — used in every brand appearance
+   (profile topbars, directory header, directory footer) so sizing, gap and
+   baseline alignment stay identical everywhere. The icon scales in `em` off
+   the wordmark's own font-size, so each context just sets its font-size (and
+   optionally --brand-mark-color) and the lockup stays proportional. */
+.piricard-mark { display: inline-flex; align-items: center; gap: .5em; line-height: 1; }
+.piricard-mark-icon { width: 1.6em; height: 1.6em; flex: none; color: var(--brand-mark-color, currentColor); }
+
 /* PiriCard directory — PiriLight platform language */
 .directory-page { min-height: 100svh; position: relative; overflow: hidden; background: radial-gradient(circle at 72% 20%, rgba(79, 143, 251, .09), transparent 28rem), linear-gradient(150deg, #05060a 0%, #07101b 58%, #05060a 100%); }
 .directory-page::before { content: ""; position: absolute; inset: 0; opacity: .22; pointer-events: none; background-image: radial-gradient(circle, rgba(143, 224, 255, .8) 0 1px, transparent 1.35px); background-size: 181px 157px; mask-image: linear-gradient(to bottom, #000, transparent 76%); }
@@ -30,9 +38,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .platform-header { min-height: 5.6rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--platform-border); }
 .platform-header > a:last-child { color: #d3dae6; font-size: .76rem; font-weight: 650; letter-spacing: .15em; text-transform: uppercase; transition: color var(--platform-speed); }
 .platform-header > a:last-child:hover { color: var(--platform-accent); }
-.platform-wordmark { display: inline-flex; align-items: center; gap: .65rem; font-size: 1.35rem; font-weight: 760; letter-spacing: -.045em; }
-.platform-wordmark svg { width: 2.75rem; height: 2.75rem; flex: none; color: var(--platform-accent); filter: drop-shadow(0 0 12px rgba(79, 143, 251, .22)); }
-.platform-wordmark > span > span, .platform-footer a span span { color: var(--platform-accent-strong); }
+.platform-wordmark { display: inline-flex; align-items: center; font-size: 1.35rem; font-weight: 760; letter-spacing: -.045em; --brand-mark-color: var(--platform-accent); }
+.platform-wordmark .piricard-mark-icon { filter: drop-shadow(0 0 10px rgba(79, 143, 251, .25)); }
+.platform-wordmark span span, .platform-footer a span span { color: var(--platform-accent-strong); }
 .directory { padding: clamp(4rem, 8vw, 7.3rem) 0 clamp(5.5rem, 9vw, 8rem); }
 .directory-intro { max-width: 56rem; animation: platform-reveal .65s both; }
 .eyebrow { margin: 0 0 1.15rem !important; color: var(--platform-accent) !important; font-size: .74rem !important; font-weight: 720; letter-spacing: .24em; text-transform: uppercase; }
@@ -72,8 +80,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .empty-state h2 { margin: 1rem 0 .5rem; color: var(--platform-text); font-size: 1.5rem; }
 .empty-state p { margin: 0 0 1.5rem; }
 .platform-footer { min-height: 11rem; border-top: 1px solid var(--platform-border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; color: var(--platform-muted); font-size: .82rem; text-align: center; }
-.platform-footer a { display: flex; align-items: center; gap: .6rem; color: var(--platform-text); font-size: .76rem; font-weight: 680; letter-spacing: .15em; text-transform: uppercase; }
-.platform-footer a img { object-fit: contain; }
+.platform-footer a { display: flex; align-items: center; color: var(--platform-text); font-size: .76rem; font-weight: 680; letter-spacing: .15em; text-transform: uppercase; --brand-mark-color: var(--platform-accent); }
 .platform-footer p { margin: 0; }
 
 @keyframes platform-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
@@ -93,7 +100,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .platform-header { min-height: 4.7rem; }
   .platform-header > a:last-child { font-size: .64rem; letter-spacing: .09em; }
   .platform-wordmark { font-size: 1.15rem; }
-  .platform-wordmark svg { width: 2.35rem; height: 2.35rem; }
   .directory { padding: 3.5rem 0 5rem; }
   .directory-intro h1 { font-size: clamp(2.8rem, 14vw, 4rem); line-height: 1; }
   .directory-intro > p { font-size: 1rem; }

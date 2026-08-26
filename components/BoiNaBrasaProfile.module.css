@@ -42,8 +42,7 @@
   color: #f6efe3;
 }
 
-.platformBrand { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
-.platformMark { width: 23px; height: 23px; flex: none; color: var(--bnb-ember); }
+.platformBrand { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; --brand-mark-color: var(--bnb-ember); }
 .platformBrand strong { font-style: normal; letter-spacing: -.02em; }
 .platformBrand em { color: #ef8c50; font-style: normal; }
 .platformActions { display: flex; align-items: center; gap: 14px; }
