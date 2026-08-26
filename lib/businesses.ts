@@ -47,7 +47,7 @@ export interface Business {
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
-  layoutVariant: "editorial" | "compact";
+  layoutVariant: "editorial" | "compact" | "restaurant";
 }
 
 export type DirectoryBusiness = Pick<Business, "slug" | "name" | "category" | "directoryDescription"> & {
@@ -140,6 +140,69 @@ const businesses = {
       fontFamily: "modern",
     },
     layoutVariant: "compact",
+  },
+  "boi-na-brasa": {
+    slug: "boi-na-brasa",
+    name: "Boi na Brasa",
+    organization: "Restaurante Boi na Brasa",
+    category: "Restaurante & Café",
+    published: true,
+    featured: false,
+    indexable: true,
+    directoryDescription: "Grelhados, pratos reconfortantes e sabores luso-brasileiros no centro de Torres Vedras.",
+    profileDescription: "Picanha, maminha, bitoque, petiscos e pizzas, com esplanada, takeaway e pedidos online.",
+    positioning: "Carne na brasa e comida reconfortante, sem formalidades.",
+    contact: {
+      phone: "+351261063480",
+    },
+    location: {
+      city: "Torres Vedras",
+      address: "Rua 1.º de Dezembro 5, 2560-300 Torres Vedras",
+      streetAddress: "Rua 1.º de Dezembro 5",
+      country: "Portugal",
+      mapsUrl: "https://www.google.com/maps/place/Restaurante+boi+na+brasa/@39.0916177,-9.2583152,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f2d060f0093ef:0xa22973c1920f5dcd!8m2!3d39.0916177!4d-9.2583152!16s%2Fg%2F11vwxw92vx",
+    },
+    reviewUrl: "https://www.google.com/maps/place/Restaurante+boi+na+brasa/@39.0916177,-9.2583152,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f2d060f0093ef:0xa22973c1920f5dcd!8m2!3d39.0916177!4d-9.2583152!16s%2Fg%2F11vwxw92vx",
+    services: [
+      "Comer no local",
+      "Takeaway",
+      "Entrega e recolha",
+      "Esplanada",
+      "Aceita reservas",
+      "Adequado a grupos",
+      "Indicado para crianças",
+      "Wi-Fi gratuito",
+      "Pequeno-almoço",
+      "WC",
+    ],
+    hours: [
+      { label: "Segunda", days: [1], periods: [{ open: "09:30", close: "22:00" }] },
+      { label: "Terça", days: [2], periods: [{ open: "09:30", close: "22:00" }] },
+      { label: "Quarta", days: [3], periods: [{ open: "09:30", close: "22:00" }] },
+      { label: "Quinta", days: [4], periods: [{ open: "09:30", close: "22:00" }] },
+      { label: "Sexta", days: [5], periods: [{ open: "09:30", close: "16:30" }] },
+      { label: "Sábado", days: [6], periods: [{ open: "09:30", close: "22:00" }] },
+      { label: "Domingo", days: [0], periods: [] },
+    ],
+    assets: {
+      logo: "/clients/boi-na-brasa/logo.jpg",
+      cover: "/clients/boi-na-brasa/fachada.jpg",
+      coverAlt: "Fachada do Boi na Brasa na Rua 1.º de Dezembro, em Torres Vedras, com esplanada",
+      socialImage: "/clients/boi-na-brasa/fachada.jpg",
+    },
+    theme: {
+      primary: "#191411",
+      secondary: "#0f0c0a",
+      accent: "#c2501f",
+      background: "#ded4c4",
+      surface: "#f4ede1",
+      text: "#191411",
+      mutedText: "#7a6a5c",
+      border: "#ded4c4",
+      appearance: "light",
+      fontFamily: "modern",
+    },
+    layoutVariant: "restaurant",
   },
 } as const satisfies Record<string, Business>;
 

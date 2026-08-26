@@ -11,7 +11,8 @@ describe("directory search", () => {
     expect(filterBusinesses(businesses, "sao pedro")).toHaveLength(1);
   });
 
-  it("returns an empty list for an unmatched query", () => {
-    expect(filterBusinesses(businesses, "restaurante")).toEqual([]);
+  it("finds Boi na Brasa by category and locality", () => {
+    expect(filterBusinesses(businesses, "restaurante").map((business) => business.slug)).toEqual(["boi-na-brasa"]);
+    expect(filterBusinesses(businesses, "torres vedras").map((business) => business.slug)).toEqual(["boi-na-brasa"]);
   });
 });

@@ -1,0 +1,243 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, ChevronRight, MapPin } from "lucide-react";
+import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
+import type { Business } from "@/lib/businesses";
+import { getMapsHref, getPhoneHref } from "@/lib/links";
+import { getVCardFilename } from "@/lib/vcard";
+import styles from "./BoiNaBrasaProfile.module.css";
+
+const deliveryUrl = "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv";
+const collectionUrl = "https://www.toogoodtogo.com/pt/find/torresvedras/restauranteboinabrasa/cookedmeal/refeicao-253056996762700480";
+const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=39.0916177,-9.2583152&destination_place_id=ChIJ7z4J8GDQ8Q0RzV0PksFzKaI";
+
+const essentialInformation = [
+  { label: "Cozinha", value: "Grelhados luso-brasileiros", note: "petiscos, sandes e pizzas" },
+  { label: "Preço médio", value: "10–15 € por pessoa", note: "indicado no Google por 47 pessoas" },
+  { label: "Especialidade", value: "Picanha e carnes na brasa", note: "com arroz, feijão, farofa e batata frita" },
+  { label: "Ambiente", value: "Casual, com esplanada", note: "refeição, café ou pequeno-almoço" },
+  { label: "Morada", value: "Rua 1.º de Dezembro 5", note: "2560-300 Torres Vedras · centro da cidade" },
+  { label: "Telefone e reservas", value: "+351 261 063 480", note: "reservas por telefone · grupos bem-vindos", href: "tel:+351261063480" },
+] as const;
+
+const mains = [
+  { name: "Picanha", description: "Arroz, batata frita, feijão e farofa", price: "14,50 €" },
+  { name: "Maminha", description: "Batata frita, arroz e feijão", price: "12,90 €" },
+  { name: "Bitoque de vaca", description: "Carne de vaca grelhada, arroz, batata frita e ovo estrelado", price: "12,90 €" },
+  { name: "Febras grelhadas", description: "Arroz e batata frita", price: "10,90 €" },
+] as const;
+
+const snacks = [
+  ["Prego no pão", "5,90 €"],
+  ["Bifana no pão", "4,90 €"],
+  ["Coxinhas · 4", "9,90 €"],
+  ["Kibes · 4", "9,90 €"],
+  ["Pães de queijo · 6", "4,80 €"],
+  ["Torta de pão · fatia", "3,90 €"],
+] as const;
+
+const pizzas = [
+  { name: "Tropical", description: "Molho de tomate, queijo, ananás e presunto", price: "11,50 €" },
+  { name: "Chourição", description: "Base fina com chourição", price: "11,50 €" },
+  { name: "Pepperoni", description: "Molho de tomate, queijo e pepperoni", price: "11,50 €" },
+] as const;
+
+const praise = [
+  "Carne macia e no ponto",
+  "Batata frita caseira",
+  "Sobremesas caseiras",
+  "Relação preço/refeição",
+  "Atendimento próximo",
+  "Espaço limpo e tranquilo",
+] as const;
+
+const ratingDistribution = [
+  { stars: 5, count: 77 },
+  { stars: 4, count: 13 },
+  { stars: 3, count: 1 },
+  { stars: 2, count: 1 },
+  { stars: 1, count: 3 },
+] as const;
+
+function ExternalLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
+  return <a className={className} href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+}
+
+export function BoiNaBrasaProfile({ business }: { business: Business }) {
+  const phoneHref = getPhoneHref(business.contact.phone) ?? "tel:+351261063480";
+  const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address) ?? directionsUrl;
+  const reviewHref = business.reviewUrl ?? mapsHref;
+  const contactFilename = getVCardFilename(business);
+
+  return (
+    <main className={styles.page}>
+      <article className={styles.shell}>
+        <nav className={styles.platformBar} aria-label="Navegação PiriCard">
+          <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
+            <span aria-hidden="true">P</span>
+            <strong>Piri<em>Card</em></strong>
+          </Link>
+          <div className={styles.platformActions}>
+            <Link href="/">Diretório <ArrowUpRight aria-hidden="true" size={14} /></Link>
+            <ContactDownloadButton
+              businessName={business.name}
+              endpoint={`/api/contact/${business.slug}`}
+              filename={contactFilename}
+              className={styles.saveContact}
+              label="Guardar contacto"
+            />
+          </div>
+        </nav>
+
+        <header>
+          <div className={styles.heroImage}>
+            {business.assets.cover ? (
+              <Image
+                src={business.assets.cover}
+                alt={business.assets.coverAlt ?? `Fachada de ${business.name}`}
+                fill
+                priority
+                sizes="(max-width: 960px) 100vw, 960px"
+              />
+            ) : null}
+            <div className={styles.heroFade} aria-hidden="true" />
+            <span className={styles.locationPill}><MapPin aria-hidden="true" size={12} />Torres Vedras · Centro</span>
+          </div>
+
+          <div className={styles.identity}>
+            <div className={styles.identityTopline}>
+              {business.assets.logo ? (
+                <div className={styles.logo}>
+                  <Image src={business.assets.logo} alt={`Logótipo do ${business.name}`} width={1242} height={1242} sizes="104px" />
+                </div>
+              ) : null}
+              <ExternalLink className={styles.ratingBadge} href={reviewHref}>
+                <strong>4,7</strong><span aria-label="5 estrelas">★★★★★</span><small>95</small>
+              </ExternalLink>
+            </div>
+            <h1>{business.name}</h1>
+            <p className={styles.subtitle}>Restaurante &amp; Café · Grelhados luso-brasileiros</p>
+            <p className={styles.address}>Rua 1.º de Dezembro 5, Torres Vedras</p>
+            {business.hours?.length ? (
+              <div className={styles.liveStatus}>
+                <OpeningStatus hours={business.hours} />
+                <TodayHours hours={business.hours} />
+              </div>
+            ) : null}
+          </div>
+        </header>
+
+        <nav className={styles.quickActions} aria-label="Ações rápidas">
+          <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small></a>
+          <ExternalLink href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small></ExternalLink>
+          <a href="#ementa"><strong>Ver ementa</strong><small>Destaques</small></a>
+          <ExternalLink className={styles.actionAccent} href={deliveryUrl}><strong>Pedir online</strong><small>Glovo</small></ExternalLink>
+        </nav>
+
+        <section className={styles.essentials} aria-labelledby="essentials-heading">
+          <p className={styles.kicker} id="essentials-heading">Informação essencial</p>
+          <dl className={styles.essentialGrid}>
+            {essentialInformation.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{"href" in item ? <a href={item.href}>{item.value}</a> : item.value}<small>{item.note}</small></dd>
+              </div>
+            ))}
+          </dl>
+          {business.services?.length ? <ul className={styles.serviceTags}>{business.services.map((service) => <li key={service}>{service}</li>)}</ul> : null}
+          <p className={styles.caveat}>Acessibilidade para cadeira de rodas ainda não confirmada — pergunte-nos antes da visita.</p>
+        </section>
+
+        <section className={styles.about} aria-labelledby="about-heading">
+          <h2 id="about-heading">O restaurante</h2>
+          <p>O Boi na Brasa é um restaurante e café de ambiente casual, na Rua 1.º de Dezembro, em pleno centro de Torres Vedras. A ementa cruza grelhados como picanha, maminha, bitoque e febras com acompanhamentos de inspiração brasileira, sandes, salgados e pizzas.</p>
+          <p>Para comer no local, levar ou pedir online, a proposta é simples: comida reconfortante, esplanada no centro da cidade e serviço próximo, sem formalidades.</p>
+        </section>
+
+        <section className={styles.menu} id="ementa" aria-labelledby="menu-heading">
+          <div className={styles.sectionIntro}>
+            <h2 id="menu-heading">Da brasa e da casa</h2>
+            <span>preços observados em 24/08/2026</span>
+          </div>
+          <h3>Grelhados e pratos completos</h3>
+          <ul className={styles.menuList}>
+            {mains.map((item) => <li key={item.name}><span><strong>{item.name}</strong><small>{item.description}</small></span><b>{item.price}</b></li>)}
+          </ul>
+          <div className={styles.menuColumns}>
+            <div>
+              <h3>Sandes e salgados</h3>
+              <ul className={styles.menuList}>{snacks.map(([name, price]) => <li key={name}><strong>{name}</strong><b>{price}</b></li>)}</ul>
+            </div>
+            <div>
+              <h3>Pizzas</h3>
+              <ul className={styles.menuList}>{pizzas.map((item) => <li key={item.name}><span><strong>{item.name}</strong><small>{item.description}</small></span><b>{item.price}</b></li>)}</ul>
+              <p>Também há sobremesas caseiras, café, cerveja e vinho. A seleção do dia é indicada no restaurante.</p>
+            </div>
+          </div>
+          <div className={styles.menuLinks}>
+            <ExternalLink href={deliveryUrl}>Ver ementa completa na Glovo</ExternalLink>
+            <ExternalLink href={collectionUrl}>Recolha na Too Good To Go</ExternalLink>
+          </div>
+          <p className={styles.menuDisclaimer}>Os preços de entrega podem diferir dos preços praticados no restaurante.</p>
+        </section>
+
+        <section className={styles.reviews} aria-labelledby="reviews-heading">
+          <h2 id="reviews-heading">Avaliações</h2>
+          <div className={styles.reviewGrid}>
+            <div className={styles.reviewScore}>
+              <div><strong>4,7</strong><span aria-label="5 estrelas">★★★★★</span><small>95 críticas<br />Google · 24/08/2026</small></div>
+              <ul>
+                {ratingDistribution.map((row) => <li key={row.stars}><span>{row.stars}</span><i><b style={{ width: `${Math.round((row.count / 95) * 100)}%` }} /></i><span>{row.count}</span></li>)}
+              </ul>
+            </div>
+            <div className={styles.praise}>
+              <p className={styles.kicker}>Mais elogiado</p>
+              <ul>{praise.map((item) => <li key={item}>{item}</li>)}</ul>
+              <div className={styles.secondaryRatings}><span><strong>100 %</strong><small>recomendam na Glovo · 16</small></span><span><strong>4,8</strong><small>Too Good To Go</small></span></div>
+              <ExternalLink className={styles.reviewLink} href={reviewHref}>Ler as avaliações no Google <ChevronRight aria-hidden="true" size={15} /></ExternalLink>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.visit} aria-label="Horário e localização">
+          <div>
+            <h2>Horário</h2>
+            {business.hours?.length ? <BusinessHoursSchedule hours={business.hours} /> : null}
+            <p className={styles.caveat}>Consulte o horário atualizado antes da visita. Horários especiais e feriados podem variar.</p>
+          </div>
+          <div>
+            <h2>Localização</h2>
+            <div className={styles.mapCard}>
+              <iframe title="Mapa do Boi na Brasa em Torres Vedras" src="https://maps.google.com/maps?q=39.0916177,-9.2583152&z=17&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+              <div><p>Rua 1.º de Dezembro 5, 2560-300 Torres Vedras</p><small>Plus Code 3PRR+JM · estacionamento público pago nas proximidades</small><ExternalLink href={directionsUrl}>Como chegar</ExternalLink></div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.contacts} aria-labelledby="contacts-heading">
+          <h2 id="contacts-heading">Contactos</h2>
+          <div>
+            <a href={phoneHref}><small>Telefone e reservas</small><strong>+351 261 063 480</strong></a>
+            <ExternalLink href={deliveryUrl}><small>Entrega</small><strong>Glovo</strong></ExternalLink>
+            <ExternalLink href={collectionUrl}><small>Recolha</small><strong>Too Good To Go</strong></ExternalLink>
+            <ExternalLink href={mapsHref}><small>Ficha e mapa</small><strong>Google Maps</strong></ExternalLink>
+          </div>
+        </section>
+
+        <footer className={styles.footer}>
+          <div><strong>Boi na Brasa · Restaurante &amp; Café</strong><p>Rua 1.º de Dezembro 5, 2560-300 Torres Vedras · +351 261 063 480</p></div>
+          <p>Perfil PiriCard criado por PiriLight Studio</p>
+        </footer>
+      </article>
+
+      <nav className={styles.stickyBar} aria-label="Ações persistentes">
+        <div>
+          <a href={phoneHref}>Ligar</a>
+          <ExternalLink href={directionsUrl}>Como chegar</ExternalLink>
+          <ExternalLink href={deliveryUrl}>Pedir</ExternalLink>
+        </div>
+      </nav>
+    </main>
+  );
+}
