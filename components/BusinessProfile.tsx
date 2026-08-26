@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { PiriCardSymbol } from "@/components/icons/PiriCardSymbol";
 import { BoiNaBrasaProfile } from "@/components/BoiNaBrasaProfile";
 import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
 import { DigitalBusinessCard } from "@/components/DigitalBusinessCard";
@@ -68,7 +69,7 @@ function PiriCardTopBar() {
   return (
     <header className="profile-topbar">
       <Link className="profile-platform" href="/" aria-label="PiriCard — ir para o diretório">
-        <span className="profile-platform-mark" aria-hidden="true">P</span>
+        <PiriCardSymbol className="profile-platform-mark" />
         <span>Piri<span>Card</span></span>
       </Link>
       <Link className="profile-directory-link" href="/"><span>Diretório</span><ArrowUpRight aria-hidden="true" size={16} /></Link>

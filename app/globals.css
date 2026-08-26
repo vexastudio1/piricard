@@ -31,7 +31,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .platform-header > a:last-child { color: #d3dae6; font-size: .76rem; font-weight: 650; letter-spacing: .15em; text-transform: uppercase; transition: color var(--platform-speed); }
 .platform-header > a:last-child:hover { color: var(--platform-accent); }
 .platform-wordmark { display: inline-flex; align-items: center; gap: .65rem; font-size: 1.35rem; font-weight: 760; letter-spacing: -.045em; }
-.platform-wordmark img { width: 2.75rem; height: 2.75rem; object-fit: contain; filter: drop-shadow(0 0 12px rgba(79, 143, 251, .22)); }
+.platform-wordmark svg { width: 2.75rem; height: 2.75rem; flex: none; color: var(--platform-accent); filter: drop-shadow(0 0 12px rgba(79, 143, 251, .22)); }
 .platform-wordmark > span > span, .platform-footer a span span { color: var(--platform-accent-strong); }
 .directory { padding: clamp(4rem, 8vw, 7.3rem) 0 clamp(5.5rem, 9vw, 8rem); }
 .directory-intro { max-width: 56rem; animation: platform-reveal .65s both; }
@@ -93,7 +93,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .platform-header { min-height: 4.7rem; }
   .platform-header > a:last-child { font-size: .64rem; letter-spacing: .09em; }
   .platform-wordmark { font-size: 1.15rem; }
-  .platform-wordmark img { width: 2.35rem; height: 2.35rem; }
+  .platform-wordmark svg { width: 2.35rem; height: 2.35rem; }
   .directory { padding: 3.5rem 0 5rem; }
   .directory-intro h1 { font-size: clamp(2.8rem, 14vw, 4rem); line-height: 1; }
   .directory-intro > p { font-size: 1rem; }

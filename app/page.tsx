@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BusinessDirectory } from "@/components/BusinessDirectory";
+import { PiriCardSymbol } from "@/components/icons/PiriCardSymbol";
 import { getPublishedDirectoryBusinesses } from "@/lib/businesses";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function HomePage() {
     <main className="directory-page">
       <header className="platform-header">
         <Link className="platform-wordmark" href="/" aria-label="PiriCard — página inicial">
-          <Image src="/brand/pirilight-symbol.png" alt="" width={46} height={46} priority unoptimized />
+          <PiriCardSymbol />
           <span>Piri<span>Card</span></span>
         </Link>
         <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">PiriLight Studio</a>

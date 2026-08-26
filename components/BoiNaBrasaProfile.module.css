@@ -43,7 +43,7 @@
 }
 
 .platformBrand { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
-.platformBrand > span { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 5px; background: #f6efe3; color: var(--bnb-ink); font-weight: 900; }
+.platformMark { width: 23px; height: 23px; flex: none; color: var(--bnb-ember); }
 .platformBrand strong { font-style: normal; letter-spacing: -.02em; }
 .platformBrand em { color: #ef8c50; font-style: normal; }
 .platformActions { display: flex; align-items: center; gap: 14px; }

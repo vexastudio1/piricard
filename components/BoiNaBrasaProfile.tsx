@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight, MapPin } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { PiriCardSymbol } from "@/components/icons/PiriCardSymbol";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import type { Business } from "@/lib/businesses";
 import { getMapsHref, getPhoneHref } from "@/lib/links";
@@ -13,12 +14,10 @@ const collectionUrl = "https://www.toogoodtogo.com/pt/find/torresvedras/restaura
 const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=39.0916177,-9.2583152&destination_place_id=ChIJ7z4J8GDQ8Q0RzV0PksFzKaI";
 
 const essentialInformation = [
-  { label: "Cozinha", value: "Grelhados luso-brasileiros", note: "petiscos, sandes e pizzas" },
-  { label: "Preço médio", value: "10–15 € por pessoa", note: "indicado no Google por 47 pessoas" },
-  { label: "Especialidade", value: "Picanha e carnes na brasa", note: "com arroz, feijão, farofa e batata frita" },
-  { label: "Ambiente", value: "Casual, com esplanada", note: "refeição, café ou pequeno-almoço" },
-  { label: "Morada", value: "Rua 1.º de Dezembro 5", note: "2560-300 Torres Vedras · centro da cidade" },
   { label: "Telefone e reservas", value: "+351 261 063 480", note: "reservas por telefone · grupos bem-vindos", href: "tel:+351261063480" },
+  { label: "Morada", value: "Rua 1.º de Dezembro 5", note: "2560-300 Torres Vedras · centro da cidade" },
+  { label: "Preço médio", value: "10–15 € por pessoa", note: "indicado no Google por 47 pessoas" },
+  { label: "Cozinha", value: "Grelhados luso-brasileiros", note: "petiscos, sandes e pizzas" },
 ] as const;
 
 const mains = [
@@ -75,7 +74,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
       <article className={styles.shell}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
-            <span aria-hidden="true">P</span>
+            <PiriCardSymbol className={styles.platformMark} />
             <strong>Piri<em>Card</em></strong>
           </Link>
           <div className={styles.platformActions}>
