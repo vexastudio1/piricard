@@ -82,8 +82,9 @@
 .quickActions small { overflow: hidden; color: #8a7c6e; font: 400 11px/1.2 "IBM Plex Mono", monospace; text-overflow: ellipsis; white-space: nowrap; }
 .quickActions .actionDark { background: var(--bnb-ink); color: #f8f2e7; box-shadow: none; }
 .quickActions .actionDark small { color: #bdb0a2; }
-.quickActions .actionAccent { background: var(--bnb-ember); color: #fff6e9; box-shadow: none; }
-.quickActions .actionAccent small { color: rgba(255,246,233,.78); }
+.quickActions .actionGlovo { position: relative; padding-right: 42px; background: #ffc244; color: #1d1d1b; box-shadow: none; }
+.quickActions .actionGlovo small { color: #006f62; font-weight: 600; }
+.quickActions .actionGlovo svg { position: absolute; right: 13px; width: 20px; height: 20px; color: #006f62; stroke-width: 2.2; }
 
 .essentials { border-block: 1px solid rgba(25,20,17,.09); padding: 24px 20px; background: var(--bnb-white); }
 .kicker { margin: 0 0 16px; color: var(--bnb-faint); font: 600 11px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
@@ -96,6 +97,15 @@
 .serviceTags, .praise ul { margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
 .serviceTags li, .praise li { border-radius: 7px; padding: 7px 11px; background: #f3ece0; color: #4a3f36; font-size: 12px; font-weight: 600; line-height: 1.2; }
 .caveat { margin: 14px 0 0; color: var(--bnb-faint); font: 400 11.5px/1.5 "IBM Plex Mono", monospace; }
+
+.social { padding: 22px 20px 24px; }
+.social h2 { color: #4a3f36; font: 700 12px/1.3 "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.socialLinks { margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.socialLinks a { min-width: 0; min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 11px; padding: 11px 12px; font-size: 13px; font-weight: 700; line-height: 1.2; text-align: center; box-shadow: inset 0 0 0 1px rgba(25,20,17,.12); transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease; }
+.socialLinks svg { width: 18px; height: 18px; flex: none; stroke-width: 2; }
+.socialLinks .facebookButton { background: rgba(24,119,242,.055); color: #354e78; }
+.socialLinks .instagramButton { background: linear-gradient(135deg, rgba(193,53,132,.05), rgba(225,48,108,.075)); color: #8b3e63; }
+.socialLinks a:active { transform: scale(.985); }
 
 .about { padding: 32px 20px; }
 .about p { max-width: 62ch; margin: 12px 0 0; color: #3d342c; font-size: 15.5px; line-height: 1.62; }
@@ -115,8 +125,15 @@
 .menuColumns .menuList li { padding-block: 11px; }
 .menuColumns > div > p { margin: 14px 0 0; color: #a1938a; font-size: 12.5px; line-height: 1.55; }
 .menuLinks { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
-.menuLinks a { min-height: 46px; flex: 1 1 200px; display: grid; place-items: center; border-radius: 11px; padding: 12px 16px; color: #f6efe3; box-shadow: inset 0 0 0 1px rgba(246,239,227,.32); font-size: 14px; font-weight: 700; text-align: center; }
-.menuLinks a:first-child { background: #f6efe3; color: var(--bnb-ink); box-shadow: none; }
+.menuLinks a { min-height: 46px; flex: 1 1 200px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 11px; padding: 12px 16px; color: #f6efe3; box-shadow: inset 0 0 0 1px rgba(246,239,227,.32); font-size: 14px; font-weight: 700; text-align: center; transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease; }
+.menuLinks svg { width: 19px; height: 19px; flex: none; stroke-width: 2.2; }
+.menuLinks .glovoButton { background: #ffc244; color: #1d1d1b; box-shadow: none; }
+.menuLinks .glovoButton svg { color: #006f62; }
+.menuLinks .tooGoodToGoButton { background: #00615a; color: #fffdf8; border-color: transparent; box-shadow: none; }
+.menuLinks .tooGoodToGoButton svg { color: #a7e8d8; }
+.quickActions .actionGlovo:active, .menuLinks a:active { transform: scale(.985); }
+.quickActions .actionGlovo:focus-visible, .menuLinks .glovoButton:focus-visible { outline: 3px solid #006f62; outline-offset: 2px; }
+.menuLinks .tooGoodToGoButton:focus-visible { outline: 3px solid #a7e8d8; outline-offset: 2px; }
 .menuDisclaimer { margin: 14px 0 0; color: #8b7f76; font: 400 11.5px/1.5 "IBM Plex Mono", monospace; }
 
 .reviews { border-block: 1px solid rgba(25,20,17,.09); padding: 32px 20px; background: var(--bnb-white); }
@@ -177,8 +194,13 @@
   .quickActions a:hover, .contacts a:hover { transform: translateY(-2px); }
   .quickActions a:hover { box-shadow: 0 0 0 1px rgba(25,20,17,.3), 0 10px 20px -16px rgba(25,20,17,.7); }
   .quickActions .actionDark:hover { background: #2b211a; }
-  .quickActions .actionAccent:hover { background: #a84318; }
+  .quickActions .actionGlovo:hover, .menuLinks .glovoButton:hover { background: #ffd05c; }
+  .menuLinks .tooGoodToGoButton:hover { background: #08736a; }
+  .menuLinks a:hover { transform: translateY(-1px); box-shadow: 0 9px 18px -14px rgba(0,0,0,.75); }
   .contacts a:hover { background: rgba(246,239,227,.14); }
+  .socialLinks a:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(25,20,17,.22), 0 8px 18px -14px rgba(25,20,17,.5); }
+  .socialLinks .facebookButton:hover { background: rgba(24,119,242,.09); }
+  .socialLinks .instagramButton:hover { background: linear-gradient(135deg, rgba(193,53,132,.08), rgba(225,48,108,.11)); }
 }
 
 @media (max-width: 760px) {
@@ -191,7 +213,7 @@
   .platformBar { padding-inline: 14px; }
   .saveContact span { display: none; }
   .saveContact { width: 36px; padding: 0; justify-content: center; }
-  .identity, .quickActions, .essentials, .about, .menu, .reviews, .visit, .contacts, .footer { padding-left: 20px; padding-right: 20px; }
+  .identity, .quickActions, .essentials, .social, .about, .menu, .reviews, .visit, .contacts, .footer { padding-left: 20px; padding-right: 20px; }
   .quickActions { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .essentialGrid, .menuColumns, .visit { grid-template-columns: 1fr; }
   .essentialGrid > div { padding-inline: 2px; }
@@ -199,7 +221,7 @@
 }
 
 @media (max-width: 370px) {
-  .identity, .quickActions, .essentials, .about, .menu, .reviews, .visit, .contacts, .footer { padding-left: 16px; padding-right: 16px; }
+  .identity, .quickActions, .essentials, .social, .about, .menu, .reviews, .visit, .contacts, .footer { padding-left: 16px; padding-right: 16px; }
   .platformActions { gap: 7px; }
   .platformActions > a { letter-spacing: .06em; }
   .quickActions { gap: 8px; }

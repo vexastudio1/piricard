@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ChevronRight, MapPin } from "lucide-react";
+import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
@@ -130,7 +130,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
           <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small></a>
           <ExternalLink href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small></ExternalLink>
           <a href="#ementa"><strong>Ver ementa</strong><small>Destaques</small></a>
-          <ExternalLink className={styles.actionAccent} href={deliveryUrl}><strong>Pedir online</strong><small>Glovo</small></ExternalLink>
+          <ExternalLink className={styles.actionGlovo} href={deliveryUrl}><strong>Pedir online</strong><small>Glovo</small><Bike aria-hidden="true" /></ExternalLink>
         </nav>
 
         <section className={styles.essentials} aria-labelledby="essentials-heading">
@@ -144,7 +144,20 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
             ))}
           </dl>
           {business.services?.length ? <ul className={styles.serviceTags}>{business.services.map((service) => <li key={service}>{service}</li>)}</ul> : null}
-          <p className={styles.caveat}>Acessibilidade para cadeira de rodas ainda não confirmada — pergunte-nos antes da visita.</p>
+        </section>
+
+        <section className={styles.social} aria-labelledby="social-heading">
+          <h2 id="social-heading">Segue-nos nas redes sociais</h2>
+          <div className={styles.socialLinks}>
+            <ExternalLink className={styles.facebookButton} href="https://facebook.com/p/Restaurante-Boi-na-Brasa-61590189674905/">
+              <Facebook aria-hidden="true" />
+              <span>Seguir no Facebook</span>
+            </ExternalLink>
+            <ExternalLink className={styles.instagramButton} href="https://www.instagram.com/restauranteboinabrasa2026?igsi=eTJ3ZHBvMmx3dWRj">
+              <Instagram aria-hidden="true" />
+              <span>Seguir no Instagram</span>
+            </ExternalLink>
+          </div>
         </section>
 
         <section className={styles.about} aria-labelledby="about-heading">
@@ -174,8 +187,8 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
             </div>
           </div>
           <div className={styles.menuLinks}>
-            <ExternalLink href={deliveryUrl}>Ver ementa completa na Glovo</ExternalLink>
-            <ExternalLink href={collectionUrl}>Recolha na Too Good To Go</ExternalLink>
+            <ExternalLink className={styles.glovoButton} href={deliveryUrl}><span>Ver ementa completa na Glovo</span><Bike aria-hidden="true" /></ExternalLink>
+            <ExternalLink className={styles.tooGoodToGoButton} href={collectionUrl}><span>Recolha na Too Good To Go</span><Leaf aria-hidden="true" /></ExternalLink>
           </div>
           <p className={styles.menuDisclaimer}>Os preços de entrega podem diferir dos preços praticados no restaurante.</p>
         </section>
