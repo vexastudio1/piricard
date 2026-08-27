@@ -186,7 +186,7 @@ const businesses = {
     ],
     assets: {
       logo: "/clients/boi-na-brasa/logo.jpg",
-      cover: "/clients/boi-na-brasa/fachada.jpg",
+      cover: "/clients/boi-na-brasa/boi-na-brasa-header.webp",
       coverAlt: "Fachada do Boi na Brasa na Rua 1.º de Dezembro, em Torres Vedras, com esplanada",
       socialImage: "/clients/boi-na-brasa/fachada.jpg",
     },
