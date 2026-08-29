@@ -12,6 +12,7 @@ import {
 import type { ReactNode } from "react";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { OFTStickyBar } from "@/components/OFTStickyBar";
 import { OFTWhatsAppFab } from "@/components/OFTWhatsAppFab";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import type { Business } from "@/lib/businesses";
@@ -138,7 +139,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           </div>
         </header>
 
-        <nav id="oft-quick-actions" className={styles.quickActions} aria-label="Ações principais">
+        <nav className={styles.quickActions} aria-label="Ações principais">
           {phoneHref ? (
             <a className={styles.actionDark} href={phoneHref} aria-label={`Ligar para ${business.name}`}>
               <span className={styles.actionIcon}><Phone aria-hidden="true" /></span>
@@ -354,14 +355,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
 
       {whatsappHref ? <OFTWhatsAppFab href={whatsappHref} className={styles.whatsappFab} /> : null}
 
-      {(phoneHref || mapsHref) ? (
-        <nav className={styles.stickyBar} aria-label="Ações persistentes">
-          <div>
-            {phoneHref ? <a href={phoneHref}><Phone aria-hidden="true" /><span>Ligar</span></a> : null}
-            {mapsHref ? <ExternalLink href={mapsHref} ariaLabel={`Obter direções para ${business.name}`}><Navigation aria-hidden="true" /><span>Chegar</span></ExternalLink> : null}
-          </div>
-        </nav>
-      ) : null}
+      <OFTStickyBar className={styles.stickyBar} businessName={business.name} phoneHref={phoneHref} mapsHref={mapsHref} />
     </main>
   );
 }

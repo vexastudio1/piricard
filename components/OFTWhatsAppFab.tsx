@@ -8,23 +8,17 @@ interface OFTWhatsAppFabProps {
   className: string;
 }
 
-// OFT Racing-only floating WhatsApp action. Stays hidden until the top quick-actions
-// grid (#oft-quick-actions) has scrolled out of view, so it never overlaps Ligar /
-// Como chegar / Deixar avaliação / Guardar contacto on short mobile viewports —
-// same IntersectionObserver approach as StickyProfileActions.tsx.
+// OFT Racing-only floating WhatsApp action. Reveals automatically ~3s after the page
+// loads — independent of scroll position, sections or IntersectionObservers — and
+// then stays visible regardless of further scrolling.
+const REVEAL_DELAY_MS = 3000;
+
 export function OFTWhatsAppFab({ href, className }: OFTWhatsAppFabProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const anchor = document.getElementById("oft-quick-actions");
-    if (!anchor || typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting && entry.boundingClientRect.bottom < 0),
-      { threshold: 0 },
-    );
-    observer.observe(anchor);
-    return () => observer.disconnect();
+    const timer = window.setTimeout(() => setVisible(true), REVEAL_DELAY_MS);
+    return () => window.clearTimeout(timer);
   }, []);
 
   if (!visible) return null;

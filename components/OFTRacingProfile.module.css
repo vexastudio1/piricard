@@ -112,13 +112,52 @@
 .page :global(.profile-toast) { bottom: calc(78px + env(safe-area-inset-bottom)); border-radius: 9px; background: var(--oft-ink); font-family: Barlow, sans-serif; }
 
 .kicker { margin: 0 0 15px; color: var(--oft-faint); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
-.essentials { border-block: 1px solid rgba(18, 18, 19, .09); padding: 28px 20px 18px; background: var(--oft-white); }
+.essentials {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid rgba(18, 18, 19, .09);
+  padding: 28px 20px 18px;
+  background: var(--oft-white);
+}
+/* Small red accent bar echoing the same motif used above "Sobre a OFT" — ties the
+   section to the OFT identity without a heavy redesign. */
+.essentials::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1;
+  background: var(--oft-accent);
+}
+/* Branded geometric backdrop. The source graphic is wide/landscape with its detail
+   concentrated at the edges and an empty middle, so it's fit to the section's full
+   width (never `cover`) to keep those edge details intact instead of cropping into
+   an empty strip on narrow mobile screens — see informacao-essencial-bg.webp. */
+.essentials::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/clients/oft-racing/informacao-essencial-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center 42%;
+  background-size: 100% auto;
+  opacity: .6;
+}
+.essentials > * { position: relative; z-index: 1; }
 .essentialGrid { margin: 0; display: grid; }
 .essentialGrid > div { min-width: 0; display: grid; grid-template-columns: minmax(96px, 34%) minmax(0, 1fr); gap: 14px; border-bottom: 1px solid var(--oft-line); padding: 15px 0; }
 .essentialGrid > div:last-child { border-bottom: 0; }
 .essentialGrid dt { color: var(--oft-faint); font: 600 9.5px/1.25 "IBM Plex Mono", monospace; letter-spacing: .09em; text-transform: uppercase; }
+/* Tiny technical-label tick, in the spirit of OFT's telemetry/motorsport data cues. */
+.essentialGrid dt::before { content: ""; width: 5px; height: 5px; margin-right: 7px; display: inline-block; vertical-align: middle; border-radius: 1px; background: var(--oft-accent); }
 .essentialGrid dd { min-width: 0; margin: 0; display: grid; gap: 5px; color: var(--oft-ink); font-size: 14.5px; line-height: 1.3; overflow-wrap: anywhere; }
 .essentialGrid dd > :is(a, strong), .essentialGrid dd > :global(.today-hours) { font-weight: 600; }
+/* Tappable rows (Telefone, Morada, Email) read as actionable at a glance. */
+.essentialGrid dd > a { color: var(--oft-accent-dark); }
 .essentialGrid small { color: var(--oft-muted); font: 400 10.5px/1.4 "IBM Plex Mono", monospace; }
 .essentialGrid :global(.today-hours) { display: block; }
 .essentialGrid :global(.today-hours-state) { display: none; }
@@ -152,7 +191,22 @@
 .brandList li { border: 1px solid rgba(18, 18, 19, .14); border-radius: 6px; padding: 7px 10px; background: var(--oft-white); color: var(--oft-ink); font: 700 11.5px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
 .categoryList li { border-radius: 999px; padding: 7px 12px; background: var(--oft-accent-soft); color: var(--oft-accent-dark); font-size: 12.5px; font-weight: 600; }
 
-.reviews { padding: 34px 20px 36px; background: var(--oft-white); }
+.reviews { position: relative; overflow: hidden; padding: 34px 20px 36px; background: var(--oft-white); }
+/* OFT Racing watermark, moved here from Informação Essencial — a touch more present
+   than before, but still an isolated layer so it never dims the rating, bars or CTAs. */
+.reviews::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/clients/oft-racing/oft-racing-pattern.webp");
+  background-repeat: repeat;
+  background-position: right -30px top -70px;
+  background-size: 440px auto;
+  opacity: .065;
+}
+.reviews > * { position: relative; z-index: 1; }
 .sectionIntro .kicker { margin-bottom: 9px; }
 .reviewRating { font: 700 clamp(3.5rem, 16vw, 5.25rem)/.8 "Barlow Condensed", sans-serif; letter-spacing: -.04em; }
 .stars { display: flex; gap: 3px; color: #dda225; }
@@ -212,7 +266,7 @@
 .footer > span { font-size: 11px; --brand-mark-color: var(--oft-accent); }
 .footer > span > span > span { color: #ef6d59; }
 
-.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(244, 241, 235, .96); box-shadow: 0 -1px 0 rgba(18, 18, 19, .12), 0 -10px 30px rgba(18, 18, 19, .08); backdrop-filter: blur(10px); }
+.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(244, 241, 235, .96); box-shadow: 0 -1px 0 rgba(18, 18, 19, .12), 0 -10px 30px rgba(18, 18, 19, .08); backdrop-filter: blur(10px); animation: oftBarIn 220ms ease; }
 .stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .stickyBar a { min-width: 0; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 9px; background: var(--oft-ink); color: #fff; font: 700 13px/1 "Barlow Condensed", sans-serif; letter-spacing: .09em; text-transform: uppercase; }
 .stickyBar a:last-child { background: var(--oft-accent); }
@@ -232,14 +286,27 @@
   color: #fff;
   box-shadow: 0 12px 26px -10px rgba(18, 18, 19, .5), 0 0 0 1px rgba(18, 18, 19, .08);
   transition: transform 160ms ease, box-shadow 160ms ease;
+  animation: oftFabIn 240ms ease;
 }
 .whatsappFab svg { width: 25px; height: 25px; stroke-width: 2; }
 .whatsappFab:active { transform: scale(.94); }
+
+@keyframes oftBarIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes oftFabIn {
+  from { opacity: 0; transform: translateY(8px) scale(.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 @media (min-width: 700px) {
   .identity { padding-inline: 34px; }
   .quickActions { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: 34px; }
   .essentials, .social, .about, .reviews { padding-inline: 34px; }
+  .essentials::before { left: 34px; }
+  .essentials::after { background-size: 480px auto; }
+  .reviews::before { background-size: 560px auto; }
   .essentialGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
   .essentialGrid > div:nth-last-child(-n + 2) { border-bottom: 0; }
   .social { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
@@ -264,6 +331,7 @@
 @media (max-width: 390px) {
   .platformBar { padding-inline: 16px; }
   .identity, .quickActions, .essentials, .social, .reviews, .hours, .location, .contacts, .footer { padding-left: 16px; padding-right: 16px; }
+  .essentials::before { left: 16px; }
   .heroImage { aspect-ratio: 1.55 / 1; }
   .logo { width: 98px; height: 98px; }
   .logo img { width: 75px; }
