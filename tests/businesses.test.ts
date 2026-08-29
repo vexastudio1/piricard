@@ -8,6 +8,12 @@ describe("business lookup", () => {
     expect(business?.name).toBe("Boi na Brasa");
     expect(business?.layoutVariant).toBe("restaurant");
   });
+  it("resolves the OFT Racing profile", () => {
+    const business = getBusinessBySlug("oft-racing");
+    expect(business?.name).toBe("OFT Racing Shop");
+    expect(business?.layoutVariant).toBe("racing");
+    expect(business?.contact.phone).toBe("+351919678052");
+  });
   it("rejects malformed and unknown slugs", () => {
     expect(isValidSlug("Auto Formigal")).toBe(false);
     expect(getBusinessBySlug("../autoformigal")).toBeUndefined();
@@ -19,7 +25,7 @@ describe("business lookup", () => {
   });
   it("exposes only published businesses in the directory", () => {
     expect(getPublishedBusinesses().every((business) => business.published)).toBe(true);
-    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "boi-na-brasa"]);
+    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "boi-na-brasa", "oft-racing"]);
   });
   it("keeps unconfirmed fields optional", () => {
     const business = getBusinessBySlug("autoformigal");

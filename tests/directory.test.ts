@@ -8,7 +8,8 @@ describe("directory search", () => {
   it("matches name, category and locality without accents", () => {
     expect(filterBusinesses(businesses, "formigal")).toHaveLength(1);
     expect(filterBusinesses(businesses, "oficina")).toHaveLength(1);
-    expect(filterBusinesses(businesses, "sao pedro")).toHaveLength(1);
+    expect(filterBusinesses(businesses, "sao pedro").map((business) => business.slug)).toEqual(["autoformigal", "oft-racing"]);
+    expect(filterBusinesses(businesses, "loja de motos").map((business) => business.slug)).toEqual(["oft-racing"]);
   });
 
   it("finds Boi na Brasa by category and locality", () => {

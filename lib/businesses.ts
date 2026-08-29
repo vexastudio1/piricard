@@ -40,6 +40,7 @@ export interface Business {
   contact: { phone?: string; whatsapp?: string; email?: string; website?: string };
   location?: { city?: string; address?: string; streetAddress?: string; country?: string; mapsUrl?: string };
   reviewUrl?: string;
+  reviewSnapshot?: { rating: number; count: number; source: string; asOf: string };
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
   hours?: BusinessHoursEntry[];
@@ -47,7 +48,7 @@ export interface Business {
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
-  layoutVariant: "editorial" | "compact" | "restaurant";
+  layoutVariant: "editorial" | "compact" | "restaurant" | "racing";
 }
 
 export type DirectoryBusiness = Pick<Business, "slug" | "name" | "category" | "directoryDescription"> & {
@@ -203,6 +204,64 @@ const businesses = {
       fontFamily: "modern",
     },
     layoutVariant: "restaurant",
+  },
+  "oft-racing": {
+    slug: "oft-racing",
+    name: "OFT Racing Shop",
+    organization: "OFT Racing Shop",
+    category: "Loja de motos",
+    published: true,
+    featured: false,
+    indexable: true,
+    directoryDescription: "Loja de motos em São Pedro da Cadeira.",
+    profileDescription: "Loja de motos em São Pedro da Cadeira.",
+    contact: {
+      phone: "+351919678052",
+    },
+    location: {
+      city: "São Pedro da Cadeira",
+      address: "R. Gonçalo Velho Cabral 2, São Pedro da Cadeira, Portugal",
+      streetAddress: "R. Gonçalo Velho Cabral 2",
+      country: "Portugal",
+    },
+    socialLinks: [
+      { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/oftracing153/" },
+      { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/p/OFT-Racing-100057400693321/" },
+    ],
+    hours: [
+      { label: "Segunda", days: [1], periods: [] },
+      { label: "Terça", days: [2], periods: [{ open: "10:00", close: "19:00" }] },
+      { label: "Quarta", days: [3], periods: [{ open: "10:00", close: "19:00" }] },
+      { label: "Quinta", days: [4], periods: [{ open: "10:00", close: "19:00" }] },
+      { label: "Sexta", days: [5], periods: [{ open: "10:00", close: "19:00" }] },
+      { label: "Sábado", days: [6], periods: [{ open: "10:00", close: "13:00" }] },
+      { label: "Domingo", days: [0], periods: [] },
+    ],
+    reviewSnapshot: {
+      rating: 4.8,
+      count: 35,
+      source: "Google",
+      asOf: "28.08.2026",
+    },
+    assets: {
+      logo: "/clients/oft-racing/logo.png",
+      cover: "/clients/oft-racing/fachada.webp",
+      coverAlt: "Fachada da OFT Racing Shop em São Pedro da Cadeira",
+      socialImage: "/clients/oft-racing/fachada.webp",
+    },
+    theme: {
+      primary: "#0c0c0d",
+      secondary: "#08080a",
+      accent: "#c2301a",
+      background: "#dedbd5",
+      surface: "#f4f2ee",
+      text: "#0c0c0d",
+      mutedText: "#5e5c56",
+      border: "#d8d4cc",
+      appearance: "dark",
+      fontFamily: "modern",
+    },
+    layoutVariant: "racing",
   },
 } as const satisfies Record<string, Business>;
 

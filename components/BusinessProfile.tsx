@@ -18,6 +18,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BoiNaBrasaProfile } from "@/components/BoiNaBrasaProfile";
+import { OFTRacingProfile } from "@/components/OFTRacingProfile";
 import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
 import { DigitalBusinessCard } from "@/components/DigitalBusinessCard";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
@@ -214,6 +215,10 @@ function PiriCardFooter() {
 export function BusinessProfile({ business }: { business: Business }) {
   if (business.layoutVariant === "restaurant") {
     return <BoiNaBrasaProfile business={business} />;
+  }
+
+  if (business.layoutVariant === "racing") {
+    return <OFTRacingProfile business={business} />;
   }
 
   const canonicalUrl = getCanonicalProfileUrl(business.slug);

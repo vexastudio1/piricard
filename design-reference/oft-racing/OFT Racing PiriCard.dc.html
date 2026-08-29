@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{--acc:#C2301A;--acc-lt:#F2765A;--ink:#0C0C0D;--ev-display:inline-flex;--dock-display:flex}
+body{margin:0;background:#DEDBD5;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--acc)}a:hover{color:#0C0C0D}
+.dv-turn{padding:44px 48px 36px;border-bottom:1px solid rgba(0,0,0,.1);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 22px}
+.dv-tid{font:600 10px/1 'IBM Plex Mono',monospace;padding:4px 7px;background:#0C0C0D;color:#fff;border-radius:3px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 Barlow,sans-serif;color:#0C0C0D}
+.dv-opts{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px/1 'IBM Plex Mono',monospace;padding:4px 7px;background:rgba(0,0,0,.1);color:#0C0C0D;border-radius:4px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 Barlow,sans-serif;color:rgba(0,0,0,.55);max-width:390px}
+.dv-card{max-width:100%;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.14);overflow:hidden}
+.dv-opt:target .dv-oid{background:var(--acc);color:#0C0C0D}
+.dv-next{margin:24px 0 0;font:12px/1.6 Barlow,sans-serif;color:rgba(0,0,0,.5)}
+.ev{display:var(--ev-display);align-items:center;gap:4px;font:500 8.5px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border-radius:2px;vertical-align:middle}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style></helmet>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Final — topo calmo, mapa em vez de foto repetida, módulo de avaliações Google</span></div>
+
+<div class="dv-opts">
+
+<!-- ============ 3a ============ -->
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a><span><strong style="color:#0C0C0D">Mobile</strong> — fachada 16:9 com toda a frente da loja, badge circular sobre o herói, ações em três níveis claros: 1 primária, 2 secundárias, 3 utilitárias.</span></div>
+<div class="dv-card" style="width:390px">
+
+<div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:19px;height:19px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 11px/1 'Barlow Condensed',sans-serif;color:#fff;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 15px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc-lt);font-weight:600">Card</span></span>
+  </div>
+  <a href="#3a" style="min-height:44px;display:flex;align-items:center;gap:5px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none">Directório
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+
+<div style="position:relative;height:220px;overflow:hidden;background:#0C0C0D">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop em São Pedro da Cadeira" style="position:absolute;width:199%;left:-61.5%;top:-58.5%;display:block;animation:rise .55s ease-out both">
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,13,.96) 0,rgba(12,12,13,.34) 42%,rgba(12,12,13,0) 82%)"></div>
+</div>
+
+<div style="background:#0C0C0D;padding:0 18px 20px">
+  <div style="margin-top:-54px;position:relative;width:108px;height:108px;border-radius:50%;background:#fff;border:4px solid #0C0C0D;box-shadow:0 6px 20px rgba(0,0,0,.5);display:grid;place-items:center">
+    <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:78px;height:auto;display:block">
+  </div>
+  <h1 style="margin:15px 0 0;font:700 32px/0.95 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff">OFT Racing <span style="color:rgba(255,255,255,.42)">Shop</span></h1>
+  <p style="margin:8px 0 0;font:400 14px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.68);text-wrap:pretty">Loja de motos e oficina, com equipamento de piloto.</p>
+  <div style="display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:6px;font:500 12.5px/1 Barlow,sans-serif;color:rgba(255,255,255,.8)">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>São Pedro da Cadeira</span>
+    <span style="width:1px;height:12px;background:rgba(255,255,255,.2)"></span>
+    <span style="display:flex;align-items:center;gap:6px;font:600 12.5px/1 Barlow,sans-serif;color:#fff">
+      <span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }}"></span>{{ statusLabel }}</span>
+    <span style="font:400 12px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.6)">{{ statusDetail }}</span>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:0 18px 4px">
+  <a href="tel:+351919678052" style="display:flex;align-items:center;gap:12px;height:60px;padding:0 18px;background:var(--acc);color:#fff;text-decoration:none;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 100%,0 100%)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+    <span style="font:700 19px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">Ligar</span>
+    <span style="margin-left:auto;font:500 13px/1 'IBM Plex Mono',monospace;color:#fff">919 678 052</span>
+  </a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:9px;background:transparent;border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:9px;background:transparent;border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+      <span style="width:20px;height:20px;flex:none;border-radius:6px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span>Instagram</a>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:14px 18px 22px">
+  <div style="display:flex;border-top:1px solid rgba(255,255,255,.13)">
+    <a href="#3a" style="flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:7px;color:rgba(255,255,255,.72);text-decoration:none;font:500 12px/1 Barlow,sans-serif">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar</a>
+    <span style="width:1px;background:rgba(255,255,255,.13);margin:14px 0"></span>
+    <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:7px;color:rgba(255,255,255,.72);text-decoration:none;font:500 12px/1 Barlow,sans-serif">
+      <span style="font:700 14px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">f</span>Facebook</a>
+    <span style="width:1px;background:rgba(255,255,255,.13);margin:14px 0"></span>
+    <a href="#3a" style="flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:7px;color:rgba(255,255,255,.72);text-decoration:none;font:500 12px/1 Barlow,sans-serif">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>QR</a>
+  </div>
+</div>
+
+<div style="background:#F4F2EE;padding:26px 18px 24px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que fazemos</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+  </div>
+  <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
+    <div>
+      <div style="display:flex;align-items:baseline;gap:9px">
+        <h2 style="margin:0;font:700 24px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja de motos</h2>
+        <span style="font:500 10px/1 'IBM Plex Mono',monospace;color:#5E5C56">01</span>
+      </div>
+      <p style="margin:6px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos, moto 4, SSV e e-bike, com equipamento e acessórios de piloto.</p>
+    </div>
+    <div style="height:1px;background:rgba(0,0,0,.11)"></div>
+    <div>
+      <div style="display:flex;align-items:baseline;gap:9px">
+        <h2 style="margin:0;font:700 24px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</h2>
+        <span style="font:500 10px/1 'IBM Plex Mono',monospace;color:#5E5C56">02</span>
+      </div>
+      <p style="margin:6px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local, na mesma morada da loja.</p>
+    </div>
+  </div>
+  <div style="margin-top:22px;padding-top:16px;border-top:2px solid #0C0C0D">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde trabalhamos</span>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Enduro</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Motocross</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Off-road</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Estrada</span>
+    </div>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:24px 18px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc-lt)">02</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)">Horário</span>
+    <span style="flex:1;height:1px;background:rgba(255,255,255,.13)"></span>
+  </div>
+  <div style="margin-top:12px">
+    <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:{{ d.bg }}">
+        <span style="display:flex;align-items:center;gap:8px;font:600 13px/1 Barlow,sans-serif;color:{{ d.fg }}"><span style="width:2px;height:13px;background:{{ d.bar }}"></span>{{ d.name }}</span>
+        <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:{{ d.fg }}">{{ d.hours }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <p style="margin:11px 0 0;font:400 11.5px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.55)">Hora de Lisboa. Feriados e horários especiais podem diferir.</p>
+</div>
+
+<div style="background:#F4F2EE">
+  <div style="padding:26px 18px 0">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">03</span>
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde estamos</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="margin-top:15px;font:700 22px/1.08 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+    <div style="font:500 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:2px">2560-717 São Pedro da Cadeira</div>
+  </div>
+  <div style="margin:16px 18px 0;position:relative;height:158px;overflow:hidden;background:#16171A">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:28px 28px"></div>
+    <div style="position:absolute;left:-8%;top:62%;width:118%;height:14px;background:rgba(255,255,255,.12);transform:rotate(-4deg)"></div>
+    <div style="position:absolute;left:-8%;top:66%;width:118%;height:1px;background:rgba(255,255,255,.2);transform:rotate(-4deg)"></div>
+    <div style="position:absolute;left:22%;top:-22%;width:9px;height:144%;background:rgba(255,255,255,.08);transform:rotate(13deg)"></div>
+    <div style="position:absolute;left:76%;top:-22%;width:7px;height:144%;background:rgba(255,255,255,.06);transform:rotate(-10deg)"></div>
+    <span style="position:absolute;left:12px;top:calc(62% + 20px);font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.6);transform:rotate(-4deg)">R. GONÇALO VELHO CABRAL</span>
+    <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%) translateY(-50px);background:#0C0C0D;border-bottom:2px solid var(--acc);padding:6px 10px;white-space:nowrap">
+      <span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff">OFT RACING SHOP</span>
+    </div>
+    <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);display:grid;place-items:center">
+      <span style="position:absolute;width:58px;height:58px;border-radius:50%;background:rgba(194,48,26,.16);border:1px solid rgba(242,118,90,.4)"></span>
+      <span style="position:relative;width:24px;height:24px;border-radius:50%;background:var(--acc);border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.55)"></span>
+    </div>
+    <span style="position:absolute;right:9px;bottom:8px;font:500 9px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:rgba(255,255,255,.6)">GOOGLE MAPS</span>
+  </div>
+  <div style="padding:10px 18px 26px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc-lt)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</div>
+
+<div style="background:#E9E6DF;padding:26px 18px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">04</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que dizem os clientes</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.13)"></span>
+  </div>
+  <div style="margin-top:16px;background:#fff;padding:20px 18px">
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font:700 54px/0.9 'Barlow Condensed',sans-serif;color:#0C0C0D">4,8</div>
+      <div style="border-left:1px solid rgba(0,0,0,.16);padding-left:16px">
+        <div style="display:flex;gap:2px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+        </div>
+        <div style="font:600 13.5px/1.3 Barlow,sans-serif;color:#0C0C0D;margin-top:7px">35 avaliações no Google</div>
+      </div>
+    </div>
+    <a href="#3a" style="margin-top:18px;min-height:54px;display:flex;align-items:center;justify-content:center;gap:9px;background:#0C0C0D;color:#fff;text-decoration:none;font:700 17px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0A92B" stroke-width="1.8"><polygon points="12,2.6 15,9.2 22,9.7 16.5,14.1 18.5,21 12,17.1 5.5,21 7.5,14.1 2,9.7 9,9.2"/></svg>
+      Deixar uma avaliação</a>
+    <a href="#3a" style="margin-top:2px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:7px;color:#3B3A37;text-decoration:none;font:600 13px/1 Barlow,sans-serif">Ver avaliações
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:24px 18px;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-16px;top:-26px;font:700 130px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.04);pointer-events:none">153</div>
+  <a href="#3a" style="position:relative;min-height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;background:transparent;border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc-lt)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+    <span style="font:600 14px/1 Barlow,sans-serif">Guardar contacto</span>
+    <span style="margin-left:auto;font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">vCard</span></a>
+</div>
+
+<div style="background:#08080A;padding:20px 18px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:7px">
+    <div style="width:15px;height:15px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 12px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Perfil criado com Piri<span style="color:var(--acc-lt)">Card</span></span>
+  </div>
+  <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">piricard.pt</span>
+</div>
+
+<div style="position:sticky;bottom:0;display:var(--dock-display);gap:1px;background:rgba(255,255,255,.13);padding-top:1px">
+  <a href="tel:+351919678052" style="flex:1.5;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:#fff;text-decoration:none;font:700 16px/1 'Barlow Condensed',sans-serif;letter-spacing:.07em;text-transform:uppercase">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>Ligar</a>
+  <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(12,12,13,.96);backdrop-filter:blur(8px);color:#fff;text-decoration:none;font:700 16px/1 'Barlow Condensed',sans-serif;letter-spacing:.07em;text-transform:uppercase">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc-lt)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chegar</a>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 3b ============ -->
+<div class="dv-opt" id="3b">
+<div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a><span><strong style="color:#0C0C0D">Desktop de <a class="dv-oid" href="#3a">3a</a></strong> — 1180px. Fachada larga, badge circular sobre o herói, essenciais numa coluna calma à direita.</span></div>
+<div class="dv-card" style="width:1180px">
+
+<div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:9px">
+    <div style="width:20px;height:20px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 12px/1 'Barlow Condensed',sans-serif;color:#fff;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 16px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc-lt);font-weight:600">Card</span></span>
+  </div>
+  <a href="#3b" style="min-height:44px;display:flex;align-items:center;gap:6px;font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none">Directório
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+
+<div style="position:relative;height:400px;overflow:hidden;background:#0C0C0D">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop" style="position:absolute;width:112%;left:-6%;top:-40%;display:block">
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,13,.95) 0,rgba(12,12,13,.3) 46%,rgba(12,12,13,0) 84%)"></div>
+</div>
+
+<div style="background:#0C0C0D;padding:0 32px 26px;display:flex;align-items:flex-end;gap:24px">
+  <div style="margin-top:-62px;flex:none;width:132px;height:132px;border-radius:50%;background:#fff;border:5px solid #0C0C0D;box-shadow:0 8px 26px rgba(0,0,0,.5);display:grid;place-items:center">
+    <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:96px;height:auto;display:block">
+  </div>
+  <div style="flex:1;padding-bottom:4px">
+    <h1 style="margin:0;font:700 54px/0.92 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;letter-spacing:-.01em">OFT Racing <span style="color:rgba(255,255,255,.42)">Shop</span></h1>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <span style="font:400 15px/1 Barlow,sans-serif;color:rgba(255,255,255,.7)">Loja de motos e oficina, com equipamento de piloto</span>
+      <span style="width:1px;height:13px;background:rgba(255,255,255,.2)"></span>
+      <span style="display:flex;align-items:center;gap:6px;font:500 14px/1 Barlow,sans-serif;color:rgba(255,255,255,.8)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>São Pedro da Cadeira</span>
+      <span style="width:1px;height:13px;background:rgba(255,255,255,.2)"></span>
+      <span style="display:flex;align-items:center;gap:7px;font:600 14px/1 Barlow,sans-serif;color:#fff">
+        <span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }}"></span>{{ statusLabel }}</span>
+      <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.6)">{{ statusDetail }}</span>
+    </div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 356px;background:#F4F2EE">
+  <div style="padding:32px 34px 40px">
+    <div style="display:flex;align-items:center;gap:9px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que fazemos</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:9px"><h2 style="margin:0;font:700 27px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja de motos</h2><span style="font:500 10.5px/1 'IBM Plex Mono',monospace;color:#5E5C56">01</span></div>
+        <p style="margin:8px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos, moto 4, SSV e e-bike, com equipamento e acessórios de piloto.</p>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:9px"><h2 style="margin:0;font:700 27px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</h2><span style="font:500 10.5px/1 'IBM Plex Mono',monospace;color:#5E5C56">02</span></div>
+        <p style="margin:8px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local, na mesma morada da loja.</p>
+      </div>
+    </div>
+    <div style="margin-top:26px;padding-top:16px;border-top:2px solid #0C0C0D;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde trabalhamos</span>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Enduro</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Motocross</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Off-road</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Estrada</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:34px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">02</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Horário e local</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:16px">
+      <div>
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(0,0,0,.1);background:{{ d.bgLight }}">
+            <span style="font:600 13.5px/1 Barlow,sans-serif;color:{{ d.fgLight }}">{{ d.name }}</span>
+            <span style="font:400 13.5px/1 'IBM Plex Mono',monospace;color:{{ d.fgLight }}">{{ d.hours }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div>
+        <div style="position:relative;height:158px;overflow:hidden;background:#16171A">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:28px 28px"></div>
+          <div style="position:absolute;left:-8%;top:62%;width:118%;height:14px;background:rgba(255,255,255,.12);transform:rotate(-4deg)"></div>
+          <div style="position:absolute;left:-8%;top:66%;width:118%;height:1px;background:rgba(255,255,255,.2);transform:rotate(-4deg)"></div>
+          <div style="position:absolute;left:22%;top:-22%;width:9px;height:144%;background:rgba(255,255,255,.08);transform:rotate(13deg)"></div>
+          <div style="position:absolute;left:76%;top:-22%;width:7px;height:144%;background:rgba(255,255,255,.06);transform:rotate(-10deg)"></div>
+          <span style="position:absolute;left:12px;top:calc(62% + 20px);font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.6);transform:rotate(-4deg)">R. GONÇALO VELHO CABRAL</span>
+          <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%) translateY(-50px);background:#0C0C0D;border-bottom:2px solid var(--acc);padding:6px 10px;white-space:nowrap">
+            <span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff">OFT RACING SHOP</span>
+          </div>
+          <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);display:grid;place-items:center">
+            <span style="position:absolute;width:58px;height:58px;border-radius:50%;background:rgba(194,48,26,.16);border:1px solid rgba(242,118,90,.4)"></span>
+            <span style="position:relative;width:24px;height:24px;border-radius:50%;background:var(--acc);border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.55)"></span>
+          </div>
+          <span style="position:absolute;right:9px;bottom:8px;font:500 9px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:rgba(255,255,255,.6)">GOOGLE MAPS</span>
+        </div>
+        <div style="margin-top:12px;font:700 24px/1.08 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+        <div style="font:500 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:2px">2560-717 São Pedro da Cadeira</div>
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="margin-top:13px;min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc-lt)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:34px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">03</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que dizem os clientes</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="margin-top:16px;background:#fff;padding:22px 24px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div style="font:700 58px/0.9 'Barlow Condensed',sans-serif;color:#0C0C0D">4,8</div>
+        <div style="border-left:1px solid rgba(0,0,0,.16);padding-left:18px">
+          <div style="display:flex;gap:3px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#F0A92B"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+          </div>
+          <div style="font:600 14.5px/1.3 Barlow,sans-serif;color:#0C0C0D;margin-top:8px">35 avaliações no Google</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:280px;display:flex;align-items:center;gap:6px">
+        <a href="#3b" style="flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;gap:9px;background:#0C0C0D;color:#fff;text-decoration:none;font:700 17px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0A92B" stroke-width="1.8"><polygon points="12,2.6 15,9.2 22,9.7 16.5,14.1 18.5,21 12,17.1 5.5,21 7.5,14.1 2,9.7 9,9.2"/></svg>
+          Deixar uma avaliação</a>
+        <a href="#3b" style="min-height:54px;display:flex;align-items:center;gap:7px;padding:0 14px;color:#3B3A37;text-decoration:none;font:600 13px/1 Barlow,sans-serif">Ver avaliações
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0C0C0D;padding:32px 26px 40px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-20px;bottom:-26px;font:700 150px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.035);pointer-events:none">153</div>
+    <div style="position:relative">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.57)">Essenciais</span>
+      <a href="tel:+351919678052" style="margin-top:14px;display:flex;align-items:center;gap:12px;height:62px;padding:0 18px;background:var(--acc);color:#fff;text-decoration:none;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+        <span style="font:700 19px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">Ligar</span>
+        <span style="margin-left:auto;font:500 13px/1 'IBM Plex Mono',monospace;color:#fff">919 678 052</span></a>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:54px;display:flex;align-items:center;gap:11px;padding:0 16px;background:transparent;border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+        <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:54px;display:flex;align-items:center;gap:11px;padding:0 16px;background:transparent;border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <span style="width:22px;height:22px;flex:none;border-radius:6px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span>Instagram
+          <span style="margin-left:auto;font:400 11.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">@oftracing153</span></a>
+      </div>
+      <div style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.13);display:flex;flex-direction:column">
+        <a href="#3b" style="min-height:50px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.72);text-decoration:none;font:500 13px/1 Barlow,sans-serif">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar contacto
+          <span style="margin-left:auto;font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">vCard</span></a>
+        <span style="height:1px;background:rgba(255,255,255,.1)"></span>
+        <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.72);text-decoration:none;font:500 13px/1 Barlow,sans-serif">
+          <span style="width:15px;text-align:center;font:700 15px/1 Barlow,sans-serif">f</span>Facebook
+          <span style="margin-left:auto;font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">OFT Racing</span></a>
+        <span style="height:1px;background:rgba(255,255,255,.1)"></span>
+        <a href="#3b" style="min-height:50px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.72);text-decoration:none;font:500 13px/1 Barlow,sans-serif">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>QR / Partilhar</a>
+      </div>
+      <p style="margin:22px 0 0;font:400 12px/1.55 Barlow,sans-serif;color:rgba(255,255,255,.55)">Sem website, email ou WhatsApp associados ao negócio neste momento.</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#08080A;padding:22px 32px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:16px;height:16px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 13px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Perfil criado com Piri<span style="color:var(--acc-lt)">Card</span></span>
+  </div>
+  <span style="font:400 11.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">piricard.pt</span>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">A seguir: “badge circular maior” · “mostra o estado fechado” · “versão clara de <a class="dv-oid" href="#3a">3a</a>” · “galeria da loja quando houver fotos aprovadas”</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Refinamento de <a class="dv-oid" href="#1a">1a</a> — mais PiriCard, vermelho controlado, prova social real</span></div>
+
+<div class="dv-opts">
+
+<!-- ============ 2a ============ -->
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a><span><strong style="color:#0C0C0D">Mobile final</strong> — enquadramento da fachada corrigido, área de essenciais com hierarquia real, “o que fazemos” no topo, avaliações reais, zero linguagem de rascunho.</span></div>
+<div class="dv-card" style="width:390px">
+
+<div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 16px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:19px;height:19px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 11px/1 'Barlow Condensed',sans-serif;color:#fff;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 15px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:2px">
+    <a href="#2a" style="min-width:44px;min-height:44px;display:grid;place-items:center;color:rgba(255,255,255,.6);text-decoration:none">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg></a>
+    <a href="#2a" style="min-height:44px;display:flex;align-items:center;gap:5px;padding-left:6px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none">Directório
+      <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</div>
+
+<div style="position:relative;background:#0C0C0D">
+  <div style="position:relative;height:268px;overflow:hidden">
+    <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop em São Pedro da Cadeira" style="position:absolute;width:244%;left:-89%;top:-59%;display:block;animation:rise .55s ease-out both">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,#0C0C0D 3%,rgba(12,12,13,.66) 32%,rgba(12,12,13,0) 74%)"></div>
+    <div style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:7px;padding:6px 10px;background:rgba(12,12,13,.62);backdrop-filter:blur(6px)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.4"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#fff">SÃO PEDRO DA CADEIRA</span>
+    </div>
+  </div>
+
+  <div style="padding:0 18px 18px;position:relative;margin-top:-56px">
+    <div style="width:146px;background:#fff;padding:11px 14px 12px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,calc(100% - 13px) 100%,0 100%);display:flex;align-items:center">
+      <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:100%;height:auto;display:block">
+    </div>
+    <h1 style="margin:14px 0 0;font:700 33px/0.94 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff">OFT Racing <span style="color:rgba(255,255,255,.57)">Shop</span></h1>
+    <div style="margin-top:9px;font:500 13.5px/1.45 Barlow,sans-serif;color:rgba(255,255,255,.7)">Loja de motos e oficina · equipamento de piloto</div>
+  </div>
+</div>
+
+<div style="display:flex;align-items:center;gap:10px;padding:13px 18px;background:#17171A;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)">
+  <span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }};flex:none"></span>
+  <span style="font:600 13.5px/1 Barlow,sans-serif;color:#fff">{{ statusLabel }}</span>
+  <span style="width:1px;height:12px;background:rgba(255,255,255,.18)"></span>
+  <span style="font:400 12.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.6)">{{ statusDetail }}</span>
+  <a href="#2a" style="margin-left:auto;min-height:44px;display:flex;align-items:center;gap:5px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-lt);text-decoration:none">Horário
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg></a>
+</div>
+
+<div style="background:#0C0C0D;padding:20px 18px 22px">
+  <div style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.57)">Essenciais</div>
+  <a href="tel:+351919678052" style="margin-top:12px;display:flex;align-items:center;gap:12px;height:62px;padding:0 18px;background:var(--acc);color:#fff;text-decoration:none;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 100%,0 100%)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+    <span style="display:flex;flex-direction:column;gap:3px">
+      <span style="font:700 19px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">Ligar</span>
+      <span style="font:500 12px/1 'IBM Plex Mono',monospace;color:#fff">919 678 052</span>
+    </span>
+  </a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:58px;display:flex;align-items:center;gap:10px;padding:0 13px;background:#1B1B1F;border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 13.5px/1 Barlow,sans-serif">Como chegar</span><span style="font:400 10.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">Google Maps</span></span></a>
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:58px;display:flex;align-items:center;gap:10px;padding:0 13px;background:#1B1B1F;border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none">
+      <span style="width:26px;height:26px;flex:none;border-radius:7px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 13.5px/1 Barlow,sans-serif">Instagram</span><span style="font:400 10.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">@oftracing153</span></span></a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:8px;background:rgba(255,255,255,.11)">
+    <a href="#2a" style="min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#131316;color:rgba(255,255,255,.88);text-decoration:none">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+      <span style="font:600 10.5px/1 Barlow,sans-serif;letter-spacing:.02em">Guardar</span></a>
+    <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#131316;color:rgba(255,255,255,.88);text-decoration:none">
+      <span style="width:17px;height:17px;border-radius:4px;background:#1877F2;display:grid;place-items:center;font:700 12px/1 Barlow,sans-serif;color:#fff">f</span>
+      <span style="font:600 10.5px/1 Barlow,sans-serif">Facebook</span></a>
+    <a href="#2a" style="min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#131316;color:rgba(255,255,255,.88);text-decoration:none">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>
+      <span style="font:600 10.5px/1 Barlow,sans-serif">QR</span></a>
+  </div>
+</div>
+
+<div style="background:#F4F2EE;padding:24px 18px 22px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que fazemos</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+  </div>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;gap:13px;align-items:flex-start">
+      <span style="width:34px;height:34px;flex:none;background:#0C0C0D;display:grid;place-items:center;font:700 12px/1 'Barlow Condensed',sans-serif;color:#fff;letter-spacing:.06em">01</span>
+      <div>
+        <div style="font:700 22px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja de motos</div>
+        <p style="margin:5px 0 0;font:400 14px/1.5 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos, moto 4, SSV e e-bike, com equipamento e acessórios de piloto.</p>
+      </div>
+    </div>
+    <div style="height:1px;background:rgba(0,0,0,.11)"></div>
+    <div style="display:flex;gap:13px;align-items:flex-start">
+      <span style="width:34px;height:34px;flex:none;background:#0C0C0D;display:grid;place-items:center;font:700 12px/1 'Barlow Condensed',sans-serif;color:#fff;letter-spacing:.06em">02</span>
+      <div>
+        <div style="font:700 22px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</div>
+        <p style="margin:5px 0 0;font:400 14px/1.5 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local, na mesma morada da loja.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;padding-top:15px;border-top:2px solid #0C0C0D">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde trabalhamos</span>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:11px">
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 11px">Enduro</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 11px">Motocross</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 11px">Off-road</span>
+      <span style="font:700 15px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 11px">Estrada</span>
+    </div>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:24px 18px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc-lt)">02</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.57)">Horário</span>
+    <span style="flex:1;height:1px;background:rgba(255,255,255,.13)"></span>
+  </div>
+  <div style="margin-top:12px">
+    <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:{{ d.bg }}">
+        <span style="display:flex;align-items:center;gap:8px;font:600 13px/1 Barlow,sans-serif;color:{{ d.fg }}"><span style="width:2px;height:13px;background:{{ d.bar }}"></span>{{ d.name }}</span>
+        <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:{{ d.fg }}">{{ d.hours }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <p style="margin:11px 0 0;font:400 11.5px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.55)">Hora de Lisboa. Feriados e horários especiais podem diferir.</p>
+</div>
+
+<div style="background:#F4F2EE">
+  <div style="padding:24px 18px 0">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">03</span>
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde estamos</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="margin-top:14px;font:700 22px/1.08 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+    <div style="font:500 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:2px">2560-717 São Pedro da Cadeira</div>
+  </div>
+  <div style="margin-top:15px;position:relative;height:140px;overflow:hidden;background:#0C0C0D">
+    <img src="assets/oft-fachada.webp" alt="Entrada da loja OFT Racing Shop" style="position:absolute;width:302%;left:-142%;top:-223%;display:block">
+  </div>
+  <div style="padding:12px 18px 24px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</div>
+
+<div style="background:#E9E6DF;padding:24px 18px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">04</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que dizem os clientes</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.13)"></span>
+  </div>
+  <div style="margin-top:15px;display:flex;align-items:center;gap:14px">
+    <div style="font:700 46px/1 'Barlow Condensed',sans-serif;color:#0C0C0D">4,8</div>
+    <div style="border-left:1px solid rgba(0,0,0,.18);padding-left:14px">
+      <div style="font:600 13.5px/1.3 Barlow,sans-serif;color:#0C0C0D">35 avaliações no Google</div>
+      <div style="font:400 11.5px/1.4 'IBM Plex Mono',monospace;color:#5E5C56;margin-top:4px">4,8 em 5 estrelas · agosto 2026</div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:9px">
+    <div style="background:#fff;padding:14px 15px;border-left:2px solid var(--acc)">
+      <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Excelente atendimento, profissionalismo e bom serviço.”</p>
+      <div style="margin-top:9px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+    </div>
+    <div style="background:#fff;padding:14px 15px;border-left:2px solid rgba(0,0,0,.16)">
+      <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Ótimo atendimento, loja muito organizada e limpa.”</p>
+      <div style="margin-top:9px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+    </div>
+    <div style="background:#fff;padding:14px 15px;border-left:2px solid rgba(0,0,0,.16)">
+      <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Purchased a CFmoto 450MT last year, lovely staff, helpful and professional. Bike was delivered in perfect condition.”</p>
+      <div style="margin-top:9px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:24px 18px 22px;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-16px;top:-22px;font:700 132px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.04);pointer-events:none">153</div>
+  <div style="position:relative;display:flex;flex-direction:column;gap:8px">
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:56px;display:flex;align-items:center;gap:12px;padding:0 14px;background:#17171A;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none">
+      <span style="width:30px;height:30px;flex:none;border-radius:8px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1 Barlow,sans-serif">Instagram</span><span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">@oftracing153</span></span>
+      <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:56px;display:flex;align-items:center;gap:12px;padding:0 14px;background:#17171A;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none">
+      <span style="width:30px;height:30px;flex:none;border-radius:8px;background:#1877F2;display:grid;place-items:center;font:700 20px/1 Barlow,sans-serif;color:#fff">f</span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1 Barlow,sans-serif">Facebook</span><span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">OFT Racing</span></span>
+      <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <a href="#2a" style="min-height:56px;display:flex;align-items:center;gap:12px;padding:0 14px;background:#17171A;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none">
+      <span style="width:30px;height:30px;flex:none;border-radius:8px;background:rgba(255,255,255,.09);display:grid;place-items:center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1 Barlow,sans-serif">Guardar contacto</span><span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">vCard</span></span></a>
+  </div>
+</div>
+
+<div style="background:#08080A;padding:20px 18px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:7px">
+    <div style="width:15px;height:15px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 12px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Perfil criado com Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">piricard.pt</span>
+</div>
+
+<div style="position:sticky;bottom:0;display:var(--dock-display);gap:1px;background:rgba(255,255,255,.12);padding-top:1px">
+  <a href="tel:+351919678052" style="flex:1.5;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:#fff;text-decoration:none;font:700 16px/1 'Barlow Condensed',sans-serif;letter-spacing:.07em;text-transform:uppercase">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>Ligar</a>
+  <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(12,12,13,.96);backdrop-filter:blur(8px);color:#fff;text-decoration:none;font:700 16px/1 'Barlow Condensed',sans-serif;letter-spacing:.07em;text-transform:uppercase">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chegar</a>
+  <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="width:64px;flex:none;min-height:56px;display:grid;place-items:center;background:rgba(12,12,13,.96);backdrop-filter:blur(8px);text-decoration:none">
+    <span style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span></a>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 2b ============ -->
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a><span><strong style="color:#0C0C0D">Desktop de <a class="dv-oid" href="#2a">2a</a></strong> — 1180px. Fachada em escala, coluna de essenciais à direita, avaliações reais em três colunas.</span></div>
+<div class="dv-card" style="width:1180px">
+
+<div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:9px">
+    <div style="width:20px;height:20px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 12px/1 'Barlow Condensed',sans-serif;color:#fff;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 16px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:18px">
+    <a href="#2b" style="min-height:44px;display:flex;align-items:center;gap:7px;font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>QR</a>
+    <a href="#2b" style="min-height:44px;display:flex;align-items:center;gap:6px;font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none">Directório
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</div>
+
+<div style="position:relative;height:420px;overflow:hidden;background:#0C0C0D">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop" style="position:absolute;width:121%;left:-13.3%;top:-45%;display:block">
+  <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(12,12,13,.94) 0,rgba(12,12,13,.6) 40%,rgba(12,12,13,.05) 74%)"></div>
+  <div style="position:absolute;left:32px;bottom:34px;max-width:540px">
+    <div style="width:196px;background:#fff;padding:14px 18px 16px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,calc(100% - 16px) 100%,0 100%);display:flex;align-items:center">
+      <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:100%;height:auto;display:block">
+    </div>
+    <h1 style="margin:20px 0 0;font:700 60px/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;letter-spacing:-.01em">OFT Racing <span style="color:rgba(255,255,255,.57)">Shop</span></h1>
+    <div style="margin-top:12px;font:500 16px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.72)">Loja de motos e oficina · equipamento de piloto · São Pedro da Cadeira</div>
+  </div>
+</div>
+
+<div style="display:flex;align-items:center;gap:12px;padding:15px 32px;background:#17171A;border-bottom:1px solid rgba(255,255,255,.08)">
+  <span style="width:8px;height:8px;border-radius:50%;background:{{ statusDot }};flex:none"></span>
+  <span style="font:600 14.5px/1 Barlow,sans-serif;color:#fff">{{ statusLabel }}</span>
+  <span style="width:1px;height:13px;background:rgba(255,255,255,.18)"></span>
+  <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.6)">{{ statusDetail }}</span>
+  <span style="margin-left:auto;font:400 13px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">R. Gonçalo Velho Cabral 2 · 2560-717</span>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 372px;background:#F4F2EE">
+  <div style="padding:32px 34px 40px">
+    <div style="display:flex;align-items:center;gap:9px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que fazemos</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:18px">
+      <div style="display:flex;gap:13px;align-items:flex-start">
+        <span style="width:36px;height:36px;flex:none;background:#0C0C0D;display:grid;place-items:center;font:700 13px/1 'Barlow Condensed',sans-serif;color:#fff">01</span>
+        <div><div style="font:700 25px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja de motos</div>
+          <p style="margin:6px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos, moto 4, SSV e e-bike, com equipamento e acessórios de piloto.</p></div>
+      </div>
+      <div style="display:flex;gap:13px;align-items:flex-start">
+        <span style="width:36px;height:36px;flex:none;background:#0C0C0D;display:grid;place-items:center;font:700 13px/1 'Barlow Condensed',sans-serif;color:#fff">02</span>
+        <div><div style="font:700 25px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</div>
+          <p style="margin:6px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local, na mesma morada da loja.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding-top:16px;border-top:2px solid #0C0C0D;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde trabalhamos</span>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Enduro</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Motocross</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Off-road</span>
+        <span style="font:700 16px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D;background:#E4E0D8;padding:9px 12px">Estrada</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:34px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">02</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Horário e local</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:16px">
+      <div>
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(0,0,0,.1);background:{{ d.bgLight }}">
+            <span style="font:600 13.5px/1 Barlow,sans-serif;color:{{ d.fgLight }}">{{ d.name }}</span>
+            <span style="font:400 13.5px/1 'IBM Plex Mono',monospace;color:{{ d.fgLight }}">{{ d.hours }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div>
+        <div style="position:relative;height:150px;overflow:hidden;background:#0C0C0D">
+          <img src="assets/oft-fachada.webp" alt="Entrada da loja OFT Racing Shop" style="position:absolute;width:230%;left:-102%;top:-152%;display:block">
+        </div>
+        <div style="margin-top:12px;font:700 24px/1.08 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+        <div style="font:500 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:2px">2560-717 São Pedro da Cadeira</div>
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="margin-top:13px;min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:34px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">03</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">O que dizem os clientes</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:16px">
+      <div style="font:700 48px/1 'Barlow Condensed',sans-serif;color:#0C0C0D">4,8</div>
+      <div style="border-left:1px solid rgba(0,0,0,.18);padding-left:16px">
+        <div style="font:600 14px/1.3 Barlow,sans-serif;color:#0C0C0D">35 avaliações no Google</div>
+        <div style="font:400 12px/1.4 'IBM Plex Mono',monospace;color:#5E5C56;margin-top:4px">4,8 em 5 estrelas · agosto 2026</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px">
+      <div style="background:#fff;padding:16px;border-left:2px solid var(--acc)">
+        <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Excelente atendimento, profissionalismo e bom serviço.”</p>
+        <div style="margin-top:10px;font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+      </div>
+      <div style="background:#fff;padding:16px;border-left:2px solid rgba(0,0,0,.16)">
+        <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Ótimo atendimento, loja muito organizada e limpa.”</p>
+        <div style="margin-top:10px;font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+      </div>
+      <div style="background:#fff;padding:16px;border-left:2px solid rgba(0,0,0,.16)">
+        <p style="margin:0;font:400 14px/1.5 Barlow,sans-serif;color:#26251F;text-wrap:pretty">“Purchased a CFmoto 450MT last year, lovely staff, helpful and professional.”</p>
+        <div style="margin-top:10px;font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6C6A64">Avaliação Google</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0C0C0D;padding:32px 28px 40px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-20px;bottom:-26px;font:700 150px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.035);pointer-events:none">153</div>
+    <div style="position:relative">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.57)">Essenciais</span>
+      <a href="tel:+351919678052" style="margin-top:14px;display:flex;align-items:center;gap:13px;height:64px;padding:0 18px;background:var(--acc);color:#fff;text-decoration:none;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+        <span style="display:flex;flex-direction:column;gap:4px">
+          <span style="font:700 20px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">Ligar</span>
+          <span style="font:500 12.5px/1 'IBM Plex Mono',monospace;color:#fff">919 678 052</span></span></a>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:58px;display:flex;align-items:center;gap:12px;padding:0 15px;background:#17171A;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none">
+          <span style="width:30px;height:30px;flex:none;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+          <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1 Barlow,sans-serif">Como chegar</span><span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">Google Maps</span></span></a>
+        <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:58px;display:flex;align-items:center;gap:12px;padding:0 15px;background:#17171A;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none">
+          <span style="width:30px;height:30px;flex:none;border-radius:8px;background:linear-gradient(135deg,#F9CE34,#EE2A7B 52%,#6228D7);display:grid;place-items:center">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r="1.15" fill="#fff" stroke="none"/></svg></span>
+          <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1 Barlow,sans-serif">Instagram</span><span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58)">@oftracing153</span></span>
+          <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+      <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13);display:flex;flex-direction:column;gap:8px">
+        <a href="#2b" style="min-height:52px;display:flex;align-items:center;gap:12px;padding:0 15px;background:rgba(255,255,255,.05);color:#fff;text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+          <span style="font:600 13.5px/1 Barlow,sans-serif">Guardar contacto</span>
+          <span style="margin-left:auto;font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">vCard</span></a>
+        <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:52px;display:flex;align-items:center;gap:12px;padding:0 15px;background:rgba(255,255,255,.05);color:#fff;text-decoration:none">
+          <span style="width:20px;height:20px;border-radius:5px;background:#1877F2;display:grid;place-items:center;font:700 14px/1 Barlow,sans-serif;color:#fff">f</span>
+          <span style="font:600 13.5px/1 Barlow,sans-serif">Facebook</span>
+          <span style="margin-left:auto;font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">OFT Racing</span></a>
+        <a href="#2b" style="min-height:52px;display:flex;align-items:center;gap:12px;padding:0 15px;background:rgba(255,255,255,.05);color:#fff;text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>
+          <span style="font:600 13.5px/1 Barlow,sans-serif">QR / Partilhar</span></a>
+      </div>
+      <p style="margin:20px 0 0;font:400 12px/1.55 Barlow,sans-serif;color:rgba(255,255,255,.55)">Sem website, email ou WhatsApp associados ao negócio neste momento.</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#08080A;padding:22px 32px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:16px;height:16px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 13px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Perfil criado com Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">piricard.pt</span>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">A seguir: “vermelho ainda mais escuro” · “mostra o estado fechado / próxima abertura” · “galeria da loja quando houver fotos aprovadas” · “versão clara de <a class="dv-oid" href="#2a">2a</a>”</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">OFT Racing Shop — PiriCard · quatro direções</span></div>
+
+<div class="dv-opts">
+
+<!-- ============ 1a ============ -->
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a><span><strong style="color:#0C0C0D">Fachada</strong> — página completa. Foto real da loja como herói, placa do logótipo em ângulo, secções numeradas, dock fixo. A direção recomendada.</span></div>
+<div class="dv-card" style="width:390px">
+
+<div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:19px;height:19px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 11px/1 'Barlow Condensed',sans-serif;color:#0C0C0D;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 15px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <a href="#1a" style="min-height:44px;display:flex;align-items:center;gap:6px;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none">Directório
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+  </a>
+</div>
+
+<div style="position:relative;background:#0C0C0D">
+  <div style="height:252px;overflow:hidden;position:relative">
+    <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop em São Pedro da Cadeira" style="width:100%;height:100%;object-fit:cover;object-position:62% 58%;display:block;animation:rise .6s ease-out both">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,#0C0C0D 4%,rgba(12,12,13,.72) 30%,rgba(12,12,13,.05) 68%)"></div>
+    <div style="position:absolute;top:12px;left:0;display:flex;align-items:center;gap:0">
+      <div style="height:22px;background:var(--acc);padding:0 10px 0 12px;display:flex;align-items:center;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%)"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#0C0C0D">SÃO PEDRO DA CADEIRA</span></div>
+    </div>
+  </div>
+
+  <div style="padding:0 18px 20px;position:relative;margin-top:-58px">
+    <div style="width:146px;background:#fff;padding:11px 14px 12px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,calc(100% - 13px) 100%,0 100%);display:flex;align-items:center">
+      <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:100%;height:auto;display:block">
+    </div>
+    <h1 style="margin:14px 0 0;font:700 34px/0.92 'Barlow Condensed',sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#fff">OFT Racing<br><span style="color:rgba(255,255,255,.57)">Shop</span></h1>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap">
+      <span style="font:500 12.5px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Loja de motos</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3)"></span>
+      <span style="font:500 12.5px/1 Barlow,sans-serif;color:rgba(255,255,255,.72)">Oficina</span>
+      <span class="ev" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.5)">por confirmar</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:9px;margin-top:16px;padding:11px 12px;background:rgba(255,255,255,.06);border-left:2px solid var(--acc)">
+      <span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }};flex:none"></span>
+      <span style="font:600 13px/1 Barlow,sans-serif;color:#fff">{{ statusLabel }}</span>
+      <span style="font:400 12px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55);margin-left:auto">{{ statusDetail }}</span>
+    </div>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:0 18px 22px">
+  <a href="tel:+351919678052" style="display:flex;align-items:center;justify-content:center;gap:9px;height:56px;background:var(--acc);color:#0C0C0D;text-decoration:none;font:700 17px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+    Ligar 919 678 052
+  </a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="var(--acc)" stroke="none"/></svg>Instagram</a>
+    <a href="#1a" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar contacto</a>
+    <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <span style="width:15px;height:15px;display:grid;place-items:center;border:1.6px solid var(--acc);border-radius:3px;font:700 11px/1 Barlow,sans-serif;color:var(--acc)">f</span>Facebook</a>
+  </div>
+</div>
+
+<div style="background:#F4F2EE;padding:26px 18px 8px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Dois lados do negócio</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+  </div>
+  <div style="margin-top:16px;border-top:2px solid #0C0C0D;padding-top:12px">
+    <div style="display:flex;align-items:baseline;gap:9px">
+      <h2 style="margin:0;font:700 26px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja</h2>
+      <span style="font:500 10px/1 'IBM Plex Mono',monospace;color:#5E5C56">/ SHOP</span>
+    </div>
+    <p style="margin:8px 0 0;font:400 14.5px/1.5 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos e de equipamento para piloto. Categoria de negócio registada: <em>vendedor de motorizadas</em>.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:11px">
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Motos</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Moto 4 / ATV</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">SSV</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">E-bike</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Capacetes</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Botas</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Óculos</span>
+      <span style="font:500 11px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 8px">Acessórios</span>
+    </div>
+    <span class="ev" style="margin-top:9px;background:#EFE2D6;color:#8A5A2B">placeholder — categorias por aprovar</span>
+  </div>
+  <div style="margin-top:22px;border-top:2px solid #0C0C0D;padding-top:12px">
+    <div style="display:flex;align-items:baseline;gap:9px">
+      <h2 style="margin:0;font:700 26px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</h2>
+      <span style="font:500 10px/1 'IBM Plex Mono',monospace;color:#5E5C56">/ WORKSHOP</span>
+    </div>
+    <p style="margin:8px 0 0;font:400 14.5px/1.5 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local. A lista de serviços ainda não está confirmada pela OFT — por isso não é apresentada.</p>
+    <div style="margin-top:11px;padding:12px;border:1px dashed rgba(0,0,0,.22);background:repeating-linear-gradient(135deg,transparent,transparent 7px,rgba(0,0,0,.035) 7px,rgba(0,0,0,.035) 14px)">
+      <span style="font:500 10px/1.5 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5E5C56">Placeholder — lista de serviços da oficina a aguardar aprovação</span>
+    </div>
+  </div>
+</div>
+
+<div style="background:#F4F2EE;padding:26px 18px 26px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">02</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Cultura e disciplinas</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+  </div>
+  <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,0,0,.12)">
+    <div style="background:#0C0C0D;padding:16px 12px"><span style="font:600 9px/1 'IBM Plex Mono',monospace;color:var(--acc)">A1</span><div style="font:700 21px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;margin-top:6px;font-style:italic">Enduro</div></div>
+    <div style="background:#0C0C0D;padding:16px 12px"><span style="font:600 9px/1 'IBM Plex Mono',monospace;color:var(--acc)">A2</span><div style="font:700 21px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;margin-top:6px;font-style:italic">Motocross</div></div>
+    <div style="background:#0C0C0D;padding:16px 12px"><span style="font:600 9px/1 'IBM Plex Mono',monospace;color:var(--acc)">A3</span><div style="font:700 21px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;margin-top:6px;font-style:italic">Off-road</div></div>
+    <div style="background:#0C0C0D;padding:16px 12px"><span style="font:600 9px/1 'IBM Plex Mono',monospace;color:var(--acc)">A4</span><div style="font:700 21px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;margin-top:6px;font-style:italic">Estrada</div></div>
+  </div>
+  <p style="margin:10px 0 0;font:400 12px/1.5 Barlow,sans-serif;color:#6C6B67">Temas presentes na comunicação da OFT. Não representam uma lista de stock ou de serviços.</p>
+  <div style="margin-top:18px;padding-top:12px;border-top:1px solid rgba(0,0,0,.12)">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#5E5C56">Marcas visíveis na loja</span>
+    <div style="font:600 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:6px">KTM · Husqvarna · CFMOTO · GASGAS</div>
+    <span class="ev" style="margin-top:7px;background:#EFE2D6;color:#8A5A2B">observado — relação comercial não declarada</span>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:26px 18px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc-lt)">03</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)">Horário</span>
+    <span style="flex:1;height:1px;background:rgba(255,255,255,.14)"></span>
+  </div>
+  <div style="margin-top:14px">
+    <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.09);background:{{ d.bg }}">
+        <span style="display:flex;align-items:center;gap:8px;font:600 13px/1 Barlow,sans-serif;color:{{ d.fg }}"><span style="width:2px;height:13px;background:{{ d.bar }}"></span>{{ d.name }}</span>
+        <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:{{ d.fg }}">{{ d.hours }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <p style="margin:12px 0 0;font:400 11.5px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.57)">Hora de Lisboa. Feriados e horários especiais podem diferir.</p>
+</div>
+
+<div style="background:#F4F2EE">
+  <div style="padding:26px 18px 0">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">04</span>
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Onde estamos</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="margin-top:14px;font:700 22px/1.1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+    <div style="font:500 14px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:2px">2560-717 São Pedro da Cadeira<span class="ex ev" style="background:#EFE2D6;color:#8A5A2B;margin-left:6px">cód. postal por verificar</span></div>
+  </div>
+  <div style="margin-top:16px;position:relative;height:150px;overflow:hidden">
+    <img src="assets/oft-fachada.webp" alt="Entrada da loja OFT Racing Shop" style="width:100%;height:100%;object-fit:cover;object-position:55% 72%;display:block">
+    <div style="position:absolute;left:0;bottom:0;background:#0C0C0D;padding:7px 11px"><span style="font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.7)">FOTO REAL DA FACHADA</span></div>
+  </div>
+  <div style="padding:14px 18px 26px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <span class="ev" style="margin-top:8px;background:#EFE2D6;color:#8A5A2B">placeholder — confirmar destino exato no google maps</span>
+  </div>
+</div>
+
+<div style="background:#E6E3DC;padding:24px 18px;display:flex;align-items:center;gap:16px">
+  <div>
+    <div style="font:700 40px/1 'Barlow Condensed',sans-serif;color:#0C0C0D">4,8</div>
+    <div style="font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5E5C56;margin-top:4px">/ 5 · 35 AVALIAÇÕES</div>
+  </div>
+  <div style="flex:1;border-left:1px solid rgba(0,0,0,.16);padding-left:16px">
+    <div style="font:600 12.5px/1.45 Barlow,sans-serif;color:#3B3A37">Snapshot Google de 28.08.2026.</div>
+    <span class="ev" style="margin-top:6px;background:#EFE2D6;color:#8A5A2B">sem url de avaliações — ação omitida</span>
+  </div>
+</div>
+
+<div style="background:#0C0C0D;padding:26px 18px 22px;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-14px;top:-18px;font:700 128px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.045);pointer-events:none">153</div>
+  <div style="position:relative">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc-lt)">05</span>
+      <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)">Redes e utilidades</span>
+      <span style="flex:1;height:1px;background:rgba(255,255,255,.14)"></span>
+    </div>
+    <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+      <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="var(--acc)" stroke="none"/></svg>
+        <span style="font:600 13.5px/1 Barlow,sans-serif">Instagram</span>
+        <span style="font:400 12px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58);margin-left:auto">@oftracing153</span></a>
+      <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none">
+        <span style="width:16px;height:16px;display:grid;place-items:center;border:1.6px solid var(--acc);border-radius:3px;font:700 12px/1 Barlow,sans-serif;color:var(--acc)">f</span>
+        <span style="font:600 13.5px/1 Barlow,sans-serif">Facebook</span>
+        <span style="font:400 12px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.58);margin-left:auto">OFT Racing</span></a>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <a href="#1a" style="min-height:50px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar</a>
+        <a href="#1a" style="min-height:50px;display:flex;align-items:center;gap:8px;padding:0 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 20h-3v-3"/></svg>QR / Partilhar</a>
+      </div>
+    </div>
+    <p style="margin:14px 0 0;font:400 11.5px/1.5 Barlow,sans-serif;color:rgba(255,255,255,.57)">Sem website, email ou WhatsApp confirmados — nenhuma dessas ações é apresentada.</p>
+  </div>
+</div>
+
+<div style="background:#08080A;padding:20px 18px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:7px">
+    <div style="width:15px;height:15px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 12px/1 Barlow,sans-serif;color:rgba(255,255,255,.75)">Perfil criado com Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.35)">piricard.pt</span>
+</div>
+
+<div style="position:sticky;bottom:0;display:var(--dock-display);gap:8px;padding:10px 14px 14px;background:rgba(12,12,13,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.12)">
+  <a href="tel:+351919678052" style="flex:1.4;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:#0C0C0D;text-decoration:none;font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>Ligar</a>
+  <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;text-decoration:none;font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chegar</a>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1b ============ -->
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a><span><strong style="color:#0C0C0D">Pit board</strong> — estado “sem foto aprovada”. Identidade só com o logótipo sobre grelha técnica; a foto entra depois, como prova de local.</span></div>
+<div class="dv-card" style="width:390px">
+
+<div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#141414;border-bottom:1px solid rgba(255,255,255,.09)">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:19px;height:19px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 11px/1 'Barlow Condensed',sans-serif;color:#0C0C0D;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 15px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <a href="#1b" style="min-height:44px;display:flex;align-items:center;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none">Directório</a>
+</div>
+
+<div style="background:#141414;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:26px 26px;padding:26px 20px 22px;position:relative">
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc) 0 34%,transparent 34%)"></div>
+  <div style="display:flex;gap:5px;margin-bottom:16px">
+    <span style="width:9px;height:16px;background:var(--acc);transform:skewX(-16deg)"></span>
+    <span style="width:9px;height:16px;background:rgba(255,255,255,.3);transform:skewX(-16deg)"></span>
+    <span style="width:9px;height:16px;background:rgba(255,255,255,.12);transform:skewX(-16deg)"></span>
+  </div>
+  <div style="background:#fff;padding:20px 22px;clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,0 100%)">
+    <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:236px;height:auto;display:block">
+  </div>
+  <div style="margin-top:18px;font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)">Loja &amp; oficina de motos</div>
+  <h1 style="margin:8px 0 0;font:700 40px/0.9 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#fff">São Pedro<br>da Cadeira</h1>
+  <div style="margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:0 12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14)">
+    <span style="font:500 10px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.57)">Estado</span>
+    <span style="display:flex;align-items:center;gap:7px;font:600 13px/1.9 Barlow,sans-serif;color:#fff"><span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }}"></span>{{ statusLabel }} · {{ statusDetail }}</span>
+    <span style="font:500 10px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.57)">Morada</span>
+    <span style="font:500 13px/1.9 Barlow,sans-serif;color:rgba(255,255,255,.82)">R. Gonçalo Velho Cabral 2</span>
+    <span style="font:500 10px/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.57)">Telefone</span>
+    <span style="font:500 13px/1.9 'IBM Plex Mono',monospace;color:#fff">919 678 052</span>
+  </div>
+</div>
+
+<div style="background:#141414;padding:0 20px 24px">
+  <a href="tel:+351919678052" style="display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 18px;background:var(--acc);color:#0C0C0D;text-decoration:none">
+    <span style="font:700 19px/1 'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-style:italic">Ligar agora</span>
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>
+  </a>
+  <div style="display:flex;flex-direction:column;gap:1px;margin-top:1px;background:rgba(255,255,255,.12)">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#1D1D1D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#1D1D1D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="var(--acc)" stroke="none"/></svg>Instagram<span style="margin-left:auto;font:400 11.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">@oftracing153</span></a>
+    <a href="#1b" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#1D1D1D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar contacto</a>
+  </div>
+</div>
+
+<div style="background:#F4F2EE;padding:24px 20px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">A casa</span>
+    <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+  </div>
+  <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <div style="font:700 34px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D">Loja</div>
+      <p style="margin:6px 0 0;font:400 13.5px/1.45 Barlow,sans-serif;color:#3B3A37">Motos e equipamento de piloto.</p>
+    </div>
+    <div style="border-left:2px solid var(--acc);padding-left:12px">
+      <div style="font:700 34px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#0C0C0D">Oficina</div>
+      <p style="margin:6px 0 0;font:400 13.5px/1.45 Barlow,sans-serif;color:#3B3A37">Serviço mecânico no local.</p>
+    </div>
+  </div>
+  <span class="ev" style="margin-top:12px;background:#EFE2D6;color:#8A5A2B">detalhe de serviços e categorias por aprovar</span>
+</div>
+
+<div style="position:relative;height:190px;overflow:hidden;background:#0C0C0D">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop" style="width:100%;height:100%;object-fit:cover;object-position:60% 62%;display:block">
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,13,.9) 0,transparent 58%)"></div>
+  <div style="position:absolute;left:20px;right:20px;bottom:14px">
+    <div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)">02 / Localização</div>
+    <div style="font:700 22px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;margin-top:6px">R. Gonçalo Velho Cabral 2<br><span style="color:rgba(255,255,255,.55)">2560-717 São Pedro da Cadeira</span></div>
+  </div>
+</div>
+<div style="background:#0C0C0D;padding:14px 20px 22px">
+  <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+
+<div style="background:#08080A;padding:18px 20px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:7px">
+    <div style="width:15px;height:15px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 12px/1 Barlow,sans-serif;color:rgba(255,255,255,.75)">Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.35)">piricard.pt</span>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1c ============ -->
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a><span><strong style="color:#0C0C0D">Paddock</strong> — base clara. Preto reservado à tipografia e ao logótipo, laranja só no que é acionável. Mais legível ao sol.</span></div>
+<div class="dv-card" style="width:390px">
+
+<div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#F4F2EE;border-bottom:1px solid rgba(0,0,0,.12)">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:19px;height:19px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 11px/1 'Barlow Condensed',sans-serif;color:#fff;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 15px/1 Barlow,sans-serif;color:#0C0C0D">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <a href="#1c" style="min-height:44px;display:flex;align-items:center;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#5E5C56;text-decoration:none">Directório</a>
+</div>
+
+<div style="background:#F4F2EE;padding:24px 18px 0">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+    <div style="flex:1">
+      <div style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#5E5C56">São Pedro da Cadeira · PT</div>
+      <h1 style="margin:8px 0 0;font:700 42px/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D;letter-spacing:-.01em">OFT<br>Racing<br><span style="color:var(--acc)">Shop</span></h1>
+    </div>
+    <div style="width:126px;flex:none;background:#0C0C0D;padding:14px 13px 16px;clip-path:polygon(0 0,100% 0,100% 100%,14px 100%);display:flex;align-items:center">
+      <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:100%;height:auto;display:block;filter:invert(1)">
+    </div>
+  </div>
+  <div style="margin-top:16px;height:6px;background:repeating-linear-gradient(115deg,var(--acc) 0 5px,transparent 5px 11px)"></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.12)">
+    <span style="font:500 13.5px/1 Barlow,sans-serif;color:#3B3A37">Loja de motos &amp; oficina</span>
+    <span style="display:flex;align-items:center;gap:7px;font:600 12.5px/1 Barlow,sans-serif;color:#0C0C0D"><span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }}"></span>{{ statusLabel }}</span>
+  </div>
+  <div style="padding:12px 0;font:400 12.5px/1 'IBM Plex Mono',monospace;color:#6C6B67">{{ statusDetail }}</div>
+</div>
+
+<div style="background:#F4F2EE;padding:6px 18px 24px">
+  <a href="tel:+351919678052" style="display:flex;align-items:center;justify-content:center;gap:9px;height:56px;background:#0C0C0D;color:#fff;text-decoration:none;font:700 18px/1 'Barlow Condensed',sans-serif;letter-spacing:.07em;text-transform:uppercase">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>Ligar 919 678 052</a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border:1px solid rgba(0,0,0,.16);color:#0C0C0D;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+    <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border:1px solid rgba(0,0,0,.16);color:#0C0C0D;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="var(--acc)" stroke="none"/></svg>Instagram</a>
+    <a href="#1c" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border:1px solid rgba(0,0,0,.16);color:#0C0C0D;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar</a>
+    <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:48px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border:1px solid rgba(0,0,0,.16);color:#0C0C0D;text-decoration:none;font:600 13px/1 Barlow,sans-serif">
+      <span style="width:15px;height:15px;display:grid;place-items:center;border:1.6px solid var(--acc);border-radius:3px;font:700 11px/1 Barlow,sans-serif;color:var(--acc)">f</span>Facebook</a>
+  </div>
+</div>
+
+<div style="position:relative;height:208px;overflow:hidden">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop" style="width:100%;height:100%;object-fit:cover;object-position:58% 60%;display:block">
+  <div style="position:absolute;left:0;top:16px;background:#0C0C0D;padding:8px 12px"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#fff">A LOJA</span></div>
+</div>
+
+<div style="background:#fff;padding:24px 18px">
+  <div style="display:flex;align-items:baseline;gap:10px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+    <h2 style="margin:0;font:700 25px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja e oficina</h2>
+  </div>
+  <p style="margin:10px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Negócio físico de venda de motos e equipamento, com serviço mecânico no local. Enduro, motocross e off-road estão no centro da comunicação da OFT.</p>
+  <div style="margin-top:16px;display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(0,0,0,.12)">
+      <span style="font:600 13px/1 Barlow,sans-serif;color:#0C0C0D">Categoria registada</span><span style="font:400 13px/1 Barlow,sans-serif;color:#6C6B67">Vendedor de motorizadas</span></div>
+    <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(0,0,0,.12)">
+      <span style="font:600 13px/1 Barlow,sans-serif;color:#0C0C0D">Avaliação Google</span><span style="font:400 13px/1 'IBM Plex Mono',monospace;color:#6C6B67">4,8 · 35 · 28.08.26</span></div>
+    <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12)">
+      <span style="font:600 13px/1 Barlow,sans-serif;color:#0C0C0D">Marcas na loja</span><span style="font:400 13px/1 Barlow,sans-serif;color:#6C6B67">KTM · Husqvarna · CFMOTO · GASGAS</span></div>
+  </div>
+  <span class="ev" style="margin-top:12px;background:#F1E7DC;color:#8A5A2B">observado — sem declaração de representação oficial</span>
+</div>
+
+<div style="background:#F4F2EE;padding:22px 18px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+    <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:var(--acc)">02</span>
+    <h2 style="margin:0;font:700 25px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Horário</h2>
+  </div>
+  <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 10px;border-bottom:1px solid rgba(0,0,0,.1);background:{{ d.bgLight }}">
+      <span style="font:600 13px/1 Barlow,sans-serif;color:{{ d.fgLight }}">{{ d.name }}</span>
+      <span style="font:400 13px/1 'IBM Plex Mono',monospace;color:{{ d.fgLight }}">{{ d.hours }}</span>
+    </div>
+  </sc-for>
+</div>
+
+<div style="background:#F4F2EE;padding:16px 18px 22px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(0,0,0,.12)">
+  <div style="display:flex;align-items:center;gap:7px">
+    <div style="width:15px;height:15px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 12px/1 Barlow,sans-serif;color:#3B3A37">Perfil criado com Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:#5E5C56">piricard.pt</span>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1d ============ -->
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a><span><strong style="color:#0C0C0D">Desktop de <a class="dv-oid" href="#1a">1a</a></strong> — 1180px. A fachada ganha escala, a coluna de ações fica fixa à direita. Continua a ser um cartão, não um website.</span></div>
+<div class="dv-card" style="width:1180px">
+
+<div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#0C0C0D">
+  <div style="display:flex;align-items:center;gap:9px">
+    <div style="width:20px;height:20px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%);display:grid;place-items:center"><span style="font:700 12px/1 'Barlow Condensed',sans-serif;color:#0C0C0D;transform:skewX(-8deg)">P</span></div>
+    <span style="font:500 16px/1 Barlow,sans-serif;color:#fff">Piri<span style="color:var(--acc);font-weight:600">Card</span></span>
+  </div>
+  <a href="#1d" style="min-height:44px;display:flex;align-items:center;gap:6px;font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none">Directório
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+
+<div style="position:relative;height:420px;overflow:hidden;background:#0C0C0D">
+  <img src="assets/oft-fachada.webp" alt="Fachada da OFT Racing Shop" style="width:100%;height:100%;object-fit:cover;object-position:56% 58%;display:block">
+  <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(12,12,13,.92) 0,rgba(12,12,13,.62) 42%,rgba(12,12,13,.1) 76%)"></div>
+  <div style="position:absolute;left:32px;bottom:32px;max-width:520px">
+    <div style="width:196px;background:#fff;padding:14px 18px 16px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,calc(100% - 16px) 100%,0 100%);display:flex;align-items:center">
+      <img src="assets/oft-logo-trim.png" alt="Logótipo OFT Racing Shop" style="width:100%;height:auto;display:block">
+    </div>
+    <h1 style="margin:18px 0 0;font:700 62px/0.88 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff;letter-spacing:-.01em">OFT Racing <span style="color:rgba(255,255,255,.57)">Shop</span></h1>
+    <div style="display:flex;align-items:center;gap:14px;margin-top:14px">
+      <span style="font:500 15px/1 Barlow,sans-serif;color:rgba(255,255,255,.75)">Loja de motos &amp; oficina</span>
+      <span style="width:1px;height:14px;background:rgba(255,255,255,.25)"></span>
+      <span style="font:500 15px/1 Barlow,sans-serif;color:rgba(255,255,255,.75)">São Pedro da Cadeira</span>
+    </div>
+  </div>
+  <div style="position:absolute;right:32px;top:32px;display:flex;align-items:center;gap:9px;padding:11px 14px;background:rgba(12,12,13,.82);border-left:2px solid var(--acc)">
+    <span style="width:7px;height:7px;border-radius:50%;background:{{ statusDot }}"></span>
+    <span style="font:600 13.5px/1 Barlow,sans-serif;color:#fff">{{ statusLabel }}</span>
+    <span style="font:400 12.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)">{{ statusDetail }}</span>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 372px;background:#F4F2EE">
+  <div style="padding:34px 34px 40px">
+    <div style="display:flex;align-items:center;gap:9px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">01</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Dois lados do negócio</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px">
+      <div style="border-top:2px solid #0C0C0D;padding-top:14px">
+        <div style="display:flex;align-items:baseline;gap:9px"><h2 style="margin:0;font:700 32px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Loja</h2><span style="font:500 10.5px/1 'IBM Plex Mono',monospace;color:#5E5C56">/ SHOP</span></div>
+        <p style="margin:10px 0 0;font:400 15px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Venda de motos e de equipamento para piloto. Categoria registada: vendedor de motorizadas.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:13px">
+          <span style="font:500 11.5px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 9px">Motos</span>
+          <span style="font:500 11.5px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 9px">Moto 4 / ATV</span>
+          <span style="font:500 11.5px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 9px">SSV</span>
+          <span style="font:500 11.5px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 9px">E-bike</span>
+          <span style="font:500 11.5px/1 Barlow,sans-serif;color:#0C0C0D;background:#E6E3DC;padding:6px 9px">Equipamento</span>
+        </div>
+        <span class="ev" style="margin-top:10px;background:#EFE2D6;color:#8A5A2B">categorias por aprovar</span>
+      </div>
+      <div style="border-top:2px solid #0C0C0D;padding-top:14px">
+        <div style="display:flex;align-items:baseline;gap:9px"><h2 style="margin:0;font:700 32px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">Oficina</h2><span style="font:500 10.5px/1 'IBM Plex Mono',monospace;color:#5E5C56">/ WORKSHOP</span></div>
+        <p style="margin:10px 0 0;font:400 15px/1.55 Barlow,sans-serif;color:#3B3A37;text-wrap:pretty">Serviço mecânico no local. A lista de serviços ainda não está confirmada, por isso não é publicada.</p>
+        <div style="margin-top:13px;padding:14px;border:1px dashed rgba(0,0,0,.22);background:repeating-linear-gradient(135deg,transparent,transparent 7px,rgba(0,0,0,.035) 7px,rgba(0,0,0,.035) 14px)">
+          <span style="font:500 10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5E5C56">Placeholder — serviços da oficina a aguardar aprovação</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:36px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">02</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Cultura e disciplinas</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.12)">
+      <div style="background:#0C0C0D;padding:20px 14px"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">A1</span><div style="font:700 24px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#fff;margin-top:8px">Enduro</div></div>
+      <div style="background:#0C0C0D;padding:20px 14px"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">A2</span><div style="font:700 24px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#fff;margin-top:8px">Motocross</div></div>
+      <div style="background:#0C0C0D;padding:20px 14px"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">A3</span><div style="font:700 24px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#fff;margin-top:8px">Off-road</div></div>
+      <div style="background:#0C0C0D;padding:20px 14px"><span style="font:600 9.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">A4</span><div style="font:700 24px/1 'Barlow Condensed',sans-serif;font-style:italic;text-transform:uppercase;color:#fff;margin-top:8px">Estrada</div></div>
+    </div>
+    <p style="margin:11px 0 0;font:400 12.5px/1.5 Barlow,sans-serif;color:#6C6B67">Temas presentes na comunicação da OFT. Não representam stock nem lista de serviços. Marcas visíveis na loja: KTM · Husqvarna · CFMOTO · GASGAS <span class="ev" style="background:#EFE2D6;color:#8A5A2B;margin-left:4px">observado</span></p>
+
+    <div style="display:flex;align-items:center;gap:9px;margin-top:36px">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;color:var(--acc)">03</span>
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5E5C56">Horário e local</span>
+      <span style="flex:1;height:1px;background:rgba(0,0,0,.12)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:16px">
+      <div>
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 10px;border-bottom:1px solid rgba(0,0,0,.1);background:{{ d.bgLight }}">
+            <span style="font:600 13.5px/1 Barlow,sans-serif;color:{{ d.fgLight }}">{{ d.name }}</span>
+            <span style="font:400 13.5px/1 'IBM Plex Mono',monospace;color:{{ d.fgLight }}">{{ d.hours }}</span>
+          </div>
+        </sc-for>
+        <p style="margin:11px 0 0;font:400 12px/1.5 Barlow,sans-serif;color:#5E5C56">Hora de Lisboa. Feriados podem diferir.</p>
+      </div>
+      <div>
+        <div style="font:700 26px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0C0C0D">R. Gonçalo Velho Cabral 2</div>
+        <div style="font:500 14.5px/1.5 Barlow,sans-serif;color:#3B3A37;margin-top:3px">2560-717 São Pedro da Cadeira</div>
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="margin-top:14px;min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#0C0C0D;color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">Abrir direções
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <span class="ev" style="margin-top:9px;background:#EFE2D6;color:#8A5A2B">confirmar destino exato no google maps</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0C0C0D;padding:34px 28px 40px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-20px;bottom:-26px;font:700 150px/1 'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,.04);pointer-events:none">153</div>
+    <div style="position:relative">
+      <span style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)">Ações</span>
+      <a href="tel:+351919678052" style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:10px;height:58px;background:var(--acc);color:#0C0C0D;text-decoration:none;font:700 19px/1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 100%,0 100%)">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 3.5a1.5 1.5 0 0 1 2.1.4l1.4 2a1.5 1.5 0 0 1-.2 1.9l-1 .9a11 11 0 0 0 4.5 4.5l.9-1a1.5 1.5 0 0 1 1.9-.2l2 1.4a1.5 1.5 0 0 1 .4 2.1l-1 1.4c-.6.8-1.7 1.1-2.6.7C11.6 16.7 7.3 12.4 4.4 6.7c-.4-.9-.1-2 .7-2.6z"/></svg>919 678 052</a>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Como chegar</a>
+        <a href="#1d" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Guardar contacto</a>
+        <a href="https://www.instagram.com/oftracing153/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="var(--acc)" stroke="none"/></svg>Instagram<span style="margin-left:auto;font:400 12px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.57)">@oftracing153</span></a>
+        <a href="https://www.facebook.com/p/OFT-Racing-100057400693321/" target="_blank" rel="noopener noreferrer" style="min-height:50px;display:flex;align-items:center;gap:10px;padding:0 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font:600 14px/1 Barlow,sans-serif">
+          <span style="width:16px;height:16px;display:grid;place-items:center;border:1.6px solid var(--acc);border-radius:3px;font:700 12px/1 Barlow,sans-serif;color:var(--acc)">f</span>Facebook</a>
+      </div>
+
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:16px">
+        <div>
+          <div style="font:700 44px/1 'Barlow Condensed',sans-serif;color:#fff">4,8</div>
+          <div style="font:500 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.57);margin-top:5px">/ 5 · 35 AVALIAÇÕES</div>
+        </div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,.14);padding-left:16px">
+          <div style="font:500 12.5px/1.45 Barlow,sans-serif;color:rgba(255,255,255,.7)">Snapshot Google de 28.08.2026.</div>
+          <span class="ev" style="margin-top:6px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.55)">sem url — ação omitida</span>
+        </div>
+      </div>
+      <p style="margin:20px 0 0;font:400 12px/1.55 Barlow,sans-serif;color:rgba(255,255,255,.55)">Sem website, email ou WhatsApp confirmados — nenhuma dessas ações é apresentada.</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#08080A;padding:22px 32px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:16px;height:16px;background:var(--acc);clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)"></div>
+    <span style="font:500 13px/1 Barlow,sans-serif;color:rgba(255,255,255,.75)">Perfil criado com Piri<span style="color:var(--acc)">Card</span></span>
+  </div>
+  <span style="font:400 11.5px/1 'IBM Plex Mono',monospace;color:rgba(255,255,255,.35)">piricard.pt</span>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">A seguir: “<a class="dv-oid" href="#1a">1a</a> mas com o herói de <a class="dv-oid" href="#1b">1b</a>” · “versão de <a class="dv-oid" href="#1c">1c</a> em fundo escuro” · “mostra o estado fechado / próxima abertura” · “novas direções”</p>
+</section>
+
+<section class="dv-turn" id="t0">
+<div class="dv-thd"><a class="dv-tid" href="#t0">0</a><span class="dv-tname">Pressupostos, evidência e decisões</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+  <div style="width:360px;background:#fff;border-radius:8px;padding:20px 22px">
+    <div style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)">Publicado como facto</div>
+    <ul style="margin:12px 0 0;padding-left:18px;font:400 13.5px/1.7 Barlow,sans-serif;color:#3B3A37">
+      <li>Nome, categoria registada, morada, telefone</li>
+      <li>Horário semanal (Seg e Dom fechado)</li>
+      <li>Estado aberto/fechado calculado em hora de Lisboa</li>
+      <li>4,8 / 35 avaliações — datado, sem link</li>
+    </ul>
+  </div>
+  <div style="width:360px;background:#fff;border-radius:8px;padding:20px 22px">
+    <div style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)">Omitido por não estar confirmado</div>
+    <ul style="margin:12px 0 0;padding-left:18px;font:400 13.5px/1.7 Barlow,sans-serif;color:#3B3A37">
+      <li>WhatsApp — o número do anúncio de emprego é outro e não é canal de cliente</li>
+      <li>Email — apenas lead de directório / Facebook</li>
+      <li>Website — nenhum associado</li>
+      <li>Link directo de avaliações Google</li>
+      <li>Lista de serviços da oficina e catálogo de produtos</li>
+      <li>Logótipos de fabricante e qualquer estatuto de “representante oficial”</li>
+    </ul>
+  </div>
+  <div style="width:360px;background:#fff;border-radius:8px;padding:20px 22px">
+    <div style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)">Decisões de design</div>
+    <ul style="margin:12px 0 0;padding-left:18px;font:400 13.5px/1.7 Barlow,sans-serif;color:#3B3A37">
+      <li>Instagram e Facebook passaram a ações reais: os URLs ficaram visíveis nos ecrãs que forneceste (<span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">@oftracing153</span>, página OFT Racing)</li>
+      <li>Direções via pesquisa Google Maps derivada da morada — a confirmar o place ID</li>
+      <li>Laranja só em ações, numeração e estado; preto para peso, papel quente para dados</li>
+      <li>Barlow Condensed itálico para títulos, Barlow para corpo, IBM Plex Mono para rótulos técnicos</li>
+      <li>O símbolo PiriCard é um <strong>placeholder geométrico</strong> — substituir pelo componente real</li>
+    </ul>
+  </div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C2301A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C2301A&quot;,&quot;#A8271A&quot;,&quot;#DE3A14&quot;,&quot;#B8161C&quot;],&quot;section&quot;:&quot;Identidade&quot;},&quot;showEvidence&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Revisão&quot;},&quot;stickyDock&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Revisão&quot;}}">
+class Component extends DCLogic {
+  state = { now: new Date() };
+
+  componentDidMount() {
+    this.sync();
+    this.t = setInterval(() => this.setState({ now: new Date() }), 30000);
+  }
+  componentDidUpdate() { this.sync(); }
+  componentWillUnmount() { clearInterval(this.t); }
+
+  sync() {
+    const r = document.documentElement.style;
+    r.setProperty('--acc', this.props.accent || '#C2301A');
+    r.setProperty('--ev-display', (this.props.showEvidence ?? true) ? 'inline-flex' : 'none');
+    r.setProperty('--dock-display', (this.props.stickyDock ?? true) ? 'flex' : 'none');
+  }
+
+  lisbon() {
+    const p = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Lisbon', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(this.state.now);
+    const g = k => (p.find(x => x.type === k) || {}).value;
+    const map = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    return { dow: map[g('weekday')] ?? 5, mins: parseInt(g('hour'), 10) * 60 + parseInt(g('minute'), 10) };
+  }
+
+  renderVals() {
+    const sched = { 0: null, 1: null, 2: [600, 1140], 3: [600, 1140], 4: [600, 1140], 5: [600, 1140], 6: [600, 780] };
+    const names = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+    const hhmm = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+    const { dow, mins } = this.lisbon();
+    const today = sched[dow];
+    const open = !!today && mins >= today[0] && mins < today[1];
+
+    let detail;
+    if (open) detail = 'Fecha às ' + hhmm(today[1]);
+    else {
+      let i = (!!today && mins < today[0]) ? 0 : 1;
+      let d = dow, found = null;
+      if (i === 0) found = { d: dow, h: today };
+      else for (let k = 1; k <= 7; k++) { const n = (dow + k) % 7; if (sched[n]) { found = { d: n, h: sched[n] }; break; } }
+      detail = found ? 'Abre ' + (found.d === dow ? 'hoje' : names[found.d].toLowerCase()) + ' às ' + hhmm(found.h[0]) : '';
+    }
+
+    const days = [1, 2, 3, 4, 5, 6, 0].map(i => {
+      const h = sched[i], isToday = i === dow;
+      return {
+        name: names[i],
+        hours: h ? hhmm(h[0]) + '–' + hhmm(h[1]) : 'Fechado',
+        today: isToday,
+        bg: isToday ? 'rgba(255,255,255,.07)' : 'transparent',
+        fg: isToday ? '#ffffff' : (h ? 'rgba(255,255,255,.74)' : 'rgba(255,255,255,.54)'),
+        bar: isToday ? 'var(--acc)' : 'transparent',
+        bgLight: isToday ? '#E6E3DC' : 'transparent',
+        fgLight: isToday ? '#0C0C0D' : (h ? '#3B3A37' : '#6C6A64')
+      };
+    });
+
+    return {
+      days,
+      statusLabel: open ? 'Aberto agora' : 'Fechado',
+      statusDetail: detail,
+      statusDot: open ? '#54C98A' : '#E0553F',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent('OFT Racing Shop, R. Gonçalo Velho Cabral 2, 2560-717 São Pedro da Cadeira, Portugal')
+    };
+  }
+}
+</script>
+</body>
+</html>
