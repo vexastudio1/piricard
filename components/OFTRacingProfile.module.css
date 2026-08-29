@@ -11,6 +11,7 @@
   --oft-muted: #706d67;
   --oft-faint: #97928a;
   --oft-line: #d9d4ca;
+  --oft-stickybar-h: 68px;
   min-height: 100svh;
   overflow-x: clip;
   background: var(--oft-canvas);
@@ -31,7 +32,7 @@
   width: min(100%, 960px);
   min-height: 100svh;
   margin-inline: auto;
-  padding-bottom: 96px;
+  padding-bottom: calc(var(--oft-stickybar-h) + 80px);
   overflow: hidden;
   background: var(--oft-paper);
   box-shadow: 0 0 0 1px rgba(18, 18, 19, .08), 0 24px 60px -30px rgba(18, 18, 19, .48);
@@ -125,31 +126,57 @@
 .social { padding: 28px 20px 30px; background: #ece8e0; }
 .social h2 { font-size: 1.65rem; }
 .socialLinks { margin-top: 17px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-.socialLinks a { min-width: 0; min-height: 64px; display: grid; grid-template-columns: 22px minmax(0, 1fr) 14px; align-items: center; gap: 10px; border: 1px solid #d2cdc4; border-radius: 10px; padding: 10px 12px; background: rgba(255, 254, 250, .66); }
-.socialLinks a > svg:first-child { width: 20px; height: 20px; color: var(--oft-accent); }
+.socialLinks a { min-width: 0; min-height: 64px; display: grid; grid-template-columns: 34px minmax(0, 1fr) 14px; align-items: center; gap: 10px; border: 1px solid #d2cdc4; border-radius: 10px; padding: 10px 12px; background: rgba(255, 254, 250, .66); }
 .socialLinks a > svg:last-child { width: 13px; height: 13px; color: var(--oft-faint); }
 .socialLinks span { min-width: 0; display: grid; gap: 4px; }
 .socialLinks strong, .socialLinks small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .socialLinks strong { font-size: 13px; }
 .socialLinks small { color: var(--oft-muted); font: 400 9.5px/1 "IBM Plex Mono", monospace; }
+.platformIcon { width: 34px; height: 34px; flex: none; display: grid; place-items: center; border-radius: 9px; }
+.platformIcon svg { width: 17px; height: 17px; stroke-width: 2; }
+.instagramCard { border-color: rgba(193, 53, 132, .3); background: linear-gradient(135deg, rgba(247, 119, 55, .1), rgba(224, 40, 118, .1) 55%, rgba(90, 42, 187, .1)); }
+.instagramCard .platformIcon { background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%); color: #fff; }
+.instagramCard strong { color: #a3255f; }
+.facebookCard { border-color: rgba(24, 119, 242, .3); background: rgba(24, 119, 242, .08); }
+.facebookCard .platformIcon { background: #1877f2; color: #fff; }
+.facebookCard strong { color: #1456b3; }
 
 .about { position: relative; padding: 42px 20px 44px; background: var(--oft-paper); }
 .about::before { content: ""; width: 42px; height: 3px; position: absolute; top: 0; left: 20px; background: var(--oft-accent); }
 .about .kicker { margin-bottom: 12px; }
 .about h2 { font-size: clamp(2rem, 7vw, 2.65rem); }
-.about p:last-child { max-width: 50ch; margin: 12px 0 0; color: var(--oft-copy); font-size: 15.5px; line-height: 1.65; }
+.about p:not([class]) { max-width: 54ch; margin: 12px 0 0; color: var(--oft-copy); font-size: 15.5px; line-height: 1.65; }
+.aboutGrid { margin-top: 26px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+.aboutGrid .kicker { margin-bottom: 11px; }
+.brandList, .categoryList { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
+.brandList li { border: 1px solid rgba(18, 18, 19, .14); border-radius: 6px; padding: 7px 10px; background: var(--oft-white); color: var(--oft-ink); font: 700 11.5px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.categoryList li { border-radius: 999px; padding: 7px 12px; background: var(--oft-accent-soft); color: var(--oft-accent-dark); font-size: 12.5px; font-weight: 600; }
 
 .reviews { padding: 34px 20px 36px; background: var(--oft-white); }
 .sectionIntro .kicker { margin-bottom: 9px; }
-.reviewPanel { margin-top: 22px; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 18px; border-block: 1px solid var(--oft-line); padding: 22px 0; }
 .reviewRating { font: 700 clamp(3.5rem, 16vw, 5.25rem)/.8 "Barlow Condensed", sans-serif; letter-spacing: -.04em; }
-.reviewSummary { min-width: 0; display: grid; gap: 7px; }
 .stars { display: flex; gap: 3px; color: #dda225; }
 .stars svg { width: 17px; height: 17px; fill: currentColor; stroke-width: 1.5; }
-.reviewSummary b { font-size: 14px; line-height: 1.25; }
-.reviewSummary small { color: var(--oft-muted); font: 400 10.5px/1.4 "IBM Plex Mono", monospace; }
-.reviewLink { grid-column: 1 / -1; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--oft-line); padding-top: 16px; color: var(--oft-accent-dark); font-size: 13px; font-weight: 700; }
+.reviewLink { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; color: var(--oft-accent-dark); font-size: 13.5px; font-weight: 700; }
 .reviewLink svg { width: 15px; height: 15px; }
+
+.reviewActions { margin-top: 24px; display: grid; gap: 10px; border-top: 1px solid var(--oft-line); padding-top: 22px; }
+.reviewWriteCta { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 10px; background: var(--oft-accent); color: #fff; font: 700 14px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 12px 24px -14px rgba(197, 45, 29, .65); transition: transform 160ms ease, box-shadow 160ms ease; }
+.reviewWriteCta svg { width: 16px; height: 16px; fill: currentColor; stroke-width: 1.5; }
+
+.reviewGrid { margin-top: 22px; display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; border-top: 1px solid var(--oft-line); padding-top: 26px; }
+.reviewScoreHead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
+.reviewScoreHead > small { color: var(--oft-muted); font: 400 11px/1.4 "IBM Plex Mono", monospace; }
+.distribution { margin: 18px 0 0; padding: 0; display: grid; gap: 7px; list-style: none; }
+.distribution li { display: flex; align-items: center; gap: 9px; color: var(--oft-muted); font: 600 11px/1 "IBM Plex Mono", monospace; }
+.distribution li > span:first-child { width: 9px; text-align: right; }
+.distribution li > span:last-child { width: 20px; text-align: right; }
+.distribution i { height: 6px; min-width: 0; flex: 1; overflow: hidden; border-radius: 99px; background: var(--oft-line); }
+.distribution i b { height: 100%; display: block; background: var(--oft-accent); }
+.praise .kicker { margin-bottom: 10px; }
+.praise ul { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
+.praise li { border-radius: 999px; padding: 7px 12px; background: var(--oft-accent-soft); color: var(--oft-accent-dark); font-size: 12px; font-weight: 700; }
+.praise > small { display: block; margin: 14px 0 0; }
 
 .visit { display: grid; background: var(--oft-paper); }
 .hours, .location { min-width: 0; padding: 34px 20px 36px; }
@@ -191,6 +218,24 @@
 .stickyBar a:last-child { background: var(--oft-accent); }
 .stickyBar svg { width: 17px; height: 17px; stroke-width: 2; }
 
+.whatsappFab {
+  position: fixed;
+  z-index: 70;
+  right: 16px;
+  bottom: calc(var(--oft-stickybar-h) + env(safe-area-inset-bottom) + 14px);
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 12px 26px -10px rgba(18, 18, 19, .5), 0 0 0 1px rgba(18, 18, 19, .08);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.whatsappFab svg { width: 25px; height: 25px; stroke-width: 2; }
+.whatsappFab:active { transform: scale(.94); }
+
 @media (min-width: 700px) {
   .identity { padding-inline: 34px; }
   .quickActions { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: 34px; }
@@ -201,8 +246,10 @@
   .socialLinks { width: min(100%, 470px); margin-top: 0; }
   .about { padding-block: 52px; }
   .about::before { left: 34px; }
-  .reviewPanel { grid-template-columns: auto minmax(0, 1fr) auto; }
-  .reviewLink { grid-column: auto; min-height: 54px; border-top: 0; border-left: 1px solid var(--oft-line); padding: 0 0 0 24px; }
+  .aboutGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reviewGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; }
+  .reviewActions { grid-template-columns: auto auto; justify-content: flex-start; gap: 28px; }
+  .reviewWriteCta { padding-inline: 26px; }
   .visit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hours, .location, .contacts { padding-inline: 34px; }
   .contacts > div { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -228,8 +275,7 @@
   .socialLinks { grid-template-columns: 1fr; }
   .about { padding-left: 16px; padding-right: 16px; }
   .about::before { left: 16px; }
-  .reviewPanel { gap: 13px; }
-  .reviewSummary b { font-size: 13px; }
+  .reviewRating { font-size: 3.1rem; }
   .contacts strong { font-size: 13px; }
 }
 
@@ -238,6 +284,8 @@
   .quickActions > :is(a, button):not(.actionDark):not(.actionAccent):hover { border-color: rgba(197, 45, 29, .46); }
   .directoryLink:hover, .reviewLink:hover { color: var(--oft-accent); }
   .contacts a:hover { background: rgba(255, 255, 255, .08); }
+  .reviewWriteCta:hover { transform: translateY(-1px); box-shadow: 0 16px 28px -14px rgba(197, 45, 29, .75); }
+  .whatsappFab:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(18, 18, 19, .55), 0 0 0 1px rgba(18, 18, 19, .1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

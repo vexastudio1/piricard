@@ -40,6 +40,7 @@ export interface Business {
   contact: { phone?: string; whatsapp?: string; email?: string; website?: string };
   location?: { city?: string; address?: string; streetAddress?: string; country?: string; mapsUrl?: string };
   reviewUrl?: string;
+  reviewWriteUrl?: string;
   reviewSnapshot?: { rating: number; count: number; source: string; asOf: string };
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
@@ -213,17 +214,31 @@ const businesses = {
     published: true,
     featured: false,
     indexable: true,
-    directoryDescription: "Loja de motos em São Pedro da Cadeira.",
-    profileDescription: "Loja de motos em São Pedro da Cadeira.",
+    directoryDescription: "Loja de motos em São Pedro da Cadeira, representante oficial de KTM, Husqvarna, CFMOTO e GASGAS.",
+    profileDescription: "Loja de motos em São Pedro da Cadeira, representante oficial de KTM, Husqvarna, CFMOTO e GASGAS.",
     contact: {
-      phone: "+351919678052",
+      // Updated 29.08.2026 per explicit client instruction ("current verified business
+      // number/email"). NOTE: as of this update, OFT's own live Google Business listing
+      // and official Facebook page ("Informações de contacto") still publicly show the
+      // previous phone (919 678 052) and email (tiagomes153@hotmail.com) — the business
+      // should update those external listings too if this number/email is now correct.
+      phone: "+351913321091",
+      email: "oftracingshop.geral@gmail.com",
+      // Verified as WhatsApp-capable: OFT's own Instagram recruitment post explicitly
+      // labels this same number "WhatsApp: +351 913 321 091".
+      whatsapp: "+351913321091",
     },
     location: {
       city: "São Pedro da Cadeira",
       address: "R. Gonçalo Velho Cabral 2, São Pedro da Cadeira, Portugal",
       streetAddress: "R. Gonçalo Velho Cabral 2",
       country: "Portugal",
+      mapsUrl: "https://www.google.com/maps/place/Oft+Racing+Shop/@39.0739556,-9.3821492,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f25711195cad1:0x2a9d02e1163b0a05!8m2!3d39.0739556!4d-9.3821492!16s%2Fg%2F11hhzfgsvn",
     },
+    reviewUrl: "https://www.google.com/maps/place/Oft+Racing+Shop/@39.0739556,-9.3821492,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f25711195cad1:0x2a9d02e1163b0a05!8m2!3d39.0739556!4d-9.3821492!16s%2Fg%2F11hhzfgsvn",
+    // Direct Google "write a review" deep link for this exact verified listing
+    // (place id ChIJ0cqVEXElHw0RBQo7FuECnSo — same business confirmed via Waze/Maps).
+    reviewWriteUrl: "https://search.google.com/local/writereview?placeid=ChIJ0cqVEXElHw0RBQo7FuECnSo",
     socialLinks: [
       { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/oftracing153/" },
       { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/p/OFT-Racing-100057400693321/" },
@@ -241,7 +256,7 @@ const businesses = {
       rating: 4.8,
       count: 35,
       source: "Google",
-      asOf: "28.08.2026",
+      asOf: "29.08.2026",
     },
     assets: {
       logo: "/clients/oft-racing/logo.png",

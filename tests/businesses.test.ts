@@ -12,7 +12,7 @@ describe("business lookup", () => {
     const business = getBusinessBySlug("oft-racing");
     expect(business?.name).toBe("OFT Racing Shop");
     expect(business?.layoutVariant).toBe("racing");
-    expect(business?.contact.phone).toBe("+351919678052");
+    expect(business?.contact.phone).toBe("+351913321091");
   });
   it("rejects malformed and unknown slugs", () => {
     expect(isValidSlug("Auto Formigal")).toBe(false);

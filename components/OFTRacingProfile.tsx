@@ -12,11 +12,37 @@ import {
 import type { ReactNode } from "react";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { OFTWhatsAppFab } from "@/components/OFTWhatsAppFab";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import type { Business } from "@/lib/businesses";
-import { getMapsHref, getPhoneHref, getSafeExternalUrl } from "@/lib/links";
+import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
 import { getVCardFilename } from "@/lib/vcard";
 import styles from "./OFTRacingProfile.module.css";
+
+const whatsappMessage = "Olá! Vi a OFT Racing no PiriCard e gostaria de mais informações.";
+
+// Verified 28–29 August 2026 directly from OFT Racing Shop's live Google Business
+// profile (google.com/maps — place id 0xd1f25711195cad1:0x2a9d02e1163b0a05, matching
+// the confirmed address and phone number). Do not adjust without re-verifying source.
+const reviewDistribution = [
+  { stars: 5, count: 31 },
+  { stars: 4, count: 2 },
+  { stars: 3, count: 1 },
+  { stars: 2, count: 1 },
+  { stars: 1, count: 0 },
+] as const;
+
+// Themes genuinely repeated across multiple independent Google reviews (and Google's
+// own highlighted review excerpts) for OFT Racing Shop — not invented.
+const reviewPraise = ["Atendimento", "Profissionalismo", "Serviço pós-venda", "Organização e limpeza"] as const;
+
+// Brands OFT Racing Shop names as official representations in its own official
+// Instagram bio (instagram.com/oftracing153 — the same account linked from this profile).
+const representedBrands = ["KTM", "Husqvarna", "CFMOTO", "GASGAS"] as const;
+
+// Product areas confirmed through OFT's own shop photography and sales posts
+// (motorcycles, helmets/gloves/goggles, exhausts and riding accessories).
+const shopCategories = ["Motos", "Equipamento", "Acessórios"] as const;
 
 function formatPhone(value: string): string {
   const digits = value.replace(/\D/g, "");
@@ -33,11 +59,16 @@ export function OFTRacingProfile({ business }: { business: Business }) {
   const phoneHref = getPhoneHref(business.contact.phone);
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address);
   const reviewHref = getSafeExternalUrl(business.reviewUrl);
+  const reviewWriteHref = getSafeExternalUrl(business.reviewWriteUrl);
+  const whatsappBaseHref = getWhatsAppHref(business.contact.whatsapp);
+  const whatsappHref = whatsappBaseHref ? `${whatsappBaseHref}?text=${encodeURIComponent(whatsappMessage)}` : undefined;
   const instagramHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "instagram")?.url);
   const facebookHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "facebook")?.url);
   const contactFilename = getVCardFilename(business);
   const phone = business.contact.phone ? formatPhone(business.contact.phone) : undefined;
   const localPhone = phone?.replace(/^\+351\s/, "");
+  const emailHref = getEmailHref(business.contact.email);
+  const reviewSnapshot = business.reviewSnapshot;
   const locationName = business.location?.city;
   const address = business.location?.address;
   const mapEmbedHref = address
@@ -107,7 +138,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           </div>
         </header>
 
-        <nav className={styles.quickActions} aria-label="Ações principais">
+        <nav id="oft-quick-actions" className={styles.quickActions} aria-label="Ações principais">
           {phoneHref ? (
             <a className={styles.actionDark} href={phoneHref} aria-label={`Ligar para ${business.name}`}>
               <span className={styles.actionIcon}><Phone aria-hidden="true" /></span>
@@ -120,10 +151,10 @@ export function OFTRacingProfile({ business }: { business: Business }) {
               <span><strong>Como chegar</strong><small>Google Maps</small></span>
             </ExternalLink>
           ) : null}
-          {instagramHref ? (
-            <ExternalLink href={instagramHref} ariaLabel={`${business.name} no Instagram`}>
-              <span className={styles.actionIcon}><Instagram aria-hidden="true" /></span>
-              <span><strong>Instagram</strong><small>@oftracing153</small></span>
+          {reviewWriteHref ? (
+            <ExternalLink href={reviewWriteHref} ariaLabel={`Escrever uma avaliação da ${business.name} no Google`}>
+              <span className={styles.actionIcon}><Star aria-hidden="true" /></span>
+              <span><strong>Deixar avaliação</strong><small>Google</small></span>
             </ExternalLink>
           ) : null}
           <ContactDownloadButton
@@ -154,6 +185,12 @@ export function OFTRacingProfile({ business }: { business: Business }) {
                 <dd><ExternalLink href={mapsHref}>{business.location?.streetAddress ?? address}</ExternalLink><small>{locationName}</small></dd>
               </div>
             ) : null}
+            {emailHref && business.contact.email ? (
+              <div>
+                <dt>Email</dt>
+                <dd><a href={emailHref}>{business.contact.email}</a><small>Toque para enviar email</small></dd>
+              </div>
+            ) : null}
             {business.hours?.length ? (
               <div>
                 <dt>Horário de hoje</dt>
@@ -171,13 +208,17 @@ export function OFTRacingProfile({ business }: { business: Business }) {
             </div>
             <nav className={styles.socialLinks} aria-label="Redes sociais da OFT Racing Shop">
               {instagramHref ? (
-                <ExternalLink href={instagramHref} ariaLabel={`${business.name} no Instagram`}>
-                  <Instagram aria-hidden="true" /><span><strong>Instagram</strong><small>@oftracing153</small></span><ArrowUpRight aria-hidden="true" />
+                <ExternalLink className={styles.instagramCard} href={instagramHref} ariaLabel={`${business.name} no Instagram`}>
+                  <span className={styles.platformIcon}><Instagram aria-hidden="true" /></span>
+                  <span><strong>Instagram</strong><small>@oftracing153</small></span>
+                  <ArrowUpRight aria-hidden="true" />
                 </ExternalLink>
               ) : null}
               {facebookHref ? (
-                <ExternalLink href={facebookHref} ariaLabel={`${business.name} no Facebook`}>
-                  <Facebook aria-hidden="true" /><span><strong>Facebook</strong><small>OFT Racing</small></span><ArrowUpRight aria-hidden="true" />
+                <ExternalLink className={styles.facebookCard} href={facebookHref} ariaLabel={`${business.name} no Facebook`}>
+                  <span className={styles.platformIcon}><Facebook aria-hidden="true" /></span>
+                  <span><strong>Facebook</strong><small>OFT Racing</small></span>
+                  <ArrowUpRight aria-hidden="true" />
                 </ExternalLink>
               ) : null}
             </nav>
@@ -186,27 +227,69 @@ export function OFTRacingProfile({ business }: { business: Business }) {
 
         <section className={styles.about} aria-labelledby="oft-about-heading">
           <p className={styles.kicker}>Sobre a OFT</p>
-          <h2 id="oft-about-heading">Loja de motos</h2>
-          {business.profileDescription ? <p>{business.profileDescription}</p> : null}
+          <h2 id="oft-about-heading">Paixão por motos, dentro e fora da estrada</h2>
+          <p>
+            A OFT Racing Shop é uma loja e oficina especializada no mundo das duas rodas, em São Pedro da Cadeira.
+            Representante oficial de marcas como KTM, Husqvarna, CFMOTO e GASGAS, reúne motos, equipamento e
+            acessórios para quem vive o motociclismo dentro e fora da estrada.
+          </p>
+          <div className={styles.aboutGrid}>
+            <div>
+              <p className={styles.kicker}>Representante · Marcas</p>
+              <ul className={styles.brandList}>
+                {representedBrands.map((brand) => <li key={brand}>{brand}</li>)}
+              </ul>
+            </div>
+            <div>
+              <p className={styles.kicker}>Encontra na OFT</p>
+              <ul className={styles.categoryList}>
+                {shopCategories.map((category) => <li key={category}>{category}</li>)}
+              </ul>
+            </div>
+          </div>
         </section>
 
-        {business.reviewSnapshot ? (
+        {reviewSnapshot ? (
           <section className={styles.reviews} aria-labelledby="oft-reviews-heading">
             <div className={styles.sectionIntro}>
               <p className={styles.kicker}>Reputação</p>
               <h2 id="oft-reviews-heading">Avaliações</h2>
             </div>
-            <div className={styles.reviewPanel}>
-              <strong className={styles.reviewRating}>{business.reviewSnapshot.rating.toLocaleString("pt-PT", { minimumFractionDigits: 1 })}</strong>
-              <div className={styles.reviewSummary}>
-                <span className={styles.stars} aria-label={`${business.reviewSnapshot.rating} em 5 estrelas`}>
-                  {Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}
-                </span>
-                <b>{business.reviewSnapshot.count} avaliações no {business.reviewSnapshot.source}</b>
-                <small>Dados consultados em {business.reviewSnapshot.asOf}.</small>
+            <div className={styles.reviewGrid}>
+              <div className={styles.reviewScore}>
+                <div className={styles.reviewScoreHead}>
+                  <strong className={styles.reviewRating}>{reviewSnapshot.rating.toLocaleString("pt-PT", { minimumFractionDigits: 1 })}</strong>
+                  <span className={styles.stars} aria-label={`${reviewSnapshot.rating} em 5 estrelas`}>
+                    {Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}
+                  </span>
+                  <small>{reviewSnapshot.count} avaliações no {reviewSnapshot.source}</small>
+                </div>
+                <ul className={styles.distribution} aria-label="Distribuição das avaliações por número de estrelas">
+                  {reviewDistribution.map((row) => (
+                    <li key={row.stars}>
+                      <span>{row.stars}</span>
+                      <i><b style={{ width: `${Math.round((row.count / reviewSnapshot.count) * 100)}%` }} /></i>
+                      <span>{row.count}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              {reviewHref ? <ExternalLink className={styles.reviewLink} href={reviewHref}>Ver avaliações no Google <ArrowUpRight aria-hidden="true" /></ExternalLink> : null}
+              <div className={styles.praise}>
+                <p className={styles.kicker}>Mais elogiado</p>
+                <ul>{reviewPraise.map((item) => <li key={item}>{item}</li>)}</ul>
+                <small className={styles.caveat}>Dados consultados em {reviewSnapshot.asOf} · Google.</small>
+              </div>
             </div>
+            {(reviewWriteHref || reviewHref) ? (
+              <div className={styles.reviewActions}>
+                {reviewWriteHref ? (
+                  <ExternalLink className={styles.reviewWriteCta} href={reviewWriteHref} ariaLabel={`Escrever uma avaliação da ${business.name} no Google`}>
+                    <Star aria-hidden="true" size={16} /> Deixar uma avaliação
+                  </ExternalLink>
+                ) : null}
+                {reviewHref ? <ExternalLink className={styles.reviewLink} href={reviewHref}>Ler as avaliações no Google <ArrowUpRight aria-hidden="true" /></ExternalLink> : null}
+              </div>
+            ) : null}
           </section>
         ) : null}
 
@@ -256,6 +339,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           <h2 id="oft-contacts-heading">Contactos</h2>
           <div>
             {phoneHref && phone ? <a href={phoneHref}><small>Telefone</small><strong>{phone}</strong></a> : null}
+            {emailHref && business.contact.email ? <a href={emailHref}><small>Email</small><strong>{business.contact.email}</strong></a> : null}
             {instagramHref ? <ExternalLink href={instagramHref}><small>Instagram</small><strong>@oftracing153</strong></ExternalLink> : null}
             {facebookHref ? <ExternalLink href={facebookHref}><small>Facebook</small><strong>OFT Racing</strong></ExternalLink> : null}
             {mapsHref && address ? <ExternalLink href={mapsHref}><small>Morada</small><strong>{business.location?.streetAddress ?? address}</strong></ExternalLink> : null}
@@ -267,6 +351,8 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           <PiriCardBrandMark wordmark={<span>Perfil criado com Piri<span>Card</span></span>} />
         </footer>
       </article>
+
+      {whatsappHref ? <OFTWhatsAppFab href={whatsappHref} className={styles.whatsappFab} /> : null}
 
       {(phoneHref || mapsHref) ? (
         <nav className={styles.stickyBar} aria-label="Ações persistentes">
