@@ -18,10 +18,11 @@ describe("business lookup", () => {
     const business = getBusinessBySlug("beauty-connection-360");
     expect(business?.name).toBe("Beauty Connection 360");
     expect(business?.layoutVariant).toBe("beauty");
-    // Phone/email/WhatsApp still conflict across sources (see lib/businesses.ts) —
-    // must stay unset rather than guessing. The street address is confirmed.
-    expect(business?.contact.phone).toBeUndefined();
-    expect(business?.contact.whatsapp).toBeUndefined();
+    // Phone/WhatsApp were explicitly confirmed by the site owner (see the
+    // contact note in lib/businesses.ts); email still conflicts across
+    // sources and stays unset rather than guessed.
+    expect(business?.contact.phone).toBe("+351916754795");
+    expect(business?.contact.whatsapp).toBe("+351916754795");
     expect(business?.contact.email).toBeUndefined();
     expect(business?.location?.streetAddress).toBe("Rua Serpa Pinto 9A");
     expect(business?.reviewUrl).toBeUndefined();

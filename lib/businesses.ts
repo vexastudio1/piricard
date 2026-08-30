@@ -158,15 +158,17 @@ const businesses = {
     directoryDescription: "Estética, beleza e bem-estar personalizados, unindo tratamentos, tecnologia e cosmética premium.",
     profileDescription: "Conexão Total com a Beleza — tratamentos personalizados de estética, corpo e bem-estar.",
     positioning: "Elevando a sua beleza com exclusividade.",
-    // Phone and email still disagree between the website (916 754 795 /
+    // Phone and email disagreed between the website (916 754 795 /
     // geral@beautyconnection360.com) and an Instagram highlight (933 556 646 /
-    // geral.connectionbeauty@gmail.com), and neither has been confirmed as
-    // current by the business — per design-reference/PiriCard for Beauty
-    // Connection 360/uploads/beauticonnection360/
-    // BEAUTY-CONNECTION-360-HANDOFF-PIRICARD-WEBSITE.md ("não escolher
-    // automaticamente um dos contactos"), do not pick one. The street address
-    // below is confirmed and safe to publish.
+    // geral.connectionbeauty@gmail.com) — per design-reference/PiriCard for
+    // Beauty Connection 360/uploads/beauticonnection360/
+    // BEAUTY-CONNECTION-360-HANDOFF-PIRICARD-WEBSITE.md, neither had been
+    // confirmed as current. The website's number was explicitly chosen (by
+    // the site owner, in-session) to power Ligar/WhatsApp — not independently
+    // re-verified beyond that instruction. Re-confirm if it ever bounces.
     contact: {
+      phone: "+351916754795",
+      whatsapp: "+351916754795",
       website: "https://www.beautyconnection360.com/",
     },
     location: {
@@ -177,9 +179,10 @@ const businesses = {
     },
     socialLinks: [
       { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/beauty_connection360" },
+      { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/groups/736440344810780/user/61570809329586/?locale=pt_PT" },
     ],
-    // No opening hours, phone, WhatsApp, or Google Business profile are
-    // confirmed — omitted rather than guessed (see contact note above).
+    // No opening hours or Google Business profile are confirmed — omitted
+    // rather than guessed (see contact note above for phone/WhatsApp).
     assets: {
       logo: "/clients/beauty-connection-360/logo.webp",
       cover: "/clients/beauty-connection-360/fachada.webp",

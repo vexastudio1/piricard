@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
-import { ArrowUpRight, Calendar, Instagram, MapPin, Navigation } from "lucide-react";
+import { ArrowUpRight, Calendar, Facebook, Instagram, MapPin, Navigation } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
 import { BeautyTreatmentGroups, type TreatmentGroup } from "@/components/BeautyTreatmentGroups";
+import { BeautyStickyBar } from "@/components/BeautyStickyBar";
 import type { Business, BusinessGalleryImage } from "@/lib/businesses";
-import { getMapsHref, getSafeExternalUrl } from "@/lib/links";
+import { getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
 import { getVCardFilename } from "@/lib/vcard";
 import styles from "./BeautyConnection360Profile.module.css";
 
@@ -29,14 +30,10 @@ const treatmentGroups: TreatmentGroup[] = [
   { id: "bemestar", title: "Bem-estar Integrado", description: "Terapias, fitness e nutrição", items: ["Reiki", "Reflexologia", "Aromaterapia", "Mentorias", "Planos de Fitness Personalizados", "Planos Alimentares Personalizados"] },
 ];
 
-// Commercial relationship with each brand is described conservatively — see
-// the handoff doc's "A CONFIRMAR" notes on KEDMA and the Arabic perfumes
-// (no confirmed distribution/exclusivity claim to make yet).
-const brands = [
-  { id: "neolumo", name: "NeoLumo", tag: "Confirmado no website", blurb: "Cosmética de cabine e skincare apresentada no website oficial da Beauty Connection 360." },
-  { id: "kedma", name: "KEDMA", tag: "Instagram", blurb: "Coleção de Ouro KEDMA presente no Instagram da marca." },
-  { id: "perfumes", name: "Perfumes Árabes", tag: "Instagram", blurb: "Perfumes árabes originais, referidos pela própria marca nas redes sociais." },
-] as const;
+// Prefilled WhatsApp opening message — used only once a verified WhatsApp
+// number exists (see the contact note below); the message text itself is
+// static UI copy, not business data.
+const whatsappMessage = "Olá! Vi a Beauty Connection 360 no PiriCard e gostaria de mais informações.";
 
 // Only the facade photo is a real, currently-available Beauty Connection 360
 // image (design-reference/PiriCard for Beauty Connection 360/uploads/
@@ -54,6 +51,10 @@ const galleryImages: BusinessGalleryImage[] = [
 export function BeautyConnection360Profile({ business }: { business: Business }) {
   const websiteHref = getSafeExternalUrl(business.contact.website);
   const instagramHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "instagram")?.url);
+  const facebookHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "facebook")?.url);
+  const phoneHref = getPhoneHref(business.contact.phone);
+  const whatsappBaseHref = getWhatsAppHref(business.contact.whatsapp);
+  const whatsappHref = whatsappBaseHref ? `${whatsappBaseHref}?text=${encodeURIComponent(whatsappMessage)}` : undefined;
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address);
   // Same no-API-key embed technique already used by OFTRacingProfile — a
   // Maps *search* keyed to the confirmed address, not a fabricated place ID.
@@ -105,7 +106,12 @@ export function BeautyConnection360Profile({ business }: { business: Business })
             </div>
             <h1>{business.name}</h1>
             {business.positioning ? <p className={styles.tagline}>{business.positioning}</p> : null}
-            {city ? <p className={styles.address}>{city}</p> : null}
+            {streetAddress ? (
+              <p className={styles.address}>
+                {streetAddress}
+                {city ? <span>2560-288 {city}</span> : null}
+              </p>
+            ) : city ? <p className={styles.address}>{city}</p> : null}
           </div>
         </header>
 
@@ -168,6 +174,27 @@ export function BeautyConnection360Profile({ business }: { business: Business })
           </dl>
         </section>
 
+        {(instagramHref || facebookHref) ? (
+          <section className={styles.social} aria-labelledby="bc-social-heading">
+            <p className={styles.kicker} id="bc-social-heading">Redes sociais</p>
+            <h2 className={styles.socialHeading}>Acompanha a Beauty Connection</h2>
+            <div className={styles.socialGrid}>
+              {instagramHref ? (
+                <a className={styles.socialInstagram} href={instagramHref} target="_blank" rel="noopener noreferrer" aria-label={`${business.name} no Instagram`}>
+                  <span className={styles.socialIcon}><Instagram aria-hidden="true" /></span>
+                  <span><strong>Instagram</strong><small>@beauty_connection360</small></span>
+                </a>
+              ) : null}
+              {facebookHref ? (
+                <a className={styles.socialFacebook} href={facebookHref} target="_blank" rel="noopener noreferrer" aria-label={`${business.name} no Facebook`}>
+                  <span className={styles.socialIcon}><Facebook aria-hidden="true" /></span>
+                  <span><strong>Facebook</strong><small>Beautyconnection360</small></span>
+                </a>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         <section className={styles.aboutDark} aria-labelledby="bc-about-heading">
           <p className={styles.kicker} id="bc-about-heading">Sobre</p>
           <h2 className={styles.aboutQuote}>“A verdadeira beleza nasce da conexão entre corpo, mente e energia.”</h2>
@@ -189,24 +216,6 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         <section className={styles.treatments} aria-labelledby="bc-treatments-heading">
           <p className={styles.kicker} id="bc-treatments-heading">Tratamentos &amp; Serviços</p>
           <BeautyTreatmentGroups groups={treatmentGroups} className={styles.treatmentGroups} itemClassName={styles.treatmentGroup} />
-        </section>
-
-        <section className={styles.brands} aria-labelledby="bc-brands-heading">
-          <p className={styles.kicker} id="bc-brands-heading">Cosmética &amp; Marcas</p>
-          <div className={styles.brandList}>
-            {brands.map((brand) => (
-              <div className={styles.brandCard} key={brand.id}>
-                <div className={styles.brandHead}>
-                  <span className={styles.brandMark} aria-hidden="true" />
-                  <div>
-                    <strong>{brand.name}</strong>
-                    <small>{brand.tag}</small>
-                  </div>
-                </div>
-                <p>{brand.blurb}</p>
-              </div>
-            ))}
-          </div>
         </section>
 
         <section className={styles.gallery} aria-labelledby="bc-gallery-heading">
@@ -251,12 +260,15 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         </footer>
       </article>
 
-      <nav className={styles.stickyBar} aria-label="Ações persistentes">
-        <div>
-          {instagramHref ? <a className={styles.stickyOutline} href={instagramHref} target="_blank" rel="noopener noreferrer">Instagram</a> : null}
-          {bookHref ? <a className={styles.stickyGold} href={bookHref} target="_blank" rel="noopener noreferrer">Marcar consulta</a> : null}
-        </div>
-      </nav>
+      <BeautyStickyBar
+        className={styles.stickyBar}
+        whatsappClassName={styles.stickyWhatsapp}
+        bookClassName={styles.stickyGold}
+        phoneClassName={styles.stickyCall}
+        bookHref={bookHref}
+        phoneHref={phoneHref}
+        whatsappHref={whatsappHref}
+      />
     </main>
   );
 }

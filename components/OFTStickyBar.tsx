@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { MessageCircle, Navigation, Phone } from "lucide-react";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface OFTStickyBarProps {
   className: string;
@@ -20,14 +20,7 @@ interface OFTStickyBarProps {
 const REVEAL_AT = 64;
 
 export function OFTStickyBar({ className, whatsappClassName, businessName, phoneHref, mapsHref, whatsappHref }: OFTStickyBarProps) {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > REVEAL_AT);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const visible = useScrollReveal(REVEAL_AT);
 
   if (!visible) return null;
 

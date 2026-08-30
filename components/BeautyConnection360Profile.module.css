@@ -70,9 +70,12 @@
 .categoryBadge { margin-bottom: 8px; display: inline-block; border: 1px solid rgba(179, 135, 63, .45); color: var(--bc-gold-dark); font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
 .identity h1 { margin-top: 12px; font-size: clamp(1.7rem, 7vw, 2.15rem); line-height: 1.1; letter-spacing: .002em; }
 .tagline { margin: 4px 0 0; font-family: var(--bc-font-display); font-style: italic; font-size: 16px; color: var(--bc-gold-dark); }
-.address { margin: 9px 0 0; color: var(--bc-muted); font-size: 13px; }
+.address { margin: 9px 0 0; color: var(--bc-muted); font-size: 13px; line-height: 1.5; }
+/* Street line + postal/city line — stacked on narrow phones, joined onto one
+   line with a separator once there's room (see the 460px breakpoint below). */
+.address span { display: block; }
 
-.quickActions { padding: 18px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.quickActions { padding: 18px 20px 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .quickActions > :is(a, button) { min-width: 0; min-height: 62px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--bc-line); border-radius: 14px; padding: 12px 13px; background: var(--bc-cream); color: var(--bc-ink); cursor: pointer; text-align: left; transition: transform 160ms ease, box-shadow 160ms ease; }
 .quickActions > :is(a, button) > span:last-child { min-width: 0; display: grid; gap: 2px; }
 .quickActions strong, .quickActions button > span { overflow: hidden; font-size: 13.5px; font-weight: 700; line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; }
@@ -97,14 +100,61 @@
 .essentialGrid dd a { color: var(--bc-gold-dark); }
 .essentialGrid dd small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 11px; font-weight: 500; }
 
+/* Extra top and bottom room (32px/28px vs. the 24px rhythm used elsewhere) so
+   this section reads as intentionally composed rather than squeezed between
+   Informação Essencial and the dark Sobre block that follows it. */
+.social { padding: 32px 20px 28px; }
+.social .kicker { margin-bottom: 18px; }
+.socialHeading { margin: 0 0 22px; font-size: clamp(1.3rem, 5.5vw, 1.55rem); line-height: 1.2; }
+.socialGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.socialGrid > a { min-width: 0; min-height: 84px; display: flex; align-items: center; gap: 13px; border: 1px solid var(--bc-line); border-radius: 16px; padding: 16px; background: var(--bc-paper); transition: transform 160ms ease, box-shadow 160ms ease; }
+.socialGrid strong { display: block; font-size: 14px; font-weight: 700; }
+.socialGrid small { display: block; overflow: hidden; margin-top: 3px; color: var(--bc-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.socialIcon { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border-radius: 10px; }
+.socialIcon svg { width: 18px; height: 18px; stroke-width: 2; }
+/* Recognizable platform identity (same colors already used by OFTRacingProfile's
+   own Instagram/Facebook cards), kept inside the Beauty cream/paper card rather
+   than a generic full-color block. */
+.socialInstagram .socialIcon { background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%); color: #fff; }
+.socialInstagram strong { color: #a3255f; }
+.socialFacebook .socialIcon { background: #1877f2; color: #fff; }
+.socialFacebook strong { color: #1456b3; }
+
 /* Dark "Sobre" zone — Sobre + Diagnóstico share one deliberately darker
    section so the page doesn't read as one uniform light surface. A thin gold
    seam marks the transition in; it ends flush into the light Tratamentos
    section below, mirroring how OFT/Boi na Brasa already alternate light/dark
    blocks. */
-.aboutDark { position: relative; padding: 30px 20px 32px; background: var(--bc-charcoal); color: #fdfbf7; }
-.aboutDark::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--bc-gold), rgba(179, 135, 63, .25), var(--bc-gold)); }
-.aboutDark .kicker { color: var(--bc-gold-light); }
+/* z-index: 0 (not just position: relative) makes this element establish its
+   own stacking context — otherwise the watermark's z-index: -1 below escapes
+   to a distant ancestor and paints behind the shell's own opaque background,
+   making it invisible regardless of opacity. */
+.aboutDark { position: relative; z-index: 0; overflow: hidden; padding: 30px 20px 32px; background: var(--bc-charcoal); color: #fdfbf7; }
+.aboutDark::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--bc-gold), rgba(179, 135, 63, .25), var(--bc-gold)); z-index: 1; }
+/* Decorative watermark only — the Beauty mark itself, oversized, bled off the
+   corner and pushed behind all real content (negative z-index paints below
+   in-flow text per the CSS stacking spec, so no wrapper markup is needed). */
+.aboutDark::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -60px;
+  right: -70px;
+  width: 320px;
+  height: 320px;
+  background-image: url("/clients/beauty-connection-360/logo.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(.3) brightness(1.4);
+  opacity: .26;
+  /* Radial fade so the mark's own opaque canvas melts into the charcoal
+     instead of reading as a hard-edged rectangle. */
+  -webkit-mask-image: radial-gradient(circle at 60% 35%, #000 0%, #000 38%, transparent 74%);
+  mask-image: radial-gradient(circle at 60% 35%, #000 0%, #000 38%, transparent 74%);
+  pointer-events: none;
+}
+.aboutDark .kicker { position: relative; color: var(--bc-gold-light); }
 .aboutQuote { font-style: italic; font-size: 20px; line-height: 1.3; margin-bottom: 10px; color: #fdfbf7; }
 .aboutCopy { margin: 0 0 18px; color: rgba(253, 251, 247, .68); font-size: 13.5px; line-height: 1.65; }
 .pillars { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
@@ -121,22 +171,21 @@
 
 .treatments { padding: 24px 20px 8px; }
 .treatmentGroups { display: flex; flex-direction: column; gap: 10px; }
-.treatmentGroup { border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-paper); overflow: hidden; }
-.treatmentGroup > button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 15px 16px; background: none; border: 0; cursor: pointer; text-align: left; color: inherit; }
+.treatmentGroup { border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-paper); overflow: hidden; transition: border-color 180ms ease; }
+.treatmentGroup[data-open="true"] { border-color: rgba(179, 135, 63, .4); }
+.treatmentGroup > button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 15px 16px; background: none; border: 0; cursor: pointer; text-align: left; color: inherit; transition: background 160ms ease; }
+.treatmentGroup > button:active { background: rgba(28, 24, 21, .04); }
 .treatmentGroup strong { display: block; font-family: var(--bc-font-display); font-size: 18px; font-weight: 600; }
 .treatmentGroup small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 12px; }
-.treatmentGroup i { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--bc-cream); color: var(--bc-gold-dark); font-size: 15px; font-weight: 700; font-style: normal; display: grid; place-items: center; }
-.treatmentGroup ul { margin: 0; padding: 0 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.treatmentGroup i { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--bc-cream); color: var(--bc-gold-dark); font-size: 15px; font-weight: 700; font-style: normal; display: grid; place-items: center; transition: background 180ms ease, color 180ms ease; }
+.treatmentGroup[data-open="true"] i { background: var(--bc-gold); color: var(--bc-ink); }
+.treatmentGroup ul { margin: 0; padding: 0 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; animation: bcTreatmentReveal 200ms ease both; }
 .treatmentGroup li { background: var(--bc-cream); color: var(--bc-ink); font-size: 12.5px; padding: 7px 11px; border-radius: 999px; }
 
-.brands { padding: 24px 20px 8px; }
-.brandList { display: flex; flex-direction: column; gap: 10px; }
-.brandCard { border: 1px solid var(--bc-line); border-radius: 14px; padding: 16px; background: var(--bc-paper); }
-.brandHead { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-.brandHead strong { display: block; font-family: var(--bc-font-display); font-size: 17px; font-weight: 600; }
-.brandHead small { display: block; margin-top: 2px; color: var(--bc-gold-dark); font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-.brandMark { width: 48px; height: 48px; flex: none; border-radius: 10px; background: repeating-linear-gradient(135deg, #eee6d6, #eee6d6 6px, #e4d9c2 6px, #e4d9c2 12px); }
-.brandCard p { margin: 0; padding-top: 10px; border-top: 1px solid var(--bc-line); color: var(--bc-muted); font-size: 12.5px; line-height: 1.5; }
+@keyframes bcTreatmentReveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .gallery { padding: 24px 20px 8px; }
 /* BusinessPhotoGallery (shared with Autoformigal) renders plain global
@@ -173,17 +222,63 @@
 .footer > span { font-size: 11px; --brand-mark-color: var(--bc-gold); }
 .footer > span > span > span { color: var(--bc-gold-light); }
 
-.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(248, 244, 236, .96); box-shadow: 0 -1px 0 rgba(28, 24, 21, .12), 0 -10px 30px rgba(28, 24, 21, .08); backdrop-filter: blur(10px); }
-.stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: flex; gap: 8px; }
-.stickyBar a { min-width: 0; min-height: 52px; flex: 1; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 13px; font-weight: 700; text-align: center; }
-.page .stickyOutline { background: transparent; border: 1px solid rgba(28, 24, 21, .18); color: var(--bc-ink); }
-.page .stickyGold { flex: 1.4 !important; background: var(--bc-gold); color: var(--bc-ink); }
+/* Same structure as OFTRacingProfile's .stickyBar/.whatsappFab: a two-item
+   bottom bar (equal-width grid columns, not flex, so both actions balance
+   exactly) plus a separate floating WhatsApp button positioned above it via
+   --bc-stickybar-h. Same scroll-reveal interaction (useScrollReveal), same
+   entrance animation shape as OFT — only the colors/typography are Beauty's. */
+.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(248, 244, 236, .96); box-shadow: 0 -1px 0 rgba(28, 24, 21, .12), 0 -10px 30px rgba(28, 24, 21, .08); backdrop-filter: blur(10px); animation: bcBarIn 220ms ease; }
+.stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+/* min-width: 0 on the grid item + overflow/ellipsis on both the link and its
+   label is what stops long labels from escaping the button at narrow widths;
+   the fixed min-height + horizontal padding keeps both buttons a comfortable,
+   equal touch target regardless of which one has more text. */
+.page .stickyGold, .page .stickyCall {
+  min-width: 0; min-height: 54px;
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  border-radius: 13px; padding: 0 14px;
+  font-size: 13.5px; font-weight: 700;
+  transition: transform 160ms ease;
+}
+.page .stickyGold svg, .page .stickyCall svg { flex: none; width: 18px; height: 18px; stroke-width: 2; }
+.page .stickyGold span, .page .stickyCall span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.page .stickyGold { background: var(--bc-gold); color: var(--bc-ink); }
+.page .stickyCall { background: var(--bc-charcoal); color: #fdfbf7; }
+
+/* Floating WhatsApp — same recipe as OFT's .whatsappFab (size, shadow
+   formula, corner position, offset above the bar via --bc-stickybar-h), in
+   WhatsApp's own recognizable green rather than a Beauty-tinted color. */
+.page .stickyWhatsapp {
+  position: fixed; z-index: 70; right: 16px;
+  bottom: calc(var(--bc-stickybar-h) + env(safe-area-inset-bottom) + 14px);
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #25d366; color: #fff;
+  box-shadow: 0 12px 26px -10px rgba(28, 24, 21, .5), 0 0 0 1px rgba(28, 24, 21, .08);
+  transition: transform 160ms ease;
+  animation: bcFabIn 240ms ease;
+}
+.page .stickyWhatsapp svg { width: 25px; height: 25px; stroke-width: 2; }
+.page .stickyWhatsapp:active { transform: scale(.94); }
+
+@keyframes bcBarIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bcFabIn {
+  from { opacity: 0; transform: translateY(8px) scale(.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 @media (min-width: 700px) {
   .identity { padding-inline: 34px; }
   .quickActions { padding-inline: 34px; }
-  .essentials, .aboutDark, .treatments, .brands, .gallery, .location { padding-inline: 34px; }
+  .essentials, .social, .aboutDark, .treatments, .gallery, .location { padding-inline: 34px; }
   .essentialGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+  /* Enough width for the full address on one line. */
+  .address span { display: inline; }
+  .address span::before { content: " • "; }
 }
 
 @media (min-width: 961px) {
@@ -193,18 +288,27 @@
 
 @media (max-width: 390px) {
   .platformBar { padding-inline: 16px; }
-  .identity, .quickActions, .essentials, .aboutDark, .treatments, .brands, .gallery, .location, .footer { padding-left: 16px; padding-right: 16px; }
+  .identity, .quickActions, .essentials, .social, .aboutDark, .treatments, .gallery, .location, .footer { padding-left: 16px; padding-right: 16px; }
   .logo { width: 80px; height: 80px; }
   .identityTopline { min-height: 80px; margin-top: -40px; }
   .identity h1 { font-size: 1.6rem; }
 }
 
+/* Very narrow phones: two social cards side by side get too tight for the
+   long @handles — stack them instead of shrinking text. */
+@media (max-width: 360px) {
+  .socialGrid { grid-template-columns: 1fr; }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .quickActions > :is(a, button):hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(28, 24, 21, .55); }
+  .socialGrid > a:hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(28, 24, 21, .5); }
   .treatmentGroup > button:hover { background: rgba(28, 24, 21, .02); }
   .diagnosisCard a:hover, .closing a:hover, .directionsButton:hover { transform: translateY(-1px); }
+  .page .stickyWhatsapp:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(28, 24, 21, .55), 0 0 0 1px rgba(28, 24, 21, .1); }
+  .page .stickyGold:hover, .page .stickyCall:hover { transform: translateY(-1px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
