@@ -27,11 +27,11 @@ export function ContactDownloadButton({ businessName, endpoint, filename, classN
     if (clearStatusRef.current) clearTimeout(clearStatusRef.current);
 
     try {
-      const response = await fetch(endpoint, { headers: { Accept: "text/vcard" } });
-      if (!response.ok) throw new Error("vCard unavailable");
+      const response = await fetch(endpoint, { headers: { Accept: "application/pdf" } });
+      if (!response.ok) throw new Error("PDF unavailable");
 
       const content = await response.arrayBuffer();
-      const file = new Blob([content], { type: "text/vcard;charset=utf-8" });
+      const file = new Blob([content], { type: "application/pdf" });
       clearObjectUrl();
       const objectUrl = URL.createObjectURL(file);
       objectUrlRef.current = objectUrl;

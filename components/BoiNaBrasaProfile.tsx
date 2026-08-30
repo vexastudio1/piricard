@@ -7,7 +7,7 @@ import { BoiNaBrasaStickyBar } from "@/components/BoiNaBrasaStickyBar";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import type { Business } from "@/lib/businesses";
 import { getMapsHref, getPhoneHref } from "@/lib/links";
-import { getVCardFilename } from "@/lib/vcard";
+import { getPiriCardPdfFilename, getPiriCardPdfPath } from "@/lib/site";
 import styles from "./BoiNaBrasaProfile.module.css";
 
 const deliveryUrl = "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv";
@@ -68,7 +68,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
   const phoneHref = getPhoneHref(business.contact.phone) ?? "tel:+351261063480";
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address) ?? directionsUrl;
   const reviewHref = business.reviewUrl ?? mapsHref;
-  const contactFilename = getVCardFilename(business);
+  const contactFilename = getPiriCardPdfFilename(business.slug);
 
   return (
     <main className={`profile-layout ${styles.page}`}>
@@ -81,7 +81,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
             <Link href="/">Diretório <ArrowUpRight aria-hidden="true" size={14} /></Link>
             <ContactDownloadButton
               businessName={business.name}
-              endpoint={`/api/contact/${business.slug}`}
+              endpoint={getPiriCardPdfPath(business.slug)}
               filename={contactFilename}
               className={styles.saveContact}
               label="Guardar contacto"

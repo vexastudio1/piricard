@@ -9,7 +9,7 @@ import { BeautyTreatmentGroups, type TreatmentGroup } from "@/components/BeautyT
 import { BeautyStickyBar } from "@/components/BeautyStickyBar";
 import type { Business, BusinessGalleryImage } from "@/lib/businesses";
 import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
-import { getVCardFilename } from "@/lib/vcard";
+import { getPiriCardPdfFilename, getPiriCardPdfPath } from "@/lib/site";
 import styles from "./BeautyConnection360Profile.module.css";
 
 // Self-hosted via next/font, scoped to this component only — matches the
@@ -76,7 +76,7 @@ export function BeautyConnection360Profile({ business }: { business: Business })
   // "Marcar consulta" has no confirmed booking link — Instagram is the closest
   // safe, single-sourced channel for a first contact.
   const bookHref = instagramHref;
-  const contactFilename = getVCardFilename(business);
+  const contactFilename = getPiriCardPdfFilename(business.slug);
   const city = business.location?.city;
   const streetAddress = business.location?.streetAddress;
 
@@ -158,7 +158,7 @@ export function BeautyConnection360Profile({ business }: { business: Business })
           ) : null}
           <ContactDownloadButton
             businessName={business.name}
-            endpoint={`/api/contact/${business.slug}`}
+            endpoint={getPiriCardPdfPath(business.slug)}
             filename={contactFilename}
             className={styles.saveContact}
             label="Guardar contacto"

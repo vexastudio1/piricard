@@ -17,7 +17,7 @@ import { OFTStickyBar } from "@/components/OFTStickyBar";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import type { Business } from "@/lib/businesses";
 import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
-import { getVCardFilename } from "@/lib/vcard";
+import { getPiriCardPdfFilename, getPiriCardPdfPath } from "@/lib/site";
 import styles from "./OFTRacingProfile.module.css";
 
 // Self-hosted via next/font (no external request at runtime) — these are the
@@ -72,7 +72,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
   const whatsappHref = whatsappBaseHref ? `${whatsappBaseHref}?text=${encodeURIComponent(whatsappMessage)}` : undefined;
   const instagramHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "instagram")?.url);
   const facebookHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "facebook")?.url);
-  const contactFilename = getVCardFilename(business);
+  const contactFilename = getPiriCardPdfFilename(business.slug);
   const phone = business.contact.phone ? formatPhone(business.contact.phone) : undefined;
   const localPhone = phone?.replace(/^\+351\s/, "");
   const emailHref = getEmailHref(business.contact.email);
@@ -167,7 +167,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           ) : null}
           <ContactDownloadButton
             businessName={business.name}
-            endpoint={`/api/contact/${business.slug}`}
+            endpoint={getPiriCardPdfPath(business.slug)}
             filename={contactFilename}
             className={styles.saveContact}
             label="Guardar contacto"

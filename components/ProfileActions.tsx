@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Download, QrCode, Share2, X } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
+import { getPiriCardPdfPath } from "@/lib/site";
 
 interface ProfileActionsProps {
   businessName: string;
@@ -96,7 +97,7 @@ export function ProfileActions({ businessName, canonicalUrl, slug, contactFilena
   return (
     <>
       <div className="card-actions">
-        {showContact ? <ContactDownloadButton businessName={businessName} endpoint={`/api/contact/${slug}`} filename={contactFilename} /> : null}
+        {showContact ? <ContactDownloadButton businessName={businessName} endpoint={getPiriCardPdfPath(slug)} filename={contactFilename} /> : null}
         <button type="button" onClick={shareProfile}>
           <Share2 aria-hidden="true" size={20} />
           <span>Partilhar perfil</span>

@@ -27,8 +27,7 @@ import { ProfileActions } from "@/components/ProfileActions";
 import { StickyProfileActions } from "@/components/StickyProfileActions";
 import type { Business } from "@/lib/businesses";
 import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
-import { getCanonicalProfileUrl } from "@/lib/site";
-import { getVCardFilename } from "@/lib/vcard";
+import { getCanonicalProfileUrl, getPiriCardPdfFilename, getPiriCardPdfPath } from "@/lib/site";
 
 interface ProfileStyle extends CSSProperties {
   "--profile-primary": string;
@@ -139,7 +138,7 @@ function BusinessActions({ business, links, contactFilename }: { business: Busin
       {links.phone ? <a className="is-primary" href={links.phone} aria-label={`Ligar para ${business.name}`}><Phone aria-hidden="true" size={22} /><span>Ligar</span></a> : null}
       <div className="profile-secondary-actions">
         {links.maps ? <a href={links.maps} target="_blank" rel="noopener noreferrer" aria-label={`Obter direções para ${business.name}`}><Navigation aria-hidden="true" size={21} /><span>Como chegar</span></a> : null}
-        <ContactDownloadButton businessName={business.name} endpoint={`/api/contact/${business.slug}`} filename={contactFilename} />
+        <ContactDownloadButton businessName={business.name} endpoint={getPiriCardPdfPath(business.slug)} filename={contactFilename} />
         {links.whatsapp ? <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" aria-label={`Contactar ${business.name} por WhatsApp`}><MessageCircle aria-hidden="true" size={21} /><span>WhatsApp</span></a> : null}
       </div>
     </nav>
@@ -195,7 +194,7 @@ function BusinessInformation({ business, links, canonicalUrl, contactFilename }:
           address={business.location?.address}
           website={cardWebsite}
           logo={business.assets.logo}
-          contactEndpoint={`/api/contact/${business.slug}`}
+          contactEndpoint={getPiriCardPdfPath(business.slug)}
           contactFilename={contactFilename}
         />
         <ProfileActions businessName={business.name} canonicalUrl={canonicalUrl} slug={business.slug} contactFilename={contactFilename} digitalCard={business.digitalCard} showContact={false} />
@@ -227,7 +226,7 @@ export function BusinessProfile({ business }: { business: Business }) {
   }
 
   const canonicalUrl = getCanonicalProfileUrl(business.slug);
-  const contactFilename = getVCardFilename(business);
+  const contactFilename = getPiriCardPdfFilename(business.slug);
   const links: ProfileLinks = {
     phone: getPhoneHref(business.contact.phone),
     whatsapp: getWhatsAppHref(business.contact.whatsapp),
