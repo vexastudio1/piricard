@@ -19,11 +19,12 @@ describe("business lookup", () => {
     expect(business?.name).toBe("Beauty Connection 360");
     expect(business?.layoutVariant).toBe("beauty");
     // Phone/WhatsApp were explicitly confirmed by the site owner (see the
-    // contact note in lib/businesses.ts); email still conflicts across
-    // sources and stays unset rather than guessed.
+    // contact note in lib/businesses.ts); email now matches the same
+    // website source as the confirmed phone, not the Instagram-highlight
+    // alternate (geral.connectionbeauty@gmail.com).
     expect(business?.contact.phone).toBe("+351916754795");
     expect(business?.contact.whatsapp).toBe("+351916754795");
-    expect(business?.contact.email).toBeUndefined();
+    expect(business?.contact.email).toBe("geral@beautyconnection360.com");
     expect(business?.location?.streetAddress).toBe("Rua Serpa Pinto 9A");
     expect(business?.reviewUrl).toBeUndefined();
   });

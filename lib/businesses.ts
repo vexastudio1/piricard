@@ -169,6 +169,10 @@ const businesses = {
     contact: {
       phone: "+351916754795",
       whatsapp: "+351916754795",
+      // The website variant (matching the phone above) per the same
+      // handoff-doc comment — not the Instagram-highlight alternate
+      // (geral.connectionbeauty@gmail.com).
+      email: "geral@beautyconnection360.com",
       website: "https://www.beautyconnection360.com/",
     },
     location: {

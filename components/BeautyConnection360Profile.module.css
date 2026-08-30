@@ -55,28 +55,69 @@
 .platformBrand strong > span { color: var(--bc-gold-light); }
 .directoryLink { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; color: rgba(253, 251, 247, .66); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 
-.heroImage { width: 100%; max-height: 340px; position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: #2a241f; }
-.heroImage img { object-fit: cover; object-position: center 38%; }
+/* Outer positioning wrapper: overflow: visible (not hidden) is what lets
+   .logo below hang off the bottom edge instead of being clipped by the
+   hero's own box. It carries no size of its own — it's exactly as tall as
+   .heroImageFrame inside it, via ordinary block-flow sizing. */
+.heroImage { position: relative; overflow: visible; }
+/* The actual photo/fade/pill live here — this is what carries the
+   aspect-ratio, the height cap, and the overflow: hidden clip (so the
+   next/image `fill` element and the fade gradient never spill past their
+   own box; only the intentionally-overflowing .logo lives outside it). */
+.heroImageFrame { width: 100%; max-height: 380px; position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: #2a241f; }
+/* Tighten only the photo crop; the frame and avatar anchor stay unchanged. */
+.heroImageFrame img { object-fit: cover; object-position: center 38%; transform: scale(1.08); }
 .heroFade { position: absolute; inset: auto 0 0; height: 55%; background: linear-gradient(to top, rgba(16, 13, 10, .68), transparent); pointer-events: none; }
 .locationPill { position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 12px; background: rgba(20, 16, 12, .55); color: #fdfbf7; backdrop-filter: blur(6px); font: 600 10.5px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 
-.identity { position: relative; padding: 0 20px 20px; }
-.identityTopline { min-height: 88px; display: flex; align-items: flex-end; gap: 13px; margin-top: -44px; }
-/* White circular avatar, sized so the logo's own margin provides the
-   breathing room — no artificial zoom/crop (see design-reference logo, a
-   1254×1254 square mark with generous internal padding already). */
-.logo { width: 88px; height: 88px; flex: none; position: relative; z-index: 1; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: var(--bc-paper); box-shadow: 0 8px 22px rgba(28, 24, 21, .28); }
+/* Approved top-section treatment: identity carries straight on from the dark
+   platformBar/heroImage above it (same --bc-charcoal, white type, gold
+   accents) instead of switching to the light --bc-paper shell background —
+   the top section reads as one continuous dark block down through the CTA
+   row, and only Informação Essencial below returns to the light/cream page. */
+/* Contain child margins so the black surface starts at the photo's actual
+   bottom edge and cannot be pulled up over it. */
+.identity { display: flow-root; position: relative; padding: 0 20px 20px; background: var(--bc-charcoal); color: #fdfbf7; }
+/* Marks the hero/identity seam with a thin gold hairline — a visual anchor
+   for the avatar's overlap (see .logo, now positioned against .heroImage
+   itself rather than pulled up from here) so the eye has a reference line
+   to judge the 50/50 split against, on the dark --bc-charcoal background
+   where the avatar is equally legible on both sides of the seam. */
+.identity::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(201, 166, 104, .4) 15%, rgba(201, 166, 104, .4) 85%, transparent); pointer-events: none; }
+/* Reserve only the avatar's lower half inside the black section. The old
+   negative margin collapsed through .identity and covered the last 44px
+   of the photo. This keeps the badge and following content in place while
+   leaving the photo edge visible through the avatar's center. */
+.identityTopline { min-height: 44px; display: flex; align-items: flex-end; padding-left: 101px; }
+/* White circular avatar — anchored directly to .heroImage's own bottom
+   edge (not to .identityTopline / a negative margin pulled from the
+   content below): bottom: 0 puts the avatar's own bottom edge exactly on
+   the hero's bottom edge, then transform: translateY(50%) shifts it down
+   by exactly half of ITS OWN rendered height. That is what guarantees a
+   true 50/50 split regardless of the avatar's size at any breakpoint —
+   half above the hero's bottom edge, half below it — with no pixel value
+   to keep in sync by hand. z-index: 2 (a real stacking value, not just
+   position: relative's implicit auto) is required because .logo is a
+   sibling of .identity that comes BEFORE it in DOM order; without an
+   explicit z-index the later .identity would paint over the avatar's
+   lower half instead of the avatar sitting on top of it. */
+.logo { position: absolute; left: 20px; bottom: 0; transform: translateY(50%); z-index: 2; width: 88px; height: 88px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: var(--bc-paper); box-shadow: 0 8px 22px rgba(0, 0, 0, .45); }
 .logo img { width: 100%; height: 100%; object-fit: cover; }
-.categoryBadge { margin-bottom: 8px; display: inline-block; border: 1px solid rgba(179, 135, 63, .45); color: var(--bc-gold-dark); font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
-.identity h1 { margin-top: 12px; font-size: clamp(1.7rem, 7vw, 2.15rem); line-height: 1.1; letter-spacing: .002em; }
-.tagline { margin: 4px 0 0; font-family: var(--bc-font-display); font-style: italic; font-size: 16px; color: var(--bc-gold-dark); }
-.address { margin: 9px 0 0; color: var(--bc-muted); font-size: 13px; line-height: 1.5; }
+.categoryBadge { margin-bottom: 8px; display: inline-block; border: 1px solid rgba(201, 166, 104, .5); color: #fdfbf7; background: rgba(0, 0, 0, .22); font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+.identity h1 { margin-top: 12px; font-size: clamp(1.7rem, 7vw, 2.15rem); line-height: 1.1; letter-spacing: .002em; color: #fdfbf7; }
+.tagline { margin: 4px 0 0; font-family: var(--bc-font-display); font-style: italic; font-size: 16px; color: var(--bc-gold-light); }
+.address { margin: 9px 0 0; color: rgba(253, 251, 247, .66); font-size: 13px; line-height: 1.5; }
 /* Street line + postal/city line — stacked on narrow phones, joined onto one
    line with a separator once there's room (see the 460px breakpoint below). */
 .address span { display: block; }
 
-.quickActions { padding: 18px 20px 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.quickActions > :is(a, button) { min-width: 0; min-height: 62px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--bc-line); border-radius: 14px; padding: 12px 13px; background: var(--bc-cream); color: var(--bc-ink); cursor: pointer; text-align: left; transition: transform 160ms ease, box-shadow 160ms ease; }
+/* The CTA row sits on the same dark surface as .identity above it, but the
+   three secondary cards themselves stay light/cream (per reference) — only
+   .actionGold below is dark-on-gold. A dark card on a dark section reads as
+   nearly invisible chrome; the light cards are what give the row its
+   "premium action grid" identity against the black background. */
+.quickActions { padding: 18px 20px 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; background: var(--bc-charcoal); }
+.quickActions > :is(a, button) { min-width: 0; min-height: 62px; display: flex; align-items: center; gap: 10px; border: 1px solid transparent; border-radius: 14px; padding: 12px 13px; background: var(--bc-cream); color: var(--bc-ink); cursor: pointer; text-align: left; transition: transform 160ms ease, box-shadow 160ms ease; }
 .quickActions > :is(a, button) > span:last-child { min-width: 0; display: grid; gap: 2px; }
 .quickActions strong, .quickActions button > span { overflow: hidden; font-size: 13.5px; font-weight: 700; line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; }
 .quickActions small { overflow: hidden; color: var(--bc-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
@@ -91,27 +132,53 @@
 .kicker { margin: 0 0 14px; display: flex; align-items: center; gap: 8px; color: var(--bc-gold-dark); font: 700 11px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 .kicker::before { content: ""; width: 20px; height: 1px; background: var(--bc-gold); }
 
-.essentials { border-block: 1px solid var(--bc-line); padding: 26px 20px; background: var(--bc-paper); }
+.essentials { border-block: 1px solid var(--bc-line); padding: 28px 20px; background: var(--bc-paper); }
+/* Label-over-value rows (was label-left/value-right on one baseline) so the
+   value — the thing worth reading — gets its own full-width line: it can
+   wrap or break a long email/domain without the row ever fighting for
+   horizontal space, and it reads as the visually heavier element while the
+   label sits small and quiet above it. Still a plain list, not a card grid:
+   one hairline per row is the only "chrome". */
 .essentialGrid { margin: 0; display: grid; }
-.essentialGrid > div { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--bc-line); }
-.essentialGrid > div:last-child { border-bottom: 0; }
-.essentialGrid dt { color: var(--bc-muted); font-size: 12px; }
-.essentialGrid dd { margin: 0; text-align: right; font-size: 13px; font-weight: 600; }
+.essentialGrid > div { padding: 14px 0; border-bottom: 1px solid var(--bc-line); }
+.essentialGrid > div:first-child { padding-top: 0; }
+.essentialGrid > div:last-child { padding-bottom: 0; border-bottom: 0; }
+.essentialGrid dt { margin: 0 0 5px; color: var(--bc-muted); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.essentialGrid dd { margin: 0; overflow-wrap: break-word; font-size: 14.5px; font-weight: 600; line-height: 1.4; }
 .essentialGrid dd a { color: var(--bc-gold-dark); }
-.essentialGrid dd small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 11px; font-weight: 500; }
+.essentialGrid dd small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 11.5px; font-weight: 500; }
 
-/* Extra top and bottom room (32px/28px vs. the 24px rhythm used elsewhere) so
+/* Extra top and bottom room (38px/30px vs. the 24px rhythm used elsewhere) so
    this section reads as intentionally composed rather than squeezed between
-   Informação Essencial and the dark Sobre block that follows it. */
-.social { padding: 32px 20px 28px; }
-.social .kicker { margin-bottom: 18px; }
-.socialHeading { margin: 0 0 22px; font-size: clamp(1.3rem, 5.5vw, 1.55rem); line-height: 1.2; }
-.socialGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.socialGrid > a { min-width: 0; min-height: 84px; display: flex; align-items: center; gap: 13px; border: 1px solid var(--bc-line); border-radius: 16px; padding: 16px; background: var(--bc-paper); transition: transform 160ms ease, box-shadow 160ms ease; }
-.socialGrid strong { display: block; font-size: 14px; font-weight: 700; }
-.socialGrid small { display: block; overflow: hidden; margin-top: 3px; color: var(--bc-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-.socialIcon { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border-radius: 10px; }
-.socialIcon svg { width: 18px; height: 18px; stroke-width: 2; }
+   Informação Essencial and the dark Sobre block that follows it. No heading
+   between the eyebrow and the cards any more (removed — it was redundant
+   with the eyebrow itself), so the eyebrow→cards gap is the only spacing
+   relationship left here; sized generously since it's now carrying the
+   whole section's "breathing room" on its own. */
+.social { padding: 38px 20px 30px; }
+.social .kicker { margin-bottom: 26px; }
+/* Single column by default. Two columns at 163px each (375px phone) left no
+   room for a handle like "Beautyconnection360" — and without min-width: 0 on
+   the text span below, it didn't even truncate: it just pushed the card wider
+   than its grid column and spilled past the card edge. Full-width rows read
+   as a clean, premium settings-list and give icon + name + handle real room;
+   two columns return at 700px, the same breakpoint the rest of the page
+   already upgrades padding at. */
+.socialGrid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.socialGrid > a { min-width: 0; min-height: 76px; display: flex; align-items: center; gap: 14px; border: 1px solid var(--bc-line); border-radius: 16px; padding: 16px 18px; background: var(--bc-paper); transition: transform 160ms ease, box-shadow 160ms ease; }
+/* The text block must be able to shrink below its content's intrinsic width
+   for text-overflow: ellipsis on .socialGrid small to actually engage — this
+   is the fix for the reported overflow (same technique .quickActions already
+   uses via its own span:last-child rule). */
+.socialGrid > a > span:last-child { min-width: 0; display: grid; gap: 3px; }
+.socialGrid strong { display: block; overflow: hidden; font-size: 14.5px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.socialGrid small { display: block; overflow: hidden; color: var(--bc-muted); font-size: 11.5px; text-overflow: ellipsis; white-space: nowrap; }
+.socialIcon { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 11px; }
+.socialIcon svg { width: 19px; height: 19px; stroke-width: 2; }
+/* Trailing affordance arrow (same mark used by .directoryLink up in the nav)
+   — fills the row's trailing space on wide single-column cards and signals
+   "opens externally" without adding another line of copy. */
+.socialArrow { flex: none; margin-left: auto; color: var(--bc-muted); opacity: .55; }
 /* Recognizable platform identity (same colors already used by OFTRacingProfile's
    own Instagram/Facebook cards), kept inside the Beauty cream/paper card rather
    than a generic full-color block. */
@@ -131,27 +198,36 @@
    making it invisible regardless of opacity. */
 .aboutDark { position: relative; z-index: 0; overflow: hidden; padding: 30px 20px 32px; background: var(--bc-charcoal); color: #fdfbf7; }
 .aboutDark::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--bc-gold), rgba(179, 135, 63, .25), var(--bc-gold)); z-index: 1; }
-/* Decorative watermark only — the Beauty mark itself, oversized, bled off the
-   corner and pushed behind all real content (negative z-index paints below
-   in-flow text per the CSS stacking spec, so no wrapper markup is needed). */
+/* Decorative watermark — a large, asymmetric, partially-cropped emblem
+   entering from the top-right corner, not a centered medallion. The source
+   asset (sobre-mnos-fundo.webp, 1341×1173) carries its own "BC" mark in the
+   upper-right of its canvas with a lot of empty/faint-placeholder-text space
+   below-left; background-size: 190% auto zooms in on just that mark (the
+   percentage scales width only, height follows automatically, so the source
+   is never stretched — only enlarged) and background-position: right top
+   anchors the crop to exactly the mark, discarding the empty space rather
+   than showing it. The box itself then bleeds past the section's own
+   top/right edges (negative top/right, clipped by .aboutDark's own
+   overflow: hidden below) so part of the mark sits genuinely outside the
+   visible frame — "entering from the right" rather than floating centered.
+   A diagonal mask (not the previous radial one) keeps it crisp near the
+   bled corner and fades it away toward the text-heavy lower-left, so it
+   never has to compete with the quote/copy for attention. */
 .aboutDark::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: -60px;
-  right: -70px;
-  width: 320px;
-  height: 320px;
-  background-image: url("/clients/beauty-connection-360/logo.webp");
-  background-size: contain;
+  top: -28px;
+  right: -36px;
+  width: min(320px, 76%);
+  aspect-ratio: 1 / 1.05;
+  background-image: url("/clients/beauty-connection-360/sobre-mnos-fundo.webp");
+  background-size: 190% auto;
+  background-position: right top;
   background-repeat: no-repeat;
-  background-position: center;
-  filter: grayscale(.3) brightness(1.4);
-  opacity: .26;
-  /* Radial fade so the mark's own opaque canvas melts into the charcoal
-     instead of reading as a hard-edged rectangle. */
-  -webkit-mask-image: radial-gradient(circle at 60% 35%, #000 0%, #000 38%, transparent 74%);
-  mask-image: radial-gradient(circle at 60% 35%, #000 0%, #000 38%, transparent 74%);
+  opacity: .25;
+  -webkit-mask-image: linear-gradient(115deg, transparent 2%, #000 34%, #000 100%);
+  mask-image: linear-gradient(115deg, transparent 2%, #000 34%, #000 100%);
   pointer-events: none;
 }
 .aboutDark .kicker { position: relative; color: var(--bc-gold-light); }
@@ -191,7 +267,12 @@
 /* BusinessPhotoGallery (shared with Autoformigal) renders plain global
    classes styled in app/profile.css against --profile-* tokens, which this
    bespoke profile never defines — themed locally instead of duplicating the
-   component. */
+   component. Border-radius bumped from the shared default (6px, a generic
+   value meant to work for any profile) up to 14px to match this profile's
+   own card language (quickActions/treatmentGroup/mapCard all use 14px). */
+.page :global(.profile-gallery-grid) { gap: 10px; }
+.page :global(.profile-gallery-image),
+.page :global(.profile-gallery-placeholder) { border-radius: 14px; }
 .page :global(.profile-gallery-image) { background: var(--bc-cream); }
 .page :global(.profile-gallery-placeholder) { border: 1px solid var(--bc-line); background: linear-gradient(145deg, var(--bc-cream), var(--bc-paper)); color: var(--bc-muted); }
 .page :global(.profile-gallery-placeholder)::after { background: rgba(179, 135, 63, .16); }
@@ -199,16 +280,22 @@
 .page :global(.profile-gallery-placeholder) span { color: var(--bc-ink); }
 .page :global(.profile-gallery-dialog-header) p { color: var(--bc-gold-light); }
 
-.location { padding: 24px 20px 8px; }
+.location { padding: 26px 20px 12px; }
+/* A short supporting line under the eyebrow (was just "Localização" → straight
+   into the address) — gives the section its own bit of hierarchy instead of
+   reading as an afterthought tacked onto the bottom of the page. */
+.locationHeading { margin: 0 0 16px; font-size: clamp(1.25rem, 5vw, 1.5rem); line-height: 1.2; }
 .locationAddress { margin: 0 0 14px; }
 .locationAddress strong { display: block; font-size: 15px; font-weight: 700; }
 .locationAddress span { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 12.5px; }
-.mapCard { overflow: hidden; border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-cream); }
-.mapCard iframe { width: 100%; height: 220px; display: block; border: 0; background: var(--bc-cream); }
+.mapCard { overflow: hidden; border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-cream); box-shadow: 0 14px 34px -22px rgba(28, 24, 21, .4); }
+/* Taller (was 220px) so the map reads as a real, useful piece of the page
+   rather than a token thumbnail — still capped, not "huge". */
+.mapCard iframe { width: 100%; height: 260px; display: block; border: 0; background: var(--bc-cream); }
 /* .page prefixed (not just .directionsButton) so this beats .page a's
    `color: inherit` — a single class selector alone loses that specificity
    tie, same reason OFT's own .directionsButton is written .page .directionsButton. */
-.page .directionsButton { min-height: 52px; margin: 12px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-radius: 10px; padding: 0 16px; background: var(--bc-charcoal); color: #fdfbf7; font-size: 14px; font-weight: 700; }
+.page .directionsButton { min-height: 54px; margin: 12px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-radius: 10px; padding: 0 18px; background: var(--bc-charcoal); color: #fdfbf7; font-size: 14px; font-weight: 700; }
 .directionsButton svg { color: var(--bc-gold-light); }
 
 .closing { margin-top: 24px; padding: 30px 20px 26px; background: var(--bc-charcoal); color: #fdfbf7; text-align: center; }
@@ -216,7 +303,30 @@
 .closing p { margin: 0 0 16px; color: rgba(253, 251, 247, .65); font-size: 12.5px; }
 .closing a { display: inline-block; background: var(--bc-gold); color: var(--bc-ink); font-size: 13.5px; font-weight: 700; padding: 13px 22px; border-radius: 12px; }
 
-.footer { padding: 22px 20px 26px; display: flex; flex-direction: column; gap: 30px; background: #17130f; color: rgba(253, 251, 247, .5); }
+.footer { position: relative; z-index: 0; overflow: hidden; padding: 22px 20px 26px; display: flex; flex-direction: column; gap: 30px; background: #17130f; color: rgba(253, 251, 247, .5); }
+/* Decorative watermark, same recipe as .aboutDark::after — its own asset
+   (1536×1024, 1.5:1, locked via aspect-ratio so it's never stretched),
+   right-aligned and vertically centered in the footer's black rectangle,
+   contain-fit so nothing is cropped, and left-edge-masked so it melts into
+   the surrounding black instead of reading as a pasted-on rectangle. */
+.footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  width: min(280px, 76%);
+  aspect-ratio: 1536 / 1024;
+  background-image: url("/clients/beauty-connection-360/footer-fundo.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .18;
+  -webkit-mask-image: linear-gradient(to left, #000 50%, transparent 96%);
+  mask-image: linear-gradient(to left, #000 50%, transparent 96%);
+  pointer-events: none;
+}
 .footer > div strong { display: block; color: #fdfbf7; font-family: var(--bc-font-display); font-size: 15px; font-weight: 600; }
 .footer > div p { margin: 4px 0 0; font-size: 11px; }
 .footer > span { font-size: 11px; --brand-mark-color: var(--bc-gold); }
@@ -273,12 +383,20 @@
 
 @media (min-width: 700px) {
   .identity { padding-inline: 34px; }
+  /* .logo is positioned against .heroImage (full width, no padding of its
+     own), so its left offset needs to track .identity's padding-inline by
+     hand at each breakpoint to stay aligned with the content below it. */
+  .logo { left: 34px; }
   .quickActions { padding-inline: 34px; }
   .essentials, .social, .aboutDark, .treatments, .gallery, .location { padding-inline: 34px; }
   .essentialGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+  /* Two columns once there's real room per card — this is the same width
+     the single-column cards' own comment promises the grid back at. */
+  .socialGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   /* Enough width for the full address on one line. */
   .address span { display: inline; }
   .address span::before { content: " • "; }
+  .mapCard iframe { height: 320px; }
 }
 
 @media (min-width: 961px) {
@@ -289,20 +407,18 @@
 @media (max-width: 390px) {
   .platformBar { padding-inline: 16px; }
   .identity, .quickActions, .essentials, .social, .aboutDark, .treatments, .gallery, .location, .footer { padding-left: 16px; padding-right: 16px; }
-  .logo { width: 80px; height: 80px; }
-  .identityTopline { min-height: 80px; margin-top: -40px; }
+  /* left matches the 16px padding-inline above (was 20px); translateY(50%)
+     needs no adjustment — it's relative to the element's own height, so it
+     stays an exact half regardless of the 88px→80px size change here. */
+  .logo { left: 16px; width: 80px; height: 80px; }
+  .identityTopline { min-height: 40px; padding-left: 93px; }
   .identity h1 { font-size: 1.6rem; }
 }
 
-/* Very narrow phones: two social cards side by side get too tight for the
-   long @handles — stack them instead of shrinking text. */
-@media (max-width: 360px) {
-  .socialGrid { grid-template-columns: 1fr; }
-}
-
 @media (hover: hover) and (pointer: fine) {
-  .quickActions > :is(a, button):hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(28, 24, 21, .55); }
+  .quickActions > :is(a, button):hover { transform: translateY(-1px); box-shadow: 0 10px 20px -14px rgba(0, 0, 0, .45); }
   .socialGrid > a:hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(28, 24, 21, .5); }
+  .socialGrid > a:hover .socialArrow { color: var(--bc-gold-dark); opacity: .9; }
   .treatmentGroup > button:hover { background: rgba(28, 24, 21, .02); }
   .diagnosisCard a:hover, .closing a:hover, .directionsButton:hover { transform: translateY(-1px); }
   .page .stickyWhatsapp:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(28, 24, 21, .55), 0 0 0 1px rgba(28, 24, 21, .1); }

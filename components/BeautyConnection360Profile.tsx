@@ -8,7 +8,7 @@ import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
 import { BeautyTreatmentGroups, type TreatmentGroup } from "@/components/BeautyTreatmentGroups";
 import { BeautyStickyBar } from "@/components/BeautyStickyBar";
 import type { Business, BusinessGalleryImage } from "@/lib/businesses";
-import { getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
+import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
 import { getVCardFilename } from "@/lib/vcard";
 import styles from "./BeautyConnection360Profile.module.css";
 
@@ -35,17 +35,27 @@ const treatmentGroups: TreatmentGroup[] = [
 // static UI copy, not business data.
 const whatsappMessage = "Olá! Vi a Beauty Connection 360 no PiriCard e gostaria de mais informações.";
 
-// Only the facade photo is a real, currently-available Beauty Connection 360
-// image (design-reference/PiriCard for Beauty Connection 360/uploads/
-// beauticonnection360/). The remaining slots stay as BusinessPhotoGallery's
-// own tasteful placeholders (never a broken-image icon) until real interior/
-// reception/product/treatment photos are supplied — see final report.
+// Same helper (and +351-prefixed display format) already used by
+// BusinessProfile/OFTRacingProfile — kept as a local copy rather than a
+// shared import since each profile owns its own display formatting.
+function formatPhone(value: string): string {
+  const digits = value.replace(/\D/g, "");
+  const local = digits.startsWith("351") ? digits.slice(3) : digits;
+  const formatted = local.length === 9 ? local.replace(/(\d{3})(\d{3})(\d{3})/, "$1 $2 $3") : value;
+  return digits.startsWith("351") ? `+351 ${formatted}` : formatted;
+}
+
+// Five real interior/product photos now supplied (public/clients/
+// beauty-connection-360/00.webp…3.webp) — replaces the facade photo (already
+// shown in the hero above) and the placeholder slots. 00 is the wall-mounted
+// reception sign, used as the large lead image; 0-3 fill the 2-column grid
+// below it in the exact order supplied.
 const galleryImages: BusinessGalleryImage[] = [
-  { src: "/clients/beauty-connection-360/fachada.webp", alt: "Fachada da Beauty Connection 360 em Torres Vedras", aspectRatio: "wide" },
-  { alt: "Interior do espaço Beauty Connection 360", aspectRatio: "square", placeholderLabel: "Interior" },
-  { alt: "Receção da Beauty Connection 360", aspectRatio: "square", placeholderLabel: "Receção" },
-  { alt: "Produtos e cosmética em exposição na Beauty Connection 360", aspectRatio: "square", placeholderLabel: "Produtos" },
-  { alt: "Espaço de tratamentos da Beauty Connection 360", aspectRatio: "landscape", placeholderLabel: "Tratamentos" },
+  { src: "/clients/beauty-connection-360/00.webp", alt: "Placa de receção com o logótipo Beauty Connection 360", aspectRatio: "wide" },
+  { src: "/clients/beauty-connection-360/0.webp", alt: "Balcão de receção e vitrine de produtos da Beauty Connection 360", aspectRatio: "square" },
+  { src: "/clients/beauty-connection-360/1.webp", alt: "Expositor de perfumes e cosmética da Beauty Connection 360", aspectRatio: "square" },
+  { src: "/clients/beauty-connection-360/2.webp", alt: "Sala de tratamentos da Beauty Connection 360", aspectRatio: "square" },
+  { src: "/clients/beauty-connection-360/3.webp", alt: "Equipamento de spa de pés da Beauty Connection 360", aspectRatio: "square" },
 ];
 
 export function BeautyConnection360Profile({ business }: { business: Business }) {
@@ -53,6 +63,8 @@ export function BeautyConnection360Profile({ business }: { business: Business })
   const instagramHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "instagram")?.url);
   const facebookHref = getSafeExternalUrl(business.socialLinks?.find((link) => link.platform === "facebook")?.url);
   const phoneHref = getPhoneHref(business.contact.phone);
+  const phoneDisplay = business.contact.phone ? formatPhone(business.contact.phone) : undefined;
+  const emailHref = getEmailHref(business.contact.email);
   const whatsappBaseHref = getWhatsAppHref(business.contact.whatsapp);
   const whatsappHref = whatsappBaseHref ? `${whatsappBaseHref}?text=${encodeURIComponent(whatsappMessage)}` : undefined;
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address);
@@ -81,27 +93,37 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         </nav>
 
         <header>
+          {/* .heroImage is now just a positioning wrapper (overflow: visible)
+              — the actual photo/fade/pill live in .heroImageFrame, which
+              carries the aspect-ratio + overflow: hidden clip. The avatar is
+              a direct child of the wrapper, absolutely positioned against
+              its bottom edge with transform: translateY(50%) — anchored to
+              the hero's own bottom edge instead of pulled up from the
+              content below, so it's mathematically impossible for it to
+              drift with unrelated spacing changes in .identity. */}
           <div className={styles.heroImage}>
-            {business.assets.cover ? (
-              <Image
-                src={business.assets.cover}
-                alt={business.assets.coverAlt ?? `Fachada de ${business.name}`}
-                fill
-                priority
-                sizes="(max-width: 960px) 100vw, 960px"
-              />
+            <div className={styles.heroImageFrame}>
+              {business.assets.cover ? (
+                <Image
+                  src={business.assets.cover}
+                  alt={business.assets.coverAlt ?? `Fachada de ${business.name}`}
+                  fill
+                  priority
+                  sizes="(max-width: 960px) 100vw, 960px"
+                />
+              ) : null}
+              <div className={styles.heroFade} aria-hidden="true" />
+              {city ? <span className={styles.locationPill}><MapPin aria-hidden="true" size={12} />{city}</span> : null}
+            </div>
+            {business.assets.logo ? (
+              <div className={styles.logo}>
+                <Image src={business.assets.logo} alt={`Logótipo de ${business.name}`} width={480} height={480} sizes="88px" />
+              </div>
             ) : null}
-            <div className={styles.heroFade} aria-hidden="true" />
-            {city ? <span className={styles.locationPill}><MapPin aria-hidden="true" size={12} />{city}</span> : null}
           </div>
 
           <div className={styles.identity}>
             <div className={styles.identityTopline}>
-              {business.assets.logo ? (
-                <div className={styles.logo}>
-                  <Image src={business.assets.logo} alt={`Logótipo de ${business.name}`} width={480} height={480} sizes="88px" />
-                </div>
-              ) : null}
               <span className={styles.categoryBadge}>{business.category}</span>
             </div>
             <h1>{business.name}</h1>
@@ -159,12 +181,21 @@ export function BeautyConnection360Profile({ business }: { business: Business })
                 </dd>
               </div>
             ) : null}
-            {instagramHref ? (
+            {phoneHref && phoneDisplay ? (
               <div>
-                <dt>Instagram</dt>
-                <dd><a href={instagramHref} target="_blank" rel="noopener noreferrer">@beauty_connection360</a></dd>
+                <dt>Telefone</dt>
+                <dd><a href={phoneHref}>{phoneDisplay}</a></dd>
               </div>
             ) : null}
+            {emailHref ? (
+              <div>
+                <dt>Email</dt>
+                <dd><a href={emailHref}>{business.contact.email}</a></dd>
+              </div>
+            ) : null}
+            {/* Instagram intentionally omitted here — it already has its own
+                dedicated Redes Sociais section below, so listing it twice
+                was redundant. */}
             {websiteHref ? (
               <div>
                 <dt>Website</dt>
@@ -177,18 +208,19 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         {(instagramHref || facebookHref) ? (
           <section className={styles.social} aria-labelledby="bc-social-heading">
             <p className={styles.kicker} id="bc-social-heading">Redes sociais</p>
-            <h2 className={styles.socialHeading}>Acompanha a Beauty Connection</h2>
             <div className={styles.socialGrid}>
               {instagramHref ? (
                 <a className={styles.socialInstagram} href={instagramHref} target="_blank" rel="noopener noreferrer" aria-label={`${business.name} no Instagram`}>
                   <span className={styles.socialIcon}><Instagram aria-hidden="true" /></span>
                   <span><strong>Instagram</strong><small>@beauty_connection360</small></span>
+                  <ArrowUpRight aria-hidden="true" size={16} className={styles.socialArrow} />
                 </a>
               ) : null}
               {facebookHref ? (
                 <a className={styles.socialFacebook} href={facebookHref} target="_blank" rel="noopener noreferrer" aria-label={`${business.name} no Facebook`}>
                   <span className={styles.socialIcon}><Facebook aria-hidden="true" /></span>
                   <span><strong>Facebook</strong><small>Beautyconnection360</small></span>
+                  <ArrowUpRight aria-hidden="true" size={16} className={styles.socialArrow} />
                 </a>
               ) : null}
             </div>
@@ -219,12 +251,13 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         </section>
 
         <section className={styles.gallery} aria-labelledby="bc-gallery-heading">
-          <p className={styles.kicker} id="bc-gallery-heading">Galeria</p>
+          <p className={styles.kicker} id="bc-gallery-heading">O nosso espaço</p>
           <BusinessPhotoGallery businessName={business.name} images={galleryImages} />
         </section>
 
         <section className={styles.location} aria-labelledby="bc-location-heading">
           <p className={styles.kicker} id="bc-location-heading">Localização</p>
+          <h2 className={styles.locationHeading}>Visite o nosso espaço</h2>
           {streetAddress ? (
             <div className={styles.locationAddress}>
               <strong>{streetAddress}</strong>
@@ -263,10 +296,10 @@ export function BeautyConnection360Profile({ business }: { business: Business })
       <BeautyStickyBar
         className={styles.stickyBar}
         whatsappClassName={styles.stickyWhatsapp}
-        bookClassName={styles.stickyGold}
-        phoneClassName={styles.stickyCall}
-        bookHref={bookHref}
+        phoneClassName={styles.stickyGold}
+        mapsClassName={styles.stickyCall}
         phoneHref={phoneHref}
+        mapsHref={mapsHref}
         whatsappHref={whatsappHref}
       />
     </main>
