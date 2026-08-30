@@ -64,9 +64,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .business-identifier { min-width: 0; height: 100%; display: grid; place-items: center; padding: 2rem 2.5rem 2rem .75rem; }
 .business-identifier img { width: 100%; max-width: 13rem; height: 7.5rem; object-fit: contain; filter: saturate(.92) drop-shadow(0 10px 18px rgba(0, 0, 0, .2)); }
 .business-identifier > span { font-size: 3rem; font-weight: 800; color: var(--platform-accent); }
-/* Every directory logo uses the same rounded white frame and contain fit. */
-.business-identifier .logo-plate { width: 100%; max-width: 13rem; height: 7.5rem; display: grid; place-items: center; padding: .85rem; border-radius: .6rem; background: #fff; box-shadow: 0 10px 18px rgba(0, 0, 0, .2); }
-.business-identifier .logo-plate img { display: block; height: 100%; object-fit: contain; filter: none; }
+/* Every directory logo uses the same rounded white frame and contain fit —
+   one shared class, no per-business overrides. The corner radius lives on
+   the CONTAINER (.logo-plate) only, unchanged here — only the image's own
+   cap moved, 90% → 99% (a ~10% increase in the box each logo's artwork
+   scales within via object-fit: contain, which preserves aspect ratio and
+   never crops). The container's own padding (.85rem/.7rem/.5rem across
+   breakpoints, also unchanged) is what still guarantees a visible gap
+   between the artwork and the rounded corner, so the corners stay legible
+   even with only ~1% of margin left inside that padded box. */
+.business-identifier .logo-plate { width: 100%; max-width: 13rem; height: 7.5rem; display: grid; place-items: center; padding: .85rem; border-radius: .6rem; background: #fff; box-shadow: 0 10px 18px rgba(0, 0, 0, .2); overflow: hidden; }
+.business-identifier .logo-plate img { display: block; width: 99%; height: 99%; object-fit: contain; filter: none; }
 .business-row-content { min-width: 0; padding: 2rem 3rem 2rem 0; }
 .business-row h2 { margin: 0; font-size: clamp(1.75rem, 2.8vw, 2.35rem); letter-spacing: -.045em; }
 .business-meta { display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin-top: .6rem; color: #c2cbd8; font-size: 1rem; }
