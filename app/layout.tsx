@@ -13,7 +13,13 @@ export const metadata: Metadata = {
   // the only source for it — the old app/apple-icon.png file-convention
   // icon was removed so Next doesn't also auto-generate a second, competing
   // <link rel="apple-touch-icon"> tag from that stale image.
-  icons: { apple: "/iphone-app.png" },
+  // The ?v=1 query string is a deliberate cache-buster: iOS caches the
+  // touch icon it finds at a given URL very aggressively (independent of
+  // HTTP cache headers), including a bare "no icon found" fallback from a
+  // visit before this URL existed. Bumping this version string forces iOS
+  // to treat it as a new, never-seen-before icon URL on the next "Add to
+  // Home Screen" — bump it again if the icon asset itself ever changes.
+  icons: { apple: "/iphone-app.png?v=1" },
   // apple-mobile-web-app-title: controls the label under the icon after
   // "Add to Home Screen" on iOS — independent of the <title> tag, which is
   // why a long page title was showing truncated there before.
