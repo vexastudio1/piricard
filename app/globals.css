@@ -35,7 +35,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .directory-page { min-height: 100svh; position: relative; overflow: hidden; background: radial-gradient(circle at 72% 20%, rgba(79, 143, 251, .09), transparent 28rem), linear-gradient(150deg, #05060a 0%, #07101b 58%, #05060a 100%); }
 .directory-page::before { content: ""; position: absolute; inset: 0; opacity: .22; pointer-events: none; background-image: radial-gradient(circle, rgba(143, 224, 255, .8) 0 1px, transparent 1.35px); background-size: 181px 157px; mask-image: linear-gradient(to bottom, #000, transparent 76%); }
 .platform-header, .platform-footer, .directory { width: min(calc(100% - 3rem), 70rem); margin-inline: auto; position: relative; z-index: 1; }
-.platform-header { min-height: 5.6rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--platform-border); }
+.platform-header { min-height: 5.6rem; padding-top: env(safe-area-inset-top, 0px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--platform-border); }
 .platform-header > a:last-child { color: #d3dae6; font-size: .76rem; font-weight: 650; letter-spacing: .15em; text-transform: uppercase; transition: color var(--platform-speed); }
 .platform-header > a:last-child:hover { color: var(--platform-accent); }
 .platform-wordmark { display: inline-flex; align-items: center; font-size: 1.35rem; font-weight: 760; letter-spacing: -.045em; --brand-mark-color: var(--platform-accent); }
@@ -64,11 +64,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .business-identifier { min-width: 0; height: 100%; display: grid; place-items: center; padding: 2rem 2.5rem 2rem .75rem; }
 .business-identifier img { width: 100%; max-width: 13rem; height: 7.5rem; object-fit: contain; filter: saturate(.92) drop-shadow(0 10px 18px rgba(0, 0, 0, .2)); }
 .business-identifier > span { font-size: 3rem; font-weight: 800; color: var(--platform-accent); }
-/* Light plate for logos with no baked-in background (e.g. a transparent mark) —
-   gives them the same clean, contained look the other logos already have on this
-   dark directory background, without touching the original asset. */
+/* Every directory logo uses the same rounded white frame and contain fit. */
 .business-identifier .logo-plate { width: 100%; max-width: 13rem; height: 7.5rem; display: grid; place-items: center; padding: .85rem; border-radius: .6rem; background: #fff; box-shadow: 0 10px 18px rgba(0, 0, 0, .2); }
-.business-identifier .logo-plate img { height: 100%; filter: none; }
+.business-identifier .logo-plate img { display: block; height: 100%; object-fit: contain; filter: none; }
 .business-row-content { min-width: 0; padding: 2rem 3rem 2rem 0; }
 .business-row h2 { margin: 0; font-size: clamp(1.75rem, 2.8vw, 2.35rem); letter-spacing: -.045em; }
 .business-meta { display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin-top: .6rem; color: #c2cbd8; font-size: 1rem; }

@@ -48,7 +48,7 @@ export function StickyProfileActions({ businessName, phone, whatsapp, maps }: St
   const secondaryLabel = whatsapp ? "WhatsApp" : "Como chegar";
 
   return (
-    <nav className="profile-sticky-dock" aria-label="Ações rápidas">
+    <nav className="profile-sticky-dock profile-action-bar" aria-label="Ações rápidas">
       <a className="is-primary" href={phone} aria-label={`Ligar para ${businessName}`}>
         <Phone aria-hidden="true" size={19} />
         <span>Ligar</span>

@@ -31,12 +31,12 @@ export function OFTStickyBar({ className, whatsappClassName, businessName, phone
   return (
     <>
       {showWhatsApp ? (
-        <a className={whatsappClassName} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Contactar OFT Racing por WhatsApp">
+        <a className={`profile-floating-action ${whatsappClassName}`} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Contactar OFT Racing por WhatsApp">
           <MessageCircle aria-hidden="true" />
         </a>
       ) : null}
       {showBar ? (
-        <nav className={className} aria-label="Ações persistentes">
+        <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">
           <div>
             {phoneHref ? (
               <a href={phoneHref}>

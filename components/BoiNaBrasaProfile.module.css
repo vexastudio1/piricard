@@ -1,4 +1,6 @@
 .page {
+  --profile-action-button-height: 50px;
+  --profile-action-padding: 10px;
   --bnb-ink: #191411;
   --bnb-charcoal: #0f0c0a;
   --bnb-paper: #f4ede1;
@@ -25,15 +27,14 @@
 .shell {
   width: min(100%, 960px);
   margin-inline: auto;
-  padding-bottom: 104px;
   overflow: hidden;
   background: var(--bnb-paper);
   box-shadow: 0 0 0 1px rgba(25,20,17,.08), 0 24px 60px -30px rgba(25,20,17,.45);
 }
 
 .platformBar {
-  min-height: 50px;
-  padding: 0 20px;
+  min-height: calc(50px + env(safe-area-inset-top, 0px));
+  padding: env(safe-area-inset-top, 0px) 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +51,7 @@
 .saveContact { min-height: 34px; border: 1px solid rgba(246,239,227,.24); border-radius: 8px; padding: 0 10px; display: inline-flex; align-items: center; gap: 7px; background: rgba(246,239,227,.07); color: #f6efe3; cursor: pointer; font-size: 11px; font-weight: 700; }
 .saveContact svg { width: 15px; height: 15px; }
 .saveContact:disabled { opacity: .65; cursor: wait; }
-.page :global(.profile-toast) { bottom: calc(76px + env(safe-area-inset-bottom)); border-radius: 10px; background: var(--bnb-ink); font-family: Archivo, sans-serif; }
+.page :global(.profile-toast) { border-radius: 10px; background: var(--bnb-ink); font-family: Archivo, sans-serif; }
 
 .heroImage { width: 100%; max-height: 400px; position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #2a221c; }
 .heroImage img { object-fit: cover; object-position: 50% 42%; }
@@ -186,9 +187,9 @@
 .footer strong { color: #f6efe3; font-size: 13px; line-height: 1.3; letter-spacing: .02em; text-transform: uppercase; }
 .footer p { margin: 5px 0 0; font: 400 11.5px/1.5 "IBM Plex Mono", monospace; }
 
-.stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: linear-gradient(to top, rgba(222,212,196,.98), rgba(222,212,196,.72)); }
+.stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px; background: linear-gradient(to top, rgba(222,212,196,.98), rgba(222,212,196,.72)); }
 .stickyBar > div { width: min(100%,520px); margin-inline: auto; display: flex; gap: 8px; }
-.stickyBar a { min-width: 0; min-height: 50px; flex: 1; display: grid; place-items: center; border-radius: 11px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.14), 0 8px 20px -12px rgba(25,20,17,.5); font-size: 14.5px; font-weight: 700; text-align: center; }
+.stickyBar a { min-width: 0; min-height: var(--profile-action-button-height); flex: 1; display: grid; place-items: center; border-radius: 11px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.14), 0 8px 20px -12px rgba(25,20,17,.5); font-size: 14.5px; font-weight: 700; text-align: center; }
 .stickyBar a:first-child { background: var(--bnb-ink); color: #f8f2e7; box-shadow: 0 8px 20px -10px rgba(25,20,17,.7); }
 .stickyBar a:last-child { background: var(--bnb-ember); color: #fff6e9; box-shadow: 0 8px 20px -10px rgba(194,80,31,.8); }
 

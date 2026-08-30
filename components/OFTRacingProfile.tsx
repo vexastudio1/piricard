@@ -84,8 +84,8 @@ export function OFTRacingProfile({ business }: { business: Business }) {
     : undefined;
 
   return (
-    <main className={`${styles.page} ${oftBody.variable} ${oftDisplay.variable} ${oftMono.variable}`}>
-      <article className={styles.shell}>
+    <main className={`profile-layout ${styles.page} ${oftBody.variable} ${oftDisplay.variable} ${oftMono.variable}`}>
+      <article className={`profile-layout-shell ${styles.shell}`}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
             <PiriCardBrandMark wordmark={<strong>Piri<span>Card</span></strong>} />
@@ -354,7 +354,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
           </div>
         </section>
 
-        <footer className={styles.footer}>
+        <footer className={`profile-layout-footer ${styles.footer}`}>
           <div><strong>OFT Racing Shop</strong><p>{address}{phone ? ` · ${phone}` : ""}</p></div>
           <PiriCardBrandMark wordmark={<span>Perfil criado com Piri<span>Card</span></span>} />
         </footer>

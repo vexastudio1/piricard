@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 import "./profile.css";
+import "./profile-layout.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   applicationName: "PiriCard",
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#05060a" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#05060a" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

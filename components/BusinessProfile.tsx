@@ -206,7 +206,7 @@ function BusinessInformation({ business, links, canonicalUrl, contactFilename }:
 
 function PiriCardFooter() {
   return (
-    <footer className="profile-footer">
+    <footer className="profile-footer profile-layout-footer">
       <span>Perfil criado com <strong>Piri</strong><b>Card</b></span>
       <a href="https://piricard.pt" target="_blank" rel="noopener noreferrer">piricard.pt</a>
     </footer>
@@ -247,8 +247,8 @@ export function BusinessProfile({ business }: { business: Business }) {
   };
 
   return (
-    <main className={`profile-page profile-font-${business.theme.fontFamily}`} style={style}>
-      <article className="profile-shell">
+    <main className={`profile-layout profile-page profile-font-${business.theme.fontFamily}`} style={style}>
+      <article className="profile-shell profile-layout-shell">
         <PiriCardTopBar />
         <BusinessIdentity business={business} />
         <BusinessDetails business={business} links={links} />

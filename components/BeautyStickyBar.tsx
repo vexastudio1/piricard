@@ -37,12 +37,12 @@ export function BeautyStickyBar({ className, whatsappClassName, phoneClassName, 
   return (
     <>
       {showWhatsApp ? (
-        <a className={whatsappClassName} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Contactar Beauty Connection 360 por WhatsApp">
+        <a className={`profile-floating-action ${whatsappClassName}`} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Contactar Beauty Connection 360 por WhatsApp">
           <MessageCircle aria-hidden="true" />
         </a>
       ) : null}
       {showBar ? (
-        <nav className={className} aria-label="Ações persistentes">
+        <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">
           <div>
             {phoneHref ? (
               <a className={phoneClassName} href={phoneHref}>

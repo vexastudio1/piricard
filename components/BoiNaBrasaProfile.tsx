@@ -70,8 +70,8 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
   const contactFilename = getVCardFilename(business);
 
   return (
-    <main className={styles.page}>
-      <article className={styles.shell}>
+    <main className={`profile-layout ${styles.page}`}>
+      <article className={`profile-layout-shell ${styles.shell}`}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
             <PiriCardBrandMark wordmark={<strong>Piri<em>Card</em></strong>} />
@@ -238,13 +238,13 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
           </div>
         </section>
 
-        <footer className={styles.footer}>
+        <footer className={`profile-layout-footer ${styles.footer}`}>
           <div><strong>Boi na Brasa · Restaurante &amp; Café</strong><p>Rua 1.º de Dezembro 5, 2560-300 Torres Vedras · +351 261 063 480</p></div>
           <p>Perfil PiriCard criado por PiriLight Studio</p>
         </footer>
       </article>
 
-      <nav className={styles.stickyBar} aria-label="Ações persistentes">
+      <nav className={`profile-action-bar ${styles.stickyBar}`} aria-label="Ações persistentes">
         <div>
           <a href={phoneHref}>Ligar</a>
           <ExternalLink href={directionsUrl}>Como chegar</ExternalLink>

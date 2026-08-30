@@ -11,7 +11,8 @@
   --oft-muted: #706d67;
   --oft-faint: #97928a;
   --oft-line: #d9d4ca;
-  --oft-stickybar-h: 68px;
+  --profile-action-button-height: 52px;
+  --profile-footer-padding-bottom: 28px;
   /* Barlow / Barlow Condensed / IBM Plex Mono are this profile's intended
      typefaces (already named throughout this file) — self-hosted via next/font
      and exposed as --oft-nf-*, composed here with the original fallback stack
@@ -39,7 +40,6 @@
   width: min(100%, 960px);
   min-height: 100svh;
   margin-inline: auto;
-  padding-bottom: calc(var(--oft-stickybar-h) + 80px);
   overflow: hidden;
   background: var(--oft-paper);
   box-shadow: 0 0 0 1px rgba(18, 18, 19, .08), 0 24px 60px -30px rgba(18, 18, 19, .48);
@@ -116,7 +116,7 @@
 .actionAccent .actionIcon { background: rgba(255, 255, 255, .14); color: #fff; }
 .actionAccent small { color: rgba(255, 255, 255, .72); }
 .saveContact:disabled { cursor: wait; opacity: .68; }
-.page :global(.profile-toast) { bottom: calc(78px + env(safe-area-inset-bottom)); border-radius: 9px; background: var(--oft-ink); font-family: var(--oft-font-body); }
+.page :global(.profile-toast) { border-radius: 9px; background: var(--oft-ink); font-family: var(--oft-font-body); }
 
 .kicker { margin: 0 0 15px; color: var(--oft-faint); font: 600 10px/1 var(--oft-font-mono); letter-spacing: .16em; text-transform: uppercase; }
 .essentials {
@@ -272,9 +272,9 @@
 .footer > span { font-size: 11px; --brand-mark-color: var(--oft-accent); }
 .footer > span > span > span { color: #ef6d59; }
 
-.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(244, 241, 235, .96); box-shadow: 0 -1px 0 rgba(18, 18, 19, .12), 0 -10px 30px rgba(18, 18, 19, .08); backdrop-filter: blur(10px); animation: oftBarIn 220ms ease; }
+.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px; background: rgba(244, 241, 235, .96); box-shadow: 0 -1px 0 rgba(18, 18, 19, .12), 0 -10px 30px rgba(18, 18, 19, .08); backdrop-filter: blur(10px); animation: oftBarIn 220ms ease; }
 .stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.stickyBar a { min-width: 0; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 9px; background: var(--oft-ink); color: #fff; font: 700 13px/1 var(--oft-font-display); letter-spacing: .09em; text-transform: uppercase; }
+.stickyBar a { min-width: 0; min-height: var(--profile-action-button-height); display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 9px; background: var(--oft-ink); color: #fff; font: 700 13px/1 var(--oft-font-display); letter-spacing: .09em; text-transform: uppercase; }
 .stickyBar a:last-child { background: var(--oft-accent); }
 .stickyBar svg { width: 17px; height: 17px; stroke-width: 2; }
 
@@ -282,7 +282,6 @@
   position: fixed;
   z-index: 70;
   right: 16px;
-  bottom: calc(var(--oft-stickybar-h) + env(safe-area-inset-bottom) + 14px);
   width: 52px;
   height: 52px;
   display: grid;

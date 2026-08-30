@@ -236,7 +236,7 @@ body:has(.profile-gallery-dialog[open]) { overflow: hidden; }
 .profile-status-message { min-height: 0; margin: 6px 0 0; color: var(--profile-muted); font-size: 12px; text-align: center; }
 
 .profile-toast { position: fixed; z-index: 80; left: 50%; bottom: max(26px,env(safe-area-inset-bottom)); width: min(calc(100% - 40px),390px); transform: translateX(-50%); border-radius: 6px; padding: 13px 18px; background: var(--profile-text); color: #fff; box-shadow: 0 8px 24px rgba(20,31,82,.3); font-size: 13.5px; font-weight: 600; line-height: 1; text-align: center; animation: profile-toast-in 180ms ease-out both; }
-.profile-footer { margin-top: 26px; min-height: 68px; padding: 16px 20px calc(24px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--profile-border); background: #f4f6fb; color: var(--profile-muted); font-size: 12px; font-weight: 500; line-height: 1.4; }
+.profile-footer { --profile-footer-padding-bottom: 24px; margin-top: 26px; min-height: 68px; padding: 16px 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--profile-border); background: #f4f6fb; color: var(--profile-muted); font-size: 12px; font-weight: 500; line-height: 1.4; }
 .profile-footer strong { color: var(--profile-primary); }
 .profile-footer b { color: var(--profile-accent); }
 .profile-footer > a { min-height: 44px; display: inline-flex; align-items: center; color: var(--profile-primary); font-size: 11px; font-weight: 700; line-height: 1; letter-spacing: .08em; text-transform: uppercase; }

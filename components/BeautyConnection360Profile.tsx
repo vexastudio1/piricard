@@ -81,8 +81,8 @@ export function BeautyConnection360Profile({ business }: { business: Business })
   const streetAddress = business.location?.streetAddress;
 
   return (
-    <main className={`${styles.page} ${bcDisplay.variable} ${bcBody.variable}`}>
-      <article className={styles.shell}>
+    <main className={`profile-layout ${styles.page} ${bcDisplay.variable} ${bcBody.variable}`}>
+      <article className={`profile-layout-shell ${styles.shell}`}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
             <PiriCardBrandMark wordmark={<strong>Piri<span>Card</span></strong>} />
@@ -287,7 +287,7 @@ export function BeautyConnection360Profile({ business }: { business: Business })
           {bookHref ? <a href={bookHref} target="_blank" rel="noopener noreferrer">Marcar consulta</a> : null}
         </section>
 
-        <footer className={styles.footer}>
+        <footer className={`profile-layout-footer ${styles.footer}`}>
           <div><strong>{business.name}</strong><p>{business.category}</p></div>
           <PiriCardBrandMark wordmark={<span>Perfil criado com Piri<span>Card</span></span>} />
         </footer>
