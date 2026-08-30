@@ -85,6 +85,9 @@
 .quickActions .actionGlovo { position: relative; padding-right: 42px; background: #ffc244; color: #1d1d1b; box-shadow: none; }
 .quickActions .actionGlovo small { color: #006f62; font-weight: 600; }
 .quickActions .actionGlovo svg { position: absolute; right: 13px; width: 20px; height: 20px; color: #006f62; stroke-width: 2.2; }
+.quickActions .actionReview { position: relative; padding-right: 42px; }
+.quickActions .actionReview small { color: var(--bnb-gold); font-weight: 600; }
+.quickActions .actionReview svg { position: absolute; right: 13px; width: 19px; height: 19px; color: var(--bnb-gold); stroke-width: 2.2; }
 
 .essentials { border-block: 1px solid rgba(25,20,17,.09); padding: 24px 20px; background: var(--bnb-white); }
 .kicker { margin: 0 0 16px; color: var(--bnb-faint); font: 600 11px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
@@ -131,7 +134,7 @@
 .menuLinks .glovoButton svg { color: #006f62; }
 .menuLinks .tooGoodToGoButton { background: #00615a; color: #fffdf8; border-color: transparent; box-shadow: none; }
 .menuLinks .tooGoodToGoButton svg { color: #a7e8d8; }
-.quickActions .actionGlovo:active, .menuLinks a:active { transform: scale(.985); }
+.quickActions .actionGlovo:active, .quickActions .actionReview:active, .menuLinks a:active { transform: scale(.985); }
 .quickActions .actionGlovo:focus-visible, .menuLinks .glovoButton:focus-visible { outline: 3px solid #006f62; outline-offset: 2px; }
 .menuLinks .tooGoodToGoButton:focus-visible { outline: 3px solid #a7e8d8; outline-offset: 2px; }
 .menuDisclaimer { margin: 14px 0 0; color: #8b7f76; font: 400 11.5px/1.5 "IBM Plex Mono", monospace; }
@@ -195,6 +198,7 @@
   .quickActions a:hover { box-shadow: 0 0 0 1px rgba(25,20,17,.3), 0 10px 20px -16px rgba(25,20,17,.7); }
   .quickActions .actionDark:hover { background: #2b211a; }
   .quickActions .actionGlovo:hover, .menuLinks .glovoButton:hover { background: #ffd05c; }
+  .quickActions .actionReview:hover { background: #f7f1e6; }
   .menuLinks .tooGoodToGoButton:hover { background: #08736a; }
   .menuLinks a:hover { transform: translateY(-1px); box-shadow: 0 9px 18px -14px rgba(0,0,0,.75); }
   .contacts a:hover { background: rgba(246,239,227,.14); }

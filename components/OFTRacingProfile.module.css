@@ -12,11 +12,18 @@
   --oft-faint: #97928a;
   --oft-line: #d9d4ca;
   --oft-stickybar-h: 68px;
+  /* Barlow / Barlow Condensed / IBM Plex Mono are this profile's intended
+     typefaces (already named throughout this file) — self-hosted via next/font
+     and exposed as --oft-nf-*, composed here with the original fallback stack
+     so nothing changes if a font ever fails to load. */
+  --oft-font-body: var(--oft-nf-body), Barlow, Arial, sans-serif;
+  --oft-font-display: var(--oft-nf-display), "Barlow Condensed", "Arial Narrow", sans-serif;
+  --oft-font-mono: var(--oft-nf-mono), "IBM Plex Mono", monospace;
   min-height: 100svh;
   overflow-x: clip;
   background: var(--oft-canvas);
   color: var(--oft-ink);
-  font-family: Barlow, Arial, sans-serif;
+  font-family: var(--oft-font-body);
   text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
 }
@@ -26,7 +33,7 @@
 .page button { font-family: inherit; }
 .page :is(a, button) { -webkit-tap-highlight-color: transparent; }
 .page :is(a, button):focus-visible { outline: 3px solid #e16a58; outline-offset: 3px; }
-.page h2 { margin: 0; font: 700 clamp(1.55rem, 4.8vw, 2rem)/1 "Barlow Condensed", "Arial Narrow", sans-serif; letter-spacing: -.015em; text-transform: uppercase; }
+.page h2 { margin: 0; font: 700 clamp(1.55rem, 4.8vw, 2rem)/1 var(--oft-font-display); letter-spacing: -.015em; text-transform: uppercase; }
 
 .shell {
   width: min(100%, 960px);
@@ -59,7 +66,7 @@
 
 .platformBrand strong { letter-spacing: -.02em; }
 .platformBrand strong > span { color: #f07864; }
-.directoryLink { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; color: rgba(255, 255, 255, .66); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.directoryLink { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; color: rgba(255, 255, 255, .66); font: 600 10px/1 var(--oft-font-mono); letter-spacing: .1em; text-transform: uppercase; }
 
 .heroImage {
   width: 100%;
@@ -72,7 +79,7 @@
 
 .heroImage img { object-fit: cover; object-position: 54% 58%; }
 .heroFade { position: absolute; inset: auto 0 0; height: 26%; background: linear-gradient(to top, rgba(18, 18, 19, .38), transparent); pointer-events: none; }
-.locationPill { position: absolute; top: 14px; left: 14px; max-width: calc(100% - 28px); display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 10px; overflow: hidden; background: rgba(15, 15, 16, .72); color: #fff; backdrop-filter: blur(7px); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .07em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.locationPill { position: absolute; top: 14px; left: 14px; max-width: calc(100% - 28px); display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 10px; overflow: hidden; background: rgba(15, 15, 16, .72); color: #fff; backdrop-filter: blur(7px); font: 600 10px/1 var(--oft-font-mono); letter-spacing: .07em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 
 .identity { position: relative; padding: 0 20px 22px; }
 .identityTopline { min-height: 104px; display: flex; align-items: flex-end; gap: 13px; margin-top: -45px; }
@@ -81,13 +88,13 @@
 .ratingBadge { margin-bottom: 6px; display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(18, 18, 19, .1); border-radius: 9px; padding: 8px 11px; background: var(--oft-white); box-shadow: 0 8px 20px -17px rgba(18, 18, 19, .6); }
 .ratingBadge strong { font-size: 17px; font-weight: 700; line-height: 1; }
 .ratingBadge span { color: #d59625; font-size: 11px; line-height: 1; letter-spacing: .04em; }
-.ratingBadge small { color: var(--oft-muted); font: 500 10px/1 "IBM Plex Mono", monospace; }
-.identity h1 { margin: 14px 0 0; font: 700 clamp(2.35rem, 10vw, 3.35rem)/.9 "Barlow Condensed", "Arial Narrow", sans-serif; letter-spacing: -.025em; text-transform: uppercase; }
+.ratingBadge small { color: var(--oft-muted); font: 500 10px/1 var(--oft-font-mono); }
+.identity h1 { margin: 14px 0 0; font: 700 clamp(2.35rem, 10vw, 3.35rem)/.9 var(--oft-font-display); letter-spacing: -.025em; text-transform: uppercase; }
 .subtitle, .address { margin: 0; color: var(--oft-muted); font-size: 13.5px; line-height: 1.45; }
 .subtitle { margin-top: 9px; color: var(--oft-copy); font-weight: 600; }
 .address { max-width: 52ch; margin-top: 3px; }
 .liveStatus { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 9px 11px; }
-.liveStatus :global(.opening-status) { min-height: 0; margin: 0; border: 0; border-radius: 999px; padding: 8px 11px; background: var(--oft-accent-soft); color: #7e2e23; font: 600 11.5px/1 "IBM Plex Mono", monospace; }
+.liveStatus :global(.opening-status) { min-height: 0; margin: 0; border: 0; border-radius: 999px; padding: 8px 11px; background: var(--oft-accent-soft); color: #7e2e23; font: 600 11.5px/1 var(--oft-font-mono); }
 .liveStatus :global(.opening-status)::before { width: 6px; height: 6px; background: var(--oft-accent); }
 .liveStatus :global(.opening-status[data-open="true"]) { background: #deeadb; color: #2e5634; }
 .liveStatus :global(.opening-status[data-open="true"])::before { background: #3a8750; }
@@ -99,7 +106,7 @@
 .quickActions > :is(a, button) { min-width: 0; min-height: 66px; display: flex; align-items: center; gap: 11px; border: 1px solid rgba(18, 18, 19, .12); border-radius: 10px; padding: 11px 13px; background: var(--oft-white); color: var(--oft-ink); cursor: pointer; text-align: left; transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
 .quickActions > :is(a, button) > span:last-child { min-width: 0; display: grid; gap: 4px; }
 .quickActions strong, .quickActions button > span { overflow: hidden; font-size: 14px; font-weight: 700; line-height: 1.1; text-overflow: ellipsis; white-space: nowrap; }
-.quickActions small { overflow: hidden; color: var(--oft-muted); font: 400 10.5px/1.15 "IBM Plex Mono", monospace; text-overflow: ellipsis; white-space: nowrap; }
+.quickActions small { overflow: hidden; color: var(--oft-muted); font: 400 10.5px/1.15 var(--oft-font-mono); text-overflow: ellipsis; white-space: nowrap; }
 .actionIcon, .quickActions button > svg { width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 7px; background: #eeeae3; color: var(--oft-accent); }
 .actionIcon svg, .quickActions button > svg { width: 16px; height: 16px; stroke-width: 2; }
 .quickActions .actionDark { border-color: var(--oft-ink); background: var(--oft-ink); color: #fff; }
@@ -109,9 +116,9 @@
 .actionAccent .actionIcon { background: rgba(255, 255, 255, .14); color: #fff; }
 .actionAccent small { color: rgba(255, 255, 255, .72); }
 .saveContact:disabled { cursor: wait; opacity: .68; }
-.page :global(.profile-toast) { bottom: calc(78px + env(safe-area-inset-bottom)); border-radius: 9px; background: var(--oft-ink); font-family: Barlow, sans-serif; }
+.page :global(.profile-toast) { bottom: calc(78px + env(safe-area-inset-bottom)); border-radius: 9px; background: var(--oft-ink); font-family: var(--oft-font-body); }
 
-.kicker { margin: 0 0 15px; color: var(--oft-faint); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
+.kicker { margin: 0 0 15px; color: var(--oft-faint); font: 600 10px/1 var(--oft-font-mono); letter-spacing: .16em; text-transform: uppercase; }
 .essentials {
   position: relative;
   overflow: hidden;
@@ -151,26 +158,25 @@
 .essentialGrid { margin: 0; display: grid; }
 .essentialGrid > div { min-width: 0; display: grid; grid-template-columns: minmax(96px, 34%) minmax(0, 1fr); gap: 14px; border-bottom: 1px solid var(--oft-line); padding: 15px 0; }
 .essentialGrid > div:last-child { border-bottom: 0; }
-.essentialGrid dt { color: var(--oft-faint); font: 600 9.5px/1.25 "IBM Plex Mono", monospace; letter-spacing: .09em; text-transform: uppercase; }
+.essentialGrid dt { color: var(--oft-faint); font: 600 9.5px/1.25 var(--oft-font-mono); letter-spacing: .09em; text-transform: uppercase; }
 /* Tiny technical-label tick, in the spirit of OFT's telemetry/motorsport data cues. */
 .essentialGrid dt::before { content: ""; width: 5px; height: 5px; margin-right: 7px; display: inline-block; vertical-align: middle; border-radius: 1px; background: var(--oft-accent); }
 .essentialGrid dd { min-width: 0; margin: 0; display: grid; gap: 5px; color: var(--oft-ink); font-size: 14.5px; line-height: 1.3; overflow-wrap: anywhere; }
 .essentialGrid dd > :is(a, strong), .essentialGrid dd > :global(.today-hours) { font-weight: 600; }
 /* Tappable rows (Telefone, Morada, Email) read as actionable at a glance. */
 .essentialGrid dd > a { color: var(--oft-accent-dark); }
-.essentialGrid small { color: var(--oft-muted); font: 400 10.5px/1.4 "IBM Plex Mono", monospace; }
+.essentialGrid small { color: var(--oft-muted); font: 400 10.5px/1.4 var(--oft-font-mono); }
 .essentialGrid :global(.today-hours) { display: block; }
 .essentialGrid :global(.today-hours-state) { display: none; }
 
 .social { padding: 28px 20px 30px; background: #ece8e0; }
-.social h2 { font-size: 1.65rem; }
 .socialLinks { margin-top: 17px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
 .socialLinks a { min-width: 0; min-height: 64px; display: grid; grid-template-columns: 34px minmax(0, 1fr) 14px; align-items: center; gap: 10px; border: 1px solid #d2cdc4; border-radius: 10px; padding: 10px 12px; background: rgba(255, 254, 250, .66); }
 .socialLinks a > svg:last-child { width: 13px; height: 13px; color: var(--oft-faint); }
 .socialLinks span { min-width: 0; display: grid; gap: 4px; }
 .socialLinks strong, .socialLinks small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .socialLinks strong { font-size: 13px; }
-.socialLinks small { color: var(--oft-muted); font: 400 9.5px/1 "IBM Plex Mono", monospace; }
+.socialLinks small { color: var(--oft-muted); font: 400 9.5px/1 var(--oft-font-mono); }
 .platformIcon { width: 34px; height: 34px; flex: none; display: grid; place-items: center; border-radius: 9px; }
 .platformIcon svg { width: 17px; height: 17px; stroke-width: 2; }
 .instagramCard { border-color: rgba(193, 53, 132, .3); background: linear-gradient(135deg, rgba(247, 119, 55, .1), rgba(224, 40, 118, .1) 55%, rgba(90, 42, 187, .1)); }
@@ -188,7 +194,7 @@
 .aboutGrid { margin-top: 26px; display: grid; grid-template-columns: 1fr; gap: 20px; }
 .aboutGrid .kicker { margin-bottom: 11px; }
 .brandList, .categoryList { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
-.brandList li { border: 1px solid rgba(18, 18, 19, .14); border-radius: 6px; padding: 7px 10px; background: var(--oft-white); color: var(--oft-ink); font: 700 11.5px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.brandList li { border: 1px solid rgba(18, 18, 19, .14); border-radius: 6px; padding: 7px 10px; background: var(--oft-white); color: var(--oft-ink); font: 700 11.5px/1 var(--oft-font-display); letter-spacing: .04em; text-transform: uppercase; }
 .categoryList li { border-radius: 999px; padding: 7px 12px; background: var(--oft-accent-soft); color: var(--oft-accent-dark); font-size: 12.5px; font-weight: 600; }
 
 .reviews { position: relative; overflow: hidden; padding: 34px 20px 36px; background: var(--oft-white); }
@@ -208,21 +214,21 @@
 }
 .reviews > * { position: relative; z-index: 1; }
 .sectionIntro .kicker { margin-bottom: 9px; }
-.reviewRating { font: 700 clamp(3.5rem, 16vw, 5.25rem)/.8 "Barlow Condensed", sans-serif; letter-spacing: -.04em; }
+.reviewRating { font: 700 clamp(3.5rem, 16vw, 5.25rem)/.8 var(--oft-font-display); letter-spacing: -.04em; }
 .stars { display: flex; gap: 3px; color: #dda225; }
 .stars svg { width: 17px; height: 17px; fill: currentColor; stroke-width: 1.5; }
 .reviewLink { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; color: var(--oft-accent-dark); font-size: 13.5px; font-weight: 700; }
 .reviewLink svg { width: 15px; height: 15px; }
 
 .reviewActions { margin-top: 24px; display: grid; gap: 10px; border-top: 1px solid var(--oft-line); padding-top: 22px; }
-.reviewWriteCta { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 10px; background: var(--oft-accent); color: #fff; font: 700 14px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 12px 24px -14px rgba(197, 45, 29, .65); transition: transform 160ms ease, box-shadow 160ms ease; }
+.reviewWriteCta { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 10px; background: var(--oft-accent); color: #fff; font: 700 14px/1 var(--oft-font-display); letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 12px 24px -14px rgba(197, 45, 29, .65); transition: transform 160ms ease, box-shadow 160ms ease; }
 .reviewWriteCta svg { width: 16px; height: 16px; fill: currentColor; stroke-width: 1.5; }
 
 .reviewGrid { margin-top: 22px; display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; border-top: 1px solid var(--oft-line); padding-top: 26px; }
 .reviewScoreHead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
-.reviewScoreHead > small { color: var(--oft-muted); font: 400 11px/1.4 "IBM Plex Mono", monospace; }
+.reviewScoreHead > small { color: var(--oft-muted); font: 400 11px/1.4 var(--oft-font-mono); }
 .distribution { margin: 18px 0 0; padding: 0; display: grid; gap: 7px; list-style: none; }
-.distribution li { display: flex; align-items: center; gap: 9px; color: var(--oft-muted); font: 600 11px/1 "IBM Plex Mono", monospace; }
+.distribution li { display: flex; align-items: center; gap: 9px; color: var(--oft-muted); font: 600 11px/1 var(--oft-font-mono); }
 .distribution li > span:first-child { width: 9px; text-align: right; }
 .distribution li > span:last-child { width: 20px; text-align: right; }
 .distribution i { height: 6px; min-width: 0; flex: 1; overflow: hidden; border-radius: 99px; background: var(--oft-line); }
@@ -240,9 +246,9 @@
 .hours :global(.profile-hours > div) { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .09); border-radius: 0; padding: 11px 10px; color: rgba(255, 255, 255, .76); }
 .hours :global(.profile-hours > div[data-today="true"]) { border-left: 3px solid var(--oft-accent); padding-left: 11px; background: rgba(255, 255, 255, .07); color: #fff; }
 .hours :global(.profile-hours dt) { font-size: 13px; font-weight: 600; }
-.hours :global(.profile-hours dt span) { margin-left: 7px; border-radius: 3px; padding: 3px 5px; background: var(--oft-accent); color: #fff; font: 600 8px/1 "IBM Plex Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
-.hours :global(.profile-hours dd) { color: inherit; font: 400 12px/1 "IBM Plex Mono", monospace; white-space: nowrap; }
-.caveat { margin: 15px 0 0; color: rgba(255, 255, 255, .48); font: 400 10.5px/1.55 "IBM Plex Mono", monospace; }
+.hours :global(.profile-hours dt span) { margin-left: 7px; border-radius: 3px; padding: 3px 5px; background: var(--oft-accent); color: #fff; font: 600 8px/1 var(--oft-font-mono); letter-spacing: .04em; text-transform: uppercase; }
+.hours :global(.profile-hours dd) { color: inherit; font: 400 12px/1 var(--oft-font-mono); white-space: nowrap; }
+.caveat { margin: 15px 0 0; color: rgba(255, 255, 255, .48); font: 400 10.5px/1.55 var(--oft-font-mono); }
 
 .location { background: var(--oft-paper); }
 .location address { margin: 18px 0 15px; display: grid; gap: 4px; font-style: normal; }
@@ -257,18 +263,18 @@
 .contacts .kicker { color: rgba(255, 255, 255, .46); }
 .contacts > div { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
 .contacts a { min-width: 0; min-height: 76px; display: flex; flex-direction: column; justify-content: center; gap: 8px; border: 1px solid rgba(255, 255, 255, .07); border-radius: 9px; padding: 13px 14px; background: rgba(255, 255, 255, .045); }
-.contacts small { color: rgba(255, 255, 255, .43); font: 600 9px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.contacts small { color: rgba(255, 255, 255, .43); font: 600 9px/1 var(--oft-font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .contacts strong { overflow: hidden; font-size: 14px; line-height: 1.25; text-overflow: ellipsis; }
 
 .footer { min-height: 140px; padding: 28px 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 30px; background: #0d0d0e; color: rgba(255, 255, 255, .52); }
-.footer > div strong { color: #fff; font: 700 15px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
-.footer > div p { max-width: 70ch; margin: 8px 0 0; font: 400 10px/1.55 "IBM Plex Mono", monospace; overflow-wrap: anywhere; }
+.footer > div strong { color: #fff; font: 700 15px/1 var(--oft-font-display); letter-spacing: .04em; text-transform: uppercase; }
+.footer > div p { max-width: 70ch; margin: 8px 0 0; font: 400 10px/1.55 var(--oft-font-mono); overflow-wrap: anywhere; }
 .footer > span { font-size: 11px; --brand-mark-color: var(--oft-accent); }
 .footer > span > span > span { color: #ef6d59; }
 
 .stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(244, 241, 235, .96); box-shadow: 0 -1px 0 rgba(18, 18, 19, .12), 0 -10px 30px rgba(18, 18, 19, .08); backdrop-filter: blur(10px); animation: oftBarIn 220ms ease; }
 .stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.stickyBar a { min-width: 0; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 9px; background: var(--oft-ink); color: #fff; font: 700 13px/1 "Barlow Condensed", sans-serif; letter-spacing: .09em; text-transform: uppercase; }
+.stickyBar a { min-width: 0; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 9px; background: var(--oft-ink); color: #fff; font: 700 13px/1 var(--oft-font-display); letter-spacing: .09em; text-transform: uppercase; }
 .stickyBar a:last-child { background: var(--oft-accent); }
 .stickyBar svg { width: 17px; height: 17px; stroke-width: 2; }
 

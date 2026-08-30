@@ -19,6 +19,7 @@ import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BoiNaBrasaProfile } from "@/components/BoiNaBrasaProfile";
 import { OFTRacingProfile } from "@/components/OFTRacingProfile";
+import { BeautyConnection360Profile } from "@/components/BeautyConnection360Profile";
 import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
 import { DigitalBusinessCard } from "@/components/DigitalBusinessCard";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
@@ -219,6 +220,10 @@ export function BusinessProfile({ business }: { business: Business }) {
 
   if (business.layoutVariant === "racing") {
     return <OFTRacingProfile business={business} />;
+  }
+
+  if (business.layoutVariant === "beauty") {
+    return <BeautyConnection360Profile business={business} />;
   }
 
   const canonicalUrl = getCanonicalProfileUrl(business.slug);

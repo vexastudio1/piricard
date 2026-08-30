@@ -1,0 +1,210 @@
+.page {
+  --bc-ink: #211c17;
+  --bc-charcoal: #1c1815;
+  --bc-gold: #b3873f;
+  --bc-gold-dark: #8a6529;
+  --bc-gold-light: #c9a668;
+  --bc-paper: #f8f4ec;
+  --bc-cream: #f1ebe0;
+  --bc-canvas: #e9e4d9;
+  --bc-copy: #4a433c;
+  --bc-muted: #6b6259;
+  --bc-line: rgba(28, 24, 21, 0.1);
+  --bc-stickybar-h: 68px;
+  --bc-font-display: var(--bc-nf-display), "Cormorant Garamond", Georgia, serif;
+  --bc-font-body: var(--bc-nf-body), Manrope, Arial, sans-serif;
+  min-height: 100svh;
+  overflow-x: clip;
+  background: var(--bc-canvas);
+  color: var(--bc-ink);
+  font-family: var(--bc-font-body);
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page * { box-sizing: border-box; }
+.page a { color: inherit; text-decoration: none; }
+.page button { font-family: inherit; }
+.page :is(a, button) { -webkit-tap-highlight-color: transparent; }
+.page :is(a, button):focus-visible { outline: 3px solid var(--bc-gold); outline-offset: 3px; }
+.page h1, .page h2, .page h3 { margin: 0; font-family: var(--bc-font-display); font-weight: 600; }
+
+.shell {
+  width: min(100%, 960px);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding-bottom: calc(var(--bc-stickybar-h) + 80px);
+  overflow: hidden;
+  background: var(--bc-paper);
+  box-shadow: 0 0 0 1px rgba(28, 24, 21, .08), 0 24px 60px -30px rgba(28, 24, 21, .45);
+}
+
+.platformBar {
+  min-height: calc(50px + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bc-charcoal);
+  color: #fdfbf7;
+}
+
+.platformBrand { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; --brand-mark-color: var(--bc-gold); }
+.platformBrand strong { letter-spacing: -.02em; }
+.platformBrand strong > span { color: var(--bc-gold-light); }
+.directoryLink { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; color: rgba(253, 251, 247, .66); font: 600 10px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+
+.heroImage { width: 100%; max-height: 340px; position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: #2a241f; }
+.heroImage img { object-fit: cover; object-position: center 38%; }
+.heroFade { position: absolute; inset: auto 0 0; height: 55%; background: linear-gradient(to top, rgba(16, 13, 10, .68), transparent); pointer-events: none; }
+.locationPill { position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 12px; background: rgba(20, 16, 12, .55); color: #fdfbf7; backdrop-filter: blur(6px); font: 600 10.5px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+
+.identity { position: relative; padding: 0 20px 20px; }
+.identityTopline { min-height: 88px; display: flex; align-items: flex-end; gap: 13px; margin-top: -44px; }
+/* White circular avatar, sized so the logo's own margin provides the
+   breathing room — no artificial zoom/crop (see design-reference logo, a
+   1254×1254 square mark with generous internal padding already). */
+.logo { width: 88px; height: 88px; flex: none; position: relative; z-index: 1; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: var(--bc-paper); box-shadow: 0 8px 22px rgba(28, 24, 21, .28); }
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.categoryBadge { margin-bottom: 8px; display: inline-block; border: 1px solid rgba(179, 135, 63, .45); color: var(--bc-gold-dark); font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+.identity h1 { margin-top: 12px; font-size: clamp(1.7rem, 7vw, 2.15rem); line-height: 1.1; letter-spacing: .002em; }
+.tagline { margin: 4px 0 0; font-family: var(--bc-font-display); font-style: italic; font-size: 16px; color: var(--bc-gold-dark); }
+.address { margin: 9px 0 0; color: var(--bc-muted); font-size: 13px; }
+
+.quickActions { padding: 18px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.quickActions > :is(a, button) { min-width: 0; min-height: 62px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--bc-line); border-radius: 14px; padding: 12px 13px; background: var(--bc-cream); color: var(--bc-ink); cursor: pointer; text-align: left; transition: transform 160ms ease, box-shadow 160ms ease; }
+.quickActions > :is(a, button) > span:last-child { min-width: 0; display: grid; gap: 2px; }
+.quickActions strong, .quickActions button > span { overflow: hidden; font-size: 13.5px; font-weight: 700; line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; }
+.quickActions small { overflow: hidden; color: var(--bc-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.actionIcon, .quickActions button > svg { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: 8px; background: rgba(28, 24, 21, .06); color: var(--bc-gold-dark); }
+.actionIcon svg, .quickActions button > svg { width: 15px; height: 15px; stroke-width: 2; }
+.quickActions .actionGold { border-color: transparent; background: var(--bc-gold); }
+.actionGold .actionIcon { background: rgba(33, 28, 23, .12); color: var(--bc-ink); }
+.actionGold small { color: rgba(33, 28, 23, .68); }
+.saveContact:disabled { cursor: wait; opacity: .68; }
+.page :global(.profile-toast) { bottom: calc(78px + env(safe-area-inset-bottom)); border-radius: 10px; background: var(--bc-charcoal); font-family: var(--bc-font-body); }
+
+.kicker { margin: 0 0 14px; display: flex; align-items: center; gap: 8px; color: var(--bc-gold-dark); font: 700 11px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.kicker::before { content: ""; width: 20px; height: 1px; background: var(--bc-gold); }
+
+.essentials { border-block: 1px solid var(--bc-line); padding: 26px 20px; background: var(--bc-paper); }
+.essentialGrid { margin: 0; display: grid; }
+.essentialGrid > div { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--bc-line); }
+.essentialGrid > div:last-child { border-bottom: 0; }
+.essentialGrid dt { color: var(--bc-muted); font-size: 12px; }
+.essentialGrid dd { margin: 0; text-align: right; font-size: 13px; font-weight: 600; }
+.essentialGrid dd a { color: var(--bc-gold-dark); }
+.essentialGrid dd small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 11px; font-weight: 500; }
+
+/* Dark "Sobre" zone — Sobre + Diagnóstico share one deliberately darker
+   section so the page doesn't read as one uniform light surface. A thin gold
+   seam marks the transition in; it ends flush into the light Tratamentos
+   section below, mirroring how OFT/Boi na Brasa already alternate light/dark
+   blocks. */
+.aboutDark { position: relative; padding: 30px 20px 32px; background: var(--bc-charcoal); color: #fdfbf7; }
+.aboutDark::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--bc-gold), rgba(179, 135, 63, .25), var(--bc-gold)); }
+.aboutDark .kicker { color: var(--bc-gold-light); }
+.aboutQuote { font-style: italic; font-size: 20px; line-height: 1.3; margin-bottom: 10px; color: #fdfbf7; }
+.aboutCopy { margin: 0 0 18px; color: rgba(253, 251, 247, .68); font-size: 13.5px; line-height: 1.65; }
+.pillars { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.pillars span { border: 1px solid rgba(253, 251, 247, .22); color: #fdfbf7; font-size: 11.5px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+
+/* Diagnóstico card — a lighter charcoal panel differentiated from the
+   section background, not a light card dropped onto a dark one. */
+.diagnosisCard { position: relative; overflow: hidden; border: 1px solid rgba(253, 251, 247, .14); border-radius: 18px; padding: 22px 20px; background: rgba(253, 251, 247, .05); }
+.diagnosisCard::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: var(--bc-gold); opacity: .8; }
+.diagnosisCard .kicker { margin-bottom: 10px; }
+.diagnosisCard h3 { font-size: 21px; margin: 0 0 8px; color: #fdfbf7; }
+.diagnosisCard p { margin: 0 0 16px; color: rgba(253, 251, 247, .68); font-size: 13px; line-height: 1.6; }
+.diagnosisCard a { display: block; text-align: center; background: var(--bc-gold); color: var(--bc-ink); font-size: 13px; font-weight: 700; padding: 12px; border-radius: 12px; }
+
+.treatments { padding: 24px 20px 8px; }
+.treatmentGroups { display: flex; flex-direction: column; gap: 10px; }
+.treatmentGroup { border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-paper); overflow: hidden; }
+.treatmentGroup > button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 15px 16px; background: none; border: 0; cursor: pointer; text-align: left; color: inherit; }
+.treatmentGroup strong { display: block; font-family: var(--bc-font-display); font-size: 18px; font-weight: 600; }
+.treatmentGroup small { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 12px; }
+.treatmentGroup i { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--bc-cream); color: var(--bc-gold-dark); font-size: 15px; font-weight: 700; font-style: normal; display: grid; place-items: center; }
+.treatmentGroup ul { margin: 0; padding: 0 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.treatmentGroup li { background: var(--bc-cream); color: var(--bc-ink); font-size: 12.5px; padding: 7px 11px; border-radius: 999px; }
+
+.brands { padding: 24px 20px 8px; }
+.brandList { display: flex; flex-direction: column; gap: 10px; }
+.brandCard { border: 1px solid var(--bc-line); border-radius: 14px; padding: 16px; background: var(--bc-paper); }
+.brandHead { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.brandHead strong { display: block; font-family: var(--bc-font-display); font-size: 17px; font-weight: 600; }
+.brandHead small { display: block; margin-top: 2px; color: var(--bc-gold-dark); font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.brandMark { width: 48px; height: 48px; flex: none; border-radius: 10px; background: repeating-linear-gradient(135deg, #eee6d6, #eee6d6 6px, #e4d9c2 6px, #e4d9c2 12px); }
+.brandCard p { margin: 0; padding-top: 10px; border-top: 1px solid var(--bc-line); color: var(--bc-muted); font-size: 12.5px; line-height: 1.5; }
+
+.gallery { padding: 24px 20px 8px; }
+/* BusinessPhotoGallery (shared with Autoformigal) renders plain global
+   classes styled in app/profile.css against --profile-* tokens, which this
+   bespoke profile never defines — themed locally instead of duplicating the
+   component. */
+.page :global(.profile-gallery-image) { background: var(--bc-cream); }
+.page :global(.profile-gallery-placeholder) { border: 1px solid var(--bc-line); background: linear-gradient(145deg, var(--bc-cream), var(--bc-paper)); color: var(--bc-muted); }
+.page :global(.profile-gallery-placeholder)::after { background: rgba(179, 135, 63, .16); }
+.page :global(.profile-gallery-placeholder) svg { color: var(--bc-gold-dark); }
+.page :global(.profile-gallery-placeholder) span { color: var(--bc-ink); }
+.page :global(.profile-gallery-dialog-header) p { color: var(--bc-gold-light); }
+
+.location { padding: 24px 20px 8px; }
+.locationAddress { margin: 0 0 14px; }
+.locationAddress strong { display: block; font-size: 15px; font-weight: 700; }
+.locationAddress span { display: block; margin-top: 2px; color: var(--bc-muted); font-size: 12.5px; }
+.mapCard { overflow: hidden; border: 1px solid var(--bc-line); border-radius: 14px; background: var(--bc-cream); }
+.mapCard iframe { width: 100%; height: 220px; display: block; border: 0; background: var(--bc-cream); }
+/* .page prefixed (not just .directionsButton) so this beats .page a's
+   `color: inherit` — a single class selector alone loses that specificity
+   tie, same reason OFT's own .directionsButton is written .page .directionsButton. */
+.page .directionsButton { min-height: 52px; margin: 12px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-radius: 10px; padding: 0 16px; background: var(--bc-charcoal); color: #fdfbf7; font-size: 14px; font-weight: 700; }
+.directionsButton svg { color: var(--bc-gold-light); }
+
+.closing { margin-top: 24px; padding: 30px 20px 26px; background: var(--bc-charcoal); color: #fdfbf7; text-align: center; }
+.closing h3 { font-style: italic; font-size: 19px; line-height: 1.35; margin-bottom: 8px; }
+.closing p { margin: 0 0 16px; color: rgba(253, 251, 247, .65); font-size: 12.5px; }
+.closing a { display: inline-block; background: var(--bc-gold); color: var(--bc-ink); font-size: 13.5px; font-weight: 700; padding: 13px 22px; border-radius: 12px; }
+
+.footer { padding: 22px 20px 26px; display: flex; flex-direction: column; gap: 30px; background: #17130f; color: rgba(253, 251, 247, .5); }
+.footer > div strong { display: block; color: #fdfbf7; font-family: var(--bc-font-display); font-size: 15px; font-weight: 600; }
+.footer > div p { margin: 4px 0 0; font-size: 11px; }
+.footer > span { font-size: 11px; --brand-mark-color: var(--bc-gold); }
+.footer > span > span > span { color: var(--bc-gold-light); }
+
+.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: rgba(248, 244, 236, .96); box-shadow: 0 -1px 0 rgba(28, 24, 21, .12), 0 -10px 30px rgba(28, 24, 21, .08); backdrop-filter: blur(10px); }
+.stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: flex; gap: 8px; }
+.stickyBar a { min-width: 0; min-height: 52px; flex: 1; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 13px; font-weight: 700; text-align: center; }
+.page .stickyOutline { background: transparent; border: 1px solid rgba(28, 24, 21, .18); color: var(--bc-ink); }
+.page .stickyGold { flex: 1.4 !important; background: var(--bc-gold); color: var(--bc-ink); }
+
+@media (min-width: 700px) {
+  .identity { padding-inline: 34px; }
+  .quickActions { padding-inline: 34px; }
+  .essentials, .aboutDark, .treatments, .brands, .gallery, .location { padding-inline: 34px; }
+  .essentialGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+}
+
+@media (min-width: 961px) {
+  .page { padding-block: 28px; }
+  .shell { min-height: calc(100svh - 56px); border-radius: 2px; }
+}
+
+@media (max-width: 390px) {
+  .platformBar { padding-inline: 16px; }
+  .identity, .quickActions, .essentials, .aboutDark, .treatments, .brands, .gallery, .location, .footer { padding-left: 16px; padding-right: 16px; }
+  .logo { width: 80px; height: 80px; }
+  .identityTopline { min-height: 80px; margin-top: -40px; }
+  .identity h1 { font-size: 1.6rem; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .quickActions > :is(a, button):hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(28, 24, 21, .55); }
+  .treatmentGroup > button:hover { background: rgba(28, 24, 21, .02); }
+  .diagnosisCard a:hover, .closing a:hover, .directionsButton:hover { transform: translateY(-1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

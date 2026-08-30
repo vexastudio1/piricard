@@ -14,6 +14,7 @@ describe("directory search", () => {
 
   it("finds Boi na Brasa by category and locality", () => {
     expect(filterBusinesses(businesses, "restaurante").map((business) => business.slug)).toEqual(["boi-na-brasa"]);
-    expect(filterBusinesses(businesses, "torres vedras").map((business) => business.slug)).toEqual(["boi-na-brasa"]);
+    // Torres Vedras now has two businesses (Boi na Brasa and Beauty Connection 360).
+    expect(filterBusinesses(businesses, "torres vedras").map((business) => business.slug)).toEqual(["beauty-connection-360", "boi-na-brasa"]);
   });
 });

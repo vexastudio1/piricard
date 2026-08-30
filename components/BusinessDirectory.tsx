@@ -50,7 +50,15 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
           {filtered.map((business) => (
             <article className="business-row" key={business.slug}>
               <div className="business-identifier">
-                {business.logo ? <Image src={business.logo} alt="" width={190} height={115} /> : <span aria-hidden="true">{business.name.slice(0, 1)}</span>}
+                {business.logo ? (
+                  business.logoOnLight ? (
+                    <span className="logo-plate"><Image src={business.logo} alt="" width={190} height={115} /></span>
+                  ) : (
+                    <Image src={business.logo} alt="" width={190} height={115} />
+                  )
+                ) : (
+                  <span aria-hidden="true">{business.name.slice(0, 1)}</span>
+                )}
               </div>
               <div className="business-row-content">
                 <h2>{business.name}</h2>

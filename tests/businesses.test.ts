@@ -14,6 +14,18 @@ describe("business lookup", () => {
     expect(business?.layoutVariant).toBe("racing");
     expect(business?.contact.phone).toBe("+351913321091");
   });
+  it("resolves the Beauty Connection 360 profile", () => {
+    const business = getBusinessBySlug("beauty-connection-360");
+    expect(business?.name).toBe("Beauty Connection 360");
+    expect(business?.layoutVariant).toBe("beauty");
+    // Phone/email/WhatsApp still conflict across sources (see lib/businesses.ts) —
+    // must stay unset rather than guessing. The street address is confirmed.
+    expect(business?.contact.phone).toBeUndefined();
+    expect(business?.contact.whatsapp).toBeUndefined();
+    expect(business?.contact.email).toBeUndefined();
+    expect(business?.location?.streetAddress).toBe("Rua Serpa Pinto 9A");
+    expect(business?.reviewUrl).toBeUndefined();
+  });
   it("rejects malformed and unknown slugs", () => {
     expect(isValidSlug("Auto Formigal")).toBe(false);
     expect(getBusinessBySlug("../autoformigal")).toBeUndefined();
@@ -25,7 +37,7 @@ describe("business lookup", () => {
   });
   it("exposes only published businesses in the directory", () => {
     expect(getPublishedBusinesses().every((business) => business.published)).toBe(true);
-    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "boi-na-brasa", "oft-racing"]);
+    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "beauty-connection-360", "boi-na-brasa", "oft-racing"]);
   });
   it("keeps unconfirmed fields optional", () => {
     const business = getBusinessBySlug("autoformigal");

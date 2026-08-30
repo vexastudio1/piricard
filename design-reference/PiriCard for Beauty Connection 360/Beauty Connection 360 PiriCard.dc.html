@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d9;font-family:'Manrope',sans-serif;}
+  a{color:#8a6529;text-decoration:none;}
+  a:hover{color:#b3873f;}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;justify-content:center;padding:36px 14px;background:#e9e4d9;">
+<div style="width:100%;max-width:430px;background:#f8f4ec;border-radius:22px;overflow:hidden;box-shadow:0 24px 64px rgba(28,24,21,0.20);position:relative;">
+
+  <div style="height:52px;background:#1c1815;display:flex;align-items:center;justify-content:space-between;padding:0 18px;flex-shrink:0;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:15px;height:15px;border-radius:50%;background:#b3873f;"></div>
+      <span style="color:#fdfbf7;font-size:15px;font-weight:700;letter-spacing:0.2px;">PiriCard</span>
+    </div>
+    <span style="color:#c9a668;font-size:10.5px;font-weight:700;letter-spacing:1.2px;">DIRETÓRIO ↗</span>
+  </div>
+
+  <div style="position:relative;height:210px;">
+    <img src="uploads/beauticonnection360/fachada.webp" alt="Fachada Beauty Connection 360" style="width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(20,16,12,0) 50%, rgba(16,13,10,0.62) 100%);"></div>
+    <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:6px;background:rgba(20,16,12,0.55);backdrop-filter:blur(6px);padding:7px 12px;border-radius:100px;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#c9a668;"></div>
+      <span style="color:#fdfbf7;font-size:11px;font-weight:700;letter-spacing:1px;">TORRES VEDRAS</span>
+    </div>
+    <div style="position:absolute;bottom:-44px;left:20px;width:88px;height:88px;border-radius:50%;background:#fdfbf7;box-shadow:0 8px 22px rgba(28,24,21,0.28);overflow:hidden;">
+      <img src="uploads/beauticonnection360/Logotipo.webp" alt="Beauty Connection 360" style="position:absolute;top:50%;left:50%;width:160%;height:160%;object-fit:cover;transform:translate(-50%,-50%);"/>
+    </div>
+  </div>
+
+  <div style="padding:54px 20px 0 20px;">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:12px;">
+      <div style="border:1px solid rgba(179,135,63,0.45);color:#8a6529;font-size:9.5px;font-weight:700;letter-spacing:0.7px;padding:5px 10px;border-radius:100px;white-space:nowrap;">ESTÉTICA • BELEZA • BEM-ESTAR</div>
+    </div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#211c17;margin:0 0 4px 0;letter-spacing:0.2px;line-height:1.1;">Beauty Connection 360</h1>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#8a6529;margin-bottom:9px;">Conexão Total com a Beleza</div>
+    <div style="display:flex;align-items:center;gap:7px;color:#6b6259;font-size:13px;">
+      <span>Torres Vedras</span><span style="color:#c9a668;">•</span><span>Porto</span>
+    </div>
+  </div>
+
+  <div style="padding:18px 20px 0 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <a href="{{ bookHref }}" target="_blank" rel="noreferrer" style="background:#b3873f;border-radius:14px;padding:14px 14px;display:flex;flex-direction:column;gap:2px;min-height:44px;">
+      <span style="color:#211c17;font-size:14px;font-weight:700;">Marcar consulta</span>
+      <span style="color:rgba(33,28,23,0.65);font-size:11px;">Via Instagram</span>
+    </a>
+    <a href="{{ callHref }}" style="background:#1c1815;border-radius:14px;padding:14px 14px;display:flex;flex-direction:column;gap:2px;min-height:44px;">
+      <span style="color:#fdfbf7;font-size:14px;font-weight:700;">Ligar</span>
+      <span style="color:rgba(253,251,247,0.6);font-size:11px;">916 754 795</span>
+    </a>
+    <a href="{{ mapsHref }}" target="_blank" rel="noreferrer" style="background:#f1ebe0;border:1px solid rgba(28,24,21,0.1);border-radius:14px;padding:14px 14px;display:flex;flex-direction:column;gap:2px;min-height:44px;">
+      <span style="color:#211c17;font-size:14px;font-weight:700;">Como chegar</span>
+      <span style="color:#6b6259;font-size:11px;">Google Maps</span>
+    </a>
+    <a href="{{ vcardHref }}" download="beauty-connection-360.vcf" style="background:#f1ebe0;border:1px solid rgba(28,24,21,0.1);border-radius:14px;padding:14px 14px;display:flex;flex-direction:column;gap:2px;min-height:44px;">
+      <span style="color:#211c17;font-size:14px;font-weight:700;">Guardar contacto</span>
+      <span style="color:#6b6259;font-size:11px;">vCard</span>
+    </a>
+  </div>
+
+  <div style="padding:28px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">INFORMAÇÃO ESSENCIAL</span>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(28,24,21,0.08);">
+        <span style="font-size:12px;color:#6b6259;">Categoria</span>
+        <span style="font-size:13px;color:#211c17;font-weight:600;text-align:right;">Estética • Beleza • Bem-estar</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(28,24,21,0.08);">
+        <span style="font-size:12px;color:#6b6259;">Área</span>
+        <span style="font-size:13px;color:#211c17;font-weight:600;">Torres Vedras • Porto</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(28,24,21,0.08);">
+        <span style="font-size:12px;color:#6b6259;">Telefone</span>
+        <a href="{{ callHref }}" style="font-size:13px;color:#8a6529;font-weight:600;">916 754 795</a>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(28,24,21,0.08);">
+        <span style="font-size:12px;color:#6b6259;">Email</span>
+        <a href="{{ mailHref }}" style="font-size:13px;color:#8a6529;font-weight:600;">geral@beautyconnection360.com</a>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(28,24,21,0.08);">
+        <span style="font-size:12px;color:#6b6259;">Instagram</span>
+        <a href="{{ igHref }}" target="_blank" rel="noreferrer" style="font-size:13px;color:#8a6529;font-weight:600;">@beauty_connection360</a>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;">
+        <span style="font-size:12px;color:#6b6259;">Website</span>
+        <a href="{{ websiteHref }}" target="_blank" rel="noreferrer" style="font-size:13px;color:#8a6529;font-weight:600;">beautyconnection360.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">SOBRE</span>
+    </div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:600;color:#211c17;margin:0 0 10px 0;line-height:1.3;">"A verdadeira beleza nasce da conexão entre corpo, mente e energia."</h2>
+    <p style="font-size:13.5px;line-height:1.65;color:#4a433c;margin:0 0 14px 0;">Não seguimos protocolos padronizados. Cada pessoa é única — por isso cada plano é lido a partir do corpo, da pele e do momento de vida de quem o procura, unindo estética, tecnologia avançada e bem-estar numa só experiência de transformação.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <div style="border:1px solid rgba(28,24,21,0.12);color:#211c17;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:100px;">Personalização</div>
+      <div style="border:1px solid rgba(28,24,21,0.12);color:#211c17;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:100px;">Inovação</div>
+      <div style="border:1px solid rgba(28,24,21,0.12);color:#211c17;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:100px;">Bem-Estar</div>
+    </div>
+  </div>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="background:#fdfbf7;border:1px solid rgba(179,135,63,0.3);border-radius:18px;padding:22px 20px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#b3873f,#e4d9c2,#b3873f);"></div>
+      <span style="font-size:10.5px;font-weight:700;letter-spacing:1.2px;color:#8a6529;">A SUA EXPERIÊNCIA COMEÇA AQUI</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#211c17;margin:8px 0 8px 0;">Diagnóstico &amp; Conexão Inicial</h3>
+      <p style="font-size:13px;line-height:1.6;color:#4a433c;margin:0 0 16px 0;">Uma avaliação profunda de corpo, rosto, energia e estilo de vida — o ponto de partida para um Plano de Transformação Personalizado.</p>
+      <a href="{{ bookHref }}" target="_blank" rel="noreferrer" style="display:block;text-align:center;background:#b3873f;color:#211c17;font-size:13px;font-weight:700;padding:12px;border-radius:12px;">Pedir avaliação personalizada</a>
+    </div>
+  </div>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">TRATAMENTOS &amp; SERVIÇOS</span>
+    </div>
+    <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="4">
+      <div style="background:#fdfbf7;border:1px solid rgba(28,24,21,0.08);border-radius:14px;margin-bottom:10px;overflow:hidden;">
+        <div onClick="{{ cat.onToggle }}" style="display:flex;justify-content:space-between;align-items:center;padding:15px 16px;cursor:pointer;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#211c17;">{{ cat.title }}</div>
+            <div style="font-size:12px;color:#6b6259;margin-top:2px;">{{ cat.desc }}</div>
+          </div>
+          <div style="width:26px;height:26px;border-radius:50%;background:#f1ebe0;color:#8a6529;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{{ cat.toggleIcon }}</div>
+        </div>
+        <sc-if value="{{ cat.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 16px 16px 16px;display:flex;flex-wrap:wrap;gap:8px;">
+            <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="5">
+              <div style="background:#f1ebe0;color:#211c17;font-size:12.5px;padding:7px 11px;border-radius:100px;">{{ item }}</div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">COSMÉTICA &amp; MARCAS</span>
+    </div>
+    <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="3">
+      <div style="background:#fdfbf7;border:1px solid rgba(28,24,21,0.08);border-radius:14px;padding:16px;margin-bottom:10px;">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px;">
+          <div style="width:48px;height:48px;border-radius:10px;flex-shrink:0;background:repeating-linear-gradient(135deg,#eee6d6,#eee6d6 6px,#e4d9c2 6px,#e4d9c2 12px);"></div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:#211c17;">{{ brand.name }}</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.6px;color:#8a6529;text-transform:uppercase;margin-top:2px;">{{ brand.tag }}</div>
+          </div>
+        </div>
+        <div style="font-size:12.5px;color:#6b6259;line-height:1.5;padding-top:10px;border-top:1px solid rgba(28,24,21,0.06);">{{ brand.blurb }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">INSTAGRAM</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;background:#fdfbf7;border:1px solid rgba(28,24,21,0.1);flex-shrink:0;">
+          <img src="uploads/beauticonnection360/Logotipo.webp" alt="" style="position:relative;top:15%;left:15%;width:130%;height:130%;object-fit:cover;"/>
+        </div>
+        <span style="font-size:13px;color:#211c17;font-weight:600;">@beauty_connection360</span>
+      </div>
+      <a href="{{ igHref }}" target="_blank" rel="noreferrer" style="font-size:11.5px;font-weight:700;color:#211c17;border:1px solid rgba(28,24,21,0.15);padding:6px 13px;border-radius:100px;">Seguir</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+      <sc-for list="{{ socialTiles }}" as="tile" hint-placeholder-count="6">
+        <div style="aspect-ratio:1;border-radius:9px;background:{{ tile.grad }};display:flex;align-items:flex-end;padding:7px;">
+          <span style="font-family:ui-monospace,monospace;font-size:8.5px;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.3px;">{{ tile.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <a href="{{ igHref }}" target="_blank" rel="noreferrer" style="display:block;text-align:center;font-size:12px;color:#8a6529;font-weight:600;margin-top:10px;">Ver perfil completo →</a>
+  </div>
+
+  <sc-if value="{{ showCorporate }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:24px 20px 6px 20px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+        <div style="width:20px;height:1px;background:#b3873f;"></div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">PARA EMPRESAS &amp; EVENTOS</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="border:1px solid rgba(28,24,21,0.1);border-radius:14px;padding:14px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:#211c17;margin-bottom:4px;">Wellness Corporativo</div>
+          <div style="font-size:11.5px;color:#6b6259;line-height:1.5;">Experiências de bem-estar para equipas.</div>
+        </div>
+        <div style="border:1px solid rgba(28,24,21,0.1);border-radius:14px;padding:14px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:#211c17;margin-bottom:4px;">Eventos &amp; Parcerias</div>
+          <div style="font-size:11.5px;color:#6b6259;line-height:1.5;">Conexões e experiências de marca.</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="padding:24px 20px 6px 20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+      <div style="width:20px;height:1px;background:#b3873f;"></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#8a6529;">LOCALIZAÇÃO</span>
+    </div>
+    <div style="font-size:15px;color:#211c17;font-weight:600;margin-bottom:3px;">Torres Vedras</div>
+    <div style="font-size:12px;color:#6b6259;margin-bottom:12px;">Também com atendimento no Porto</div>
+    <div style="height:120px;border-radius:14px;background:repeating-linear-gradient(45deg,#eee6d6,#eee6d6 8px,#e4d9c2 8px,#e4d9c2 16px);display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+      <span style="font-family:ui-monospace,monospace;font-size:11px;color:#8a7758;">mapa — Google Maps</span>
+    </div>
+    <a href="{{ mapsHref }}" target="_blank" rel="noreferrer" style="display:block;text-align:center;background:#f1ebe0;border:1px solid rgba(28,24,21,0.1);color:#211c17;font-size:13px;font-weight:700;padding:12px;border-radius:12px;">Abrir no Maps</a>
+  </div>
+
+  <div style="padding:28px 20px 24px 20px;background:#1c1815;margin-top:24px;text-align:center;">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:600;color:#fdfbf7;margin:0 0 8px 0;line-height:1.35;">Não é apenas um serviço. É uma experiência de transformação.</h3>
+    <p style="font-size:12.5px;color:rgba(253,251,247,0.65);margin:0 0 16px 0;">Elevando a sua beleza com exclusividade.</p>
+    <a href="{{ bookHref }}" target="_blank" rel="noreferrer" style="display:inline-block;background:#b3873f;color:#211c17;font-size:13.5px;font-weight:700;padding:13px 22px;border-radius:12px;">Marcar consulta</a>
+  </div>
+
+  <div style="text-align:center;padding:14px 20px;">
+    <span style="font-size:10px;color:#a39a8c;letter-spacing:0.5px;">Perfil verificado por PiriCard</span>
+  </div>
+
+  <div style="position:sticky;bottom:0;left:0;right:0;background:rgba(248,244,236,0.94);backdrop-filter:blur(10px);border-top:1px solid rgba(28,24,21,0.08);padding:10px 14px;display:flex;gap:8px;z-index:5;">
+    <a href="{{ callHref }}" style="flex:1;text-align:center;background:#1c1815;color:#fdfbf7;font-size:13px;font-weight:700;padding:12px 8px;border-radius:12px;">Ligar</a>
+    <sc-if value="{{ stickyGoldEmphasis }}" hint-placeholder-val="{{ true }}">
+      <a href="{{ bookHref }}" target="_blank" rel="noreferrer" style="flex:1.4;text-align:center;background:#b3873f;color:#211c17;font-size:13px;font-weight:700;padding:12px 8px;border-radius:12px;">Marcar consulta</a>
+    </sc-if>
+    <sc-if value="{{ notStickyGoldEmphasis }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ bookHref }}" target="_blank" rel="noreferrer" style="flex:1.4;text-align:center;background:#1c1815;color:#c9a668;border:1px solid #b3873f;font-size:13px;font-weight:700;padding:12px 8px;border-radius:12px;">Marcar consulta</a>
+    </sc-if>
+    <a href="{{ mapsHref }}" target="_blank" rel="noreferrer" style="flex:1;text-align:center;background:transparent;color:#211c17;border:1px solid rgba(28,24,21,0.15);font-size:13px;font-weight:600;padding:12px 8px;border-radius:12px;">Chegar</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 430, &quot;height&quot;: 900},
+  &quot;showCorporateSection&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;},
+  &quot;categoriesStartOpen&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;},
+  &quot;stickyGoldEmphasis&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}
+}">
+class Component extends DCLogic {
+  state = { openCategory: this.props.categoriesStartOpen ? 'rosto' : null };
+
+  toggleCategory(id) {
+    this.setState(s => ({ openCategory: s.openCategory === id ? null : id }));
+  }
+
+  renderVals() {
+    const baseCategories = [
+      { id: 'rosto', title: 'Rosto', desc: 'Cuidados faciais personalizados', items: ['Limpeza de Pele Básica', 'Limpeza de Pele Profunda', 'Rejuvenescimento / Anti-idade', 'Tratamento de Acne', 'Dermapen', 'Beauty Gold Facial'] },
+      { id: 'corpo', title: 'Corpo', desc: 'Tratamentos corporais direcionados', items: ['Tonificação', 'Flacidez', 'Hidratação Profunda', 'Lama do Mar Morto', 'Tratamento de Pés com Reflexologia'] },
+      { id: 'rituals', title: 'Beauty & Rituals', desc: 'Mãos, pés e rituais de beleza', items: ['SPA das Mãos', 'Manicure (Normal • Gel • Gelinho)', 'SPA dos Pés', 'Pedicure (Normal • Gel • Gelinho)', 'Sobrancelhas', 'Buço', 'Lifting de Pestanas', 'Head SPA'] },
+      { id: 'bemestar', title: 'Bem-estar Integrado', desc: 'Terapias, fitness e nutrição', items: ['Reiki', 'Reflexologia', 'Aromaterapia', 'Mentorias', 'Planos de Fitness Personalizados', 'Planos Alimentares Personalizados'] }
+    ];
+
+    const categories = baseCategories.map((c) => {
+      const open = this.state.openCategory === c.id;
+      return { ...c, open, toggleIcon: open ? '–' : '+', onToggle: () => this.toggleCategory(c.id) };
+    });
+
+    const brands = [
+      { id: 'neolumo', name: 'NeoLumo', tag: 'Cabine & Skincare', blurb: 'Cosmética utilizada nos tratamentos faciais e corporais.' },
+      { id: 'kedma', name: 'KEDMA', tag: 'Coleção de Ouro', blurb: 'Presente na rotina de skincare e tratamentos de cabine.' },
+      { id: 'perfumes', name: 'Perfumes Árabes', tag: 'Perfumaria', blurb: 'Fragrâncias originais disponíveis no espaço.' }
+    ];
+
+    const socialTiles = [
+      { label: 'Tratamentos', grad: 'linear-gradient(135deg,#3a322a,#5c4c34)' },
+      { label: 'Produtos', grad: 'linear-gradient(135deg,#c9a668,#8a6529)' },
+      { label: 'Espaço', grad: 'linear-gradient(135deg,#efe7d8,#c9b78e)' },
+      { label: 'Skincare', grad: 'linear-gradient(135deg,#2a2420,#4a3d2c)' },
+      { label: 'Eventos', grad: 'linear-gradient(135deg,#b3873f,#7a5a29)' },
+      { label: 'Resultados', grad: 'linear-gradient(135deg,#dcc99a,#a9885a)' }
+    ];
+
+    const vcardString = [
+      'BEGIN:VCARD', 'VERSION:3.0', 'FN:Beauty Connection 360', 'ORG:Beauty Connection 360',
+      'TEL;TYPE=WORK,VOICE:+351916754795', 'EMAIL:geral@beautyconnection360.com',
+      'URL:https://www.instagram.com/beauty_connection360', 'NOTE:Estética • Beleza • Bem-estar — Torres Vedras',
+      'END:VCARD'
+    ].join('\n');
+
+    const stickyGoldEmphasis = this.props.stickyGoldEmphasis ?? true;
+
+    return {
+      categories,
+      brands,
+      socialTiles,
+      showCorporate: this.props.showCorporateSection ?? true,
+      stickyGoldEmphasis,
+      notStickyGoldEmphasis: !stickyGoldEmphasis,
+      bookHref: 'https://www.instagram.com/beauty_connection360',
+      igHref: 'https://www.instagram.com/beauty_connection360',
+      callHref: 'tel:+351916754795',
+      mailHref: 'mailto:geral@beautyconnection360.com',
+      websiteHref: 'https://www.beautyconnection360.com/',
+      mapsHref: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Beauty Connection 360 Torres Vedras'),
+      vcardHref: 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcardString)
+    };
+  }
+}
+</script>
+</body>
+</html>

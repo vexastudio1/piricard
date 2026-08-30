@@ -64,6 +64,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .business-identifier { min-width: 0; height: 100%; display: grid; place-items: center; padding: 2rem 2.5rem 2rem .75rem; }
 .business-identifier img { width: 100%; max-width: 13rem; height: 7.5rem; object-fit: contain; filter: saturate(.92) drop-shadow(0 10px 18px rgba(0, 0, 0, .2)); }
 .business-identifier > span { font-size: 3rem; font-weight: 800; color: var(--platform-accent); }
+/* Light plate for logos with no baked-in background (e.g. a transparent mark) —
+   gives them the same clean, contained look the other logos already have on this
+   dark directory background, without touching the original asset. */
+.business-identifier .logo-plate { width: 100%; max-width: 13rem; height: 7.5rem; display: grid; place-items: center; padding: .85rem; border-radius: .6rem; background: #fff; box-shadow: 0 10px 18px rgba(0, 0, 0, .2); }
+.business-identifier .logo-plate img { height: 100%; filter: none; }
 .business-row-content { min-width: 0; padding: 2rem 3rem 2rem 0; }
 .business-row h2 { margin: 0; font-size: clamp(1.75rem, 2.8vw, 2.35rem); letter-spacing: -.045em; }
 .business-meta { display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin-top: .6rem; color: #c2cbd8; font-size: 1rem; }
@@ -92,6 +97,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .business-row { grid-template-columns: 11rem minmax(0, 1fr); padding: 1.75rem 0; }
   .business-identifier { min-height: 9rem; padding: 1rem 2rem 1rem 0; }
   .business-identifier img { height: 7rem; }
+  .business-identifier .logo-plate { height: 7rem; padding: .7rem; }
   .business-row-content { padding: 0; }
   .directory-link { grid-column: 2; width: fit-content; min-height: 3rem; margin-top: 1.25rem; padding: 0 1rem; border: 1px solid var(--platform-accent); }
 }
@@ -109,6 +115,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .business-row { grid-template-columns: 6.5rem minmax(0, 1fr); align-items: start; }
   .business-identifier { min-height: 6rem; padding: .25rem 1rem .5rem 0; place-items: start center; }
   .business-identifier img { height: 5rem; }
+  .business-identifier .logo-plate { height: 5rem; padding: .5rem; border-radius: .45rem; }
   .business-row h2 { font-size: 1.7rem; }
   .business-meta { display: grid; gap: .45rem; font-size: .94rem; }
   .business-row-content > p { font-size: .95rem; }

@@ -45,16 +45,20 @@ export interface Business {
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
   hours?: BusinessHoursEntry[];
-  assets: { logo?: string; cover?: string; coverAlt?: string; socialImage?: string };
+  assets: { logo?: string; logoOnLight?: boolean; cover?: string; coverAlt?: string; socialImage?: string };
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
-  layoutVariant: "editorial" | "compact" | "restaurant" | "racing";
+  layoutVariant: "editorial" | "compact" | "restaurant" | "racing" | "beauty";
 }
 
 export type DirectoryBusiness = Pick<Business, "slug" | "name" | "category" | "directoryDescription"> & {
   city?: string;
   logo?: string;
+  // True when the logo asset itself has no light background baked in (e.g. a
+  // transparent mark) and needs an explicit light plate to read clearly in the
+  // directory, matching how the other businesses' logos already render there.
+  logoOnLight?: boolean;
 };
 
 // Single source of truth for directory cards, profiles, metadata and vCards.
@@ -142,6 +146,60 @@ const businesses = {
       fontFamily: "modern",
     },
     layoutVariant: "compact",
+  },
+  "beauty-connection-360": {
+    slug: "beauty-connection-360",
+    name: "Beauty Connection 360",
+    organization: "Beauty Connection 360",
+    category: "Estética • Beleza • Bem-estar",
+    published: true,
+    featured: false,
+    indexable: true,
+    directoryDescription: "Estética, beleza e bem-estar personalizados, unindo tratamentos, tecnologia e cosmética premium.",
+    profileDescription: "Conexão Total com a Beleza — tratamentos personalizados de estética, corpo e bem-estar.",
+    positioning: "Elevando a sua beleza com exclusividade.",
+    // Phone and email still disagree between the website (916 754 795 /
+    // geral@beautyconnection360.com) and an Instagram highlight (933 556 646 /
+    // geral.connectionbeauty@gmail.com), and neither has been confirmed as
+    // current by the business — per design-reference/PiriCard for Beauty
+    // Connection 360/uploads/beauticonnection360/
+    // BEAUTY-CONNECTION-360-HANDOFF-PIRICARD-WEBSITE.md ("não escolher
+    // automaticamente um dos contactos"), do not pick one. The street address
+    // below is confirmed and safe to publish.
+    contact: {
+      website: "https://www.beautyconnection360.com/",
+    },
+    location: {
+      city: "Torres Vedras",
+      streetAddress: "Rua Serpa Pinto 9A",
+      address: "Rua Serpa Pinto 9A, 2560-288 Torres Vedras",
+      country: "Portugal",
+    },
+    socialLinks: [
+      { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/beauty_connection360" },
+    ],
+    // No opening hours, phone, WhatsApp, or Google Business profile are
+    // confirmed — omitted rather than guessed (see contact note above).
+    assets: {
+      logo: "/clients/beauty-connection-360/logo.webp",
+      cover: "/clients/beauty-connection-360/fachada.webp",
+      coverAlt: "Fachada da Beauty Connection 360 em Torres Vedras",
+      socialImage: "/clients/beauty-connection-360/fachada.webp",
+    },
+    digitalCard: undefined,
+    theme: {
+      primary: "#1c1815",
+      secondary: "#0f0c0a",
+      accent: "#b3873f",
+      background: "#e9e4d9",
+      surface: "#f8f4ec",
+      text: "#211c17",
+      mutedText: "#6b6259",
+      border: "rgba(28,24,21,0.12)",
+      appearance: "light",
+      fontFamily: "editorial",
+    },
+    layoutVariant: "beauty",
   },
   "boi-na-brasa": {
     slug: "boi-na-brasa",
@@ -260,6 +318,9 @@ const businesses = {
     },
     assets: {
       logo: "/clients/oft-racing/logo.png",
+      // Transparent PNG mark (no baked-in white background), unlike the other
+      // businesses' logo files — needs a light plate in the directory to match.
+      logoOnLight: true,
       cover: "/clients/oft-racing/fachada.webp",
       coverAlt: "Fachada da OFT Racing Shop em São Pedro da Cadeira",
       socialImage: "/clients/oft-racing/fachada.webp",
@@ -310,6 +371,7 @@ export function getPublishedDirectoryBusinesses(): DirectoryBusiness[] {
     directoryDescription: business.directoryDescription,
     city: business.location?.city,
     logo: business.assets.logo,
+    logoOnLight: business.assets.logoOnLight,
   }));
 }
 

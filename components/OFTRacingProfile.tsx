@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Barlow, Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
 import {
   ArrowUpRight,
   Facebook,
@@ -13,12 +14,18 @@ import type { ReactNode } from "react";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { OFTStickyBar } from "@/components/OFTStickyBar";
-import { OFTWhatsAppFab } from "@/components/OFTWhatsAppFab";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import type { Business } from "@/lib/businesses";
 import { getEmailHref, getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
 import { getVCardFilename } from "@/lib/vcard";
 import styles from "./OFTRacingProfile.module.css";
+
+// Self-hosted via next/font (no external request at runtime) — these are the
+// typefaces already named throughout OFTRacingProfile.module.css. Scoped to
+// this component only, so no other PiriCard profile is affected.
+const oftBody = Barlow({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--oft-nf-body", display: "swap" });
+const oftDisplay = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700"], variable: "--oft-nf-display", display: "swap" });
+const oftMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--oft-nf-mono", display: "swap" });
 
 const whatsappMessage = "Olá! Vi a OFT Racing no PiriCard e gostaria de mais informações.";
 
@@ -77,7 +84,7 @@ export function OFTRacingProfile({ business }: { business: Business }) {
     : undefined;
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${oftBody.variable} ${oftDisplay.variable} ${oftMono.variable}`}>
       <article className={styles.shell}>
         <nav className={styles.platformBar} aria-label="Navegação PiriCard">
           <Link className={styles.platformBrand} href="/" aria-label="PiriCard — ir para o diretório">
@@ -353,9 +360,14 @@ export function OFTRacingProfile({ business }: { business: Business }) {
         </footer>
       </article>
 
-      {whatsappHref ? <OFTWhatsAppFab href={whatsappHref} className={styles.whatsappFab} /> : null}
-
-      <OFTStickyBar className={styles.stickyBar} businessName={business.name} phoneHref={phoneHref} mapsHref={mapsHref} />
+      <OFTStickyBar
+        className={styles.stickyBar}
+        whatsappClassName={styles.whatsappFab}
+        businessName={business.name}
+        phoneHref={phoneHref}
+        mapsHref={mapsHref}
+        whatsappHref={whatsappHref}
+      />
     </main>
   );
 }

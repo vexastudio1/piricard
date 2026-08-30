@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin } from "lucide-react";
+import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin, Star } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
@@ -59,8 +59,8 @@ const ratingDistribution = [
   { stars: 1, count: 3 },
 ] as const;
 
-function ExternalLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
-  return <a className={className} href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+function ExternalLink({ href, children, className, ariaLabel }: { href: string; children: React.ReactNode; className?: string; ariaLabel?: string }) {
+  return <a className={className} href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}>{children}</a>;
 }
 
 export function BoiNaBrasaProfile({ business }: { business: Business }) {
@@ -129,7 +129,9 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         <nav className={styles.quickActions} aria-label="Ações rápidas">
           <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small></a>
           <ExternalLink href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small></ExternalLink>
-          <a href="#ementa"><strong>Ver ementa</strong><small>Destaques</small></a>
+          <ExternalLink className={styles.actionReview} href={reviewHref} ariaLabel={`Deixar uma avaliação da ${business.name} no Google`}>
+            <strong>Deixar avaliação</strong><small>Google</small><Star aria-hidden="true" />
+          </ExternalLink>
           <ExternalLink className={styles.actionGlovo} href={deliveryUrl}><strong>Pedir online</strong><small>Glovo</small><Bike aria-hidden="true" /></ExternalLink>
         </nav>
 
