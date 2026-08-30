@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin, Star } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
+import { BoiNaBrasaStickyBar } from "@/components/BoiNaBrasaStickyBar";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import type { Business } from "@/lib/businesses";
 import { getMapsHref, getPhoneHref } from "@/lib/links";
@@ -208,7 +209,12 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
               <p className={styles.kicker}>Mais elogiado</p>
               <ul>{praise.map((item) => <li key={item}>{item}</li>)}</ul>
               <div className={styles.secondaryRatings}><span><strong>100 %</strong><small>recomendam na Glovo · 16</small></span><span><strong>4,8</strong><small>Too Good To Go</small></span></div>
-              <ExternalLink className={styles.reviewLink} href={reviewHref}>Ler as avaliações no Google <ChevronRight aria-hidden="true" size={15} /></ExternalLink>
+              <div className={styles.reviewActions}>
+                <ExternalLink className={styles.reviewWriteCta} href={reviewHref} ariaLabel={`Deixar uma avaliação do ${business.name} no Google`}>
+                  <Star aria-hidden="true" size={16} /> Deixar uma avaliação no Google
+                </ExternalLink>
+                <ExternalLink className={styles.reviewLink} href={reviewHref}>Ler as avaliações no Google <ChevronRight aria-hidden="true" size={15} /></ExternalLink>
+              </div>
             </div>
           </div>
         </section>
@@ -244,13 +250,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         </footer>
       </article>
 
-      <nav className={`profile-action-bar ${styles.stickyBar}`} aria-label="Ações persistentes">
-        <div>
-          <a href={phoneHref}>Ligar</a>
-          <ExternalLink href={directionsUrl}>Como chegar</ExternalLink>
-          <ExternalLink href={deliveryUrl}>Pedir</ExternalLink>
-        </div>
-      </nav>
+      <BoiNaBrasaStickyBar className={styles.stickyBar} phoneHref={phoneHref} mapsHref={directionsUrl} />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
-import { ArrowUpRight, Calendar, Facebook, Instagram, MapPin, Navigation } from "lucide-react";
+import { ArrowUpRight, Calendar, Facebook, Instagram, MapPin, Navigation, Phone } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BusinessPhotoGallery } from "@/components/BusinessPhotoGallery";
@@ -144,10 +144,10 @@ export function BeautyConnection360Profile({ business }: { business: Business })
               <span><strong>Marcar consulta</strong><small>Via Instagram</small></span>
             </a>
           ) : null}
-          {instagramHref ? (
-            <a href={instagramHref} target="_blank" rel="noopener noreferrer" aria-label={`${business.name} no Instagram`}>
-              <span className={styles.actionIcon}><Instagram aria-hidden="true" /></span>
-              <span><strong>Instagram</strong><small>@beauty_connection360</small></span>
+          {phoneHref && phoneDisplay ? (
+            <a href={phoneHref} aria-label={`Ligar para ${business.name}`}>
+              <span className={styles.actionIcon}><Phone aria-hidden="true" /></span>
+              <span><strong>Ligar</strong><small>{phoneDisplay}</small></span>
             </a>
           ) : null}
           {mapsHref ? (
@@ -241,7 +241,12 @@ export function BeautyConnection360Profile({ business }: { business: Business })
             <p className={styles.kicker}>A sua experiência começa aqui</p>
             <h3 id="bc-diagnosis-heading">Diagnóstico &amp; Conexão Inicial</h3>
             <p>Uma avaliação profunda de corpo, rosto, energia e estilo de vida — o ponto de partida para um Plano de Transformação Personalizado.</p>
-            {bookHref ? <a href={bookHref} target="_blank" rel="noopener noreferrer">Pedir avaliação personalizada</a> : null}
+            {/* Reuses the exact same whatsappHref the floating WhatsApp button
+                uses (same number, same prefilled whatsappMessage, same
+                encoding) — this CTA just opens that same conversation
+                instead of Instagram; only the click target changed, not the
+                visible "Pedir avaliação personalizada" copy or gold styling. */}
+            {whatsappHref ? <a href={whatsappHref} target="_blank" rel="noopener noreferrer">Pedir avaliação personalizada</a> : null}
           </div>
         </section>
 

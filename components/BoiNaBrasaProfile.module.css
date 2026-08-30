@@ -160,7 +160,13 @@
 .secondaryRatings > span { display: flex; flex-direction: column; gap: 4px; }
 .secondaryRatings strong { font-size: 16px; }
 .secondaryRatings small { color: var(--bnb-faint); font: 400 11px/1.3 "IBM Plex Mono", monospace; }
-.reviewLink { width: fit-content; margin-top: 18px; display: flex; align-items: center; gap: 2px; border-bottom: 2px solid rgba(184,70,31,.35); padding-bottom: 3px; color: #b8461f; font-size: 13.5px; font-weight: 700; }
+/* Groups the new "write a review" CTA with the existing "read reviews" link
+   so both share one consistent gap instead of each carrying its own
+   margin-top — .reviewLink's old margin-top moved up here. */
+.reviewActions { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.reviewWriteCta { min-height: 46px; display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 0 18px; background: var(--bnb-ember); color: #fff6e9; font-size: 13.5px; font-weight: 700; box-shadow: 0 10px 20px -12px rgba(194,80,31,.7); transition: transform 160ms ease, box-shadow 160ms ease; }
+.reviewWriteCta svg { width: 16px; height: 16px; fill: currentColor; stroke-width: 1.5; }
+.reviewLink { width: fit-content; display: flex; align-items: center; gap: 2px; border-bottom: 2px solid rgba(184,70,31,.35); padding-bottom: 3px; color: #b8461f; font-size: 13.5px; font-weight: 700; }
 
 .visit { padding: 32px 20px; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px; align-items: start; }
 .visit h2 { margin-bottom: 14px; }
@@ -187,11 +193,20 @@
 .footer strong { color: #f6efe3; font-size: 13px; line-height: 1.3; letter-spacing: .02em; text-transform: uppercase; }
 .footer p { margin: 5px 0 0; font: 400 11.5px/1.5 "IBM Plex Mono", monospace; }
 
-.stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px; background: linear-gradient(to top, rgba(222,212,196,.98), rgba(222,212,196,.72)); }
+/* Hidden until useScrollReveal mounts it (see BoiNaBrasaStickyBar) — the
+   entrance is this animation; there's no matching exit animation since the
+   bar unmounts instantly on scrolling back to the top, same as OFT's own
+   sticky bar (oftBarIn). */
+.stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px; background: linear-gradient(to top, rgba(222,212,196,.98), rgba(222,212,196,.72)); animation: bnbBarIn 220ms ease; }
 .stickyBar > div { width: min(100%,520px); margin-inline: auto; display: flex; gap: 8px; }
 .stickyBar a { min-width: 0; min-height: var(--profile-action-button-height); flex: 1; display: grid; place-items: center; border-radius: 11px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.14), 0 8px 20px -12px rgba(25,20,17,.5); font-size: 14.5px; font-weight: 700; text-align: center; }
 .stickyBar a:first-child { background: var(--bnb-ink); color: #f8f2e7; box-shadow: 0 8px 20px -10px rgba(25,20,17,.7); }
 .stickyBar a:last-child { background: var(--bnb-ember); color: #fff6e9; box-shadow: 0 8px 20px -10px rgba(194,80,31,.8); }
+
+@keyframes bnbBarIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (hover:hover) and (pointer:fine) {
   .ratingBadge:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(25,20,17,.3), 0 8px 18px -13px rgba(25,20,17,.55); }
@@ -202,6 +217,8 @@
   .quickActions .actionReview:hover { background: #f7f1e6; }
   .menuLinks .tooGoodToGoButton:hover { background: #08736a; }
   .menuLinks a:hover { transform: translateY(-1px); box-shadow: 0 9px 18px -14px rgba(0,0,0,.75); }
+  .reviewWriteCta:hover { transform: translateY(-1px); box-shadow: 0 14px 24px -12px rgba(194,80,31,.8); }
+  .reviewLink:hover { border-bottom-color: rgba(184,70,31,.7); }
   .contacts a:hover { background: rgba(246,239,227,.14); }
   .socialLinks a:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(25,20,17,.22), 0 8px 18px -14px rgba(25,20,17,.5); }
   .socialLinks .facebookButton:hover { background: rgba(24,119,242,.09); }
