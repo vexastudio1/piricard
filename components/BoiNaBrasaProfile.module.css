@@ -78,17 +78,23 @@
 .liveStatus :global(.today-hours-state) { display: none; }
 
 .quickActions { padding: 0 20px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.quickActions a { min-width: 0; min-height: 62px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-radius: 12px; padding: 12px 14px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.12); transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease; }
+.quickActions > :is(a, span) { position: relative; min-width: 0; min-height: 62px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-radius: 12px; padding: 12px 42px 12px 14px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.12); transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease; }
 .quickActions strong { font-size: 15px; line-height: 1.2; }
 .quickActions small { overflow: hidden; color: #8a7c6e; font: 400 11px/1.2 "IBM Plex Mono", monospace; text-overflow: ellipsis; white-space: nowrap; }
+.quickActions > :is(a, span) > svg { position: absolute; top: 50%; right: 13px; width: 19px; height: 19px; color: var(--bnb-ember); stroke-width: 2.2; transform: translateY(-50%); }
 .quickActions .actionDark { background: var(--bnb-ink); color: #f8f2e7; box-shadow: none; }
 .quickActions .actionDark small { color: #bdb0a2; }
+.quickActions .actionDark > svg { color: #e29a69; }
+.quickActions .actionDirections > svg { color: var(--bnb-ember); }
 .quickActions .actionGlovo { position: relative; padding-right: 42px; background: #ffc244; color: #1d1d1b; box-shadow: none; }
 .quickActions .actionGlovo small { color: #006f62; font-weight: 600; }
 .quickActions .actionGlovo svg { position: absolute; right: 13px; width: 20px; height: 20px; color: #006f62; stroke-width: 2.2; }
-.quickActions .actionReview { position: relative; padding-right: 42px; }
+.quickActions .actionTripAdvisor { background: #f0f7f2; box-shadow: inset 0 0 0 1px rgba(0, 170, 108, .28); }
+.quickActions .actionTripAdvisor small { color: #007f50; font-weight: 600; }
+.quickActions .actionTripAdvisor > svg { color: #00aa6c; }
+.quickActions .actionUnavailable { cursor: not-allowed; opacity: .68; }
 .quickActions .actionReview small { color: var(--bnb-gold); font-weight: 600; }
-.quickActions .actionReview svg { position: absolute; right: 13px; width: 19px; height: 19px; color: var(--bnb-gold); stroke-width: 2.2; }
+.quickActions .actionReview > svg { color: var(--bnb-gold); }
 
 .essentials { border-block: 1px solid rgba(25,20,17,.09); padding: 24px 20px; background: var(--bnb-white); }
 .kicker { margin: 0 0 16px; color: var(--bnb-faint); font: 600 11px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
@@ -199,9 +205,12 @@
    sticky bar (oftBarIn). */
 .stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px; background: linear-gradient(to top, rgba(222,212,196,.98), rgba(222,212,196,.72)); animation: bnbBarIn 220ms ease; }
 .stickyBar > div { width: min(100%,520px); margin-inline: auto; display: flex; gap: 8px; }
-.stickyBar a { min-width: 0; min-height: var(--profile-action-button-height); flex: 1; display: grid; place-items: center; border-radius: 11px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.14), 0 8px 20px -12px rgba(25,20,17,.5); font-size: 14.5px; font-weight: 700; text-align: center; }
-.stickyBar a:first-child { background: var(--bnb-ink); color: #f8f2e7; box-shadow: 0 8px 20px -10px rgba(25,20,17,.7); }
-.stickyBar a:last-child { background: var(--bnb-ember); color: #fff6e9; box-shadow: 0 8px 20px -10px rgba(194,80,31,.8); }
+.stickyBar > div > :is(a, button) { min-width: 0; min-height: var(--profile-action-button-height); flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 11px; padding: 0 14px; background: var(--bnb-white); color: var(--bnb-ink); box-shadow: 0 0 0 1px rgba(25,20,17,.14), 0 8px 20px -12px rgba(25,20,17,.5); font-size: 14.5px; font-weight: 700; text-align: center; }
+.stickyBar > div > :is(a, button) svg { width: 19px; height: 19px; flex: none; stroke-width: 2; }
+.stickyBar .stickyQr { background: var(--bnb-white); color: var(--bnb-ink); }
+.stickyBar .stickyPhone { background: var(--bnb-ink); color: #f8f2e7; box-shadow: 0 8px 20px -10px rgba(25,20,17,.7); }
+.stickyWhatsapp { position: fixed; z-index: 41; right: 16px; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: #128c7e; color: #fff; box-shadow: 0 12px 28px -10px rgba(18,140,126,.8); animation: bnbBarIn 220ms ease; }
+.stickyWhatsapp svg { width: 23px; height: 23px; stroke-width: 2.2; }
 
 @keyframes bnbBarIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -223,6 +232,8 @@
   .socialLinks a:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(25,20,17,.22), 0 8px 18px -14px rgba(25,20,17,.5); }
   .socialLinks .facebookButton:hover { background: rgba(24,119,242,.09); }
   .socialLinks .instagramButton:hover { background: linear-gradient(135deg, rgba(193,53,132,.08), rgba(225,48,108,.11)); }
+  .stickyBar > div > :is(a, button):hover { transform: translateY(-1px); }
+  .stickyWhatsapp:hover { background: #0d7a6e; transform: translateY(-1px); }
 }
 
 @media (max-width: 760px) {
@@ -247,11 +258,38 @@
   .platformActions { gap: 7px; }
   .platformActions > a { letter-spacing: .06em; }
   .quickActions { gap: 8px; }
-  .quickActions a { padding-inline: 11px; }
+  .quickActions a { padding-left: 11px; padding-right: 38px; }
   .reviewScore { align-items: flex-start; gap: 12px; }
   .reviewScore > div > strong { font-size: 46px; }
   .stickyBar { padding-inline: 8px; }
-  .stickyBar a { font-size: 13px; }
+  .stickyBar > div > :is(a, button) { font-size: 13px; }
+}
+
+@media (min-width: 1024px) {
+  .shell { width: min(calc(100% - 64px), 1180px); }
+  .heroImage { max-height: 460px; }
+  .identity,
+  .quickActions,
+  .essentials,
+  .social,
+  .about,
+  .menu,
+  .reviews,
+  .visit,
+  .contacts,
+  .footer { padding-left: 48px; padding-right: 48px; }
+  .identity { padding-bottom: 30px; }
+  .quickActions { padding-bottom: 32px; }
+  .essentials { padding-block: 32px; }
+  .social { padding-block: 28px 30px; }
+  .about,
+  .menu,
+  .reviews,
+  .visit,
+  .contacts { padding-top: 44px; padding-bottom: 44px; }
+  .reviewGrid,
+  .visit { gap: 44px; }
+  .mapCard iframe { height: 260px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

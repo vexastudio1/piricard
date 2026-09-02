@@ -11,7 +11,10 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "generate:pdfs": "tsx scripts/generate-pdfs.tsx"
+    "generate:pdfs": "tsx scripts/generate-pdfs.tsx",
+    "generate:qrs": "tsx scripts/generate-piricard-qrs.ts",
+    "verify:qrs": "tsx scripts/generate-piricard-qrs.ts --verify",
+    "generate:cards": "tsx scripts/generate-piricard-cards.ts"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.9.0",
@@ -22,15 +25,22 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@types/fontkit": "^2.0.9",
     "@types/node": "^26.2.0",
+    "@types/pdfkit": "^0.17.6",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "@types/svg-to-pdfkit": "^0.1.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.2",
+    "fontkit": "^2.0.4",
+    "jsqr": "^1.4.0",
+    "pdfkit": "^0.20.1",
     "postcss": "^8.4.49",
     "sharp": "^0.35.4",
+    "svg-to-pdfkit": "^0.1.8",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.23.13",
     "typescript": "^5.7.2",

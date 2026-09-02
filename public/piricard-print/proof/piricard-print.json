@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 2,
+  "designVersion": "reference-v2",
+  "generatedAt": "2026-08-31T10:43:30.620Z",
+  "scope": "three-business-proof",
+  "copiesPerBusiness": 1,
+  "proof": {
+    "businesses": [
+      "autoformigal",
+      "beauty-connection-360",
+      "boi-na-brasa"
+    ],
+    "frontCount": 3,
+    "backCount": 3,
+    "totalArtworks": 6,
+    "finishedDuplexCards": 3,
+    "sixUp": "piricard-a4-proof-six-up.pdf"
+  },
+  "colorSpace": "RGB (DeviceRGB PDF; sRGB raster logos). No CMYK conversion, ICC output intent or PDF/X claim.",
+  "text": "Outlined from local Manrope Regular/Bold. No font substitution. Minimum 7.5 pt.",
+  "duplex": {
+    "paperMm": {
+      "width": 210,
+      "height": 297,
+      "columns": 3,
+      "rows": 3,
+      "gap": 4
+    },
+    "flip": "long-edge",
+    "scale": "100% / actual size",
+    "backPlacement": "xBack = 210 - xFront - artworkWidth; yBack = yFront; artwork remains upright",
+    "pages": [
+      [
+        {
+          "slug": "autoformigal",
+          "slot": 3,
+          "front": {
+            "x": 11.030000000000001,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          },
+          "back": {
+            "x": 138.99,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          }
+        },
+        {
+          "slug": "beauty-connection-360",
+          "slot": 4,
+          "front": {
+            "x": 75.00999999999999,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          },
+          "back": {
+            "x": 75.01000000000002,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          }
+        },
+        {
+          "slug": "boi-na-brasa",
+          "slot": 5,
+          "front": {
+            "x": 138.99,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          },
+          "back": {
+            "x": 11.029999999999994,
+            "y": 102.70000000000002,
+            "width": 59.98,
+            "height": 91.6
+          }
+        }
+      ]
+    ]
+  },
+  "sheets": {
+    "front": "piricard-a4-proof-front.pdf",
+    "back": "piricard-a4-proof-back.pdf",
+    "duplex": "piricard-a4-proof-duplex.pdf",
+    "validated": true
+  },
+  "businesses": [
+    {
+      "business": "Auto Formigal",
+      "slug": "autoformigal",
+      "url": "https://card.pirilight.pt/autoformigal",
+      "accent": "#31b009",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 38,
+      "qrPositionMm": {
+        "x": 7.989999999999998,
+        "y": 22,
+        "width": 38,
+        "height": 38
+      },
+      "logo": "/clients/autoformigal/logo/autoformigal-approved.jpg",
+      "logoEffectiveDpi": 1716,
+      "qr": "/piricard-qrs/autoformigal.svg",
+      "qrSha256": "58fc509d4a3053dd1afe2c4706b6df2a7c644f77393466c0995d5ac5982df030",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/autoformigal",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-38mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "a4-pdf-qr-region-300dpi",
+        "duplex-pdf-qr-region-300dpi",
+        "proof-six-up-qr-region-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.119,
+        "back": 1.319
+      },
+      "files": {
+        "frontSVG": "autoformigal/autoformigal-front.svg",
+        "frontPDF": "autoformigal/autoformigal-front.pdf",
+        "frontPNG": "autoformigal/autoformigal-front.png",
+        "backSVG": "autoformigal/autoformigal-back.svg",
+        "backPDF": "autoformigal/autoformigal-back.pdf",
+        "backPNG": "autoformigal/autoformigal-back.png",
+        "preview": "autoformigal/autoformigal-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 18.99,
+          "y": 6.807400555041627,
+          "width": 16,
+          "height": 15.985198889916745,
+          "label": "Business logo"
+        },
+        {
+          "x": 16.4220125,
+          "y": 27.166375,
+          "width": 20.945475,
+          "height": 3.1432499999999997,
+          "label": "Auto Formigal",
+          "fontPt": 9
+        },
+        {
+          "x": 22.39,
+          "y": 33.5,
+          "width": 9.2,
+          "height": 9.2,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 18.32454305555555,
+          "y": 44.62920833333333,
+          "width": 17.33091388888889,
+          "height": 3.439583333333333,
+          "label": "PiriCard",
+          "fontPt": 13
+        },
+        {
+          "x": 12.361848958333331,
+          "y": 53.76119791666667,
+          "width": 29.21220486111111,
+          "height": 4.66328125,
+          "label": "O teu negócio",
+          "fontPt": 12.5
+        },
+        {
+          "x": 15.164227430555554,
+          "y": 59.45729166666667,
+          "width": 23.55894097222222,
+          "height": 4.101041666666666,
+          "label": "num toque.",
+          "fontPt": 12.5
+        },
+        {
+          "x": 10.837187499999997,
+          "y": 66.23811458333334,
+          "width": 32.26858333333333,
+          "height": 2.6365729166666667,
+          "label": "Uma ligação. Tudo contigo.",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.195477777777775,
+          "y": 75.92566666666667,
+          "width": 19.59892222222222,
+          "height": 2.794,
+          "label": "card.pirilight.pt",
+          "fontPt": 8
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 7.989999999999998,
+          "y": 22,
+          "width": 38,
+          "height": 38,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 22.74,
+          "y": 68.5,
+          "width": 8.5,
+          "height": 8.5,
+          "label": "PiriCard symbol"
+        }
+      ]
+    },
+    {
+      "business": "Beauty Connection 360",
+      "slug": "beauty-connection-360",
+      "url": "https://card.pirilight.pt/beauty-connection-360",
+      "accent": "#b3873f",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 38,
+      "qrPositionMm": {
+        "x": 7.989999999999998,
+        "y": 22,
+        "width": 38,
+        "height": 38
+      },
+      "logo": "/clients/beauty-connection-360/logo.webp",
+      "logoEffectiveDpi": 1991,
+      "qr": "/piricard-qrs/beauty-connection-360.svg",
+      "qrSha256": "82f484b7bce52850108197256e829fd2b4d2f06aa869614c4657544dea535b91",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/beauty-connection-360",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-38mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "a4-pdf-qr-region-300dpi",
+        "duplex-pdf-qr-region-300dpi",
+        "proof-six-up-qr-region-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.076,
+        "back": 1.473
+      },
+      "files": {
+        "frontSVG": "beauty-connection-360/beauty-connection-360-front.svg",
+        "frontPDF": "beauty-connection-360/beauty-connection-360-front.pdf",
+        "frontPNG": "beauty-connection-360/beauty-connection-360-front.png",
+        "backSVG": "beauty-connection-360/beauty-connection-360-back.svg",
+        "backPDF": "beauty-connection-360/beauty-connection-360-back.pdf",
+        "backPNG": "beauty-connection-360/beauty-connection-360-back.png",
+        "preview": "beauty-connection-360/beauty-connection-360-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 18.99,
+          "y": 6.8,
+          "width": 16,
+          "height": 16,
+          "label": "Business logo"
+        },
+        {
+          "x": 9.12030625,
+          "y": 27.166375,
+          "width": 35.7393875,
+          "height": 3.095625,
+          "label": "Beauty Connection 360",
+          "fontPt": 9
+        },
+        {
+          "x": 22.39,
+          "y": 33.5,
+          "width": 9.2,
+          "height": 9.2,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 18.32454305555555,
+          "y": 44.62920833333333,
+          "width": 17.33091388888889,
+          "height": 3.439583333333333,
+          "label": "PiriCard",
+          "fontPt": 13
+        },
+        {
+          "x": 12.361848958333331,
+          "y": 53.76119791666667,
+          "width": 29.21220486111111,
+          "height": 4.66328125,
+          "label": "O teu negócio",
+          "fontPt": 12.5
+        },
+        {
+          "x": 15.164227430555554,
+          "y": 59.45729166666667,
+          "width": 23.55894097222222,
+          "height": 4.101041666666666,
+          "label": "num toque.",
+          "fontPt": 12.5
+        },
+        {
+          "x": 10.837187499999997,
+          "y": 66.23811458333334,
+          "width": 32.26858333333333,
+          "height": 2.6365729166666667,
+          "label": "Uma ligação. Tudo contigo.",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.195477777777775,
+          "y": 75.92566666666667,
+          "width": 19.59892222222222,
+          "height": 2.794,
+          "label": "card.pirilight.pt",
+          "fontPt": 8
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 7.989999999999998,
+          "y": 22,
+          "width": 38,
+          "height": 38,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 22.74,
+          "y": 68.5,
+          "width": 8.5,
+          "height": 8.5,
+          "label": "PiriCard symbol"
+        }
+      ]
+    },
+    {
+      "business": "Boi na Brasa",
+      "slug": "boi-na-brasa",
+      "url": "https://card.pirilight.pt/boi-na-brasa",
+      "accent": "#c2501f",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 38,
+      "qrPositionMm": {
+        "x": 7.989999999999998,
+        "y": 22,
+        "width": 38,
+        "height": 38
+      },
+      "logo": "/clients/boi-na-brasa/logo.jpg",
+      "logoEffectiveDpi": 1991,
+      "qr": "/piricard-qrs/boi-na-brasa.svg",
+      "qrSha256": "d3d1aa475bf2c428e0370d91339655e921a0135174e2add9740cb5bf3dc68506",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/boi-na-brasa",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-38mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "a4-pdf-qr-region-300dpi",
+        "duplex-pdf-qr-region-300dpi",
+        "proof-six-up-qr-region-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.399,
+        "back": 1.368
+      },
+      "files": {
+        "frontSVG": "boi-na-brasa/boi-na-brasa-front.svg",
+        "frontPDF": "boi-na-brasa/boi-na-brasa-front.pdf",
+        "frontPNG": "boi-na-brasa/boi-na-brasa-front.png",
+        "backSVG": "boi-na-brasa/boi-na-brasa-back.svg",
+        "backPDF": "boi-na-brasa/boi-na-brasa-back.pdf",
+        "backPNG": "boi-na-brasa/boi-na-brasa-back.png",
+        "preview": "boi-na-brasa/boi-na-brasa-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 18.99,
+          "y": 6.8,
+          "width": 16,
+          "height": 16,
+          "label": "Business logo"
+        },
+        {
+          "x": 17.938074999999998,
+          "y": 27.1743125,
+          "width": 18.1356,
+          "height": 2.3733125,
+          "label": "Boi na Brasa",
+          "fontPt": 9
+        },
+        {
+          "x": 22.39,
+          "y": 33.5,
+          "width": 9.2,
+          "height": 9.2,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 18.32454305555555,
+          "y": 44.62920833333333,
+          "width": 17.33091388888889,
+          "height": 3.439583333333333,
+          "label": "PiriCard",
+          "fontPt": 13
+        },
+        {
+          "x": 12.361848958333331,
+          "y": 53.76119791666667,
+          "width": 29.21220486111111,
+          "height": 4.66328125,
+          "label": "O teu negócio",
+          "fontPt": 12.5
+        },
+        {
+          "x": 15.164227430555554,
+          "y": 59.45729166666667,
+          "width": 23.55894097222222,
+          "height": 4.101041666666666,
+          "label": "num toque.",
+          "fontPt": 12.5
+        },
+        {
+          "x": 10.837187499999997,
+          "y": 66.23811458333334,
+          "width": 32.26858333333333,
+          "height": 2.6365729166666667,
+          "label": "Uma ligação. Tudo contigo.",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.195477777777775,
+          "y": 75.92566666666667,
+          "width": 19.59892222222222,
+          "height": 2.794,
+          "label": "card.pirilight.pt",
+          "fontPt": 8
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 7.989999999999998,
+          "y": 22,
+          "width": 38,
+          "height": 38,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 22.74,
+          "y": 68.5,
+          "width": 8.5,
+          "height": 8.5,
+          "label": "PiriCard symbol"
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "autoformigal/autoformigal-back.pdf": "6c43713d81b40aa2eafbf5999bd5a1798dcf13ab7096f49a873dbf3a81bd7cac",
+    "autoformigal/autoformigal-back.png": "b5d221597232b67b8f84679bc357b8a1c9ae4dd25044486a50d094fcec500d7f",
+    "autoformigal/autoformigal-back.svg": "9aac171846aa2405d4c07a8af04d1fc90692a5515fba7c76b9efe6ac32489e2f",
+    "autoformigal/autoformigal-front.pdf": "7bbebca591ca02deef2543725725119dd5dbcc58dc25e175e757e3667c924729",
+    "autoformigal/autoformigal-front.png": "c9043d3190165edf69654554c5c317a178f20a2707d0a25a3fa2e6bc679bfa21",
+    "autoformigal/autoformigal-front.svg": "90fc16b3f91fa662d2c9af8c223f95b987e2a2c19ed3cfc54a2d4b672c870a7e",
+    "autoformigal/autoformigal-preview.png": "d5b63ea5d0661e80a4d99fa62bca48eaefc27adf404978e97fa1174c0736b583",
+    "beauty-connection-360/beauty-connection-360-back.pdf": "02744ac10497b34316fd2f6cbad446456832cb994e544de263d872de1574b7cf",
+    "beauty-connection-360/beauty-connection-360-back.png": "3c91a02141c6426471d77d5000b15da20d9ecbb0e477f10c78755efeb560835c",
+    "beauty-connection-360/beauty-connection-360-back.svg": "94ddfddcc0c54f0c5b41fd97103f626e9596a01a17d1d8183fb9d51ce323a456",
+    "beauty-connection-360/beauty-connection-360-front.pdf": "48cc18ed79d401f1c6d4ee0848e45812ea00c1d05b9881e2f943f9dbc68b0187",
+    "beauty-connection-360/beauty-connection-360-front.png": "f98e128be86d3480773a4eafde987a2553591258df233720956b28b79a7a12f8",
+    "beauty-connection-360/beauty-connection-360-front.svg": "a300903c7808678442a2535bd8ccbfec8754aba375a836dd1c5169794300f619",
+    "beauty-connection-360/beauty-connection-360-preview.png": "dea03129c1ed32ea6c51896b24e5494149f9031e32e5f8e5e575c55a647e5230",
+    "boi-na-brasa/boi-na-brasa-back.pdf": "0b554cbcc5e87add9a10f3fdcd17e1b5e42481bb9753a3b5e7d4d6cf5c7cd92c",
+    "boi-na-brasa/boi-na-brasa-back.png": "3d235ce8c8b83403f4b24667f80ab21a35514cd21fc65c9049527ba1f8f98ce8",
+    "boi-na-brasa/boi-na-brasa-back.svg": "8553ed16e89088ec9d051a05246e1fd048385ca75154011ebdaa40fe89d5129d",
+    "boi-na-brasa/boi-na-brasa-front.pdf": "fba000f6efc02085d8d85f89dbac1a9c13f2147bfd65a03d7bff09cac64d95be",
+    "boi-na-brasa/boi-na-brasa-front.png": "4e7b39755977205024719ea95b1b72ddc8e7e65912d4031632b50e8d3160b7d5",
+    "boi-na-brasa/boi-na-brasa-front.svg": "7023a70d6501408c152171e2e63f574c79bd71f9f65ba4e3a9eccb0367bd60da",
+    "boi-na-brasa/boi-na-brasa-preview.png": "a9956a4a5da8c3b3df54ff5997132575bb5478eac735ab02095676be5fe7792e",
+    "piricard-a4-proof-back-1.svg": "74fee52a461bd9ff32c29352506858fcaf0d03c06b5acaa030aac72a70787378",
+    "piricard-a4-proof-back.pdf": "e24e3a68ad80b595279558da6218494721305075e5df3923749d7bf23b49670e",
+    "piricard-a4-proof-duplex.pdf": "7aa01bae1a229daa334cccdc81b788f851d258b5243bf24470b1cb31c7197101",
+    "piricard-a4-proof-front-1.svg": "171e781d3b204f960441d99898d2c37a5d7be559cfadfd2f69185683cd4ca7bb",
+    "piricard-a4-proof-front.pdf": "ac67c8f85ab7ff55f08cf0b5dc08d54d2cfecdf3a51c741114dcefef35955454",
+    "piricard-a4-proof-six-up.pdf": "a280d297d297144ebc60193e4c60b65adc3625a7a52d8bd837ddaf7282f3d8a8",
+    "piricard-a4-proof-six-up.svg": "eb1ca2a1c2770a8df7526541671de67636f0055edc5c75435705e9bceb98f7c3",
+    "piricard-collection-preview.png": "7df9fca546caa3d80edbb37c02163e92959ff718dfc5fd56b7b114671746f839",
+    "piricard-cr80-cut-guide.svg": "50ce16b06cce114f9afacd03194aa53a73bb50c9a85ca28d3a941494408b9af8"
+  }
+}

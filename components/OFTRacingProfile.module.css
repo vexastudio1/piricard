@@ -352,6 +352,36 @@
   .contacts strong { font-size: 13px; }
 }
 
+@media (min-width: 1024px) {
+  .shell { width: min(calc(100% - 64px), 1180px); }
+  .heroImage { max-height: 460px; }
+  .identity,
+  .quickActions,
+  .essentials,
+  .social,
+  .about,
+  .reviews,
+  .hours,
+  .location,
+  .contacts,
+  .footer { padding-left: 48px; padding-right: 48px; }
+  .essentials::before,
+  .about::before { left: 48px; }
+  .identity { padding-bottom: 30px; }
+  .quickActions { padding-bottom: 34px; }
+  .essentials,
+  .social { padding-block: 34px; }
+  .about { padding-block: 60px; }
+  .reviews,
+  .hours,
+  .location,
+  .contacts { padding-top: 46px; padding-bottom: 46px; }
+  .essentialGrid { column-gap: 44px; }
+  .aboutGrid,
+  .reviewGrid { gap: 48px; }
+  .mapCard iframe { height: 300px; }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .quickActions > :is(a, button):hover, .socialLinks a:hover { transform: translateY(-1px); box-shadow: 0 10px 20px -17px rgba(18, 18, 19, .55); }
   .quickActions > :is(a, button):not(.actionDark):not(.actionAccent):hover { border-color: rgba(197, 45, 29, .46); }

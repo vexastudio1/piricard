@@ -1,17 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin, Star } from "lucide-react";
+import { ArrowUpRight, Bike, ChevronRight, Facebook, Instagram, Leaf, MapPin, Navigation, Phone, Star } from "lucide-react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { BoiNaBrasaStickyBar } from "@/components/BoiNaBrasaStickyBar";
+import { TripAdvisorMark } from "@/components/icons/TripAdvisorMark";
 import { BusinessHoursSchedule, OpeningStatus, TodayHours } from "@/components/OpeningStatus";
 import type { Business } from "@/lib/businesses";
-import { getMapsHref, getPhoneHref } from "@/lib/links";
+import { getMapsHref, getPhoneHref, getSafeExternalUrl, getWhatsAppHref } from "@/lib/links";
 import { getPiriCardPdfFilename, getPiriCardPdfPath } from "@/lib/site";
 import styles from "./BoiNaBrasaProfile.module.css";
 
-const deliveryUrl = "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv";
-const collectionUrl = "https://www.toogoodtogo.com/pt/find/torresvedras/restauranteboinabrasa/cookedmeal/refeicao-253056996762700480";
 const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=39.0916177,-9.2583152&destination_place_id=ChIJ7z4J8GDQ8Q0RzV0PksFzKaI";
 
 const essentialInformation = [
@@ -68,6 +67,10 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
   const phoneHref = getPhoneHref(business.contact.phone) ?? "tel:+351261063480";
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address) ?? directionsUrl;
   const reviewHref = business.reviewUrl ?? mapsHref;
+  const whatsappHref = getWhatsAppHref(business.contact.whatsapp ?? business.contact.phone);
+  const tripAdvisorHref = getSafeExternalUrl(business.externalLinks?.tripAdvisor);
+  const deliveryUrl = getSafeExternalUrl(business.externalLinks?.delivery);
+  const collectionUrl = getSafeExternalUrl(business.externalLinks?.collection);
   const contactFilename = getPiriCardPdfFilename(business.slug);
 
   return (
@@ -97,7 +100,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
                 alt={business.assets.coverAlt ?? `Fachada de ${business.name}`}
                 fill
                 priority
-                sizes="(max-width: 960px) 100vw, 960px"
+                sizes="(max-width: 1023px) 100vw, 1180px"
               />
             ) : null}
             <div className={styles.heroFade} aria-hidden="true" />
@@ -128,12 +131,16 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         </header>
 
         <nav className={styles.quickActions} aria-label="Ações rápidas">
-          <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small></a>
-          <ExternalLink href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small></ExternalLink>
+          <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small><Phone aria-hidden="true" /></a>
+          <ExternalLink className={styles.actionDirections} href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small><Navigation aria-hidden="true" /></ExternalLink>
           <ExternalLink className={styles.actionReview} href={reviewHref} ariaLabel={`Deixar uma avaliação da ${business.name} no Google`}>
             <strong>Deixar avaliação</strong><small>Google</small><Star aria-hidden="true" />
           </ExternalLink>
-          <ExternalLink className={styles.actionGlovo} href={deliveryUrl}><strong>Pedir online</strong><small>Glovo</small><Bike aria-hidden="true" /></ExternalLink>
+          {tripAdvisorHref ? (
+            <ExternalLink className={styles.actionTripAdvisor} href={tripAdvisorHref}><strong>TripAdvisor</strong><small>Ver perfil</small><TripAdvisorMark aria-hidden="true" /></ExternalLink>
+          ) : (
+            <span className={`${styles.actionTripAdvisor} ${styles.actionUnavailable}`} aria-disabled="true"><strong>TripAdvisor</strong><small>Perfil a confirmar</small><TripAdvisorMark aria-hidden="true" /></span>
+          )}
         </nav>
 
         <section className={styles.essentials} aria-labelledby="essentials-heading">
@@ -190,8 +197,8 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
             </div>
           </div>
           <div className={styles.menuLinks}>
-            <ExternalLink className={styles.glovoButton} href={deliveryUrl}><span>Ver ementa completa na Glovo</span><Bike aria-hidden="true" /></ExternalLink>
-            <ExternalLink className={styles.tooGoodToGoButton} href={collectionUrl}><span>Recolha na Too Good To Go</span><Leaf aria-hidden="true" /></ExternalLink>
+            {deliveryUrl ? <ExternalLink className={styles.glovoButton} href={deliveryUrl}><span>Pedir online na Glovo</span><Bike aria-hidden="true" /></ExternalLink> : null}
+            {collectionUrl ? <ExternalLink className={styles.tooGoodToGoButton} href={collectionUrl}><span>Recolha na Too Good To Go</span><Leaf aria-hidden="true" /></ExternalLink> : null}
           </div>
           <p className={styles.menuDisclaimer}>Os preços de entrega podem diferir dos preços praticados no restaurante.</p>
         </section>
@@ -238,8 +245,8 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
           <h2 id="contacts-heading">Contactos</h2>
           <div>
             <a href={phoneHref}><small>Telefone e reservas</small><strong>+351 261 063 480</strong></a>
-            <ExternalLink href={deliveryUrl}><small>Entrega</small><strong>Glovo</strong></ExternalLink>
-            <ExternalLink href={collectionUrl}><small>Recolha</small><strong>Too Good To Go</strong></ExternalLink>
+            {deliveryUrl ? <ExternalLink href={deliveryUrl}><small>Entrega</small><strong>Glovo</strong></ExternalLink> : null}
+            {collectionUrl ? <ExternalLink href={collectionUrl}><small>Recolha</small><strong>Too Good To Go</strong></ExternalLink> : null}
             <ExternalLink href={mapsHref}><small>Ficha e mapa</small><strong>Google Maps</strong></ExternalLink>
           </div>
         </section>
@@ -250,7 +257,16 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         </footer>
       </article>
 
-      <BoiNaBrasaStickyBar className={styles.stickyBar} phoneHref={phoneHref} mapsHref={directionsUrl} />
+      <BoiNaBrasaStickyBar
+        className={styles.stickyBar}
+        whatsappClassName={styles.stickyWhatsapp}
+        qrClassName={styles.stickyQr}
+        phoneClassName={styles.stickyPhone}
+        businessName={business.name}
+        phoneHref={phoneHref}
+        whatsappHref={whatsappHref}
+        qrCodeSrc={business.assets.qrCode}
+      />
     </main>
   );
 }

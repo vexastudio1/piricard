@@ -129,6 +129,66 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .platform-footer { min-height: 9rem; }
 }
 
+/* Tablet and desktop composition. Mobile (<768px) is intentionally left to
+   the approved rules above. */
+@media (min-width: 768px) {
+  .platform-header,
+  .platform-footer,
+  .directory { width: min(calc(100% - 4rem), 86rem); }
+  .directory { padding-top: clamp(4.75rem, 7vw, 7rem); }
+  .directory-intro { max-width: 60rem; }
+  .directory-intro h1 { max-width: 58rem; font-size: clamp(3.75rem, 6vw, 5.4rem); }
+  .directory-intro > p { max-width: 40rem; }
+  .search-wrap { width: min(100%, 54rem); }
+  .result-summary { min-height: 4.6rem; }
+
+  .business-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    border-top: 0;
+  }
+  .business-row {
+    min-width: 0;
+    min-height: 29rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid var(--platform-border);
+    background: rgba(9, 15, 25, .72);
+    transition: transform var(--platform-speed), border-color var(--platform-speed), background var(--platform-speed), box-shadow var(--platform-speed);
+  }
+  .business-row::before { inset: 0 0 auto; width: auto; height: 2px; transform: scaleX(0); transform-origin: left; }
+  .business-row:hover { transform: translateY(-4px); border-color: rgba(143, 224, 255, .34); background: rgba(11, 19, 31, .94); box-shadow: 0 20px 48px rgba(0, 0, 0, .22); }
+  .business-row:hover::before { transform: scaleX(1); }
+  .business-identifier { width: 100%; height: 10.5rem; min-height: 10.5rem; padding: 1.35rem; place-items: center; }
+  .business-identifier .logo-plate { max-width: none; height: 8rem; padding: .8rem; }
+  .business-row-content { flex: 1; padding: 1.45rem 1.45rem 1.1rem; }
+  .business-row h2 { font-size: clamp(1.65rem, 2.3vw, 2rem); }
+  .business-meta { gap: .55rem 1rem; font-size: .92rem; }
+  .business-row-content > p { margin-top: 1rem; font-size: .95rem; }
+  .directory-link {
+    width: auto;
+    min-height: 4rem;
+    margin: 0 1.45rem 1.45rem;
+    padding: 0 1rem;
+    align-self: auto;
+    justify-content: space-between;
+    border: 1px solid var(--platform-border);
+    color: var(--platform-accent);
+  }
+  .directory-link:hover { border-color: var(--platform-accent); }
+}
+
+@media (min-width: 1100px) {
+  .business-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1600px) {
+  .business-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }

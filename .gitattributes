@@ -1,0 +1,5 @@
+# Generated QR hashes must survive a Windows checkout without newline changes.
+public/piricard-qrs/*.svg text eol=lf
+public/piricard-qrs/*.json text eol=lf
+public/piricard-print/**/*.svg text eol=lf
+public/piricard-print/**/*.json text eol=lf

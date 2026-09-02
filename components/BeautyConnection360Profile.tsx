@@ -109,7 +109,7 @@ export function BeautyConnection360Profile({ business }: { business: Business })
                   alt={business.assets.coverAlt ?? `Fachada de ${business.name}`}
                   fill
                   priority
-                  sizes="(max-width: 960px) 100vw, 960px"
+                  sizes="(max-width: 1023px) 100vw, 1180px"
                 />
               ) : null}
               <div className={styles.heroFade} aria-hidden="true" />

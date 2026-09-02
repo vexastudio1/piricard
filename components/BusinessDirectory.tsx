@@ -47,12 +47,19 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
 
       {filtered.length > 0 ? (
         <div className="business-list">
-          {filtered.map((business) => (
+          {filtered.map((business, index) => (
             <article className="business-row" key={business.slug}>
               <div className="business-identifier">
                 <span className="logo-plate">
                   {business.logo ? (
-                    <Image src={business.logo} alt="" width={190} height={115} />
+                    <Image
+                      src={business.logo}
+                      alt=""
+                      width={190}
+                      height={115}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 767px) 104px, (max-width: 1099px) 42vw, (max-width: 1599px) 27vw, 300px"
+                    />
                   ) : (
                     <span aria-hidden="true">{business.name.slice(0, 1)}</span>
                   )}

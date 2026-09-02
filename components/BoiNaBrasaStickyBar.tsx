@@ -1,32 +1,49 @@
 "use client";
 
+import { MessageCircle, Phone } from "lucide-react";
+import { PiriCardQrAction } from "@/components/PiriCardQrAction";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface BoiNaBrasaStickyBarProps {
   className: string;
+  whatsappClassName: string;
+  qrClassName: string;
+  phoneClassName: string;
+  businessName: string;
   phoneHref: string;
-  mapsHref: string;
+  whatsappHref?: string;
+  qrCodeSrc?: string;
 }
 
 // Same pattern as OFTStickyBar/BeautyStickyBar: hidden at the very top of the
 // page, reveals once the user scrolls past REVEAL_AT, hides again on
 // returning to the top — extracted into its own client component (rather
 // than making the whole profile a client component) purely so useScrollReveal
-// has somewhere to live. Only Ligar + Como chegar — "Pedir" (Glovo) stays in
-// the main quick-actions grid and the menu section, not duplicated here.
+// has somewhere to live. QR + Ligar form the lower action pair; WhatsApp uses
+// the established floating-action pattern shared by the other bespoke cards.
 const REVEAL_AT = 64;
 
-export function BoiNaBrasaStickyBar({ className, phoneHref, mapsHref }: BoiNaBrasaStickyBarProps) {
+export function BoiNaBrasaStickyBar({ className, whatsappClassName, qrClassName, phoneClassName, businessName, phoneHref, whatsappHref, qrCodeSrc }: BoiNaBrasaStickyBarProps) {
   const visible = useScrollReveal(REVEAL_AT);
 
   if (!visible) return null;
 
   return (
-    <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">
-      <div>
-        <a href={phoneHref}>Ligar</a>
-        <a href={mapsHref} target="_blank" rel="noopener noreferrer" aria-label="Obter direções para o Boi na Brasa">Como chegar</a>
-      </div>
-    </nav>
+    <>
+      {whatsappHref ? (
+        <a className={`profile-floating-action ${whatsappClassName}`} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`Contactar ${businessName} por WhatsApp`}>
+          <MessageCircle aria-hidden="true" />
+        </a>
+      ) : null}
+      <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">
+        <div>
+          {qrCodeSrc ? <PiriCardQrAction qrSrc={qrCodeSrc} businessName={businessName} triggerClassName={qrClassName} /> : null}
+          <a className={phoneClassName} href={phoneHref}>
+            <Phone aria-hidden="true" />
+            <span>Ligar</span>
+          </a>
+        </div>
+      </nav>
+    </>
   );
 }

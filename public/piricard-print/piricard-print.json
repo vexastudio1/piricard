@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 3,
+  "designVersion": "final-nfc-reference-v3",
+  "generatedAt": "2026-08-31T12:54:04.926Z",
+  "scope": "all-published",
+  "copiesPerBusiness": 1,
+  "colorSpace": "RGB (DeviceRGB PDF; sRGB raster logos). No CMYK conversion, ICC output intent or PDF/X claim.",
+  "text": "Outlined from local Manrope Regular/Bold. No font substitution. Minimum 7.5 pt.",
+  "compactSheet": {
+    "pdf": "piricard-print-a4-final.pdf",
+    "paperMm": {
+      "width": 210,
+      "height": 297
+    },
+    "columns": 2,
+    "rowsPerPage": 4,
+    "pieces": 8,
+    "pageCount": 1,
+    "rotationDegrees": 90,
+    "printSides": "single-sided",
+    "scale": "100% / actual size; disable fit/shrink",
+    "cutSizeMm": {
+      "width": 85.6,
+      "height": 53.98
+    },
+    "bleedMm": 0.5,
+    "cutGapMm": 4,
+    "cornerRadiusMm": 3.18,
+    "blankAreas": [
+      {
+        "blankFromMm": 239.76999999999998,
+        "blankHeightMm": 57.23000000000002
+      }
+    ],
+    "pages": [
+      [
+        {
+          "slug": "autoformigal",
+          "row": 1,
+          "front": {
+            "x": 10,
+            "y": 10,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "back": {
+            "x": 99.6,
+            "y": 10,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "qr": {
+            "x": 137.7,
+            "y": 19.99,
+            "width": 34,
+            "height": 34
+          }
+        },
+        {
+          "slug": "beauty-connection-360",
+          "row": 2,
+          "front": {
+            "x": 10,
+            "y": 67.97999999999999,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "back": {
+            "x": 99.6,
+            "y": 67.97999999999999,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "qr": {
+            "x": 137.7,
+            "y": 77.96999999999998,
+            "width": 34,
+            "height": 34
+          }
+        },
+        {
+          "slug": "boi-na-brasa",
+          "row": 3,
+          "front": {
+            "x": 10,
+            "y": 125.96,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "back": {
+            "x": 99.6,
+            "y": 125.96,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "qr": {
+            "x": 137.7,
+            "y": 135.95,
+            "width": 34,
+            "height": 34
+          }
+        },
+        {
+          "slug": "oft-racing",
+          "row": 4,
+          "front": {
+            "x": 10,
+            "y": 183.94,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "back": {
+            "x": 99.6,
+            "y": 183.94,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "qr": {
+            "x": 137.7,
+            "y": 193.93,
+            "width": 34,
+            "height": 34
+          }
+        }
+      ]
+    ],
+    "validated": true
+  },
+  "sheets": {
+    "primary": "piricard-print-a4-final.pdf",
+    "validated": true
+  },
+  "businesses": [
+    {
+      "business": "Auto Formigal",
+      "slug": "autoformigal",
+      "url": "https://card.pirilight.pt/autoformigal",
+      "accent": "#31b009",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 34,
+      "qrPositionMm": {
+        "x": 9.989999999999998,
+        "y": 13.5,
+        "width": 34,
+        "height": 34
+      },
+      "logo": "/clients/autoformigal/logo/autoformigal-approved.jpg",
+      "logoEffectiveDpi": 1194,
+      "qr": "/piricard-qrs/autoformigal.svg",
+      "qrSha256": "58fc509d4a3053dd1afe2c4706b6df2a7c644f77393466c0995d5ac5982df030",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/autoformigal",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-34mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "compact-a4-90deg-qr-grid-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.086,
+        "back": 2.002
+      },
+      "files": {
+        "frontSVG": "autoformigal/autoformigal-front.svg",
+        "frontPDF": "autoformigal/autoformigal-front.pdf",
+        "frontPNG": "autoformigal/autoformigal-front.png",
+        "backSVG": "autoformigal/autoformigal-back.svg",
+        "backPDF": "autoformigal/autoformigal-back.pdf",
+        "backPNG": "autoformigal/autoformigal-back.png",
+        "preview": "autoformigal/autoformigal-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 15.489999999999998,
+          "y": 10.310638297872341,
+          "width": 23,
+          "height": 22.97872340425532,
+          "label": "Business logo"
+        },
+        {
+          "x": 17.04828125,
+          "y": 40.366375000000005,
+          "width": 19.6929375,
+          "height": 3.1432499999999997,
+          "label": "Auto Formigal",
+          "fontPt": 9
+        },
+        {
+          "x": 20.65,
+          "y": 48.25,
+          "width": 12.45,
+          "height": 10.2,
+          "label": "NFC phone and contactless waves"
+        },
+        {
+          "x": 11.84713736111111,
+          "y": 61.526183333333336,
+          "width": 30.25785583333333,
+          "height": 2.2156208333333334,
+          "label": "Encosta o teu telemóvel",
+          "fontPt": 7.9
+        },
+        {
+          "x": 17.11045833333333,
+          "y": 65.6553125,
+          "width": 19.78421875,
+          "height": 2.5796875,
+          "label": "para abrir a ficha",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.08125590277778,
+          "y": 74.6,
+          "width": 5.8,
+          "height": 5.8,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 24.915853125000005,
+          "y": 76.63672916666665,
+          "width": 11.748293749999998,
+          "height": 2.5135416666666663,
+          "label": "PiriCard",
+          "fontPt": 9.5
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 9.989999999999998,
+          "y": 13.5,
+          "width": 34,
+          "height": 34,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 20.087109027777778,
+          "y": 59.855868055555554,
+          "width": 13.96805972222222,
+          "height": 3.2049861111111104,
+          "label": "Lê o QR",
+          "fontPt": 11.5
+        },
+        {
+          "x": 16.503398333333333,
+          "y": 66.80135,
+          "width": 20.890653333333333,
+          "height": 1.939925,
+          "label": "ou encosta o teu",
+          "fontPt": 7.8
+        },
+        {
+          "x": 14.949394583333333,
+          "y": 70.75370000000001,
+          "width": 23.998660833333332,
+          "height": 2.187575,
+          "label": "telemóvel com NFC",
+          "fontPt": 7.8
+        }
+      ]
+    },
+    {
+      "business": "Beauty Connection 360",
+      "slug": "beauty-connection-360",
+      "url": "https://card.pirilight.pt/beauty-connection-360",
+      "accent": "#b3873f",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 34,
+      "qrPositionMm": {
+        "x": 9.989999999999998,
+        "y": 13.5,
+        "width": 34,
+        "height": 34
+      },
+      "logo": "/clients/beauty-connection-360/logo.webp",
+      "logoEffectiveDpi": 1385,
+      "qr": "/piricard-qrs/beauty-connection-360.svg",
+      "qrSha256": "82f484b7bce52850108197256e829fd2b4d2f06aa869614c4657544dea535b91",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/beauty-connection-360",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-34mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "compact-a4-90deg-qr-grid-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.106,
+        "back": 2.248
+      },
+      "files": {
+        "frontSVG": "beauty-connection-360/beauty-connection-360-front.svg",
+        "frontPDF": "beauty-connection-360/beauty-connection-360-front.pdf",
+        "frontPNG": "beauty-connection-360/beauty-connection-360-front.png",
+        "backSVG": "beauty-connection-360/beauty-connection-360-back.svg",
+        "backPDF": "beauty-connection-360/beauty-connection-360-back.pdf",
+        "backPNG": "beauty-connection-360/beauty-connection-360-back.png",
+        "preview": "beauty-connection-360/beauty-connection-360-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 15.489999999999998,
+          "y": 10.3,
+          "width": 23,
+          "height": 23,
+          "label": "Business logo"
+        },
+        {
+          "x": 9.936281249999999,
+          "y": 40.366375000000005,
+          "width": 34.107437499999996,
+          "height": 3.095625,
+          "label": "Beauty Connection 360",
+          "fontPt": 9
+        },
+        {
+          "x": 20.65,
+          "y": 48.25,
+          "width": 12.45,
+          "height": 10.2,
+          "label": "NFC phone and contactless waves"
+        },
+        {
+          "x": 11.84713736111111,
+          "y": 61.526183333333336,
+          "width": 30.25785583333333,
+          "height": 2.2156208333333334,
+          "label": "Encosta o teu telemóvel",
+          "fontPt": 7.9
+        },
+        {
+          "x": 17.11045833333333,
+          "y": 65.6553125,
+          "width": 19.78421875,
+          "height": 2.5796875,
+          "label": "para abrir a ficha",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.08125590277778,
+          "y": 74.6,
+          "width": 5.8,
+          "height": 5.8,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 24.915853125000005,
+          "y": 76.63672916666665,
+          "width": 11.748293749999998,
+          "height": 2.5135416666666663,
+          "label": "PiriCard",
+          "fontPt": 9.5
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 9.989999999999998,
+          "y": 13.5,
+          "width": 34,
+          "height": 34,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 20.087109027777778,
+          "y": 59.855868055555554,
+          "width": 13.96805972222222,
+          "height": 3.2049861111111104,
+          "label": "Lê o QR",
+          "fontPt": 11.5
+        },
+        {
+          "x": 16.503398333333333,
+          "y": 66.80135,
+          "width": 20.890653333333333,
+          "height": 1.939925,
+          "label": "ou encosta o teu",
+          "fontPt": 7.8
+        },
+        {
+          "x": 14.949394583333333,
+          "y": 70.75370000000001,
+          "width": 23.998660833333332,
+          "height": 2.187575,
+          "label": "telemóvel com NFC",
+          "fontPt": 7.8
+        }
+      ]
+    },
+    {
+      "business": "Boi na Brasa",
+      "slug": "boi-na-brasa",
+      "url": "https://card.pirilight.pt/boi-na-brasa",
+      "accent": "#c2501f",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 34,
+      "qrPositionMm": {
+        "x": 9.989999999999998,
+        "y": 13.5,
+        "width": 34,
+        "height": 34
+      },
+      "logo": "/clients/boi-na-brasa/logo.jpg",
+      "logoEffectiveDpi": 1385,
+      "qr": "/piricard-qrs/boi-na-brasa.svg",
+      "qrSha256": "d3d1aa475bf2c428e0370d91339655e921a0135174e2add9740cb5bf3dc68506",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/boi-na-brasa",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-34mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "compact-a4-90deg-qr-grid-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.459,
+        "back": 2.06
+      },
+      "files": {
+        "frontSVG": "boi-na-brasa/boi-na-brasa-front.svg",
+        "frontPDF": "boi-na-brasa/boi-na-brasa-front.pdf",
+        "frontPNG": "boi-na-brasa/boi-na-brasa-front.png",
+        "backSVG": "boi-na-brasa/boi-na-brasa-back.svg",
+        "backPDF": "boi-na-brasa/boi-na-brasa-back.pdf",
+        "backPNG": "boi-na-brasa/boi-na-brasa-back.png",
+        "preview": "boi-na-brasa/boi-na-brasa-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 15.489999999999998,
+          "y": 10.3,
+          "width": 23,
+          "height": 23,
+          "label": "Business logo"
+        },
+        {
+          "x": 18.358762499999997,
+          "y": 40.398125,
+          "width": 17.294225,
+          "height": 2.3495,
+          "label": "Boi na Brasa",
+          "fontPt": 9
+        },
+        {
+          "x": 20.65,
+          "y": 48.25,
+          "width": 12.45,
+          "height": 10.2,
+          "label": "NFC phone and contactless waves"
+        },
+        {
+          "x": 11.84713736111111,
+          "y": 61.526183333333336,
+          "width": 30.25785583333333,
+          "height": 2.2156208333333334,
+          "label": "Encosta o teu telemóvel",
+          "fontPt": 7.9
+        },
+        {
+          "x": 17.11045833333333,
+          "y": 65.6553125,
+          "width": 19.78421875,
+          "height": 2.5796875,
+          "label": "para abrir a ficha",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.08125590277778,
+          "y": 74.6,
+          "width": 5.8,
+          "height": 5.8,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 24.915853125000005,
+          "y": 76.63672916666665,
+          "width": 11.748293749999998,
+          "height": 2.5135416666666663,
+          "label": "PiriCard",
+          "fontPt": 9.5
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 9.989999999999998,
+          "y": 13.5,
+          "width": 34,
+          "height": 34,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 20.087109027777778,
+          "y": 59.855868055555554,
+          "width": 13.96805972222222,
+          "height": 3.2049861111111104,
+          "label": "Lê o QR",
+          "fontPt": 11.5
+        },
+        {
+          "x": 16.503398333333333,
+          "y": 66.80135,
+          "width": 20.890653333333333,
+          "height": 1.939925,
+          "label": "ou encosta o teu",
+          "fontPt": 7.8
+        },
+        {
+          "x": 14.949394583333333,
+          "y": 70.75370000000001,
+          "width": 23.998660833333332,
+          "height": 2.187575,
+          "label": "telemóvel com NFC",
+          "fontPt": 7.8
+        }
+      ]
+    },
+    {
+      "business": "OFT Racing Shop",
+      "slug": "oft-racing",
+      "url": "https://card.pirilight.pt/oft-racing",
+      "accent": "#c2301a",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 34,
+      "qrPositionMm": {
+        "x": 9.989999999999998,
+        "y": 13.5,
+        "width": 34,
+        "height": 34
+      },
+      "logo": "/clients/oft-racing/logo.png",
+      "logoEffectiveDpi": 1305,
+      "qr": "/piricard-qrs/oft-racing.svg",
+      "qrSha256": "76726125bd20865abbf6473a17832e064f1626b91ac5f23156129ed5ac33091c",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/oft-racing",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-34mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "compact-a4-90deg-qr-grid-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.456,
+        "back": 2.003
+      },
+      "files": {
+        "frontSVG": "oft-racing/oft-racing-front.svg",
+        "frontPDF": "oft-racing/oft-racing-front.pdf",
+        "frontPNG": "oft-racing/oft-racing-front.png",
+        "backSVG": "oft-racing/oft-racing-back.svg",
+        "backPDF": "oft-racing/oft-racing-back.pdf",
+        "backPNG": "oft-racing/oft-racing-back.png",
+        "preview": "oft-racing/oft-racing-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 15.489999999999998,
+          "y": 17.655329949238578,
+          "width": 23,
+          "height": 8.289340101522843,
+          "label": "Business logo"
+        },
+        {
+          "x": 14.81149375,
+          "y": 40.366375000000005,
+          "width": 24.325262499999997,
+          "height": 3.1432499999999997,
+          "label": "OFT Racing Shop",
+          "fontPt": 9
+        },
+        {
+          "x": 20.65,
+          "y": 48.25,
+          "width": 12.45,
+          "height": 10.2,
+          "label": "NFC phone and contactless waves"
+        },
+        {
+          "x": 11.84713736111111,
+          "y": 61.526183333333336,
+          "width": 30.25785583333333,
+          "height": 2.2156208333333334,
+          "label": "Encosta o teu telemóvel",
+          "fontPt": 7.9
+        },
+        {
+          "x": 17.11045833333333,
+          "y": 65.6553125,
+          "width": 19.78421875,
+          "height": 2.5796875,
+          "label": "para abrir a ficha",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.08125590277778,
+          "y": 74.6,
+          "width": 5.8,
+          "height": 5.8,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 24.915853125000005,
+          "y": 76.63672916666665,
+          "width": 11.748293749999998,
+          "height": 2.5135416666666663,
+          "label": "PiriCard",
+          "fontPt": 9.5
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 9.989999999999998,
+          "y": 13.5,
+          "width": 34,
+          "height": 34,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 20.087109027777778,
+          "y": 59.855868055555554,
+          "width": 13.96805972222222,
+          "height": 3.2049861111111104,
+          "label": "Lê o QR",
+          "fontPt": 11.5
+        },
+        {
+          "x": 16.503398333333333,
+          "y": 66.80135,
+          "width": 20.890653333333333,
+          "height": 1.939925,
+          "label": "ou encosta o teu",
+          "fontPt": 7.8
+        },
+        {
+          "x": 14.949394583333333,
+          "y": 70.75370000000001,
+          "width": 23.998660833333332,
+          "height": 2.187575,
+          "label": "telemóvel com NFC",
+          "fontPt": 7.8
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "autoformigal/autoformigal-back.pdf": "78f9ade27a48350b00095ca3c204c7c5fcd3c60968c1292715bbd1075d54eec1",
+    "autoformigal/autoformigal-back.png": "f21e210a03f13af761af7b766723a9de72b0181ec7f7f33f729b09602b6d73bf",
+    "autoformigal/autoformigal-back.svg": "401f5658c92ebfa2a94c6b13c164b27c82d487360210c46f673a8fc7e7eed81c",
+    "autoformigal/autoformigal-front.pdf": "1757b353d2f45eb92222fc8e865431611003b7013b67fcb7c0ad5a39af03670c",
+    "autoformigal/autoformigal-front.png": "18319f8f0c47a4e112e25d8d45fa2c53e2656c78ac2994be3e759ca596ea0d29",
+    "autoformigal/autoformigal-front.svg": "f35f28fde91df35e64b858f82cfc700d273c6d75583e7ec859afd461bbe7173e",
+    "autoformigal/autoformigal-preview.png": "e349bf385d885470d8443875a0560d125360d1ca532ee487a5bc4278521a7464",
+    "beauty-connection-360/beauty-connection-360-back.pdf": "34c37326c6c87ed6dd22bc42d41fb928379a99e26f420c5399f7b8d1fc381ccf",
+    "beauty-connection-360/beauty-connection-360-back.png": "81fcb91bb0ef8f2051381b1f68d81a2be0aa40532dbfbeebb6e720652d21556c",
+    "beauty-connection-360/beauty-connection-360-back.svg": "886a053d189259ae671e760da4359441706973bca0a668263c4eaec6f5941104",
+    "beauty-connection-360/beauty-connection-360-front.pdf": "cd2f7a6ec6047ada17fb245b1ee631f42ada3c44c8382e8810021ac86e601fcc",
+    "beauty-connection-360/beauty-connection-360-front.png": "230b2481e1919209ccf633f6842d2f067baa06dd6cffaf76d21063421e872efb",
+    "beauty-connection-360/beauty-connection-360-front.svg": "59f718229832cbf3862fe0f8184292c083ce9d86c2d71c78defca6e530998a92",
+    "beauty-connection-360/beauty-connection-360-preview.png": "006f14f120d1e3c26638232b175f677b20e69bdca03f6d4c261ef5475adb5ad4",
+    "boi-na-brasa/boi-na-brasa-back.pdf": "9c3ea702309dcc8b96736030de6c32d4f875c2d1a16db76b9c51485befe41fa7",
+    "boi-na-brasa/boi-na-brasa-back.png": "3d76ffec485f02ea4540c93649c0c1916e0eb3dab9f7f59ac3edbc32a45dd634",
+    "boi-na-brasa/boi-na-brasa-back.svg": "b0be935fe8185f394481441bb53233de9b1f8823787a0ec9e2b0c8753642f308",
+    "boi-na-brasa/boi-na-brasa-front.pdf": "29c0b274dbf2b0c889b455e1a09c8cda7e6e808093165ac00c0d6ba8aae91e00",
+    "boi-na-brasa/boi-na-brasa-front.png": "0bad26cce617f04358cefbae0e35f6e5474bcc448f74a603fd063d09fceecf03",
+    "boi-na-brasa/boi-na-brasa-front.svg": "a0d4c5f08014c47c427b45e3e05542c07d6dad04191eda61211a4e8b234ada24",
+    "boi-na-brasa/boi-na-brasa-preview.png": "72ddee1a706d439d75640522a65233359c3342c157b51106068d3de823c9ea80",
+    "oft-racing/oft-racing-back.pdf": "e25f0c9ac6be4f121fe20546e0046902455dff913c90a29c947444fc74bb1589",
+    "oft-racing/oft-racing-back.png": "07d3d644592e578198432b5bfc45f78a79c010042763d94ce10105c1355375fa",
+    "oft-racing/oft-racing-back.svg": "3530c94a1f60d990ebe06dcf4b9b70785e0399915c72aba7edd9cd61df2c14ff",
+    "oft-racing/oft-racing-front.pdf": "415e0f842987deba1e3fa1a6f1d2305fe2950130773b3d3ef6e81cb111d1cb57",
+    "oft-racing/oft-racing-front.png": "3121bc7fb57242ac8273c053dbd94ee29d202c44ab375f67fd1a4761b20c8970",
+    "oft-racing/oft-racing-front.svg": "f79649bd5fef7031c665a8fdc48e5ab71fc416753c2fdf8558855c1d2d7c9982",
+    "oft-racing/oft-racing-preview.png": "cb575d18afc3fa8d973e49ed91b6594b8e06cdf82b08aca115398db679eab949",
+    "piricard-collection-preview.png": "4b64f9ee42329f946e7a27e3e6ba258888b462d33d51331501539e0e1ebdf263",
+    "piricard-cr80-cut-guide.svg": "50ce16b06cce114f9afacd03194aa53a73bb50c9a85ca28d3a941494408b9af8",
+    "piricard-print-a4-final-preview.png": "7516cafc350a15611b2a9609967c8734b75f76e50fafee4521dd054de8d4e9fb",
+    "piricard-print-a4-final.pdf": "fb56495e56a7b39be2b0dcf796f243f6284e9842cb1619ca05771ab91ea50588",
+    "piricard-print-a4-final.svg": "378a25e39a5e73e4f7cba7557fb888fd7dd57dd3d003e009bd3f1883ef710ba7"
+  }
+}

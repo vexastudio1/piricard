@@ -7,6 +7,10 @@ describe("business lookup", () => {
     const business = getBusinessBySlug("boi-na-brasa");
     expect(business?.name).toBe("Boi na Brasa");
     expect(business?.layoutVariant).toBe("restaurant");
+    expect(business?.assets.qrCode).toBe("/piricard-qrs/boi-na-brasa.png");
+    expect(business?.externalLinks?.delivery).toContain("glovoapp.com");
+    expect(business?.externalLinks?.collection).toContain("toogoodtogo.com");
+    expect(business?.externalLinks?.tripAdvisor).toBeUndefined();
   });
   it("resolves the OFT Racing profile", () => {
     const business = getBusinessBySlug("oft-racing");

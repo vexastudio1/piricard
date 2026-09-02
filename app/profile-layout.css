@@ -83,3 +83,29 @@
     color: #fff;
   }
 }
+
+/* Bespoke profiles keep their persistent actions on desktop, but present them
+   as a compact floating dock instead of a full-monitor mobile bar. */
+@media (min-width: 1024px) {
+  .profile-layout {
+    --profile-desktop-action-width: min(520px, calc(100vw - 48px));
+    --profile-desktop-action-half-width: 260px;
+    --profile-desktop-action-inline-inset: 16px;
+  }
+
+  .profile-layout .profile-action-bar:not(.profile-sticky-dock) {
+    right: 0;
+    bottom: 24px;
+    left: 0;
+    width: var(--profile-desktop-action-width);
+    margin-inline: auto;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .profile-layout .profile-floating-action {
+    right: calc(50% - var(--profile-desktop-action-half-width) + var(--profile-desktop-action-inline-inset));
+    bottom: calc(var(--profile-action-height) + env(safe-area-inset-bottom,0px) + 44px);
+    left: auto;
+  }
+}

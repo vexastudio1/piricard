@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "designVersion": "reference-v2",
+  "generatedAt": "2026-08-31T10:48:51.388Z",
+  "scope": "oft-racing",
+  "copiesPerBusiness": 1,
+  "colorSpace": "RGB (DeviceRGB PDF; sRGB raster logos). No CMYK conversion, ICC output intent or PDF/X claim.",
+  "text": "Outlined from local Manrope Regular/Bold. No font substitution. Minimum 7.5 pt.",
+  "duplex": {
+    "paperMm": {
+      "width": 210,
+      "height": 297,
+      "columns": 3,
+      "rows": 3,
+      "gap": 4
+    },
+    "flip": "long-edge",
+    "scale": "100% / actual size",
+    "backPlacement": "xBack = 210 - xFront - artworkWidth; yBack = yFront; artwork remains upright",
+    "pages": [
+      [
+        {
+          "slug": "oft-racing",
+          "slot": 0,
+          "front": {
+            "x": 11.030000000000001,
+            "y": 7.100000000000023,
+            "width": 59.98,
+            "height": 91.6
+          },
+          "back": {
+            "x": 138.99,
+            "y": 7.100000000000023,
+            "width": 59.98,
+            "height": 91.6
+          }
+        }
+      ]
+    ]
+  },
+  "sheets": {
+    "front": "piricard-a4-front.pdf",
+    "back": "piricard-a4-back.pdf",
+    "duplex": "piricard-a4-duplex.pdf",
+    "validated": true
+  },
+  "businesses": [
+    {
+      "business": "OFT Racing Shop",
+      "slug": "oft-racing",
+      "url": "https://card.pirilight.pt/oft-racing",
+      "accent": "#c2301a",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 38,
+      "qrPositionMm": {
+        "x": 7.989999999999998,
+        "y": 22,
+        "width": 38,
+        "height": 38
+      },
+      "logo": "/clients/oft-racing/logo.png",
+      "logoEffectiveDpi": 1876,
+      "qr": "/piricard-qrs/oft-racing.svg",
+      "qrSha256": "76726125bd20865abbf6473a17832e064f1626b91ac5f23156129ed5ac33091c",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/oft-racing",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-38mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "a4-pdf-qr-region-300dpi",
+        "duplex-pdf-qr-region-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.214,
+        "back": 1.3
+      },
+      "files": {
+        "frontSVG": "oft-racing/oft-racing-front.svg",
+        "frontPDF": "oft-racing/oft-racing-front.pdf",
+        "frontPNG": "oft-racing/oft-racing-front.png",
+        "backSVG": "oft-racing/oft-racing-back.svg",
+        "backPDF": "oft-racing/oft-racing-back.pdf",
+        "backPNG": "oft-racing/oft-racing-back.png",
+        "preview": "oft-racing/oft-racing-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 18.99,
+          "y": 11.916751269035533,
+          "width": 16,
+          "height": 5.7664974619289335,
+          "label": "Business logo"
+        },
+        {
+          "x": 14.250312499999998,
+          "y": 27.166375,
+          "width": 25.447625,
+          "height": 3.1432499999999997,
+          "label": "OFT Racing Shop",
+          "fontPt": 9
+        },
+        {
+          "x": 22.39,
+          "y": 33.5,
+          "width": 9.2,
+          "height": 9.2,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 18.32454305555555,
+          "y": 44.62920833333333,
+          "width": 17.33091388888889,
+          "height": 3.439583333333333,
+          "label": "PiriCard",
+          "fontPt": 13
+        },
+        {
+          "x": 12.361848958333331,
+          "y": 53.76119791666667,
+          "width": 29.21220486111111,
+          "height": 4.66328125,
+          "label": "O teu negócio",
+          "fontPt": 12.5
+        },
+        {
+          "x": 15.164227430555554,
+          "y": 59.45729166666667,
+          "width": 23.55894097222222,
+          "height": 4.101041666666666,
+          "label": "num toque.",
+          "fontPt": 12.5
+        },
+        {
+          "x": 10.837187499999997,
+          "y": 66.23811458333334,
+          "width": 32.26858333333333,
+          "height": 2.6365729166666667,
+          "label": "Uma ligação. Tudo contigo.",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.195477777777775,
+          "y": 75.92566666666667,
+          "width": 19.59892222222222,
+          "height": 2.794,
+          "label": "card.pirilight.pt",
+          "fontPt": 8
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 7.989999999999998,
+          "y": 22,
+          "width": 38,
+          "height": 38,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 22.74,
+          "y": 68.5,
+          "width": 8.5,
+          "height": 8.5,
+          "label": "PiriCard symbol"
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "oft-racing/oft-racing-back.pdf": "c6bfb189ec8be0426a0d3a7cbc4bd1476abfc83388ccc112e90966027225f4c4",
+    "oft-racing/oft-racing-back.png": "208c06367c7a2cf05fc25a371cb23500d7ef5062cc05876ad71ccadb3eabf795",
+    "oft-racing/oft-racing-back.svg": "2030afd4c239ff0a3f00d3328a63e3d193e3376c95d168ec578bb88ee9414735",
+    "oft-racing/oft-racing-front.pdf": "341a9d26984573561687351ec59b0c745ffdc38ea5f2b4e03c5960ccecc83c11",
+    "oft-racing/oft-racing-front.png": "beefe0685e7b01a13ae64c8637aeccf90868c445a477f527acb9fe2f912d18b8",
+    "oft-racing/oft-racing-front.svg": "30657be0aec6afc4cd020b030a751f50554d407aa9b790ff46440ab1314be545",
+    "oft-racing/oft-racing-preview.png": "4b7b26343341a7f3dd9c882e48bd46d7b9d71a7676e940586f3b66e5cc232b63",
+    "piricard-a4-back-1.svg": "e7a2223f5ae907c17ca76ffa1a4c8dccb5c5141ace479aff0f770887e61ae522",
+    "piricard-a4-back.pdf": "bd42797f1d420233aa9a1de50dd0ed0a64566d5da73b2c607f05c3d5d5cc626e",
+    "piricard-a4-duplex.pdf": "979e12f0a67224784ff23c689dfb625ec32cf803b8b17b915409f0b12bb19241",
+    "piricard-a4-front-1.svg": "7aa07ea385ad04499cbe38e2228672534fff729bfb67ba2a0c7e5ffaacddb046",
+    "piricard-a4-front.pdf": "43a16780d2e53c192e9e41224f38bf53e7fe3e5100be60529fe95548f245ceb2",
+    "piricard-collection-preview.png": "e0c32bc8dc95010b04737d9aa3a98b5c1d63c68b5e180f7af998320f66e6f96a",
+    "piricard-cr80-cut-guide.svg": "50ce16b06cce114f9afacd03194aa53a73bb50c9a85ca28d3a941494408b9af8"
+  }
+}

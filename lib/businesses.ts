@@ -41,11 +41,16 @@ export interface Business {
   location?: { city?: string; address?: string; streetAddress?: string; country?: string; mapsUrl?: string };
   reviewUrl?: string;
   reviewWriteUrl?: string;
+  externalLinks?: {
+    tripAdvisor?: string;
+    delivery?: string;
+    collection?: string;
+  };
   reviewSnapshot?: { rating: number; count: number; source: string; asOf: string };
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
   hours?: BusinessHoursEntry[];
-  assets: { logo?: string; logoOnLight?: boolean; cover?: string; coverAlt?: string; socialImage?: string };
+  assets: { logo?: string; logoOnLight?: boolean; cover?: string; coverAlt?: string; socialImage?: string; qrCode?: string };
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
@@ -230,6 +235,11 @@ const businesses = {
       mapsUrl: "https://www.google.com/maps/place/Restaurante+boi+na+brasa/@39.0916177,-9.2583152,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f2d060f0093ef:0xa22973c1920f5dcd!8m2!3d39.0916177!4d-9.2583152!16s%2Fg%2F11vwxw92vx",
     },
     reviewUrl: "https://www.google.com/maps/place/Restaurante+boi+na+brasa/@39.0916177,-9.2583152,17z/data=!3m1!4b1!4m6!3m5!1s0xd1f2d060f0093ef:0xa22973c1920f5dcd!8m2!3d39.0916177!4d-9.2583152!16s%2Fg%2F11vwxw92vx",
+    externalLinks: {
+      delivery: "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv",
+      collection: "https://www.toogoodtogo.com/pt/find/torresvedras/restauranteboinabrasa/cookedmeal/refeicao-253056996762700480",
+      // TODO: Add the confirmed direct Boi na Brasa TripAdvisor profile URL.
+    },
     services: [
       "Comer no local",
       "Takeaway",
@@ -256,6 +266,7 @@ const businesses = {
       cover: "/clients/boi-na-brasa/boi-na-brasa-header.webp",
       coverAlt: "Fachada do Boi na Brasa na Rua 1.º de Dezembro, em Torres Vedras, com esplanada",
       socialImage: "/clients/boi-na-brasa/fachada.jpg",
+      qrCode: "/piricard-qrs/boi-na-brasa.png",
     },
     theme: {
       primary: "#191411",

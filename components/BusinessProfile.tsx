@@ -87,7 +87,7 @@ function BusinessIdentity({ business }: { business: Business }) {
             alt={business.assets.coverAlt ?? `Exterior de ${business.name}`}
             fill
             loading="eager"
-            sizes="(max-width: 430px) 100vw, 430px"
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 720px, 660px"
           />
         </div>
       ) : <div className="profile-brand-lines" aria-hidden="true" />}

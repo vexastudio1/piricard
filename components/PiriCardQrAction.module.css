@@ -1,0 +1,130 @@
+.dialog {
+  width: min(100%, 560px);
+  max-width: none;
+  max-height: min(92svh, 680px);
+  margin: auto auto 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 22px 22px 0 0;
+  padding: 0;
+  background: transparent;
+  color: var(--bnb-ink, #191411);
+  box-shadow: 0 -20px 60px rgba(15, 12, 10, .28);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 180ms ease, transform 220ms ease, display 220ms allow-discrete, overlay 220ms allow-discrete;
+}
+
+.dialog[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dialog::backdrop {
+  background: rgba(15, 12, 10, .64);
+  backdrop-filter: blur(4px);
+}
+
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.sheet {
+  overflow-y: auto;
+  padding: 22px 22px calc(24px + env(safe-area-inset-bottom, 0px));
+  background: var(--bnb-paper, #f4ede1);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--bnb-ember, #c2501f);
+  font: 700 10px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 7px 0 0;
+  color: var(--bnb-ink, #191411);
+  font: 900 24px/1 Archivo, system-ui, sans-serif;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+.closeButton {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(25, 20, 17, .14);
+  border-radius: 50%;
+  padding: 0;
+  background: var(--bnb-white, #fffdf8);
+  color: var(--bnb-ink, #191411);
+  cursor: pointer;
+}
+
+.closeButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.qrFrame {
+  width: min(100%, 340px);
+  margin: 22px auto 0;
+  border-radius: 18px;
+  padding: 18px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(25, 20, 17, .08), 0 18px 42px -26px rgba(25, 20, 17, .52);
+}
+
+.qrImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.sheet > p {
+  margin: 15px 0 0;
+  color: var(--bnb-muted, #7a6a5c);
+  font: 600 12px/1.45 "IBM Plex Mono", monospace;
+  text-align: center;
+}
+
+.closeButton:focus-visible {
+  outline: 3px solid var(--bnb-ember, #c2501f);
+  outline-offset: 3px;
+}
+
+@media (min-width: 700px) {
+  .dialog {
+    width: min(calc(100% - 48px), 440px);
+    margin: auto;
+    border-radius: 22px;
+    transform: translateY(12px) scale(.985);
+  }
+
+  .dialog[open] { transform: translateY(0) scale(1); }
+
+  @starting-style {
+    .dialog[open] { transform: translateY(12px) scale(.985); }
+  }
+
+  .sheet { padding: 26px 26px 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog { transition-duration: .01ms; }
+}

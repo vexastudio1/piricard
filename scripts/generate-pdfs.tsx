@@ -77,11 +77,31 @@ async function resolveLogoSrc(logoPath: string | undefined): Promise<string | un
   return pathToFileURL(cachedPath).href;
 }
 
+function resolveQrSrc(qrPath: string | undefined): string | undefined {
+  if (!qrPath) return undefined;
+  const absoluteSource = path.join(PUBLIC_DIR, qrPath);
+  if (!fs.existsSync(absoluteSource)) {
+    console.warn(`  ! QR not found on disk, omitting from PDF: ${qrPath}`);
+    return undefined;
+  }
+  if (!/[.](png|jpe?g)$/i.test(absoluteSource)) {
+    console.warn(`  ! QR must be PNG or JPEG for the offline PDF: ${qrPath}`);
+    return undefined;
+  }
+  return pathToFileURL(absoluteSource).href;
+}
+
 async function main() {
   registerPdfFonts();
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const businesses = getPublishedBusinesses();
+  const requestedSlugs = new Set(process.argv.slice(2));
+  const publishedBusinesses = getPublishedBusinesses();
+  const businesses = requestedSlugs.size
+    ? publishedBusinesses.filter((business) => requestedSlugs.has(business.slug))
+    : publishedBusinesses;
+  const unknownSlugs = [...requestedSlugs].filter((slug) => !publishedBusinesses.some((business) => business.slug === slug));
+  if (unknownSlugs.length) throw new Error(`Unknown or unpublished business slug(s): ${unknownSlugs.join(", ")}`);
   const generatedOn = todayDDMMYYYY();
 
   console.log(`Generating ${businesses.length} PiriCard offline PDF(s)…\n`);
@@ -90,10 +110,11 @@ async function main() {
     const tokens = getPdfBrandTokens(business);
     const profileUrl = getCanonicalProfileUrl(business.slug);
     const logoSrc = await resolveLogoSrc(business.assets.logo);
+    const qrSrc = resolveQrSrc(business.assets.qrCode);
     const outputPath = path.join(OUTPUT_DIR, getPiriCardPdfFilename(business.slug));
 
     await renderToFile(
-      <PiriCardSheet business={business} tokens={tokens} profileUrl={profileUrl} logoSrc={logoSrc} generatedOn={generatedOn} />,
+      <PiriCardSheet business={business} tokens={tokens} profileUrl={profileUrl} logoSrc={logoSrc} qrSrc={qrSrc} generatedOn={generatedOn} />,
       outputPath,
     );
 

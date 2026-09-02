@@ -21,6 +21,8 @@ export interface PiriCardSheetProps {
   profileUrl: string;
   /** Resolved local filesystem path (already PNG/JPG — react-pdf cannot decode WebP) or undefined if no logo. */
   logoSrc?: string;
+  /** Resolved official QR image. When omitted, the legacy URL-only access card is preserved. */
+  qrSrc?: string;
   /** DD/MM/AAAA — generation date, shown in the footer. */
   generatedOn: string;
 }
@@ -36,7 +38,7 @@ function stripProtocol(url: string): string {
   return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
 
-export function PiriCardSheet({ business, tokens, profileUrl, logoSrc, generatedOn }: PiriCardSheetProps) {
+export function PiriCardSheet({ business, tokens, profileUrl, logoSrc, qrSrc, generatedOn }: PiriCardSheetProps) {
   const { colors, fonts } = tokens;
   const monoFamily = fonts.mono ?? fonts.body;
 
@@ -96,10 +98,16 @@ export function PiriCardSheet({ business, tokens, profileUrl, logoSrc, generated
     hoursValueClosed: { fontFamily: monoFamily, fontSize: 8.5, color: colors.mutedText },
 
     accessCard: { backgroundColor: colors.tint, borderWidth: 1, borderColor: colors.border, borderRadius: 10, padding: 16 },
+    accessContent: { flexDirection: "row", alignItems: "center" },
+    accessText: { flex: 1, minWidth: 0, paddingRight: 18 },
     accessTitle: { fontFamily: fonts.display, fontWeight: fonts.displayWeight, fontSize: 13, color: colors.text, marginBottom: 6 },
     accessCopy: { fontSize: 9, color: colors.mutedText, lineHeight: 1.5, marginBottom: 12 },
     accessUrlBox: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: 8, paddingVertical: 10, alignItems: "center" },
     accessUrlText: { fontFamily: monoFamily, fontSize: 9.5, fontWeight: 700, color: colors.accent },
+    qrColumn: { width: 94, alignItems: "center" },
+    qrBox: { width: 86, height: 86, padding: 5, backgroundColor: "#ffffff", borderRadius: 8 },
+    qrImage: { width: 76, height: 76, objectFit: "contain" },
+    qrLabel: { marginTop: 5, fontFamily: monoFamily, fontSize: 6.5, lineHeight: 1.3, color: colors.mutedText, textAlign: "center" },
 
     // ---- Footer --------------------------------------------------------------
     footerNote: { flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 32, marginTop: 4, marginBottom: 10 },
@@ -132,6 +140,17 @@ export function PiriCardSheet({ business, tokens, profileUrl, logoSrc, generated
 
   const showServices = services.length > 0;
   const showHours = hoursGrid !== null;
+  const accessDetails = (
+    <>
+      <Text style={styles.accessTitle}>Consulta a versão online sempre atualizada</Text>
+      <Text style={styles.accessCopy}>
+        Esta ficha funciona offline. Para ver alterações futuras em horários, contactos, serviços ou outras informações, acede à ficha digital.
+      </Text>
+      <Link src={profileUrl} style={styles.accessUrlBox}>
+        <Text style={styles.accessUrlText}>{stripProtocol(profileUrl)}</Text>
+      </Link>
+    </>
+  );
 
   return (
     <Document title={`PiriCard — ${business.name}`} author="PiriCard" subject="Ficha offline PiriCard">
@@ -247,13 +266,18 @@ export function PiriCardSheet({ business, tokens, profileUrl, logoSrc, generated
               <View style={styles.kickerTick} />
               <Text style={styles.kickerText}>Acesso à Ficha Digital</Text>
             </View>
-            <Text style={styles.accessTitle}>Consulta a versão online sempre atualizada</Text>
-            <Text style={styles.accessCopy}>
-              Esta ficha funciona offline. Para ver alterações futuras em horários, contactos, serviços ou outras informações, acede à ficha digital.
-            </Text>
-            <Link src={profileUrl} style={styles.accessUrlBox}>
-              <Text style={styles.accessUrlText}>{stripProtocol(profileUrl)}</Text>
-            </Link>
+            {qrSrc ? (
+              <View style={styles.accessContent}>
+                <View style={styles.accessText}>{accessDetails}</View>
+                <View style={styles.qrColumn}>
+                  <View style={styles.qrBox}>
+                    {/* eslint-disable-next-line jsx-a11y/alt-text -- @react-pdf Image has no alt prop. */}
+                    <Image src={qrSrc} style={styles.qrImage} />
+                  </View>
+                  <Text style={styles.qrLabel}>Digitaliza para abrir o PiriCard</Text>
+                </View>
+              </View>
+            ) : accessDetails}
           </View>
         </View>
 

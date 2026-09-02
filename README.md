@@ -90,6 +90,42 @@ NEXT_PUBLIC_SITE_URL=https://card.pirilight.pt
 
 Sem configuração, usa-se sempre `https://card.pirilight.pt`; nunca uma URL temporária de preview. A aplicação não altera domínios, DNS, contas, analytics, pagamentos ou serviços externos.
 
+## Exportar QR oficiais para impressão
+
+```bash
+npm run generate:qrs
+npm run verify:qrs
+```
+
+Os masters SVG com o símbolo oficial PiriCard, previews PNG e manifesto são
+guardados em `public/piricard-qrs/`. O gerador lê os negócios publicados e valida
+cada QR por descodificação antes de o exportar. O domínio de impressão é sempre
+`https://card.pirilight.pt`, independentemente das variáveis de desenvolvimento.
+Consultar [instruções e cuidados de impressão](public/piricard-qrs/README.md).
+
+## Cartões físicos CR80
+
+```bash
+npm run generate:qrs
+npm run generate:cards
+npm run generate:cards -- --business=oft-racing --copies=10
+npm run generate:cards -- --proof=autoformigal,beauty-connection-360,boi-na-brasa
+```
+
+O ficheiro principal é `public/piricard-print/piricard-print-a4-final.pdf`:
+**oito peças, quatro filas de frente | verso, numa única página A4**. Imprimir
+**só de um lado, a 100% / tamanho real**, sem ajustar ou encolher. O design
+vertical de 53,98 x 85,60 mm é rodado inteiro na folha; cada corte mede
+85,60 x 53,98 mm. Há 4 mm entre cortes, 0,5 mm de sangria na folha e uma faixa
+branca reutilizável de mais de 57 mm no fundo. O preview A4 vem do PDF final.
+
+A frente segue as novas referências NFC (telemóvel + ondas, instrução e marca
+pequena); o verso tem QR oficial de 34 mm e instruções. Os masters individuais
+SVG/PDF mantêm 3 mm de sangria. `--business` produz um job isolado; `--proof`
+mantém a prova alternativa de três negócios, não sendo necessário para a folha
+final de oito peças. Poppler é obrigatório para validar medidas e cada QR no
+PDF, incluindo a rotação. [Especificações e instruções de produção](docs/piricard-print-system.md).
+
 ## Privacidade
 
 Não existem cookies, analytics, autenticação, chaves de API nem recolha de dados. As ações usam ligações nativas (`tel:`, `mailto:`), serviços públicos escolhidos pelo utilizador e geração local de QR/vCard.
