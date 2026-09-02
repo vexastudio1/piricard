@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import QRCode from "qrcode";
-import { buildBrandedSvg, loadSymbol, productionProfileUrl, validateGeometry, validateSvg } from "../scripts/generate-piricard-qrs";
+import { buildBrandedSvg, loadSymbol, productionProfileUrl, qrAssetStem, validateGeometry, validateSvg } from "../scripts/generate-piricard-qrs";
 
 const originalOrigin = process.env.NEXT_PUBLIC_SITE_URL;
 afterEach(() => {
@@ -9,6 +9,10 @@ afterEach(() => {
 });
 
 describe("official print QR safety", () => {
+  it("uses the requested permanent PiriLight QR asset names", () => {
+    expect(qrAssetStem("pirilight")).toBe("pirilight-qr");
+    expect(qrAssetStem("boi-na-brasa")).toBe("boi-na-brasa");
+  });
   it.each(["http://localhost:3000", "https://preview.example.test", "invalid"])(
     "never prints development or preview origins: %s", (origin) => {
       process.env.NEXT_PUBLIC_SITE_URL = origin;

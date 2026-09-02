@@ -21,25 +21,10 @@ const essentialInformation = [
 ] as const;
 
 const mains = [
-  { name: "Picanha", description: "Arroz, batata frita, feijão e farofa", price: "14,50 €" },
-  { name: "Maminha", description: "Batata frita, arroz e feijão", price: "12,90 €" },
-  { name: "Bitoque de vaca", description: "Carne de vaca grelhada, arroz, batata frita e ovo estrelado", price: "12,90 €" },
-  { name: "Febras grelhadas", description: "Arroz e batata frita", price: "10,90 €" },
-] as const;
-
-const snacks = [
-  ["Prego no pão", "5,90 €"],
-  ["Bifana no pão", "4,90 €"],
-  ["Coxinhas · 4", "9,90 €"],
-  ["Kibes · 4", "9,90 €"],
-  ["Pães de queijo · 6", "4,80 €"],
-  ["Torta de pão · fatia", "3,90 €"],
-] as const;
-
-const pizzas = [
-  { name: "Tropical", description: "Molho de tomate, queijo, ananás e presunto", price: "11,50 €" },
-  { name: "Chourição", description: "Base fina com chourição", price: "11,50 €" },
-  { name: "Pepperoni", description: "Molho de tomate, queijo e pepperoni", price: "11,50 €" },
+  { name: "Maminha Grelhada", price: "12,90 €" },
+  { name: "Bitoque de Vaca", price: "12,90 €" },
+  { name: "Picanha Grelhada", price: "13,90 €" },
+  { name: "Bife da Vazia", price: "14,90 €" },
 ] as const;
 
 const praise = [
@@ -137,7 +122,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
             <strong>Deixar avaliação</strong><small>Google</small><Star aria-hidden="true" />
           </ExternalLink>
           {tripAdvisorHref ? (
-            <ExternalLink className={styles.actionTripAdvisor} href={tripAdvisorHref}><strong>TripAdvisor</strong><small>Ver perfil</small><TripAdvisorMark aria-hidden="true" /></ExternalLink>
+            <ExternalLink className={styles.actionTripAdvisor} href={tripAdvisorHref}><strong>TripAdvisor</strong><small>Deixar avaliação</small><TripAdvisorMark aria-hidden="true" /></ExternalLink>
           ) : (
             <span className={`${styles.actionTripAdvisor} ${styles.actionUnavailable}`} aria-disabled="true"><strong>TripAdvisor</strong><small>Perfil a confirmar</small><TripAdvisorMark aria-hidden="true" /></span>
           )}
@@ -179,23 +164,16 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         <section className={styles.menu} id="ementa" aria-labelledby="menu-heading">
           <div className={styles.sectionIntro}>
             <h2 id="menu-heading">Da brasa e da casa</h2>
-            <span>preços observados em 24/08/2026</span>
+            <span>menu atualizado pelo restaurante</span>
           </div>
-          <h3>Grelhados e pratos completos</h3>
+          <h3>Menu</h3>
           <ul className={styles.menuList}>
-            {mains.map((item) => <li key={item.name}><span><strong>{item.name}</strong><small>{item.description}</small></span><b>{item.price}</b></li>)}
+            {mains.map((item) => <li key={item.name}><strong>{item.name}</strong><b>{item.price}</b></li>)}
           </ul>
-          <div className={styles.menuColumns}>
-            <div>
-              <h3>Sandes e salgados</h3>
-              <ul className={styles.menuList}>{snacks.map(([name, price]) => <li key={name}><strong>{name}</strong><b>{price}</b></li>)}</ul>
-            </div>
-            <div>
-              <h3>Pizzas</h3>
-              <ul className={styles.menuList}>{pizzas.map((item) => <li key={item.name}><span><strong>{item.name}</strong><small>{item.description}</small></span><b>{item.price}</b></li>)}</ul>
-              <p>Também há sobremesas caseiras, café, cerveja e vinho. A seleção do dia é indicada no restaurante.</p>
-            </div>
-          </div>
+          <h3>Incluído em todos os menus</h3>
+          <ul className={styles.menuList}>
+            <li><strong>Entrada + prato + bebida + sobremesa ou café</strong></li>
+          </ul>
           <div className={styles.menuLinks}>
             {deliveryUrl ? <ExternalLink className={styles.glovoButton} href={deliveryUrl}><span>Pedir online na Glovo</span><Bike aria-hidden="true" /></ExternalLink> : null}
             {collectionUrl ? <ExternalLink className={styles.tooGoodToGoButton} href={collectionUrl}><span>Recolha na Too Good To Go</span><Leaf aria-hidden="true" /></ExternalLink> : null}

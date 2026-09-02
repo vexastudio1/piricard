@@ -91,11 +91,11 @@ function resolveQrSrc(qrPath: string | undefined): string | undefined {
   return pathToFileURL(absoluteSource).href;
 }
 
-async function main() {
+export async function generatePdfs(slugs = process.argv.slice(2)) {
   registerPdfFonts();
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const requestedSlugs = new Set(process.argv.slice(2));
+  const requestedSlugs = new Set(slugs);
   const publishedBusinesses = getPublishedBusinesses();
   const businesses = requestedSlugs.size
     ? publishedBusinesses.filter((business) => requestedSlugs.has(business.slug))
@@ -125,7 +125,9 @@ async function main() {
   console.log("\nDone.");
 }
 
-main().catch((error) => {
-  console.error("PDF generation failed:", error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  generatePdfs().catch((error) => {
+    console.error("PDF generation failed:", error);
+    process.exitCode = 1;
+  });
+}

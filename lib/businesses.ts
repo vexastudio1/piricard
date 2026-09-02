@@ -50,7 +50,7 @@ export interface Business {
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
   hours?: BusinessHoursEntry[];
-  assets: { logo?: string; logoOnLight?: boolean; cover?: string; coverAlt?: string; socialImage?: string; qrCode?: string };
+  assets: { logo?: string; printLogo?: string; printLogoColor?: string; logoOnLight?: boolean; cover?: string; coverAlt?: string; socialImage?: string; qrCode?: string };
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
@@ -226,6 +226,7 @@ const businesses = {
     positioning: "Carne na brasa e comida reconfortante, sem formalidades.",
     contact: {
       phone: "+351261063480",
+      whatsapp: "+351962874230",
     },
     location: {
       city: "Torres Vedras",
@@ -238,7 +239,7 @@ const businesses = {
     externalLinks: {
       delivery: "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv",
       collection: "https://www.toogoodtogo.com/pt/find/torresvedras/restauranteboinabrasa/cookedmeal/refeicao-253056996762700480",
-      // TODO: Add the confirmed direct Boi na Brasa TripAdvisor profile URL.
+      tripAdvisor: "https://www.tripadvisor.pt/UserReviewEdit-g656858-d34606735-Restaurante_Boi_na_Brasa-Torres_Vedras_Lisbon_District_Central_Portugal.html",
     },
     services: [
       "Comer no local",
@@ -356,6 +357,40 @@ const businesses = {
       fontFamily: "modern",
     },
     layoutVariant: "racing",
+  },
+  pirilight: {
+    slug: "pirilight",
+    name: "PiriLight",
+    organization: "PiriLight",
+    // Existing repository wording; the profile intentionally remains minimal
+    // until confirmed business content is supplied.
+    category: "PiriLight Studio",
+    published: true,
+    featured: false,
+    indexable: false,
+    directoryDescription: "Perfil PiriCard da PiriLight.",
+    contact: {},
+    assets: {
+      logo: "/brand/pirilight-symbol.png",
+      // Print-only: exact vector geometry used by PiriCardSymbol in the
+      // menu/header. The public PiriLight profile keeps its existing logo.
+      printLogo: "/brand/piricard-symbol.svg",
+      printLogoColor: "#4f8ffb",
+      logoOnLight: true,
+    },
+    theme: {
+      primary: "#4f8ffb",
+      secondary: "#05060a",
+      accent: "#8fe0ff",
+      background: "#05060a",
+      surface: "#0b111d",
+      text: "#f4f4f5",
+      mutedText: "#a4adbc",
+      border: "rgba(218, 232, 255, .16)",
+      appearance: "dark",
+      fontFamily: "modern",
+    },
+    layoutVariant: "compact",
   },
 } as const satisfies Record<string, Business>;
 

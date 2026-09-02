@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
 import { getPublishedBusinesses, isValidSlug, type Business } from "../lib/businesses";
-import { OUTPUT_DIR as QR_DIR, productionProfileUrl, validateSvg } from "./generate-piricard-qrs";
+import { OUTPUT_DIR as QR_DIR, productionProfileUrl, qrAssetStem, validateSvg } from "./generate-piricard-qrs";
 import { ART, CARD, A4, COMPACT, LOGO_CONTENT_SIZE, QR_RECT, compactPosition, compactQrRect, mmToPx, sheetPosition } from "../lib/print/geometry";
 import { PiriCardPrintTemplate, ROOT, roundedPreview, placeSvg, outlinedText, type PrintAssets, type CardArtwork } from "../lib/print/PiriCardPrintTemplate";
 import { checkPrintTools, compactSheetSvg, decodeImage, hashableSvg, qrPixelRegion, renderPdf, sheetSvg, validateComposedSvg, verifyCompactSheetRaster, verifyPdfAppearance, verifyPdfBoxes, verifyPlacedQr, writeVectorPdf } from "../lib/print/export";
@@ -12,7 +12,7 @@ import { checkPrintTools, compactSheetSvg, decodeImage, hashableSvg, qrPixelRegi
 const OUTPUT = path.join(ROOT, "public/piricard-print");
 const sha = (data: string | Buffer) => createHash("sha256").update(data).digest("hex");
 interface QrEntry { slug: string; business: string; url: string; qr: string; validated: boolean; svgSha256: string; errorCorrectionLevel: string; modules: number; quietZoneModules: number }
-export interface CardOptions { business?: string; proof?: string[]; copies: number }
+export interface CardOptions { business?: string; proof?: string[]; sheet?: string[]; copies: number }
 
 export function parseOptions(args: string[]): CardOptions {
   const options: CardOptions = { copies: 1 };
@@ -27,15 +27,22 @@ export function parseOptions(args: string[]): CardOptions {
       if (slugs.length !== 3 || new Set(slugs).size !== 3 || !slugs.every(isValidSlug)) throw new Error("--proof requires exactly three distinct business slugs");
       options.proof = slugs;
     }
+    else if (key === "--sheet" && value) {
+      const slugs = value.split(",").map((slug) => slug.trim());
+      if (slugs.length < 1 || slugs.length > COMPACT.rows || !slugs.every(isValidSlug)) throw new Error("--sheet requires 1..4 valid business slugs");
+      options.sheet = slugs;
+    }
     else if (key === "--copies" && /^\d+$/.test(value ?? "") && Number(value) >= 1 && Number(value) <= 100) options.copies = Number(value);
-    else throw new Error(`Unknown option: ${arg}. Use --business=slug, --copies=1..100 or --proof=slug1,slug2,slug3`);
+    else throw new Error(`Unknown option: ${arg}. Use --business=slug, --copies=1..100, --proof=slug1,slug2,slug3 or --sheet=slug1,...,slug4`);
   }
   if (options.proof && (options.business || options.copies !== 1)) throw new Error("--proof cannot be combined with --business or multiple copies");
+  if (options.sheet && (options.proof || options.business || options.copies !== 1)) throw new Error("--sheet cannot be combined with --proof, --business or multiple copies");
   return options;
 }
 
 export function selectBusinesses(options: CardOptions, published = getPublishedBusinesses()): Business[] {
-  const slugs = options.proof ?? (options.business ? [options.business] : published.map((business) => business.slug));
+  const requested = options.sheet ?? options.proof ?? (options.business ? [options.business] : published.map((business) => business.slug));
+  const slugs = [...new Set(requested)];
   return slugs.map((slug) => {
     const business = published.find((candidate) => candidate.slug === slug);
     if (!business) throw new Error(`Unknown/unpublished business: ${slug}`);
@@ -47,23 +54,30 @@ export async function loadPrintAssets(business: Business, manifest: QrEntry[]): 
   const entries = manifest.filter((entry) => entry.slug === business.slug);
   if (entries.length !== 1) throw new Error(`Run npm run generate:qrs first: missing/duplicate QR for ${business.slug}`);
   const qr = entries[0];
-  if (!qr.validated || qr.errorCorrectionLevel !== "H" || qr.quietZoneModules !== 4 || qr.qr !== `${business.slug}.svg` || qr.url !== productionProfileUrl(business.slug)) throw new Error(`Invalid official QR manifest entry: ${business.slug}`);
+  if (!qr.validated || qr.errorCorrectionLevel !== "H" || qr.quietZoneModules !== 4 || qr.qr !== `${qrAssetStem(business.slug)}.svg` || qr.url !== productionProfileUrl(business.slug)) throw new Error(`Invalid official QR manifest entry: ${business.slug}`);
   const officialQr = hashableSvg(await readFile(path.join(QR_DIR, qr.qr), "utf8"));
   if (sha(officialQr) !== qr.svgSha256) throw new Error(`Modified official QR: ${business.slug}. Run npm run verify:qrs.`);
   await validateSvg(officialQr, qr.url, qr.modules + 8);
 
   const symbol = hashableSvg(await readFile(path.join(ROOT, "public/brand/piricard-symbol.svg"), "utf8"));
-  if (!business.assets.logo) throw new Error(`Business has no approved logo: ${business.slug}`);
+  const logoSource = business.assets.printLogo ?? business.assets.logo;
+  if (!logoSource) throw new Error(`Business has no approved logo: ${business.slug}`);
   const publicDir = path.join(ROOT, "public");
-  const filename = path.resolve(publicDir, business.assets.logo.replace(/^\//, ""));
+  const filename = path.resolve(publicDir, logoSource.replace(/^\//, ""));
   if (!filename.startsWith(publicDir + path.sep)) throw new Error("Unsafe logo path");
   const bytes = await readFile(filename);
   const meta = await sharp(bytes).metadata();
   if (!meta.width || !meta.height) throw new Error(`Unknown logo dimensions: ${filename}`);
-  const logo: PrintAssets["logo"] = { width: meta.width, height: meta.height, source: business.assets.logo };
+  const logo: PrintAssets["logo"] = { width: meta.width, height: meta.height, source: logoSource };
   if (meta.format === "svg") {
     logo.svg = hashableSvg(bytes.toString("utf8"));
     if (/<image\b|(?:href|xlink:href)=|url\(/i.test(logo.svg)) throw new Error("Business SVG must be self-contained vector geometry");
+    if (business.assets.printLogoColor) {
+      if (!/^#[0-9a-f]{6}$/i.test(business.assets.printLogoColor)) throw new Error(`Invalid print logo color: ${business.slug}`);
+      // Match the header's currentColor behavior without changing any path,
+      // transform, proportions or the canonical vector source file.
+      logo.svg = logo.svg.replace(/#ffffff/gi, business.assets.printLogoColor);
+    }
   } else {
     // Existing WebP/JPEG/PNG logos remain raster. Convert losslessly to PNG for
     // PDF compatibility; do not fake a vector tracing or alter their appearance.
@@ -119,7 +133,7 @@ export async function generateCards(options: CardOptions) {
   if (!businesses.length) throw new Error(`Unknown/unpublished business: ${options.business}`);
   const qrManifest = JSON.parse(await readFile(path.join(QR_DIR, "piricard-qrs.json"), "utf8")) as QrEntry[];
   // Single-business runs are isolated jobs; they cannot replace the all-business sheets/manifest.
-  const output = options.proof ? path.join(OUTPUT, "proof") : options.business ? path.join(OUTPUT, "jobs", options.business) : OUTPUT;
+  const output = options.sheet ? path.join(OUTPUT, "jobs", "final-a4") : options.proof ? path.join(OUTPUT, "proof") : options.business ? path.join(OUTPUT, "jobs", options.business) : OUTPUT;
   const sheetPrefix = options.proof ? "piricard-a4-proof" : "piricard-a4";
   const slotOffset = options.proof ? 3 : 0; // three centered slots on the A4 proof
   const stage = path.join(ROOT, ".cache/piricard-print", String(Date.now()));
@@ -142,16 +156,20 @@ export async function generateCards(options: CardOptions) {
     const files: Record<string, string> = {};
     for (const side of ["front", "back"] as const) {
       const artwork = side === "front" ? front : back;
-      for (const ext of ["svg", "pdf", "png"]) files[`${side}${ext.toUpperCase()}`] = `${business.slug}/${business.slug}-${side}.${ext}`;
+      for (const ext of ["svg", "png"]) files[`${side}${ext.toUpperCase()}`] = `${business.slug}/${business.slug}-${side}.${ext}`;
+      if (!options.sheet) files[`${side}PDF`] = `${business.slug}/${business.slug}-${side}.pdf`;
       await writeFile(path.join(deliver, files[`${side}SVG`]), artwork.svg);
-      await writeVectorPdf([artwork.svg], path.join(deliver, files[`${side}PDF`]));
-      await verifyPdfBoxes(path.join(deliver, files[`${side}PDF`]));
+      const sidePdf = options.sheet ? path.join(qa, `${business.slug}-${side}.pdf`) : path.join(deliver, files[`${side}PDF`]);
+      await writeVectorPdf([artwork.svg], sidePdf);
+      await verifyPdfBoxes(sidePdf);
       await sharp(Buffer.from(roundedPreview(artwork))).resize(mmToPx(CARD.width), mmToPx(CARD.height)).withMetadata({ density: 300 }).png().toFile(path.join(deliver, files[`${side}PNG`]));
     }
     const checks = await validateComposedSvg(back.svg, assets.qr.url);
-    const frontPdf = await renderPdf(path.join(deliver, files.frontPDF), path.join(qa, `${business.slug}-front-pdf`));
+    const frontPdfSource = options.sheet ? path.join(qa, `${business.slug}-front.pdf`) : path.join(deliver, files.frontPDF);
+    const backPdfSource = options.sheet ? path.join(qa, `${business.slug}-back.pdf`) : path.join(deliver, files.backPDF);
+    const frontPdf = await renderPdf(frontPdfSource, path.join(qa, `${business.slug}-front-pdf`));
     const frontRenderError = await verifyPdfAppearance(front.svg, frontPdf);
-    const backPdf = await renderPdf(path.join(deliver, files.backPDF), path.join(qa, `${business.slug}-back-pdf`));
+    const backPdf = await renderPdf(backPdfSource, path.join(qa, `${business.slug}-back-pdf`));
     await decodeImage(backPdf, assets.qr.url, "PDF back full card 300 dpi");
     await decodeImage(backPdf, assets.qr.url, "PDF back composed QR region 300 dpi", qrPixelRegion());
     await verifyPlacedQr(backPdf, assets.officialQr, assets.qr.modules, { x: CARD.bleed + QR_RECT.x, y: CARD.bleed + QR_RECT.y });
@@ -175,8 +193,8 @@ export async function generateCards(options: CardOptions) {
     console.log(`PASS ${business.name} | SVG + PDF + rounded preview | ${assets.qr.url}`);
   }
 
-  const instances = businesses.flatMap((business) => Array.from({ length: options.copies }, () => business.slug));
-  const compactPrefix = options.proof ? "piricard-print-a4-proof" : "piricard-print-a4-final";
+  const instances = options.sheet ?? businesses.flatMap((business) => Array.from({ length: options.copies }, () => business.slug));
+  const compactPrefix = options.sheet ? "PiriCards-A4-Print-Final" : options.proof ? "piricard-print-a4-proof" : "piricard-print-a4-final";
   const compactPages: string[] = [];
   const compactPlacements = [];
   for (let start = 0; start < instances.length; start += COMPACT.rows) {
@@ -291,7 +309,8 @@ export async function generateCards(options: CardOptions) {
   }
   await indexFiles(deliver);
   const manifest = {
-    schemaVersion: 3, designVersion: "final-nfc-reference-v3", generatedAt: new Date().toISOString(), scope: options.proof ? "three-business-proof" : options.business ?? "all-published", copiesPerBusiness: options.copies,
+    schemaVersion: 3, designVersion: "final-nfc-reference-v3", generatedAt: new Date().toISOString(), scope: options.sheet ? "custom-single-sided-sheet" : options.proof ? "three-business-proof" : options.business ?? "all-published", copiesPerBusiness: options.copies,
+    sheet: options.sheet ? { businesses: options.sheet } : undefined,
     proof: options.proof ? { businesses: options.proof, frontCount: 3, backCount: 3, totalArtworks: 6, finishedDuplexCards: 3, sixUp: `${sheetPrefix}-six-up.pdf` } : undefined,
     colorSpace: "RGB (DeviceRGB PDF; sRGB raster logos). No CMYK conversion, ICC output intent or PDF/X claim.",
     text: "Outlined from local Manrope Regular/Bold. No font substitution. Minimum 7.5 pt.",

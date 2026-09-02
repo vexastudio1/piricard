@@ -8,9 +8,10 @@ describe("business lookup", () => {
     expect(business?.name).toBe("Boi na Brasa");
     expect(business?.layoutVariant).toBe("restaurant");
     expect(business?.assets.qrCode).toBe("/piricard-qrs/boi-na-brasa.png");
+    expect(business?.contact.whatsapp).toBe("+351962874230");
     expect(business?.externalLinks?.delivery).toContain("glovoapp.com");
     expect(business?.externalLinks?.collection).toContain("toogoodtogo.com");
-    expect(business?.externalLinks?.tripAdvisor).toBeUndefined();
+    expect(business?.externalLinks?.tripAdvisor).toBe("https://www.tripadvisor.pt/UserReviewEdit-g656858-d34606735-Restaurante_Boi_na_Brasa-Torres_Vedras_Lisbon_District_Central_Portugal.html");
   });
   it("resolves the OFT Racing profile", () => {
     const business = getBusinessBySlug("oft-racing");
@@ -32,6 +33,14 @@ describe("business lookup", () => {
     expect(business?.location?.streetAddress).toBe("Rua Serpa Pinto 9A");
     expect(business?.reviewUrl).toBeUndefined();
   });
+  it("resolves the intentionally minimal PiriLight profile", () => {
+    const business = getBusinessBySlug("pirilight");
+    expect(business?.name).toBe("PiriLight");
+    expect(business?.assets.logo).toBe("/brand/pirilight-symbol.png");
+    expect(business?.assets.printLogo).toBe("/brand/piricard-symbol.svg");
+    expect(business?.contact).toEqual({});
+    expect(business?.indexable).toBe(false);
+  });
   it("rejects malformed and unknown slugs", () => {
     expect(isValidSlug("Auto Formigal")).toBe(false);
     expect(getBusinessBySlug("../autoformigal")).toBeUndefined();
@@ -43,7 +52,7 @@ describe("business lookup", () => {
   });
   it("exposes only published businesses in the directory", () => {
     expect(getPublishedBusinesses().every((business) => business.published)).toBe(true);
-    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "beauty-connection-360", "boi-na-brasa", "oft-racing"]);
+    expect(getPublishedBusinesses().map((business) => business.slug)).toEqual(["autoformigal", "beauty-connection-360", "boi-na-brasa", "oft-racing", "pirilight"]);
   });
   it("keeps unconfirmed fields optional", () => {
     const business = getBusinessBySlug("autoformigal");

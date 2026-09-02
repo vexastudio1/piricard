@@ -18,6 +18,13 @@ const QUIET_ZONE = 4;
 const MANIFEST = "piricard-qrs.json";
 const hash = (value: string | Buffer) => createHash("sha256").update(value).digest("hex");
 
+/** Preserve the established slug filenames while honoring PiriLight's
+ * explicitly named permanent print master. */
+export function qrAssetStem(slug: string): string {
+  if (!isValidSlug(slug)) throw new Error(`Unsafe business slug: ${slug}`);
+  return slug === "pirilight" ? "pirilight-qr" : slug;
+}
+
 export function productionProfileUrl(slug: string): string {
   if (!isValidSlug(slug)) throw new Error(`Unsafe business slug: ${slug}`);
   const canonical = new URL(getCanonicalProfileUrl(slug));
@@ -157,8 +164,9 @@ export async function generate(verify = false) {
       }
     }
     if (!accepted) throw new Error(`${business.slug}: ${failures.join("; ")}`);
-    const filename = `${business.slug}.svg`;
-    const pngFilename = `${business.slug}.png`;
+    const stem = qrAssetStem(business.slug);
+    const filename = `${stem}.svg`;
+    const pngFilename = `${stem}.png`;
     const png = await sharp(Buffer.from(accepted.svg)).png().toBuffer();
     files.set(filename, accepted.svg);
     files.set(pngFilename, png);

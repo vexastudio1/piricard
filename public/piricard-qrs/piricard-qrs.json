@@ -106,5 +106,32 @@
       "rotate-270",
       "mild-blur"
     ]
+  },
+  {
+    "business": "PiriLight",
+    "slug": "pirilight",
+    "url": "https://card.pirilight.pt/pirilight",
+    "qr": "pirilight-qr.svg",
+    "png": "pirilight-qr.png",
+    "validated": true,
+    "decoded": "https://card.pirilight.pt/pirilight",
+    "errorCorrectionLevel": "H",
+    "version": 5,
+    "modules": 37,
+    "quietZoneModules": 4,
+    "logoAreaModules": 7,
+    "symbol": "/brand/piricard-symbol.svg",
+    "symbolSha256": "12fd5d125ec6d84ef4c7da0e4d30d6e1cb03a8c0ebd89c2de83f8bfd40951dfd",
+    "svgSha256": "dda7a21a4247237b966188c74f909f2d5dd370f3c93f102dc3a60ae3af6f31d4",
+    "validationChecks": [
+      "4px-per-module",
+      "8px-per-module",
+      "16px-per-module",
+      "300px-noninteger-scale",
+      "rotate-90",
+      "rotate-180",
+      "rotate-270",
+      "mild-blur"
+    ]
   }
 ]

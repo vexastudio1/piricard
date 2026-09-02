@@ -17,6 +17,8 @@ O gerador `scripts/generate-piricard-qrs.ts` lê `getPublishedBusinesses()` e
 `getBusinessSlugs()` de `lib/businesses.ts`, a mesma fonte da rota `app/[slug]`.
 Adicionar e publicar um negócio nessa fonte e executar o comando é suficiente.
 Não existe uma segunda lista de negócios. Perfis não publicados não são exportados.
+O perfil PiriLight usa os nomes pedidos `pirilight-qr.svg` e
+`pirilight-qr.png`; os restantes masters mantêm o nome igual ao slug.
 
 O caminho canónico vem de `getCanonicalProfileUrl()` de `lib/site.ts`, mas a origem
 de impressão está deliberadamente fixa em `https://card.pirilight.pt`: variáveis

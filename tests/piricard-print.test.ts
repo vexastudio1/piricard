@@ -59,8 +59,16 @@ describe("reusable print inputs", () => {
     expect(parseOptions([])).toEqual({ copies: 1 });
     expect(parseOptions(["--business=oft-racing", "--copies=10"])).toEqual({ business: "oft-racing", copies: 10 });
   });
+  it("supports an ordered compact sheet with intentional duplicates", () => {
+    const options = parseOptions(["--sheet=boi-na-brasa,boi-na-brasa,oft-racing,pirilight"]);
+    expect(options.sheet).toEqual(["boi-na-brasa", "boi-na-brasa", "oft-racing", "pirilight"]);
+    expect(selectBusinesses(options).map((business) => business.slug)).toEqual(["boi-na-brasa", "oft-racing", "pirilight"]);
+  });
   it.each(["--business=../admin", "--copies=0", "--copies=1.5", "--copies=101", "--unknown=1"])("rejects invalid CLI options: %s", (arg) => {
     expect(() => parseOptions([arg])).toThrow();
+  });
+  it.each(["--sheet=", "--sheet=a,b,c,d,e", "--sheet=a,../b", "--sheet=a --copies=2"])("rejects invalid sheet options: %s", (input) => {
+    expect(() => parseOptions(input.split(" "))).toThrow();
   });
 
   it("uses actual approved assets and checks every business's physical text bounds", async () => {
@@ -84,6 +92,11 @@ describe("reusable print inputs", () => {
       expect(front.svg).not.toContain("reference.png");
       expect(front.svg.match(/<image\b/g)?.length ?? 0).toBe(assets.logo.dataUri ? 1 : 0);
       if (assets.logo.dataUri) expect(front.svg).toContain(`href="${assets.logo.dataUri}"`);
+      if (business.slug === "pirilight") {
+        expect(assets.logo.source).toBe("/brand/piricard-symbol.svg");
+        expect(assets.logo.svg).toContain("#4f8ffb");
+        expect(front.svg).toContain('viewBox="0 0 1159.4398 1106.7207"');
+      }
       expect(back.svg).not.toContain("<image");
       for (const box of [...front.boxes, ...back.boxes]) {
         expect(() => assertSafe(box, box.label)).not.toThrow();
