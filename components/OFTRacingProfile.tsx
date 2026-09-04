@@ -363,10 +363,12 @@ export function OFTRacingProfile({ business }: { business: Business }) {
       <OFTStickyBar
         className={styles.stickyBar}
         whatsappClassName={styles.whatsappFab}
+        qrClassName={styles.stickyQr}
+        phoneClassName={styles.stickyPhone}
         businessName={business.name}
         phoneHref={phoneHref}
-        mapsHref={mapsHref}
         whatsappHref={whatsappHref}
+        qrCodeSrc={business.assets.qrCode}
       />
     </main>
   );

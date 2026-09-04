@@ -330,34 +330,35 @@
 .footer > span { font-size: 11px; --brand-mark-color: var(--bc-gold); }
 .footer > span > span > span { color: var(--bc-gold-light); }
 
-/* Same structure as OFTRacingProfile's .stickyBar/.whatsappFab: a two-item
-   bottom bar (equal-width grid columns, not flex, so both actions balance
-   exactly) plus a separate floating WhatsApp button positioned above it via
-   the shared action height. Same scroll-reveal interaction (useScrollReveal), same
-   entrance animation shape as OFT — only the colors/typography are Beauty's. */
-.stickyBar { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; padding: 8px 12px; background: rgba(248, 244, 236, .96); box-shadow: 0 -1px 0 rgba(28, 24, 21, .12), 0 -10px 30px rgba(28, 24, 21, .08); backdrop-filter: blur(10px); animation: bcBarIn 220ms ease; }
-.stickyBar > div { width: min(100%, 936px); margin-inline: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-/* min-width: 0 on the grid item + overflow/ellipsis on both the link and its
-   label is what stops long labels from escaping the button at narrow widths;
-   the fixed min-height + horizontal padding keeps both buttons a comfortable,
-   equal touch target regardless of which one has more text. */
+/* Bottom bar geometry matched to BoiNaBrasaProfile's reference implementation:
+   same position/z-index/padding/radius/height/gap/icon-size/typography/shadow
+   formula and no-blur gradient fade. .stickyGold keeps its pre-existing Ligar
+   color (unchanged); the second button (previously "Como chegar", now QR
+   Code — .stickyCall keeps its old name to avoid an unrelated prop-name
+   churn) goes to a neutral white/cream like Boi's own QR button. */
+.stickyBar { position: fixed; z-index: 40; inset: auto 0 0; padding: 10px 12px; background: linear-gradient(to top, rgba(248, 244, 236, .98), rgba(248, 244, 236, .72)); animation: bcBarIn 220ms ease; }
+.stickyBar > div { width: min(100%, 520px); margin-inline: auto; display: flex; gap: 8px; }
+/* min-width: 0 + overflow/ellipsis on the label is what stops long labels
+   from escaping the button at narrow widths; flex: 1 keeps both buttons an
+   equal, comfortable touch target regardless of which has more text. */
 .page .stickyGold, .page .stickyCall {
-  min-width: 0; min-height: var(--profile-action-button-height);
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  border-radius: 13px; padding: 0 14px;
-  font-size: 13.5px; font-weight: 700;
+  min-width: 0; min-height: 54px; flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  border: 0; border-radius: 11px; padding: 0 14px; cursor: pointer;
+  font-size: 14.5px; font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(28, 24, 21, .14), 0 8px 20px -12px rgba(28, 24, 21, .5);
   transition: transform 160ms ease;
 }
-.page .stickyGold svg, .page .stickyCall svg { flex: none; width: 18px; height: 18px; stroke-width: 2; }
+.page .stickyGold svg, .page .stickyCall svg { flex: none; width: 19px; height: 19px; stroke-width: 2; }
 .page .stickyGold span, .page .stickyCall span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.page .stickyGold { background: var(--bc-gold); color: var(--bc-ink); }
-.page .stickyCall { background: var(--bc-charcoal); color: #fdfbf7; }
+.page .stickyGold { background: var(--bc-gold); color: var(--bc-ink); box-shadow: 0 8px 20px -10px rgba(28, 24, 21, .5); }
+.page .stickyCall { background: var(--bc-cream); color: var(--bc-ink); }
 
-/* Floating WhatsApp — same recipe as OFT's .whatsappFab (size, shadow
+/* Floating WhatsApp — same recipe as Boi's .stickyWhatsapp (size, shadow
    formula, corner position, shared offset above the bar), in
    WhatsApp's own recognizable green rather than a Beauty-tinted color. */
 .page .stickyWhatsapp {
-  position: fixed; z-index: 70; right: 16px;
+  position: fixed; z-index: 41; right: 16px;
   width: 52px; height: 52px;
   display: grid; place-items: center;
   border-radius: 50%;

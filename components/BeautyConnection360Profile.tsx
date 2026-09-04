@@ -302,10 +302,11 @@ export function BeautyConnection360Profile({ business }: { business: Business })
         className={styles.stickyBar}
         whatsappClassName={styles.stickyWhatsapp}
         phoneClassName={styles.stickyGold}
-        mapsClassName={styles.stickyCall}
+        qrClassName={styles.stickyCall}
+        businessName={business.name}
         phoneHref={phoneHref}
-        mapsHref={mapsHref}
         whatsappHref={whatsappHref}
+        qrCodeSrc={business.assets.qrCode}
       />
     </main>
   );

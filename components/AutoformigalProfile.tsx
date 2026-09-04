@@ -364,10 +364,12 @@ export function AutoformigalProfile({ business }: { business: Business }) {
       <AutoformigalStickyBar
         className={styles.stickyBar}
         whatsappClassName={styles.whatsappFab}
+        qrClassName={styles.stickyQr}
+        phoneClassName={styles.stickyPhone}
         businessName={business.name}
         phoneHref={phoneHref}
-        mapsHref={mapsHref}
         whatsappHref={whatsappHref}
+        qrCodeSrc={business.assets.qrCode}
       />
     </main>
   );

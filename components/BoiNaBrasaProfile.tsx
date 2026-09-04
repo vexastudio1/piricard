@@ -52,6 +52,9 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
   const phoneHref = getPhoneHref(business.contact.phone) ?? "tel:+351261063480";
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address) ?? directionsUrl;
   const reviewHref = business.reviewUrl ?? mapsHref;
+  // Direct Google review composer (1–5 stars + text field) — distinct from
+  // reviewHref above, which stays the "read existing reviews" destination.
+  const reviewWriteHref = getSafeExternalUrl(business.reviewWriteUrl) ?? reviewHref;
   const whatsappHref = getWhatsAppHref(business.contact.whatsapp ?? business.contact.phone);
   const tripAdvisorHref = getSafeExternalUrl(business.externalLinks?.tripAdvisor);
   const deliveryUrl = getSafeExternalUrl(business.externalLinks?.delivery);
@@ -118,7 +121,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
         <nav className={styles.quickActions} aria-label="Ações rápidas">
           <a className={styles.actionDark} href={phoneHref}><strong>Ligar</strong><small>261 063 480</small><Phone aria-hidden="true" /></a>
           <ExternalLink className={styles.actionDirections} href={directionsUrl}><strong>Como chegar</strong><small>Google Maps</small><Navigation aria-hidden="true" /></ExternalLink>
-          <ExternalLink className={styles.actionReview} href={reviewHref} ariaLabel={`Deixar uma avaliação da ${business.name} no Google`}>
+          <ExternalLink className={styles.actionReview} href={reviewWriteHref} ariaLabel={`Deixar uma avaliação da ${business.name} no Google`}>
             <strong>Deixar avaliação</strong><small>Google</small><Star aria-hidden="true" />
           </ExternalLink>
           {tripAdvisorHref ? (
@@ -195,7 +198,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
               <ul>{praise.map((item) => <li key={item}>{item}</li>)}</ul>
               <div className={styles.secondaryRatings}><span><strong>100 %</strong><small>recomendam na Glovo · 16</small></span><span><strong>4,8</strong><small>Too Good To Go</small></span></div>
               <div className={styles.reviewActions}>
-                <ExternalLink className={styles.reviewWriteCta} href={reviewHref} ariaLabel={`Deixar uma avaliação do ${business.name} no Google`}>
+                <ExternalLink className={styles.reviewWriteCta} href={reviewWriteHref} ariaLabel={`Deixar uma avaliação do ${business.name} no Google`}>
                   <Star aria-hidden="true" size={16} /> Deixar uma avaliação no Google
                 </ExternalLink>
                 <ExternalLink className={styles.reviewLink} href={reviewHref}>Ler as avaliações no Google <ChevronRight aria-hidden="true" size={15} /></ExternalLink>

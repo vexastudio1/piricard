@@ -1,36 +1,34 @@
 "use client";
 
-import { MessageCircle, Navigation, Phone } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
+import { PiriCardQrAction } from "@/components/PiriCardQrAction";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface BeautyStickyBarProps {
   className: string;
   whatsappClassName: string;
+  qrClassName: string;
   phoneClassName: string;
-  mapsClassName: string;
+  businessName: string;
   phoneHref?: string;
-  mapsHref?: string;
   whatsappHref?: string;
+  qrCodeSrc?: string;
 }
 
-// Same structure as OFTStickyBar: a two-item bottom bar plus a separate
-// floating WhatsApp button positioned above it, sharing one scroll-reveal
-// state (useScrollReveal, same 64px threshold) so everything appears and
-// disappears together. Only the content/labels and Beauty's own visual
-// system differ from OFT's version.
-//
-// Ligar + Como chegar (not "Marcar consulta") — the sticky bar is for the
-// two highest-frequency, lowest-friction actions once someone has scrolled
-// past the main CTA grid; "Marcar consulta" stays there, at the top, as the
-// primary conversion action.
+// Same pattern as BoiNaBrasaStickyBar (the reference implementation): QR Code
+// on the left (PiriCardQrAction — the same shared QR modal every profile
+// already uses, pointed at Beauty Connection 360's own QR asset) + Ligar on
+// the right, plus an optional floating WhatsApp button, all sharing one
+// scroll-reveal state (useScrollReveal, same 64px threshold) so everything
+// appears and disappears together.
 const REVEAL_AT = 64;
 
-export function BeautyStickyBar({ className, whatsappClassName, phoneClassName, mapsClassName, phoneHref, mapsHref, whatsappHref }: BeautyStickyBarProps) {
+export function BeautyStickyBar({ className, whatsappClassName, qrClassName, phoneClassName, businessName, phoneHref, whatsappHref, qrCodeSrc }: BeautyStickyBarProps) {
   const visible = useScrollReveal(REVEAL_AT);
 
   if (!visible) return null;
 
-  const showBar = Boolean(phoneHref || mapsHref);
+  const showBar = Boolean(phoneHref || qrCodeSrc);
   const showWhatsApp = Boolean(whatsappHref);
   if (!showBar && !showWhatsApp) return null;
 
@@ -44,16 +42,11 @@ export function BeautyStickyBar({ className, whatsappClassName, phoneClassName, 
       {showBar ? (
         <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">
           <div>
+            {qrCodeSrc ? <PiriCardQrAction qrSrc={qrCodeSrc} businessName={businessName} triggerClassName={qrClassName} /> : null}
             {phoneHref ? (
               <a className={phoneClassName} href={phoneHref}>
                 <Phone aria-hidden="true" />
                 <span>Ligar</span>
-              </a>
-            ) : null}
-            {mapsHref ? (
-              <a className={mapsClassName} href={mapsHref} target="_blank" rel="noopener noreferrer">
-                <Navigation aria-hidden="true" />
-                <span>Como chegar</span>
               </a>
             ) : null}
           </div>
