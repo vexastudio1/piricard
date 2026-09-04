@@ -144,21 +144,25 @@ const businesses = {
         aspectRatio: "wide",
       },
       {
+        src: "/clients/autoformigal/gallery/interior-recepcao.png",
         alt: "Interior da oficina Auto Formigal",
         aspectRatio: "square",
         placeholderLabel: "Interior",
       },
       {
+        src: "/clients/autoformigal/gallery/diagnostico-oficina.png",
         alt: "Área de diagnóstico automóvel da Auto Formigal",
         aspectRatio: "square",
         placeholderLabel: "Diagnóstico",
       },
       {
+        src: "/clients/autoformigal/gallery/manutencao-autoformigal.png",
         alt: "Zona de manutenção automóvel da Auto Formigal",
         aspectRatio: "square",
         placeholderLabel: "Manutenção",
       },
       {
+        src: "/clients/autoformigal/gallery/equipa-autoformigal.png",
         alt: "Equipa da oficina Auto Formigal",
         aspectRatio: "landscape",
         placeholderLabel: "Equipa",
