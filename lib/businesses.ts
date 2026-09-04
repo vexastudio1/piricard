@@ -54,7 +54,7 @@ export interface Business {
   gallery?: BusinessGalleryImage[];
   digitalCard?: { path: string; format: "PNG" | "PDF" };
   theme: BusinessTheme;
-  layoutVariant: "editorial" | "compact" | "restaurant" | "racing" | "beauty";
+  layoutVariant: "editorial" | "compact" | "restaurant" | "racing" | "beauty" | "workshop";
 }
 
 export type DirectoryBusiness = Pick<Business, "slug" | "name" | "category" | "directoryDescription"> & {
@@ -91,16 +91,39 @@ const businesses = {
       streetAddress: "Rua do Aranha 19",
       country: "Portugal",
       // A Maps search URL is derived from the confirmed address when needed.
+      // NOTE (checked 04.09.2026): a third-party directory (Guia do Oeste) lists
+      // "Rua do Aranha, 27" and an additional mobile number (917 600 598) for this
+      // business. Neither is confirmed against this project's own source, so this
+      // address/phone are kept as-is rather than silently overwritten — re-verify
+      // directly with the business if this is ever in question.
     },
-    // TODO: Add a confirmed direct Google Reviews URL.
+    // Rating + review count confirmed by the client directly from Auto Formigal's
+    // own Google Business listing (screenshots reviewed 04.09.2026). No per-star
+    // breakdown or specific review quotes were supplied/verifiable alongside
+    // this, so the distribution graph and "Mais elogiado" tags are intentionally
+    // left out rather than invented — see AutoformigalProfile.tsx.
+    // TODO: Add a confirmed direct Google Reviews URL (still falls back to a
+    // Maps address search for "Deixar avaliação" / "Ler avaliações" until one
+    // is provided).
+    reviewSnapshot: { rating: 4.9, count: 77, source: "Google", asOf: "04.09.2026" },
     socialLinks: [
       { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/auto_formigal/" },
       { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/autoformigal" },
     ],
     services: ["Reparação multimarca", "Diagnóstico avançado", "Manutenção automóvel"],
+    // Expanded to one row per weekday (same shape as Boi na Brasa/OFT Racing)
+    // rather than the grouped "Segunda a sexta" range — the underlying hours
+    // are unchanged (still 09:00–18:00 weekdays, 09:00–13:00 Saturday);
+    // Sunday closed per explicit confirmation (an automotive workshop with no
+    // documented Sunday hours), not previously assumed by this project.
     hours: [
-      { label: "Segunda a sexta", days: [1, 2, 3, 4, 5], periods: [{ open: "09:00", close: "18:00" }] },
+      { label: "Segunda", days: [1], periods: [{ open: "09:00", close: "18:00" }] },
+      { label: "Terça", days: [2], periods: [{ open: "09:00", close: "18:00" }] },
+      { label: "Quarta", days: [3], periods: [{ open: "09:00", close: "18:00" }] },
+      { label: "Quinta", days: [4], periods: [{ open: "09:00", close: "18:00" }] },
+      { label: "Sexta", days: [5], periods: [{ open: "09:00", close: "18:00" }] },
       { label: "Sábado", days: [6], periods: [{ open: "09:00", close: "13:00" }] },
+      { label: "Domingo", days: [0], periods: [] },
     ],
     assets: {
       logo: "/clients/autoformigal/logo/autoformigal-approved.jpg",
@@ -150,7 +173,7 @@ const businesses = {
       appearance: "light",
       fontFamily: "modern",
     },
-    layoutVariant: "compact",
+    layoutVariant: "workshop",
   },
   "beauty-connection-360": {
     slug: "beauty-connection-360",

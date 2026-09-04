@@ -1,14 +1,14 @@
 {
   "schemaVersion": 3,
   "designVersion": "final-nfc-reference-v3",
-  "generatedAt": "2026-09-02T16:25:58.194Z",
+  "generatedAt": "2026-09-04T11:52:15.398Z",
   "scope": "custom-single-sided-sheet",
   "copiesPerBusiness": 1,
   "sheet": {
     "businesses": [
       "boi-na-brasa",
       "boi-na-brasa",
-      "oft-racing",
+      "pirilight",
       "pirilight"
     ]
   },
@@ -87,7 +87,7 @@
           }
         },
         {
-          "slug": "oft-racing",
+          "slug": "pirilight",
           "row": 3,
           "front": {
             "x": 10,
@@ -205,147 +205,6 @@
           "width": 17.294225,
           "height": 2.3495,
           "label": "Boi na Brasa",
-          "fontPt": 9
-        },
-        {
-          "x": 20.65,
-          "y": 48.25,
-          "width": 12.45,
-          "height": 10.2,
-          "label": "NFC phone and contactless waves"
-        },
-        {
-          "x": 11.84713736111111,
-          "y": 61.526183333333336,
-          "width": 30.25785583333333,
-          "height": 2.2156208333333334,
-          "label": "Encosta o teu telemóvel",
-          "fontPt": 7.9
-        },
-        {
-          "x": 17.11045833333333,
-          "y": 65.6553125,
-          "width": 19.78421875,
-          "height": 2.5796875,
-          "label": "para abrir a ficha",
-          "fontPt": 7.5
-        },
-        {
-          "x": 17.08125590277778,
-          "y": 74.6,
-          "width": 5.8,
-          "height": 5.8,
-          "label": "PiriCard symbol"
-        },
-        {
-          "x": 24.915853125000005,
-          "y": 76.63672916666665,
-          "width": 11.748293749999998,
-          "height": 2.5135416666666663,
-          "label": "PiriCard",
-          "fontPt": 9.5
-        }
-      ],
-      "backContentBoundsMm": [
-        {
-          "x": 9.989999999999998,
-          "y": 13.5,
-          "width": 34,
-          "height": 34,
-          "label": "Official QR (including quiet zone)"
-        },
-        {
-          "x": 20.087109027777778,
-          "y": 59.855868055555554,
-          "width": 13.96805972222222,
-          "height": 3.2049861111111104,
-          "label": "Lê o QR",
-          "fontPt": 11.5
-        },
-        {
-          "x": 16.503398333333333,
-          "y": 66.80135,
-          "width": 20.890653333333333,
-          "height": 1.939925,
-          "label": "ou encosta o teu",
-          "fontPt": 7.8
-        },
-        {
-          "x": 14.949394583333333,
-          "y": 70.75370000000001,
-          "width": 23.998660833333332,
-          "height": 2.187575,
-          "label": "telemóvel com NFC",
-          "fontPt": 7.8
-        }
-      ]
-    },
-    {
-      "business": "OFT Racing Shop",
-      "slug": "oft-racing",
-      "url": "https://card.pirilight.pt/oft-racing",
-      "accent": "#c2301a",
-      "cardSize": {
-        "widthMm": 53.98,
-        "heightMm": 85.6
-      },
-      "cornerRadiusMm": 3.18,
-      "bleedMm": 3,
-      "safeAreaMm": 5,
-      "artworkSizeMm": {
-        "width": 59.98,
-        "height": 91.6
-      },
-      "qrSizeMm": 34,
-      "qrPositionMm": {
-        "x": 9.989999999999998,
-        "y": 13.5,
-        "width": 34,
-        "height": 34
-      },
-      "logo": "/clients/oft-racing/logo.png",
-      "logoEffectiveDpi": 1305,
-      "qr": "/piricard-qrs/oft-racing.svg",
-      "qrSha256": "76726125bd20865abbf6473a17832e064f1626b91ac5f23156129ed5ac33091c",
-      "qrSide": "back",
-      "qrValidated": true,
-      "cardQrValidated": true,
-      "decoded": "https://card.pirilight.pt/oft-racing",
-      "validationChecks": [
-        "svg-full-card-300dpi",
-        "svg-full-card-150dpi",
-        "pdf-back-full-card-300dpi",
-        "pdf-back-qr-region-300dpi",
-        "pdf-34mm-module-grid",
-        "svg-pdf-front-back-appearance",
-        "rounded-back-preview-300dpi",
-        "compact-a4-90deg-qr-grid-300dpi"
-      ],
-      "svgPdfMeanChannelError": {
-        "front": 1.456,
-        "back": 2.003
-      },
-      "files": {
-        "frontSVG": "oft-racing/oft-racing-front.svg",
-        "frontPNG": "oft-racing/oft-racing-front.png",
-        "backSVG": "oft-racing/oft-racing-back.svg",
-        "backPNG": "oft-racing/oft-racing-back.png",
-        "preview": "oft-racing/oft-racing-preview.png"
-      },
-      "frontContentBoundsMm": [
-        {
-          "x": 15.489999999999998,
-          "y": 17.655329949238578,
-          "width": 23,
-          "height": 8.289340101522843,
-          "label": "Business logo"
-        },
-        {
-          "x": 14.81149375,
-          "y": 40.366375000000005,
-          "width": 24.325262499999997,
-          "height": 3.1432499999999997,
-          "label": "OFT Racing Shop",
           "fontPt": 9
         },
         {
@@ -569,16 +428,11 @@
     "boi-na-brasa/boi-na-brasa-front.png": "0bad26cce617f04358cefbae0e35f6e5474bcc448f74a603fd063d09fceecf03",
     "boi-na-brasa/boi-na-brasa-front.svg": "a0d4c5f08014c47c427b45e3e05542c07d6dad04191eda61211a4e8b234ada24",
     "boi-na-brasa/boi-na-brasa-preview.png": "72ddee1a706d439d75640522a65233359c3342c157b51106068d3de823c9ea80",
-    "oft-racing/oft-racing-back.png": "07d3d644592e578198432b5bfc45f78a79c010042763d94ce10105c1355375fa",
-    "oft-racing/oft-racing-back.svg": "3530c94a1f60d990ebe06dcf4b9b70785e0399915c72aba7edd9cd61df2c14ff",
-    "oft-racing/oft-racing-front.png": "3121bc7fb57242ac8273c053dbd94ee29d202c44ab375f67fd1a4761b20c8970",
-    "oft-racing/oft-racing-front.svg": "f79649bd5fef7031c665a8fdc48e5ab71fc416753c2fdf8558855c1d2d7c9982",
-    "oft-racing/oft-racing-preview.png": "cb575d18afc3fa8d973e49ed91b6594b8e06cdf82b08aca115398db679eab949",
-    "piricard-collection-preview.png": "d8a3f37587ba1d1d6ffe0935d6768a87eccdac10b9794a6580c0f993edf4ea09",
+    "piricard-collection-preview.png": "7e9336ebd300de339ff2b9185ac604bde40e420456df14637b89ff998a0e0826",
     "piricard-cr80-cut-guide.svg": "50ce16b06cce114f9afacd03194aa53a73bb50c9a85ca28d3a941494408b9af8",
-    "PiriCards-A4-Print-Final-preview.png": "4f3621771e4b688a6805f8cd732a4eea0be22996de1f6b822da79a9739f969b2",
-    "PiriCards-A4-Print-Final.pdf": "66d6db82cef58f7556034f53cf216ec8efe04725f69722055ca480a200a536bd",
-    "PiriCards-A4-Print-Final.svg": "dc2ed69d3ded4d6a5df41deacb5a2680bfed3552348a20efc92577c8eac444ba",
+    "PiriCards-A4-Print-Final-preview.png": "f409157a73802ff565352d99c2651b6fb7a85e674a5d252bc0a7261e6620d8c0",
+    "PiriCards-A4-Print-Final.pdf": "1fb86f0a6049f681974a6e9cc35a34f7300ce1e46ecf54b3c3a0bfa34b6edb8e",
+    "PiriCards-A4-Print-Final.svg": "18d16c1860782bd97f960bd314e06a98392d4c53431b75bccf393e4b38e1c705",
     "pirilight/pirilight-back.png": "5f7952276dc3806e1d4a0ca5efcbc5df9e41c7fdda9107f38e35774fa2257858",
     "pirilight/pirilight-back.svg": "d260bcef53832832e0c56c70f1326286e81beb2555f9d6a087e64481c85b6534",
     "pirilight/pirilight-front.png": "ec8baf530e56a6c4ba8ecba6b7fc3bc6799280eccede77189dce5007bb3d5930",

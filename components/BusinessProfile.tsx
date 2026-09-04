@@ -17,6 +17,7 @@ import {
 import type { CSSProperties, ReactNode } from "react";
 import { ContactDownloadButton } from "@/components/ContactDownloadButton";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
+import { AutoformigalProfile } from "@/components/AutoformigalProfile";
 import { BoiNaBrasaProfile } from "@/components/BoiNaBrasaProfile";
 import { OFTRacingProfile } from "@/components/OFTRacingProfile";
 import { BeautyConnection360Profile } from "@/components/BeautyConnection360Profile";
@@ -223,6 +224,10 @@ export function BusinessProfile({ business }: { business: Business }) {
 
   if (business.layoutVariant === "beauty") {
     return <BeautyConnection360Profile business={business} />;
+  }
+
+  if (business.layoutVariant === "workshop") {
+    return <AutoformigalProfile business={business} />;
   }
 
   const canonicalUrl = getCanonicalProfileUrl(business.slug);
