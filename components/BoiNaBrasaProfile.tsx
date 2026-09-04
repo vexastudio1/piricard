@@ -17,7 +17,7 @@ const essentialInformation = [
   { label: "Telefone e reservas", value: "+351 261 063 480", note: "reservas por telefone · grupos bem-vindos", href: "tel:+351261063480" },
   { label: "Morada", value: "Rua 1.º de Dezembro 5", note: "2560-300 Torres Vedras · centro da cidade" },
   { label: "Preço médio", value: "10–15 € por pessoa", note: "indicado no Google por 47 pessoas" },
-  { label: "Cozinha", value: "Grelhados luso-brasileiros", note: "petiscos, sandes e pizzas" },
+  { label: "Cozinha", value: "Grelhados luso-brasileiros", note: "petiscos, sandes e salgados" },
 ] as const;
 
 const mains = [
@@ -160,7 +160,7 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
 
         <section className={styles.about} aria-labelledby="about-heading">
           <h2 id="about-heading">O restaurante</h2>
-          <p>O Boi na Brasa é um restaurante e café de ambiente casual, na Rua 1.º de Dezembro, em pleno centro de Torres Vedras. A ementa cruza grelhados como picanha, maminha, bitoque e febras com acompanhamentos de inspiração brasileira, sandes, salgados e pizzas.</p>
+          <p>O Boi na Brasa é um restaurante e café de ambiente casual, na Rua 1.º de Dezembro, em pleno centro de Torres Vedras. A ementa cruza grelhados como picanha, maminha, bitoque e febras com acompanhamentos de inspiração brasileira, sandes e salgados.</p>
           <p>Para comer no local, levar ou pedir online, a proposta é simples: comida reconfortante, esplanada no centro da cidade e serviço próximo, sem formalidades.</p>
         </section>
 

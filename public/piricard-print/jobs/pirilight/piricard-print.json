@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 3,
+  "designVersion": "final-nfc-reference-v3",
+  "generatedAt": "2026-09-04T21:19:55.330Z",
+  "scope": "pirilight",
+  "copiesPerBusiness": 1,
+  "colorSpace": "RGB (DeviceRGB PDF; sRGB raster logos). No CMYK conversion, ICC output intent or PDF/X claim.",
+  "text": "Outlined from local Manrope Regular/Bold. No font substitution. Minimum 7.5 pt.",
+  "compactSheet": {
+    "pdf": "piricard-print-a4-final.pdf",
+    "paperMm": {
+      "width": 210,
+      "height": 297
+    },
+    "columns": 2,
+    "rowsPerPage": 4,
+    "pieces": 2,
+    "pageCount": 1,
+    "rotationDegrees": 90,
+    "printSides": "single-sided",
+    "scale": "100% / actual size; disable fit/shrink",
+    "cutSizeMm": {
+      "width": 85.6,
+      "height": 53.98
+    },
+    "bleedMm": 0.5,
+    "cutGapMm": 4,
+    "cornerRadiusMm": 3.18,
+    "blankAreas": [
+      {
+        "blankFromMm": 65.83,
+        "blankHeightMm": 231.17000000000002
+      }
+    ],
+    "pages": [
+      [
+        {
+          "slug": "pirilight",
+          "row": 1,
+          "front": {
+            "x": 10,
+            "y": 10,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "back": {
+            "x": 99.6,
+            "y": 10,
+            "width": 85.6,
+            "height": 53.98
+          },
+          "qr": {
+            "x": 137.7,
+            "y": 19.99,
+            "width": 34,
+            "height": 34
+          }
+        }
+      ]
+    ],
+    "validated": true
+  },
+  "sheets": {
+    "primary": "piricard-print-a4-final.pdf",
+    "validated": true
+  },
+  "businesses": [
+    {
+      "business": "PiriLight",
+      "slug": "pirilight",
+      "url": "https://card.pirilight.pt/pirilight",
+      "accent": "#8fe0ff",
+      "cardSize": {
+        "widthMm": 53.98,
+        "heightMm": 85.6
+      },
+      "cornerRadiusMm": 3.18,
+      "bleedMm": 3,
+      "safeAreaMm": 5,
+      "artworkSizeMm": {
+        "width": 59.98,
+        "height": 91.6
+      },
+      "qrSizeMm": 34,
+      "qrPositionMm": {
+        "x": 9.989999999999998,
+        "y": 13.5,
+        "width": 34,
+        "height": 34
+      },
+      "logo": "/brand/piricard-symbol.svg",
+      "logoEffectiveDpi": "vector",
+      "qr": "/piricard-qrs/pirilight-qr.svg",
+      "qrSha256": "dda7a21a4247237b966188c74f909f2d5dd370f3c93f102dc3a60ae3af6f31d4",
+      "qrSide": "back",
+      "qrValidated": true,
+      "cardQrValidated": true,
+      "decoded": "https://card.pirilight.pt/pirilight",
+      "validationChecks": [
+        "svg-full-card-300dpi",
+        "svg-full-card-150dpi",
+        "pdf-back-full-card-300dpi",
+        "pdf-back-qr-region-300dpi",
+        "pdf-34mm-module-grid",
+        "svg-pdf-front-back-appearance",
+        "rounded-back-preview-300dpi",
+        "compact-a4-90deg-qr-grid-300dpi"
+      ],
+      "svgPdfMeanChannelError": {
+        "front": 1.126,
+        "back": 2.153
+      },
+      "files": {
+        "frontSVG": "pirilight/pirilight-front.svg",
+        "frontPNG": "pirilight/pirilight-front.png",
+        "frontPDF": "pirilight/pirilight-front.pdf",
+        "backSVG": "pirilight/pirilight-back.svg",
+        "backPNG": "pirilight/pirilight-back.png",
+        "backPDF": "pirilight/pirilight-back.pdf",
+        "preview": "pirilight/pirilight-preview.png"
+      },
+      "frontContentBoundsMm": [
+        {
+          "x": 15.489999999999998,
+          "y": 10.815962036238137,
+          "width": 23,
+          "height": 21.968075927523728,
+          "label": "Business logo"
+        },
+        {
+          "x": 21.240074999999997,
+          "y": 40.398125,
+          "width": 11.6062125,
+          "height": 3.1115,
+          "label": "PiriLight",
+          "fontPt": 9
+        },
+        {
+          "x": 20.65,
+          "y": 48.25,
+          "width": 12.45,
+          "height": 10.2,
+          "label": "NFC phone and contactless waves"
+        },
+        {
+          "x": 11.84713736111111,
+          "y": 61.526183333333336,
+          "width": 30.25785583333333,
+          "height": 2.2156208333333334,
+          "label": "Encosta o teu telemóvel",
+          "fontPt": 7.9
+        },
+        {
+          "x": 17.11045833333333,
+          "y": 65.6553125,
+          "width": 19.78421875,
+          "height": 2.5796875,
+          "label": "para abrir a ficha",
+          "fontPt": 7.5
+        },
+        {
+          "x": 17.08125590277778,
+          "y": 74.6,
+          "width": 5.8,
+          "height": 5.8,
+          "label": "PiriCard symbol"
+        },
+        {
+          "x": 24.915853125000005,
+          "y": 76.63672916666665,
+          "width": 11.748293749999998,
+          "height": 2.5135416666666663,
+          "label": "PiriCard",
+          "fontPt": 9.5
+        }
+      ],
+      "backContentBoundsMm": [
+        {
+          "x": 9.989999999999998,
+          "y": 13.5,
+          "width": 34,
+          "height": 34,
+          "label": "Official QR (including quiet zone)"
+        },
+        {
+          "x": 20.087109027777778,
+          "y": 59.855868055555554,
+          "width": 13.96805972222222,
+          "height": 3.2049861111111104,
+          "label": "Lê o QR",
+          "fontPt": 11.5
+        },
+        {
+          "x": 16.503398333333333,
+          "y": 66.80135,
+          "width": 20.890653333333333,
+          "height": 1.939925,
+          "label": "ou encosta o teu",
+          "fontPt": 7.8
+        },
+        {
+          "x": 14.949394583333333,
+          "y": 70.75370000000001,
+          "width": 23.998660833333332,
+          "height": 2.187575,
+          "label": "telemóvel com NFC",
+          "fontPt": 7.8
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "piricard-collection-preview.png": "553432c2067b1d1371b15fbd7d81ec9fc77ae2f2e560459f686ffcce49c9f5ff",
+    "piricard-cr80-cut-guide.svg": "50ce16b06cce114f9afacd03194aa53a73bb50c9a85ca28d3a941494408b9af8",
+    "piricard-print-a4-final-preview.png": "bddd1ff725624a64020a111fb774152b8fc0ebe31cb35f0f20ed1ac4fee30edf",
+    "piricard-print-a4-final.pdf": "833b77b1059df3b5e6eb5fd4a5aee6102302ff7d49090fd230b26a01cbd6af3a",
+    "piricard-print-a4-final.svg": "4ad8e20e5b50351ecba510720cf3e98c358ec3e9a70c168f4fce5dd0e081cbfc",
+    "pirilight/pirilight-back.pdf": "cb2a6837976a70204e491cf7626955594e0d5a4efa89e72465cfe77427a4b8bf",
+    "pirilight/pirilight-back.png": "5f7952276dc3806e1d4a0ca5efcbc5df9e41c7fdda9107f38e35774fa2257858",
+    "pirilight/pirilight-back.svg": "d260bcef53832832e0c56c70f1326286e81beb2555f9d6a087e64481c85b6534",
+    "pirilight/pirilight-front.pdf": "d9aa4999083864e781e5b3a0d53541377f4c23de6952d5b89c05a06aaa719997",
+    "pirilight/pirilight-front.png": "ec8baf530e56a6c4ba8ecba6b7fc3bc6799280eccede77189dce5007bb3d5930",
+    "pirilight/pirilight-front.svg": "3d3e52bc2c14ad2998924a1057269e38d0bfd1145aa36c4e47f802da907ecc6b",
+    "pirilight/pirilight-preview.png": "9d9f6192c9d3f7d5100b418b8a49ede346bdafa1d3174bef87b6ae78e681e091"
+  }
+}

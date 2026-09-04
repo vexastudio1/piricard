@@ -19,6 +19,14 @@ export default function HomePage() {
         <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">PiriLight Studio</a>
       </header>
       <BusinessDirectory businesses={businesses} />
+      <aside className="directory-owner-cta" aria-labelledby="owner-cta-heading">
+        <div>
+          <p className="eyebrow">Para negócios</p>
+          <h2 id="owner-cta-heading">Quer o seu negócio no PiriCard?</h2>
+          <p>Um perfil digital profissional, acessível através de NFC ou QR Code.</p>
+        </div>
+        <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">Quero um PiriCard</a>
+      </aside>
       <footer className="platform-footer">
         <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">
           <PiriCardBrandMark wordmark={<span>Piri<span>Light</span> Studio</span>} />

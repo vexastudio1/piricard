@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
+import { InteractivePiriCard } from "@/components/InteractivePiriCard";
 import type { DirectoryBusiness } from "@/lib/businesses";
+
+const piricardBenefits = ["Contactos", "Horários", "Localização", "Avaliações", "Serviços", "Redes sociais"] as const;
 
 function normalize(value: string): string {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-PT");
@@ -26,26 +29,45 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
   const filtered = useMemo(() => filterBusinesses(businesses, query), [businesses, query]);
 
   return (
-    <section className="directory" aria-labelledby="directory-heading">
+    <div className="directory">
       <div className="directory-intro">
         <p className="eyebrow">Diretório PiriCard</p>
         <h1 id="directory-heading">Negócios à distância de um toque.</h1>
         <p>Encontre negócios locais de confiança e aceda rapidamente aos contactos de que precisa.</p>
       </div>
 
-      <div className="search-wrap">
-        <label className="sr-only" htmlFor="business-search">Pesquisar por nome, categoria ou localidade</label>
-        <Search aria-hidden="true" size={23} />
-        <input id="business-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Pesquisar por nome, categoria ou localidade" autoComplete="off" />
-        {query && <button type="button" onClick={() => setQuery("")} aria-label="Limpar pesquisa"><X aria-hidden="true" size={18} /><span>Limpar</span></button>}
-      </div>
+      <section className="piricard-explainer" aria-labelledby="piricard-explainer-heading">
+        <div className="piricard-explainer-copy">
+          <p className="eyebrow">O que é um PiriCard?</p>
+          <h2 id="piricard-explainer-heading">Um cartão. Um toque. Tudo o que importa.</h2>
+          <p>Um cartão físico com NFC e QR liga diretamente ao perfil digital do negócio — rápido, simples e sempre acessível.</p>
+          <ul aria-label="Informação disponível num PiriCard">
+            {piricardBenefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
+          </ul>
+        </div>
+        <InteractivePiriCard />
+      </section>
 
-      <div className="result-summary" aria-live="polite">
-        <span>{filtered.length === 1 ? "1 negócio" : `${filtered.length} negócios`}</span>
-        {query && <span>para “{query}”</span>}
-      </div>
+      <section className="directory-discovery" aria-labelledby="business-list-heading">
+        <div className="directory-discovery-heading">
+          <div>
+            <p className="eyebrow">Diretório local</p>
+            <h2 id="business-list-heading">Explorar negócios</h2>
+          </div>
+          <div className="result-summary" aria-live="polite">
+            <span>{filtered.length === 1 ? "1 negócio" : `${filtered.length} negócios`}</span>
+            {query && <span>para “{query}”</span>}
+          </div>
+        </div>
 
-      {filtered.length > 0 ? (
+        <div className="search-wrap">
+          <label className="sr-only" htmlFor="business-search">Pesquisar por nome, categoria ou localidade</label>
+          <Search aria-hidden="true" size={23} />
+          <input id="business-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Pesquisar por nome, categoria ou localidade" autoComplete="off" />
+          {query && <button type="button" onClick={() => setQuery("")} aria-label="Limpar pesquisa"><X aria-hidden="true" size={18} /><span>Limpar</span></button>}
+        </div>
+
+        {filtered.length > 0 ? (
         <div className="business-list">
           {filtered.map((business, index) => (
             <article className="business-row" key={business.slug}>
@@ -66,7 +88,7 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
                 </span>
               </div>
               <div className="business-row-content">
-                <h2>{business.name}</h2>
+                <h3>{business.name}</h3>
                 <div className="business-meta">
                   <span>{business.category}</span>
                   {business.city && <span><MapPin aria-hidden="true" size={16} />{business.city}</span>}
@@ -79,14 +101,15 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
             </article>
           ))}
         </div>
-      ) : (
+        ) : (
         <div className="empty-state">
           <Search aria-hidden="true" size={26} />
           <h2>Nenhum negócio encontrado.</h2>
           <p>Experimente pesquisar por outro nome, categoria ou localidade.</p>
           <button type="button" onClick={() => setQuery("")}>Limpar pesquisa</button>
         </div>
-      )}
-    </section>
+        )}
+      </section>
+    </div>
   );
 }

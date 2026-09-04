@@ -1,7 +1,8 @@
 "use client";
 
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import { PiriCardQrAction } from "@/components/PiriCardQrAction";
+import { WhatsAppMark } from "@/components/icons/WhatsAppMark";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 
 interface BoiNaBrasaStickyBarProps {
@@ -32,7 +33,7 @@ export function BoiNaBrasaStickyBar({ className, whatsappClassName, qrClassName,
     <>
       {whatsappHref ? (
         <a className={`profile-floating-action ${whatsappClassName}`} href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`Contactar ${businessName} por WhatsApp`}>
-          <MessageCircle aria-hidden="true" />
+          <WhatsAppMark aria-hidden="true" />
         </a>
       ) : null}
       <nav className={`profile-action-bar ${className}`} aria-label="Ações persistentes">

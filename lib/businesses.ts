@@ -257,7 +257,7 @@ const businesses = {
     featured: false,
     indexable: true,
     directoryDescription: "Grelhados, pratos reconfortantes e sabores luso-brasileiros no centro de Torres Vedras.",
-    profileDescription: "Picanha, maminha, bitoque, petiscos e pizzas, com esplanada, takeaway e pedidos online.",
+    profileDescription: "Picanha, maminha, bitoque e petiscos, com esplanada, takeaway e pedidos online.",
     positioning: "Carne na brasa e comida reconfortante, sem formalidades.",
     contact: {
       phone: "+351261063480",
