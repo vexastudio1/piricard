@@ -22,10 +22,16 @@ export default function HomePage() {
       <aside className="directory-owner-cta" aria-labelledby="owner-cta-heading">
         <div>
           <p className="eyebrow">Para negócios</p>
-          <h2 id="owner-cta-heading">Quer o seu negócio no PiriCard?</h2>
-          <p>Um perfil digital profissional, acessível através de NFC ou QR Code.</p>
+          <h2 id="owner-cta-heading">O teu negócio num só toque.</h2>
+          <p>Cartão NFC personalizado, perfil digital e QR Code. Tudo ligado ao teu negócio.</p>
+          <div className="owner-cta-price">
+            <span className="owner-cta-price-label">Preço de lançamento</span>
+            <span className="owner-cta-price-value">100 €</span>
+            <span className="owner-cta-price-regular">Preço regular previsto: 150 €</span>
+          </div>
+          <p className="owner-cta-microline">Primeiro ano da plataforma incluído.</p>
         </div>
-        <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">Quero um PiriCard</a>
+        <Link href="/piricard">Ver PiriCard e preços</Link>
       </aside>
       <footer className="platform-footer">
         <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">

@@ -1,0 +1,110 @@
+/* PiriCard commercial page (/piricard) — isolated stylesheet.
+   Reuses the shared --platform-* tokens and .platform-header/.platform-footer/
+   .eyebrow/.piricard-mark classes from globals.css, but every layout rule here
+   is scoped under .piricard-page so nothing here can leak onto, or be leaked
+   onto by, the directory page's own CSS. */
+
+.piricard-page-inner { width: min(calc(100% - 3rem), 46rem); margin-inline: auto; position: relative; z-index: 1; }
+
+.pc-section { padding-block: clamp(3rem, 7vw, 5rem); border-bottom: 1px solid var(--platform-border); }
+.pc-section:last-of-type { border-bottom: 0; }
+.pc-section h2 { margin: 0; font-size: clamp(1.9rem, 4.5vw, 2.65rem); line-height: 1.08; letter-spacing: -.04em; text-wrap: balance; }
+.pc-section-intro { max-width: 34rem; margin: 1rem 0 0; color: var(--platform-muted); font-size: 1rem; line-height: 1.6; }
+
+/* Hero */
+.pc-hero { padding-top: clamp(3.5rem, 8vw, 5.5rem); border-bottom: 1px solid var(--platform-border); text-align: center; }
+.pc-hero h1 { max-width: 26rem; margin: 1rem auto 0; font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.02; letter-spacing: -.05em; text-wrap: balance; }
+.pc-hero-sub { max-width: 30rem; margin: 1.25rem auto 0; color: #bdc5d2; font-size: clamp(1.02rem, 2vw, 1.15rem); line-height: 1.6; }
+.pc-hero-sub-line { max-width: 30rem; margin: .5rem auto 0; color: var(--platform-muted); font-size: .92rem; }
+.pc-hero-actions { margin: 1.85rem 0 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; }
+.pc-hero-cta-primary { min-height: 3rem; padding: 0 1.6rem; display: inline-flex; align-items: center; justify-content: center; color: #06101b; background: var(--platform-accent); font-weight: 750; transition: transform var(--platform-speed), box-shadow var(--platform-speed); }
+.pc-hero-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -16px rgba(143, 224, 255, .9); }
+.pc-hero-cta-secondary { color: var(--platform-muted); font-size: .9rem; font-weight: 650; text-decoration: underline; text-underline-offset: .3em; text-decoration-color: var(--platform-border); transition: color var(--platform-speed), text-decoration-color var(--platform-speed); }
+.pc-hero-cta-secondary:hover { color: var(--platform-accent); text-decoration-color: var(--platform-accent); }
+.pc-hero-card { min-height: 22rem; margin-top: clamp(2rem, 6vw, 3rem); display: grid; place-items: center; animation: piricard-idle 5.5s ease-in-out infinite; }
+
+/* Price */
+.pc-price-card { margin-top: 1.75rem; border: 1px solid var(--platform-border); padding: clamp(1.75rem, 5vw, 2.75rem); background: linear-gradient(155deg, rgba(79, 143, 251, .1), rgba(8, 14, 23, .8) 62%); text-align: center; }
+.pc-price-label { color: var(--platform-accent); font-size: .74rem; font-weight: 720; letter-spacing: .2em; text-transform: uppercase; }
+.pc-price-value { margin: .6rem 0 0; color: var(--platform-text); font-size: clamp(3.2rem, 11vw, 4.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.pc-price-regular { margin: .65rem 0 0; color: var(--platform-muted); font-size: .84rem; opacity: .8; }
+.pc-price-notes { margin: 1.1rem 0 0; display: grid; gap: .3rem; color: var(--platform-muted); font-size: .88rem; }
+.pc-price-cta { margin-top: 1.6rem; min-height: 3.25rem; width: 100%; max-width: 22rem; padding: 0 1.5rem; display: inline-flex; align-items: center; justify-content: center; color: #06101b; background: var(--platform-accent); font-weight: 750; transition: transform var(--platform-speed), box-shadow var(--platform-speed); }
+.pc-price-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -16px rgba(143, 224, 255, .9); }
+
+/* Includes */
+.pc-includes-list { margin: 1.75rem 0 0; padding: 0; list-style: none; display: grid; gap: .1rem; }
+.pc-includes-list li { display: flex; align-items: flex-start; gap: .8rem; padding: .85rem 0; border-top: 1px solid var(--platform-border); color: #d8e0eb; font-size: .96rem; line-height: 1.45; }
+.pc-includes-list li:first-child { border-top: 0; }
+.pc-includes-list li::before { content: ""; flex: none; width: .4rem; height: .4rem; margin-top: .55rem; border-radius: 50%; background: var(--platform-accent-strong); box-shadow: 0 0 12px rgba(79, 143, 251, .65); }
+
+/* How it works */
+.pc-how-list { margin: 1.75rem 0 0; padding: 0; list-style: none; display: grid; gap: 1.5rem; }
+.pc-how-list li { display: flex; gap: 1.1rem; }
+.pc-how-number { flex: none; width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid var(--platform-accent); border-radius: 50%; color: var(--platform-accent); font-size: .85rem; font-weight: 750; }
+.pc-how-copy h3 { margin: .3rem 0 0; font-size: 1.05rem; letter-spacing: -.02em; }
+.pc-how-copy p { margin: .35rem 0 0; color: var(--platform-muted); font-size: .92rem; line-height: 1.5; }
+
+@media (min-width: 640px) {
+  .pc-how-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pc-how-list li { flex-direction: column; gap: .6rem; }
+}
+
+/* QR */
+.pc-qr-examples { margin: 1.5rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .6rem .7rem; }
+.pc-qr-examples li { border: 1px solid var(--platform-border); padding: .45rem .9rem; color: #c2cbd8; font-size: .85rem; }
+
+/* Renewal */
+.pc-renewal-card { margin-top: 1.75rem; border: 1px solid var(--platform-border); padding: clamp(1.5rem, 4vw, 2.25rem); }
+.pc-renewal-price { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+.pc-renewal-value { color: var(--platform-accent); font-size: 1.65rem; font-weight: 800; }
+.pc-renewal-card > p { margin: 1rem 0 0; color: var(--platform-muted); font-size: .95rem; line-height: 1.55; }
+.pc-renewal-list { margin: 1.35rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1.25rem; color: #d8e0eb; font-size: .88rem; }
+.pc-renewal-list li { display: flex; align-items: center; gap: .6rem; }
+.pc-renewal-list li::before { content: ""; flex: none; width: .35rem; height: .35rem; border-radius: 50%; background: var(--platform-accent-strong); }
+
+/* Manage profile */
+.pc-manage-grid { margin-top: 1.75rem; display: grid; gap: 1.25rem; }
+.pc-manage-card { border: 1px solid var(--platform-border); padding: 1.35rem 1.5rem; }
+.pc-manage-card h3 { margin: 0; font-size: .78rem; font-weight: 720; letter-spacing: .14em; text-transform: uppercase; }
+.pc-manage-card.is-allowed h3 { color: var(--platform-accent); }
+.pc-manage-card.is-locked h3 { color: var(--platform-muted); }
+.pc-manage-card ul { margin: .9rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; color: #c2cbd8; font-size: .9rem; }
+.pc-manage-note { margin: 1.5rem 0 0; color: var(--platform-muted); font-size: .92rem; line-height: 1.6; }
+.pc-manage-concept { margin: 1rem 0 0; color: var(--platform-text); font-size: .98rem; font-weight: 650; line-height: 1.55; }
+
+@media (min-width: 640px) {
+  .pc-manage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Custom changes note */
+.pc-custom-note { padding-block: clamp(2rem, 5vw, 3rem); }
+.pc-custom-note-box { border: 1px solid var(--platform-border); padding: 1.25rem 1.5rem; color: var(--platform-muted); font-size: .88rem; line-height: 1.6; }
+.pc-custom-note-box strong { color: var(--platform-text); }
+
+/* FAQ */
+.pc-faq-list { margin: 1.75rem 0 0; display: grid; gap: .6rem; }
+.pc-faq-list details { border: 1px solid var(--platform-border); padding: 1.1rem 1.3rem; }
+.pc-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--platform-text); font-size: .98rem; font-weight: 650; cursor: pointer; list-style: none; }
+.pc-faq-list summary::-webkit-details-marker { display: none; }
+.pc-faq-list summary::after { content: "+"; flex: none; color: var(--platform-accent); font-size: 1.3rem; font-weight: 400; transition: transform var(--platform-speed); }
+.pc-faq-list details[open] summary::after { transform: rotate(45deg); }
+.pc-faq-list p { margin: .85rem 0 0; color: var(--platform-muted); font-size: .92rem; line-height: 1.55; }
+
+/* Final CTA */
+.pc-final-cta { text-align: center; }
+.pc-final-price { margin: 1.5rem auto 0; max-width: 20rem; border: 1px solid var(--platform-border); padding: 1.5rem; }
+.pc-final-price-name { color: var(--platform-accent); font-size: .8rem; font-weight: 720; letter-spacing: .12em; text-transform: uppercase; }
+.pc-final-price-label { margin: .9rem 0 0; color: var(--platform-muted); font-size: .82rem; }
+.pc-final-price-value { margin: .35rem 0 0; font-size: clamp(2.25rem, 6vw, 2.75rem); font-weight: 800; letter-spacing: -.03em; }
+.pc-final-price-note { margin: .5rem 0 0; color: var(--platform-muted); font-size: .82rem; }
+.pc-final-cta-link { margin-top: 1.75rem; min-height: 3.25rem; display: inline-flex; align-items: center; justify-content: center; padding: 0 2rem; color: #06101b; background: var(--platform-accent); font-weight: 750; transition: transform var(--platform-speed), box-shadow var(--platform-speed); }
+.pc-final-cta-link:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -16px rgba(143, 224, 255, .9); }
+
+@media (min-width: 768px) {
+  .piricard-page-inner { width: min(calc(100% - 4rem), 52rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-hero-card { animation: none; }
+}

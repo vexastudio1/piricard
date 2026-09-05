@@ -3,6 +3,7 @@ import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 import "./profile.css";
 import "./profile-layout.css";
+import "./piricard.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),

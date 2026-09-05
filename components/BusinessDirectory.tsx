@@ -34,6 +34,10 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
         <p className="eyebrow">Diretório PiriCard</p>
         <h1 id="directory-heading">Negócios à distância de um toque.</h1>
         <p>Encontre negócios locais de confiança e aceda rapidamente aos contactos de que precisa.</p>
+        <div className="hero-actions">
+          <a className="hero-cta-primary" href="#business-list-heading">Explorar negócios</a>
+          <a className="hero-cta-secondary" href="#piricard-explainer-heading">O que é um PiriCard?</a>
+        </div>
       </div>
 
       <section className="piricard-explainer" aria-labelledby="piricard-explainer-heading">
@@ -46,6 +50,15 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
           </ul>
         </div>
         <InteractivePiriCard />
+      </section>
+
+      <section className="how-it-works" aria-labelledby="how-it-works-heading">
+        <h2 id="how-it-works-heading" className="eyebrow">Como funciona</h2>
+        <ol className="how-it-works-steps">
+          <li><span className="step-number" aria-hidden="true">01</span>Encosta</li>
+          <li><span className="step-number" aria-hidden="true">02</span>Abre</li>
+          <li><span className="step-number" aria-hidden="true">03</span>Conecta</li>
+        </ol>
       </section>
 
       <section className="directory-discovery" aria-labelledby="business-list-heading">
