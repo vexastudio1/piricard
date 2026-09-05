@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BusinessProfile } from "@/components/BusinessProfile";
 import { getBusinessSlugs, getPublishedBusinessBySlug } from "@/lib/businesses";
+import { getBusinessWithLiveReviews } from "@/lib/google-reviews";
 import { getCanonicalProfileUrl } from "@/lib/site";
 
 interface ProfilePageProps { params: Promise<{ slug: string }> }
@@ -35,7 +36,9 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
 
 export default async function ProfilePage({ params }: ProfilePageProps) {
   const { slug } = await params;
-  const business = getPublishedBusinessBySlug(slug);
+  // Metadata generation above uses the plain (fast, no external call) lookup —
+  // only the actual rendered page fetches the live Google review snapshot.
+  const business = await getBusinessWithLiveReviews(slug);
   if (!business) notFound();
   return <BusinessProfile business={business} />;
 }

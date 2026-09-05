@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import { InteractivePiriCard } from "@/components/InteractivePiriCard";
+import { PiriCardShowcaseCarousel } from "@/components/PiriCardShowcaseCarousel";
 import type { DirectoryBusiness } from "@/lib/businesses";
+import type { PiriCardShowcaseItem } from "@/lib/piricard-cards";
 
 const piricardBenefits = ["Contactos", "Horários", "Localização", "Avaliações", "Serviços", "Redes sociais"] as const;
 
@@ -24,7 +25,12 @@ export function filterBusinesses(businesses: DirectoryBusiness[], query: string)
   ].filter(Boolean).join(" ")).includes(needle));
 }
 
-export function BusinessDirectory({ businesses }: { businesses: DirectoryBusiness[] }) {
+interface BusinessDirectoryProps {
+  businesses: DirectoryBusiness[];
+  showcaseCards: PiriCardShowcaseItem[];
+}
+
+export function BusinessDirectory({ businesses, showcaseCards }: BusinessDirectoryProps) {
   const [query, setQuery] = useState("");
   const filtered = useMemo(() => filterBusinesses(businesses, query), [businesses, query]);
 
@@ -49,7 +55,7 @@ export function BusinessDirectory({ businesses }: { businesses: DirectoryBusines
             {piricardBenefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
           </ul>
         </div>
-        <InteractivePiriCard />
+        <PiriCardShowcaseCarousel cards={showcaseCards} />
       </section>
 
       <section className="how-it-works" aria-labelledby="how-it-works-heading">

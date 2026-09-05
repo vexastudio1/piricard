@@ -51,6 +51,7 @@ function ExternalLink({ href, children, className, ariaLabel }: { href: string; 
 export function BoiNaBrasaProfile({ business }: { business: Business }) {
   const phoneHref = getPhoneHref(business.contact.phone) ?? "tel:+351261063480";
   const mapsHref = getMapsHref(business.location?.mapsUrl, business.location?.address) ?? directionsUrl;
+  const reviewSnapshot = business.reviewSnapshot;
   const reviewHref = business.reviewUrl ?? mapsHref;
   // Direct Google review composer (1–5 stars + text field) — distinct from
   // reviewHref above, which stays the "read existing reviews" destination.
@@ -102,9 +103,13 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
                   <Image src={business.assets.logo} alt={`Logótipo do ${business.name}`} width={1242} height={1242} sizes="104px" />
                 </div>
               ) : null}
-              <ExternalLink className={styles.ratingBadge} href={reviewHref}>
-                <strong>4,7</strong><span aria-label="5 estrelas">★★★★★</span><small>95</small>
-              </ExternalLink>
+              {reviewSnapshot ? (
+                <ExternalLink className={styles.ratingBadge} href={reviewHref} ariaLabel={`Ver avaliações de ${business.name}`}>
+                  <strong>{reviewSnapshot.rating.toLocaleString("pt-PT", { minimumFractionDigits: 1 })}</strong>
+                  <span aria-label={`${reviewSnapshot.rating} em 5 estrelas`}>★★★★★</span>
+                  <small>{reviewSnapshot.count}</small>
+                </ExternalLink>
+              ) : null}
             </div>
             <h1>{business.name}</h1>
             <p className={styles.subtitle}>Restaurante &amp; Café · Grelhados luso-brasileiros</p>
@@ -188,10 +193,20 @@ export function BoiNaBrasaProfile({ business }: { business: Business }) {
           <h2 id="reviews-heading">Avaliações</h2>
           <div className={styles.reviewGrid}>
             <div className={styles.reviewScore}>
-              <div><strong>4,7</strong><span aria-label="5 estrelas">★★★★★</span><small>95 críticas<br />Google · 24/08/2026</small></div>
-              <ul>
-                {ratingDistribution.map((row) => <li key={row.stars}><span>{row.stars}</span><i><b style={{ width: `${Math.round((row.count / 95) * 100)}%` }} /></i><span>{row.count}</span></li>)}
-              </ul>
+              {reviewSnapshot ? (
+                <div>
+                  <strong>{reviewSnapshot.rating.toLocaleString("pt-PT", { minimumFractionDigits: 1 })}</strong>
+                  <span aria-label={`${reviewSnapshot.rating} em 5 estrelas`}>★★★★★</span>
+                  <small>{reviewSnapshot.count} críticas<br />{reviewSnapshot.source} · {reviewSnapshot.asOf}</small>
+                </div>
+              ) : (
+                <p className={styles.kicker}>Ainda não temos aqui uma pontuação verificada para mostrar.</p>
+              )}
+              {reviewSnapshot ? (
+                <ul>
+                  {ratingDistribution.map((row) => <li key={row.stars}><span>{row.stars}</span><i><b style={{ width: `${Math.round((row.count / reviewSnapshot.count) * 100)}%` }} /></i><span>{row.count}</span></li>)}
+                </ul>
+              ) : null}
             </div>
             <div className={styles.praise}>
               <p className={styles.kicker}>Mais elogiado</p>

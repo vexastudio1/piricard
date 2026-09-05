@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BusinessDirectory } from "@/components/BusinessDirectory";
 import { PiriCardBrandMark } from "@/components/PiriCardBrandMark";
 import { getPublishedDirectoryBusinesses } from "@/lib/businesses";
+import { getPiriCardShowcaseCards } from "@/lib/piricard-cards";
 
 export const metadata: Metadata = {
   title: { absolute: "PiriCard — Negócios a um toque" },
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const businesses = getPublishedDirectoryBusinesses();
+  const showcaseCards = getPiriCardShowcaseCards();
   return (
     <main className="directory-page">
       <header className="platform-header">
@@ -18,7 +20,7 @@ export default function HomePage() {
         </Link>
         <a href="https://pirilight.pt" target="_blank" rel="noopener noreferrer">PiriLight Studio</a>
       </header>
-      <BusinessDirectory businesses={businesses} />
+      <BusinessDirectory businesses={businesses} showcaseCards={showcaseCards} />
       <aside className="directory-owner-cta" aria-labelledby="owner-cta-heading">
         <div>
           <p className="eyebrow">Para negócios</p>

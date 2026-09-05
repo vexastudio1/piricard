@@ -1,0 +1,123 @@
+/* Isolated to this component only — reuses the shared --platform-* tokens
+   from app/globals.css but defines no class name that exists anywhere else
+   in the project, so it cannot collide with or regress .piricard-demo-*
+   (InteractivePiriCard) or any directory/commercial-page styling. */
+
+.root { min-width: 0; }
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: clamp(19rem, 62vw, 27rem);
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+.stage.isDragging { cursor: grabbing; }
+
+.track {
+  position: absolute;
+  inset: 0;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Pre-JS/pre-layout-effect fallback so cards are at least centered/stacked
+     instead of flashing at the stage's top-left corner; renderFrame()
+     immediately replaces this with the real arc transform. */
+  transform: translate(-50%, -50%);
+  width: min(81%, 19.5rem);
+  aspect-ratio: 53.98 / 85.6;
+  padding: 0;
+  border: 1px solid rgba(207, 231, 255, .16);
+  border-radius: 1.15rem;
+  overflow: hidden;
+  background: #0b0d0d;
+  box-shadow: 0 1.5rem 3rem -1.5rem rgba(0, 0, 0, .8);
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, opacity;
+}
+.card:focus-visible { outline: 3px solid var(--platform-accent); outline-offset: 4px; }
+
+.card.isActive {
+  border-color: rgba(143, 224, 255, .38);
+  box-shadow:
+    0 0 0 1px rgba(143, 224, 255, .18),
+    0 2rem 4rem -1.5rem rgba(0, 0, 0, .88),
+    0 0 2.5rem -0.75rem rgba(79, 143, 251, .35);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--platform-border);
+  border-radius: 50%;
+  background: rgba(8, 14, 23, .72);
+  color: var(--platform-accent);
+  transform: translateY(-50%);
+  transition: border-color var(--platform-speed), background var(--platform-speed), opacity var(--platform-speed);
+}
+.arrow:hover { border-color: var(--platform-accent); background: rgba(8, 14, 23, .92); }
+.arrow:disabled { opacity: .35; cursor: default; }
+.arrowPrev { left: .25rem; }
+.arrowNext { right: .25rem; }
+
+.caption { margin-top: 1.1rem; min-height: 3.4rem; text-align: center; }
+.captionName { margin: 0; color: var(--platform-text); font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; }
+.captionMeta { margin: .3rem 0 0; color: var(--platform-muted); font-size: .84rem; }
+
+.dots { margin: .85rem 0 0; display: flex; align-items: center; justify-content: center; gap: .15rem; }
+/* Visual dot stays a small .5rem circle, but the button's own hit area is a
+   generous 1.75rem square (comfortable touch target) via a centered ::before. */
+.dot { position: relative; width: 1.75rem; height: 1.75rem; padding: 0; border: 0; background: none; }
+.dot::before { content: ""; position: absolute; inset: 0; margin: auto; width: .5rem; height: .5rem; border-radius: 50%; background: var(--platform-border); transition: background var(--platform-speed), transform var(--platform-speed); }
+.dot:hover::before { background: rgba(143, 224, 255, .5); }
+.dot:focus-visible { outline: 2px solid var(--platform-accent); outline-offset: 2px; }
+.dotActive::before { background: var(--platform-accent); transform: scale(1.5); }
+
+.hint { margin: .6rem 0 0; display: flex; align-items: center; justify-content: center; gap: .6rem; color: var(--platform-muted); font-size: .74rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+.hintArrow { color: var(--platform-accent); opacity: .8; }
+
+@media (max-width: 639px) {
+  /* Mobile uses a flat (no rotateY/translateZ) peek model — see the .tsx
+     tuning-constants comment. With no 3D transform in play, the stage can
+     safely establish a plain 2D clip here, which is what actually contains
+     the neighbour cards' peeking sliver to a controlled strip instead of it
+     bleeding past the stage edges (a `perspective` + descendant
+     `transform-style: preserve-3d` context — kept for desktop's real 3D arc,
+     below — stops a plain `overflow: hidden` from clipping reliably; mobile
+     has neither, so this works predictably). */
+  .stage { overflow: hidden; }
+}
+
+@media (min-width: 640px) {
+  .stage { height: clamp(20rem, 34vw, 24rem); perspective: 1400px; }
+  .track { transform-style: preserve-3d; }
+  .card { width: min(38%, 15rem); }
+  .arrowPrev { left: .75rem; }
+  .arrowNext { right: .75rem; }
+}
+
+@media (min-width: 1100px) {
+  .stage { height: 25rem; }
+  .card { width: 13.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

@@ -47,6 +47,12 @@ export interface Business {
     collection?: string;
   };
   reviewSnapshot?: { rating: number; count: number; source: string; asOf: string };
+  // Official Google Place ID for this business's own listing — the stable
+  // identifier the Google Places API (Place Details) needs to fetch a live
+  // rating + review count. See lib/google-reviews.ts. Only set this from a
+  // verified source (e.g. the placeid already embedded in this business's own
+  // reviewWriteUrl below, or Google's own Place ID Finder) — never guessed.
+  googlePlaceId?: string;
   socialLinks?: Array<{ platform: SocialPlatform; url: string; label: string }>;
   services?: string[];
   hours?: BusinessHoursEntry[];
@@ -276,6 +282,13 @@ const businesses = {
     // the 1–5 star composer instead of the Maps listing. reviewUrl above stays
     // the "read existing reviews" destination.
     reviewWriteUrl: "https://search.google.com/local/writereview?placeid=ChIJ75MADwYtHw0RzV0PksFzKaI",
+    // Same verified place id as reviewWriteUrl above, promoted to an explicit
+    // field so lib/google-reviews.ts can fetch a live rating/count for it.
+    googlePlaceId: "ChIJ75MADwYtHw0RzV0PksFzKaI",
+    // Manually recorded snapshot — the safe fallback shown if the live Google
+    // fetch isn't configured/available yet (see lib/google-reviews.ts). Once
+    // GOOGLE_PLACES_API_KEY is set, the live value supersedes this.
+    reviewSnapshot: { rating: 4.7, count: 95, source: "Google", asOf: "24.08.2026" },
     externalLinks: {
       delivery: "https://glovoapp.com/pt/pt/torres-vedras/stores/boi-na-brasa-trv",
       collection: "https://www.toogoodtogo.com/pt/find/torresvedras/restauranteboinabrasa/cookedmeal/refeicao-253056996762700480",
@@ -356,6 +369,9 @@ const businesses = {
     // Direct Google "write a review" deep link for this exact verified listing
     // (place id ChIJ0cqVEXElHw0RBQo7FuECnSo — same business confirmed via Waze/Maps).
     reviewWriteUrl: "https://search.google.com/local/writereview?placeid=ChIJ0cqVEXElHw0RBQo7FuECnSo",
+    // Same verified place id as reviewWriteUrl above, promoted to an explicit
+    // field so lib/google-reviews.ts can fetch a live rating/count for it.
+    googlePlaceId: "ChIJ0cqVEXElHw0RBQo7FuECnSo",
     socialLinks: [
       { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/oftracing153/" },
       { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/p/OFT-Racing-100057400693321/" },
